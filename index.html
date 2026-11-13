@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Perla del Norte | Dossier Técnico y Corporativo — Cantabria</title>
+    
+    <!-- Tipografías Corporativas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --primary: #0F2922;       /* Verde Cantabria Profundo */
+            --primary-light: #1B4338;
+            --accent: #C59B5F;        /* Dorado Corporativo */
+            --bg-main: #F8F9FA;
+            --bg-card: #FFFFFF;
+            --text-dark: #1A1D1C;
+            --text-muted: #5A6562;
+            --border: #E2E8E6;
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Playfair Display', serif;
+            --shadow: 0 10px 30px rgba(15, 41, 34, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-main);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* BARRA DE NAVEGACIÓN FIJA PARA EXPOSICIÓN */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 41, 34, 0.96);
+            backdrop-filter: blur(10px);
+            color: #FFF;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(197, 155, 95, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .nav-links a {
+            color: #E2E8E6;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .btn-present {
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.2s;
+        }
+
+        .btn-present:hover {
+            transform: translateY(-1px);
+        }
+
+        /* SECCIÓN HERO (PORTADA DE EXPOSICIÓN) */
+        .hero {
+            padding: 150px 25px 90px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: #FFF;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(197, 155, 95, 0.18);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(36px, 5vw, 56px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #D0DBD7;
+            max-width: 720px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        /* KPIs TÉCNICOS */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: -45px auto 60px;
+            padding: 0 25px;
+        }
+
+        .kpi-card {
+            background: var(--bg-card);
+            padding: 25px 20px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--accent);
+            text-align: center;
+        }
+
+        .kpi-num {
+            font-family: var(--font-serif);
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.1;
+            margin-bottom: 5px;
+        }
+
+        .kpi-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* CONTENEDOR GENERAL DE SECCIONES */
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 70px 25px;
+        }
+
+        .section-header {
+            margin-bottom: 45px;
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        .section-tag {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 32px;
+            color: var(--primary);
+        }
+
+        /* GRID DE IDENTIDAD Y FICHA TÉCNICA */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: start;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h3 i {
+            color: var(--accent);
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+
+        .tech-table td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tech-table td:first-child {
+            font-weight: 600;
+            color: var(--text-muted);
+            width: 42%;
+        }
+
+        /* LÍNEAS DE NEGOCIO (SERVICIOS) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .service-box:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .icon-circle {
+            width: 48px;
+            height: 48px;
+            background: rgba(15, 41, 34, 0.06);
+            color: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-box h4 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .service-box p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .spec-list {
+            list-style: none;
+            font-size: 13px;
+            color: var(--text-dark);
+        }
+
+        .spec-list li {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .spec-list li i {
+            color: var(--accent);
+            width: 15px;
+            height: 15px;
+        }
+
+        /* FLUJO OPERATIVO (PROTOCOLO DE EJECUCIÓN) */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .step-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+        }
+
+        .step-num {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .step-card h4 {
+            font-size: 16px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .step-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* INFRAESTRUCTURA Y CALIDAD */
+        .compliance-banner {
+            background: var(--primary);
+            color: #FFF;
+            border-radius: 16px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .compliance-banner h3 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .compliance-banner p {
+            font-size: 14px;
+            color: #D0DBD7;
+            margin-bottom: 20px;
+        }
+
+        .tags-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(197, 155, 95, 0.4);
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #0A1C17;
+            color: #9FB0AB;
+            padding: 50px 25px 30px;
+            font-size: 13px;
+        }
+
+        .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 20px auto 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+        }
+
+        @media (max-width: 900px) {
+            .kpi-grid, .services-grid, .process-steps { grid-template-columns: 1fr 1fr; }
+            .grid-2, .compliance-banner { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+
+        @media (max-width: 550px) {
+            .kpi-grid, .services-grid, .process-steps { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓN CORPORATIVA -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i data-lucide="compass" color="#C59B5F"></i>
+                LA PERLA <span>DEL NORTE</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#identidad">Ficha Técnica</a></li>
+                <li><a href="#servicios">Líneas de Negocio</a></li>
+                <li><a href="#operativa">Metodología</a></li>
+                <li><a href="#calidad">Garantías & Red</a></li>
+            </ul>
+            <button class="btn-present" onclick="toggleFullScreen()">
+                <i data-lucide="maximize-2" width="14"></i> Modo Exposición
+            </button>
+        </div>
+    </header>
+
+    <!-- PORTADA DE PRESENTACIÓN -->
+    <div class="hero">
+        <div class="hero-inner">
+            <span class="badge">Dossier Corporativo & Técnico • Cantabria</span>
+            <h1>Gestión Integral de Experiencias y Turismo Receptivo</h1>
+            <p>Operador especializado en diseño de rutas a medida, eventos corporativos (MICE), logística de grupos y turismo gastronómico y cultural en el norte de España.</p>
+        </div>
+    </div>
+
+    <!-- INDICADORES OPERATIVOS (KPIs) -->
+    <div class="kpi-grid">
+        <div class="kpi-card">
+            <div class="kpi-num">100%</div>
+            <div class="kpi-label">Operativa a Medida</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-num">10 – 150+</div>
+            <div class="kpi-label">Capacidad por Grupo</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-num">24/7</div>
+            <div class="kpi-label">Asistencia en Ruta</div>
+        </div>
+        <div class="kpi-card">
+            <div class="kpi-num">Km 0</div>
+            <div class="kpi-label">Proveedores Homologados</div>
+        </div>
+    </div>
+
+    <!-- 1. FICHA TÉCNICA E IDENTIDAD CORPORATIVA -->
+    <section id="identidad">
+        <div class="section-header">
+            <span class="section-tag">01. Arquitectura Empresarial</span>
+            <h2 class="section-title">Identidad y Especificaciones Corporativas</h2>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3><i data-lucide="building-2"></i> Perfil Operativo</h3>
+                <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 18px;">
+                    <strong>La Perla del Norte</strong> actúa como agencia receptiva (DMC) y consultora de experiencias con sede central en Santander, Cantabria. Integramos transporte discrecional, hostelería tradicional, patrimonio natural y dinámicas corporativas bajo un único interlocutor técnico.
+                </p>
+                <p style="font-size: 14px; color: var(--text-muted);">
+                    Nuestro modelo elimina la fragmentación de proveedores, garantizando control presupuestario cerrado, trazabilidad horaria y cumplimiento normativo en cada expedición.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3><i data-lucide="file-check-2"></i> Datos Técnicos de Registro</h3>
+                <table class="tech-table">
+                    <tr>
+                        <td>Denominación Comercial</td>
+                        <td>La Perla del Norte — Cantabria</td>
+                    </tr>
+                    <tr>
+                        <td>Sede Operativa</td>
+                        <td>Paseo de Pereda, 15, Santander (Cantabria)</td>
+                    </tr>
+                    <tr>
+                        <td>Ámbito de Actuación</td>
+                        <td>Cantabria, Picos de Europa y Cornisa Cantábrica</td>
+                    </tr>
+                    <tr>
+                        <td>Segmentos de Mercado</td>
+                        <td>Corporativo (B2B / MICE) y Grupos Privados (B2C)</td>
+                    </tr>
+                    <tr>
+                        <td>Cobertura Legal</td>
+                        <td>Seguro de R.C. Profesional y Asistencia en Viaje</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. CARTERA DE SERVICIOS Y SOLUCIONES -->
+    <section id="servicios">
+        <div class="section-header">
+            <span class="section-tag">02. Unidades de Negocio</span>
+            <h2 class="section-title">Estructura de Servicios y Capacidades</h2>
+        </div>
+
+        <div class="services-grid">
+            <!-- Unidad 1 -->
+            <div class="service-box">
+                <div class="icon-circle"><i data-lucide="briefcase"></i></div>
+                <h4>División Corporativa & MICE</h4>
+                <p>Jornadas de cohesión (Team Building), incentivos de empresa y convenciones rurales diseñadas bajo objetivos de RR. HH.</p>
+                <ul class="spec-list">
+                    <li><i data-lucide="check-circle-2"></i> Gymkhanas y juegos tradicionales cántabros</li>
+                    <li><i data-lucide="check-circle-2"></i> Alquiler exclusivo de casonas y fincas</li>
+                    <li><i data-lucide="check-circle-2"></i> Facturación unificada y tarifas escalables</li>
+                </ul>
+            </div>
+
+            <!-- Unidad 2 -->
+            <div class="service-box">
+                <div class="icon-circle"><i data-lucide="utensils"></i></div>
+                <h4>Turismo Gastronómico & Catas</h4>
+                <p>Rutas agroalimentarias con productores locales, bodegas, queserías artesanales D.O. y obradorestradicionales.</p>
+                <ul class="spec-list">
+                    <li><i data-lucide="check-circle-2"></i> Catas maridadas privadas para grupos</li>
+                    <li><i data-lucide="check-circle-2"></i> Menús tradicionales adaptados (alérgenos)</li>
+                    <li><i data-lucide="check-circle-2"></i> Acuerdos directos con proveedores locales</li>
+                </ul>
+            </div>
+
+            <!-- Unidad 3 -->
+            <div class="service-box">
+                <div class="icon-circle"><i data-lucide="map"></i></div>
+                <h4>Rutas Culturales & Naturaleza</h4>
+                <p>Itinerarios guiados por valles pasiegos, Liébana, costa cantábrica y villas históricas con logística puerta a puerta.</p>
+                <ul class="spec-list">
+                    <li><i data-lucide="check-circle-2"></i> Flota de autocares VIP (19 a 55 plazas)</li>
+                    <li><i data-lucide="check-circle-2"></i> Guías oficiales habilitados en Cantabria</li>
+                    <li><i data-lucide="check-circle-2"></i> Gestión integral de entradas y permisos</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. METODOLOGÍA Y PROTOCOLO OPERATIVO -->
+    <section id="operativa">
+        <div class="section-header">
+            <span class="section-tag">03. Flujo de Trabajo</span>
+            <h2 class="section-title">Protocolo Técnico de Ejecución</h2>
+        </div>
+
+        <div class="process-steps">
+            <div class="step-card">
+                <span class="step-num">FASE 01 • ANÁLISIS</span>
+                <h4>Auditoría de Necesidades</h4>
+                <p>Evaluación del perfil del grupo, volumen de asistentes, restricciones dietéticas, tiempos de tránsito y presupuesto objetivo.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-num">FASE 02 • INGENIERÍA</span>
+                <h4>Diseño de Itinerario</h4>
+                <p>Elaboración de cronograma minuto a minuto, bloqueo de espacios exclusivos y emisión de propuesta económica desglosada.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-num">FASE 03 • EJECUCIÓN</span>
+                <h4>Coordinación in Situ</h4>
+                <p>Supervisión directa en ruta por un jefe de expedición de La Perla del Norte, control de puntualidad y gestión de imprevistos.</p>
+            </div>
+            <div class="step-card">
+                <span class="step-num">FASE 04 • CIERRE</span>
+                <h4>Post-Servicio & KPI</h4>
+                <p>Encuesta de satisfacción del cliente, cierre administrativo transparente y reporte de calidad para futuras colaboraciones.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. INFRAESTRUCTURA, CALIDAD Y DIGITALIZACIÓN -->
+    <section id="calidad">
+        <div class="compliance-banner">
+            <div>
+                <h3>Digitalización y Garantía de Calidad</h3>
+                <p>
+                    Implementamos herramientas digitales para agilizar la comunicación con clientes corporativos: propuestas web interactivas, confirmación rápida de asistencia, trazabilidad documental y atención inmediata antes, durante y después de cada servicio.
+                </p>
+                <div class="tags-wrap">
+                    <span class="tech-tag">Propuestas Web Interactivas</span>
+                    <span class="tech-tag">Control de Alérgenos y Trazabilidad</span>
+                    <span class="tech-tag">Flota Homologada UE</span>
+                    <span class="tech-tag">Sostenibilidad y Turismo Responsable</span>
+                </div>
+            </div>
+            <div style="background: rgba(255,255,255,0.06); padding: 25px; border-radius: 12px; border: 1px solid rgba(197,155,95,0.3);">
+                <h4 style="color: #FFF; font-size: 16px; margin-bottom: 12px;">Compromiso de Respuesta</h4>
+                <ul class="spec-list" style="color: #E2E8E6;">
+                    <li><i data-lucide="clock"></i> Presupuestos a medida en menos de 24h</li>
+                    <li><i data-lucide="shield-check"></i> Política clara de modificaciones y devoluciones</li>
+                    <li><i data-lucide="handshake"></i> Bonificaciones por volumen para empresas</li>
+                    <li><i data-lucide="phone-call"></i> Línea directa de coordinación operativa</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <div class="footer-grid">
+            <div>
+                <div class="logo" style="margin-bottom: 10px;">
+                    <i data-lucide="compass" color="#C59B5F"></i>
+                    LA PERLA <span>DEL NORTE</span>
+                </div>
+                <p>Especialistas en turismo receptivo, rutas a medida y eventos corporativos en Cantabria.</p>
+            </div>
+            <div>
+                <strong style="color: #FFF; display: block; margin-bottom: 8px;">Contacto Corporativo</strong>
+                <p>Paseo de Pereda, 15 — 39004 Santander, Cantabria</p>
+                <p>Tel: +34 942 55 66 77 | info@laperladelnorte.es</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 La Perla del Norte. Dossier Corporativo.</span>
+            <span>Santander • Cantabria • España</span>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Activar pantalla completa para exponer en proyector o reunión
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Error al activar pantalla completa: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
