@@ -3,29 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Perla del Norte | Dossier Técnico y Corporativo — Cantabria</title>
+    <title>La Perla del Norte S.L. | Experiencias y Turismo en Cantabria</title>
     
-    <!-- Tipografías Corporativas -->
+    <!-- Tipografía moderna limpia -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Iconos Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         :root {
-            --primary: #0F2922;       /* Verde Cantabria Profundo */
-            --primary-light: #1B4338;
-            --accent: #C59B5F;        /* Dorado Corporativo */
-            --bg-main: #F8F9FA;
-            --bg-card: #FFFFFF;
-            --text-dark: #1A1D1C;
-            --text-muted: #5A6562;
-            --border: #E2E8E6;
-            --font-sans: 'Inter', sans-serif;
-            --font-serif: 'Playfair Display', serif;
-            --shadow: 0 10px 30px rgba(15, 41, 34, 0.06);
+            --bg-outer: #E5E7EB;
+            --bg-sheet: #FFFFFF;
+            --bg-soft: #F4F5F3;
+            --sage-primary: #6D7A5E;     /* Verde oliva/salvia de la referencia */
+            --sage-dark: #4B563F;
+            --sage-light: #E8ECE4;
+            --text-main: #1C1E1B;
+            --text-muted: #686D65;
+            --border-light: #E6E8E3;
+            --radius-xl: 32px;
+            --radius-lg: 22px;
+            --radius-pill: 999px;
         }
 
         * {
@@ -39,612 +40,751 @@
         }
 
         body {
-            font-family: var(--font-sans);
-            background-color: var(--bg-main);
-            color: var(--text-dark);
-            line-height: 1.6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-outer);
+            color: var(--text-main);
+            line-height: 1.55;
+            padding: 24px 16px;
         }
 
-        /* BARRA DE NAVEGACIÓN FIJA PARA EXPOSICIÓN */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(15, 41, 34, 0.96);
-            backdrop-filter: blur(10px);
-            color: #FFF;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(197, 155, 95, 0.3);
-        }
-
-        .nav-container {
-            max-width: 1200px;
+        /* HOJA PRINCIPAL ESTILO EDITORIAL REDONDEADA */
+        .page-wrapper {
+            max-width: 1120px;
             margin: 0 auto;
-            padding: 15px 25px;
+            background: var(--bg-sheet);
+            border-radius: 40px;
+            padding: 24px 36px 50px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        /* HEADER / NAVBAR PILLS */
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             gap: 12px;
-            font-family: var(--font-serif);
-            font-size: 20px;
-            font-weight: 600;
-            letter-spacing: 0.04em;
+            margin-bottom: 22px;
         }
 
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-            font-size: 13px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .nav-links a {
-            color: #E2E8E6;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .btn-present {
-            background: var(--accent);
-            color: var(--primary);
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: transform 0.2s;
-        }
-
-        .btn-present:hover {
-            transform: translateY(-1px);
-        }
-
-        /* SECCIÓN HERO (PORTADA DE EXPOSICIÓN) */
-        .hero {
-            padding: 150px 25px 90px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-            color: #FFF;
-            text-align: center;
-        }
-
-        .hero-inner {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 6px 14px;
-            background: rgba(197, 155, 95, 0.18);
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            border-radius: 50px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(36px, 5vw, 56px);
-            line-height: 1.15;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: #D0DBD7;
-            max-width: 720px;
-            margin: 0 auto 40px;
-            font-weight: 300;
-        }
-
-        /* KPIs TÉCNICOS */
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            max-width: 1100px;
-            margin: -45px auto 60px;
-            padding: 0 25px;
-        }
-
-        .kpi-card {
-            background: var(--bg-card);
-            padding: 25px 20px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            border-top: 4px solid var(--accent);
-            text-align: center;
-        }
-
-        .kpi-num {
-            font-family: var(--font-serif);
-            font-size: 34px;
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1.1;
-            margin-bottom: 5px;
-        }
-
-        .kpi-label {
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--text-muted);
-            font-weight: 600;
-        }
-
-        /* CONTENEDOR GENERAL DE SECCIONES */
-        section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 70px 25px;
-        }
-
-        .section-header {
-            margin-bottom: 45px;
-            border-left: 4px solid var(--accent);
-            padding-left: 20px;
-        }
-
-        .section-tag {
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: 32px;
-            color: var(--primary);
-        }
-
-        /* GRID DE IDENTIDAD Y FICHA TÉCNICA */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 35px;
-            align-items: start;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-        }
-
-        .card h3 {
-            font-size: 18px;
-            color: var(--primary);
-            margin-bottom: 15px;
+        .nav-left, .nav-right {
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
-        .card h3 i {
-            color: var(--accent);
-        }
-
-        .tech-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
-
-        .tech-table td {
-            padding: 12px 10px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .tech-table td:first-child {
-            font-weight: 600;
-            color: var(--text-muted);
-            width: 42%;
-        }
-
-        /* LÍNEAS DE NEGOCIO (SERVICIOS) */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .service-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 30px;
-            transition: transform 0.3s, border-color 0.3s;
-        }
-
-        .service-box:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .icon-circle {
-            width: 48px;
-            height: 48px;
-            background: rgba(15, 41, 34, 0.06);
-            color: var(--primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .service-box h4 {
-            font-size: 18px;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-
-        .service-box p {
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        .spec-list {
-            list-style: none;
-            font-size: 13px;
-            color: var(--text-dark);
-        }
-
-        .spec-list li {
-            padding: 5px 0;
+        .brand-logo {
+            font-weight: 800;
+            font-size: 16px;
+            letter-spacing: -0.02em;
+            color: var(--text-main);
+            padding: 8px 16px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
-        .spec-list li i {
-            color: var(--accent);
-            width: 15px;
-            height: 15px;
+        .pill-link {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 13px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-pill);
+            transition: all 0.2s ease;
+            background: #FFF;
         }
 
-        /* FLUJO OPERATIVO (PROTOCOLO DE EJECUCIÓN) */
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+        .pill-link:hover {
+            border-color: var(--sage-primary);
+            background: var(--bg-soft);
         }
 
-        .step-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 25px;
+        .pill-phone {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+            padding: 8px 16px;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-pill);
+        }
+
+        .btn-sage {
+            background: var(--sage-primary);
+            color: #FFFFFF;
+            border: none;
+            padding: 9px 20px;
+            border-radius: var(--radius-pill);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .btn-sage:hover {
+            background: var(--sage-dark);
+        }
+
+        /* HERO INMERSIVO CON CURVA DECORATIVA */
+        .hero-card {
             position: relative;
+            height: 520px;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(20, 32, 26, 0.25) 0%, rgba(16, 24, 20, 0.72) 100%),
+                        url('https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px 44px;
+            color: #FFFFFF;
+            margin-bottom: 65px;
         }
 
-        .step-num {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--accent);
-            letter-spacing: 0.1em;
-            margin-bottom: 10px;
+        /* Línea curva blanca orgánica como en la referencia */
+        .hero-curve {
+            position: absolute;
+            top: 22%;
+            left: 0;
+            width: 100%;
+            height: auto;
+            pointer-events: none;
+            opacity: 0.85;
+        }
+
+        .hero-top {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            margin-top: 18px;
+        }
+
+        .hero-kicker {
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            opacity: 0.92;
+            margin-bottom: 6px;
             display: block;
         }
 
-        .step-card h4 {
-            font-size: 16px;
-            color: var(--primary);
-            margin-bottom: 8px;
+        .hero-title {
+            font-size: clamp(46px, 7.5vw, 84px);
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            line-height: 1;
+            text-transform: uppercase;
+            text-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
         }
 
-        .step-card p {
+        .hero-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 24px;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+        }
+
+        .hero-desc {
+            max-width: 520px;
+            font-size: 15px;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.22);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            color: #FFF;
+            padding: 12px 24px;
+            border-radius: var(--radius-pill);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.25s;
+        }
+
+        .btn-glass:hover {
+            background: #FFFFFF;
+            color: var(--text-main);
+        }
+
+        .btn-glass .circle-icon {
+            width: 24px;
+            height: 24px;
+            background: #FFF;
+            color: var(--text-main);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+        }
+
+        /* CABECERAS DE SECCIÓN CON ICONO CIRCULAR A LA DERECHA */
+        .sec-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 28px;
+            gap: 20px;
+        }
+
+        .sec-title {
+            font-size: clamp(24px, 3.2vw, 32px);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            max-width: 620px;
+        }
+
+        .sec-badge-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-soft);
+            color: var(--sage-primary);
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+        }
+
+        /* GRID 3X3 DE EXPERIENCIAS Y PRODUCTOS */
+        .grid-3x3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 70px;
+        }
+
+        .dest-card {
+            position: relative;
+            height: 220px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background-color: var(--bg-soft);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .dest-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .dest-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            transition: transform 0.5s ease;
+        }
+
+        .dest-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .dest-price-pill {
+            position: relative;
+            z-index: 2;
+            align-self: flex-end;
+            background: rgba(28, 30, 27, 0.72);
+            backdrop-filter: blur(6px);
+            color: #FFF;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: var(--radius-pill);
+        }
+
+        .dest-label-pill {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text-main);
+            text-align: center;
+            padding: 9px 14px;
+            border-radius: var(--radius-pill);
             font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* MAPA DE RUTA ESTILIZADO */
+        .map-container {
+            position: relative;
+            background: #F2F4F0;
+            border-radius: var(--radius-xl);
+            height: 410px;
+            overflow: hidden;
+            margin-bottom: 70px;
+            border: 1px solid var(--border-light);
+        }
+
+        .map-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-pin {
+            position: absolute;
+            background: var(--sage-primary);
+            color: #FFF;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: var(--radius-pill);
+            box-shadow: 0 6px 16px rgba(109, 122, 94, 0.35);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .map-pin::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #FFF;
+            border-radius: 50%;
+        }
+
+        .map-cta-float {
+            position: absolute;
+            bottom: 22px;
+            right: 22px;
+        }
+
+        /* PROGRAMA / FLUJO OPERATIVO EN BLOQUES ALTERNOS */
+        .program-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 65px;
+        }
+
+        .program-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .phase-card {
+            background: var(--bg-soft);
+            border-radius: var(--radius-lg);
+            padding: 24px 26px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .phase-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .phase-pill {
+            background: var(--sage-primary);
+            color: #FFF;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: var(--radius-pill);
+            white-space: nowrap;
+        }
+
+        .phase-text {
+            font-size: 13.5px;
             color: var(--text-muted);
         }
 
-        /* INFRAESTRUCTURA Y CALIDAD */
-        .compliance-banner {
-            background: var(--primary);
-            color: #FFF;
-            border-radius: 16px;
-            padding: 40px;
+        .collage-grid {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 30px;
-            align-items: center;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            height: 100%;
+            min-height: 290px;
         }
 
-        .compliance-banner h3 {
-            font-family: var(--font-serif);
-            font-size: 28px;
-            margin-bottom: 15px;
-            color: var(--accent);
+        .collage-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
         }
 
-        .compliance-banner p {
-            font-size: 14px;
-            color: #D0DBD7;
-            margin-bottom: 20px;
+        .collage-tall {
+            grid-row: span 2;
         }
 
-        .tags-wrap {
+        /* EQUIPO Y DATOS MERCANTILES COMPACTOS */
+        .info-cards-row {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .corporate-box {
+            background: var(--bg-soft);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+        }
+
+        .corporate-box h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+            align-items: center;
+            gap: 8px;
         }
 
-        .tech-tag {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(197, 155, 95, 0.4);
-            padding: 8px 14px;
-            border-radius: 6px;
+        .team-pills {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .member-item {
+            background: #FFF;
+            padding: 14px 16px;
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+        }
+
+        .member-item strong {
+            display: block;
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        .member-item span {
             font-size: 12px;
-            font-weight: 500;
+            color: var(--sage-primary);
+            font-weight: 600;
         }
 
-        /* FOOTER */
-        footer {
-            background: #0A1C17;
-            color: #9FB0AB;
-            padding: 50px 25px 30px;
+        .legal-list {
+            list-style: none;
             font-size: 13px;
         }
 
-        .footer-grid {
-            max-width: 1100px;
-            margin: 0 auto;
+        .legal-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-light);
             display: flex;
             justify-content: space-between;
+            gap: 12px;
+        }
+
+        .legal-list li:last-child {
+            border-bottom: none;
+        }
+
+        .legal-list span:first-child {
+            color: var(--text-muted);
+        }
+
+        .legal-list span:last-child {
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* FOOTER MINIMALISTA */
+        footer {
+            border-top: 1px solid var(--border-light);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             flex-wrap: wrap;
-            gap: 30px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 16px;
+            font-size: 12.5px;
+            color: var(--text-muted);
         }
 
-        .footer-bottom {
-            max-width: 1100px;
-            margin: 20px auto 0;
-            display: flex;
-            justify-content: space-between;
-            font-size: 12px;
+        @media (max-width: 860px) {
+            .page-wrapper { padding: 20px; border-radius: 28px; }
+            .grid-3x3 { grid-template-columns: repeat(2, 1fr); }
+            .program-grid, .info-cards-row { grid-template-columns: 1fr; }
+            .hero-card { height: 440px; padding: 28px; }
         }
 
-        @media (max-width: 900px) {
-            .kpi-grid, .services-grid, .process-steps { grid-template-columns: 1fr 1fr; }
-            .grid-2, .compliance-banner { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-        }
-
-        @media (max-width: 550px) {
-            .kpi-grid, .services-grid, .process-steps { grid-template-columns: 1fr; }
+        @media (max-width: 560px) {
+            .grid-3x3, .team-pills { grid-template-columns: 1fr; }
+            .map-container { height: 340px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVEGACIÓN CORPORATIVA -->
+<div class="page-wrapper">
+
+    <!-- BARRA SUPERIOR MINIMALISTA -->
     <header>
-        <div class="nav-container">
-            <div class="logo">
-                <i data-lucide="compass" color="#C59B5F"></i>
-                LA PERLA <span>DEL NORTE</span>
+        <div class="nav-left">
+            <div class="brand-logo">
+                <i data-lucide="compass" color="#6D7A5E"></i>
+                LA PERLA DEL NORTE
             </div>
-            <ul class="nav-links">
-                <li><a href="#identidad">Ficha Técnica</a></li>
-                <li><a href="#servicios">Líneas de Negocio</a></li>
-                <li><a href="#operativa">Metodología</a></li>
-                <li><a href="#calidad">Garantías & Red</a></li>
-            </ul>
-            <button class="btn-present" onclick="toggleFullScreen()">
-                <i data-lucide="maximize-2" width="14"></i> Modo Exposición
-            </button>
+            <a href="#experiencias" class="pill-link">Experiencias</a>
+            <a href="#ruta" class="pill-link">Mapa de Ruta</a>
+            <a href="#operativa" class="pill-link">Operativa</a>
+            <a href="#empresa" class="pill-link">Empresa</a>
+        </div>
+        <div class="nav-right">
+            <span class="pill-phone">+34 942 55 66 77</span>
+            <a href="#empresa" class="btn-sage">
+                <i data-lucide="file-text" width="14"></i> Dossier S.L.
+            </a>
         </div>
     </header>
 
-    <!-- PORTADA DE PRESENTACIÓN -->
-    <div class="hero">
-        <div class="hero-inner">
-            <span class="badge">Dossier Corporativo & Técnico • Cantabria</span>
-            <h1>Gestión Integral de Experiencias y Turismo Receptivo</h1>
-            <p>Operador especializado en diseño de rutas a medida, eventos corporativos (MICE), logística de grupos y turismo gastronómico y cultural en el norte de España.</p>
-        </div>
-    </div>
+    <!-- HERO INMERSIVO -->
+    <section class="hero-card">
+        <!-- Curva decorativa orgánica -->
+        <svg class="hero-curve" viewBox="0 0 1200 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-20 40 C 260 220, 420 -20, 740 120 C 980 220, 1100 80, 1240 130" stroke="white" stroke-width="14" stroke-linecap="round"/>
+        </svg>
 
-    <!-- INDICADORES OPERATIVOS (KPIs) -->
-    <div class="kpi-grid">
-        <div class="kpi-card">
-            <div class="kpi-num">100%</div>
-            <div class="kpi-label">Operativa a Medida</div>
-        </div>
-        <div class="kpi-card">
-            <div class="kpi-num">10 – 150+</div>
-            <div class="kpi-label">Capacidad por Grupo</div>
-        </div>
-        <div class="kpi-card">
-            <div class="kpi-num">24/7</div>
-            <div class="kpi-label">Asistencia en Ruta</div>
-        </div>
-        <div class="kpi-card">
-            <div class="kpi-num">Km 0</div>
-            <div class="kpi-label">Proveedores Homologados</div>
-        </div>
-    </div>
-
-    <!-- 1. FICHA TÉCNICA E IDENTIDAD CORPORATIVA -->
-    <section id="identidad">
-        <div class="section-header">
-            <span class="section-tag">01. Arquitectura Empresarial</span>
-            <h2 class="section-title">Identidad y Especificaciones Corporativas</h2>
+        <div class="hero-top">
+            <span class="hero-kicker">Agencia de Viajes & Operador Receptivo • Santander</span>
+            <h1 class="hero-title">CANTABRIA</h1>
         </div>
 
-        <div class="grid-2">
-            <div class="card">
-                <h3><i data-lucide="building-2"></i> Perfil Operativo</h3>
-                <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 18px;">
-                    <strong>La Perla del Norte</strong> actúa como agencia receptiva (DMC) y consultora de experiencias con sede central en Santander, Cantabria. Integramos transporte discrecional, hostelería tradicional, patrimonio natural y dinámicas corporativas bajo un único interlocutor técnico.
-                </p>
-                <p style="font-size: 14px; color: var(--text-muted);">
-                    Nuestro modelo elimina la fragmentación de proveedores, garantizando control presupuestario cerrado, trazabilidad horaria y cumplimiento normativo en cada expedición.
-                </p>
+        <div class="hero-bottom">
+            <p class="hero-desc">
+                Experiencias gastronómicas exclusivas, rutas por Picos de Europa, valles pasiegos y artesanía regional diseñadas con asistencia integral 24/7.
+            </p>
+            <a href="#experiencias" class="btn-glass">
+                Explorar catálogo
+                <span class="circle-icon"><i data-lucide="arrow-up-right" width="14"></i></span>
+            </a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 1: CUADRÍCULA 3x3 (SABORES, VISTAS Y SOUVENIRS) -->
+    <section id="experiencias">
+        <div class="sec-head">
+            <h2 class="sec-title">Todo lo que verás, probarás y sentirás en el norte</h2>
+            <div class="sec-badge-icon"><i data-lucide="heart" width="18"></i></div>
+        </div>
+
+        <div class="grid-3x3">
+            <!-- 1 -->
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Sobaos y Queserías">
+                <span class="dest-price-pill">150 € / pers</span>
+                <div class="dest-label-pill">Sobaos y Queserías</div>
             </div>
-
-            <div class="card">
-                <h3><i data-lucide="file-check-2"></i> Datos Técnicos de Registro</h3>
-                <table class="tech-table">
-                    <tr>
-                        <td>Denominación Comercial</td>
-                        <td>La Perla del Norte — Cantabria</td>
-                    </tr>
-                    <tr>
-                        <td>Sede Operativa</td>
-                        <td>Paseo de Pereda, 15, Santander (Cantabria)</td>
-                    </tr>
-                    <tr>
-                        <td>Ámbito de Actuación</td>
-                        <td>Cantabria, Picos de Europa y Cornisa Cantábrica</td>
-                    </tr>
-                    <tr>
-                        <td>Segmentos de Mercado</td>
-                        <td>Corporativo (B2B / MICE) y Grupos Privados (B2C)</td>
-                    </tr>
-                    <tr>
-                        <td>Cobertura Legal</td>
-                        <td>Seguro de R.C. Profesional y Asistencia en Viaje</td>
-                    </tr>
-                </table>
+            <!-- 2 -->
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=600&q=80" alt="Valles Pasiegos">
+                <span class="dest-price-pill">150 € / pers</span>
+                <div class="dest-label-pill">Queserías Valles Pasiegos</div>
+            </div>
+            <!-- 3 -->
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80" alt="Ruta de los Vinos">
+                <span class="dest-price-pill">170 € / pers</span>
+                <div class="dest-label-pill">Ruta de Vinos Cántabros</div>
+            </div>
+            <!-- 4 -->
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80" alt="Anchoas de Santoña">
+                <span class="dest-price-pill">120 € / pers</span>
+                <div class="dest-label-pill">Gourmet Anchoas Santoña</div>
+            </div>
+            <!-- 5 -->
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Camino Lebaniego">
+                <span class="dest-price-pill">450 € / 3 días</span>
+                <div class="dest-label-pill">Camino Lebaniego</div>
+            </div>
+            <!-- 6 -->
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80" alt="Ruta del Cares">
+                <span class="dest-price-pill">140 € / pers</span>
+                <div class="dest-label-pill">Ruta del Cares (Picos)</div>
+            </div>
+            <!-- 7 -->
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1439066615861-d1af74d74000?auto=format&fit=crop&w=600&q=80" alt="Lagos de Covadonga">
+                <span class="dest-price-pill">140 € / pers</span>
+                <div class="dest-label-pill">Lagos de Covadonga</div>
+            </div>
+            <!-- 8 -->
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Costas de Cantabria">
+                <span class="dest-price-pill">140 € / pers</span>
+                <div class="dest-label-pill">Costas y Playas</div>
+            </div>
+            <!-- 9 -->
+            <div class="dest-card">
+                <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=600&q=80" alt="Lote Sabores de Cantabria">
+                <span class="dest-price-pill">Desde 10 € – 75 €</span>
+                <div class="dest-label-pill">Lote Sabores & Artesanía</div>
             </div>
         </div>
     </section>
 
-    <!-- 2. CARTERA DE SERVICIOS Y SOLUCIONES -->
-    <section id="servicios">
-        <div class="section-header">
-            <span class="section-tag">02. Unidades de Negocio</span>
-            <h2 class="section-title">Estructura de Servicios y Capacidades</h2>
+    <!-- SECCIÓN 2: MAPA DE RUTA INTERACTIVO -->
+    <section id="ruta">
+        <div class="sec-head">
+            <h2 class="sec-title">La expedición empieza aquí — mira a dónde vamos</h2>
+            <div class="sec-badge-icon"><i data-lucide="map-pin" width="18"></i></div>
         </div>
 
-        <div class="services-grid">
-            <!-- Unidad 1 -->
-            <div class="service-box">
-                <div class="icon-circle"><i data-lucide="briefcase"></i></div>
-                <h4>División Corporativa & MICE</h4>
-                <p>Jornadas de cohesión (Team Building), incentivos de empresa y convenciones rurales diseñadas bajo objetivos de RR. HH.</p>
-                <ul class="spec-list">
-                    <li><i data-lucide="check-circle-2"></i> Gymkhanas y juegos tradicionales cántabros</li>
-                    <li><i data-lucide="check-circle-2"></i> Alquiler exclusivo de casonas y fincas</li>
-                    <li><i data-lucide="check-circle-2"></i> Facturación unificada y tarifas escalables</li>
-                </ul>
-            </div>
+        <div class="map-container">
+            <!-- Mapa vectorial estilizado de la Cornisa Cantábrica -->
+            <svg class="map-svg" viewBox="0 0 1000 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Mar Cantábrico -->
+                <rect width="1000" height="400" fill="#EDF1EE"/>
+                <!-- Silueta Tierra / Cornisa -->
+                <path d="M0 135 Q 180 120, 320 145 T 620 130 T 1000 155 L 1000 400 L 0 400 Z" fill="#FFFFFF"/>
+                <!-- Relieve suave Picos y Valles -->
+                <path d="M120 260 Q 300 210, 480 280 T 860 240 L 1000 400 L 0 400 Z" fill="#F7F8F6"/>
+                <!-- Ruta punteada entre destinos -->
+                <path d="M 540 148 C 630 140, 700 145, 760 152 C 720 210, 620 240, 560 250 C 460 260, 340 270, 260 285 C 210 260, 170 230, 140 215" 
+                      stroke="#6D7A5E" stroke-width="3" stroke-dasharray="7 7" fill="none"/>
+            </svg>
 
-            <!-- Unidad 2 -->
-            <div class="service-box">
-                <div class="icon-circle"><i data-lucide="utensils"></i></div>
-                <h4>Turismo Gastronómico & Catas</h4>
-                <p>Rutas agroalimentarias con productores locales, bodegas, queserías artesanales D.O. y obradorestradicionales.</p>
-                <ul class="spec-list">
-                    <li><i data-lucide="check-circle-2"></i> Catas maridadas privadas para grupos</li>
-                    <li><i data-lucide="check-circle-2"></i> Menús tradicionales adaptados (alérgenos)</li>
-                    <li><i data-lucide="check-circle-2"></i> Acuerdos directos con proveedores locales</li>
-                </ul>
-            </div>
+            <!-- Etiquetas en píldora verde sobre el mapa -->
+            <div class="map-pin" style="top: 32%; left: 50%;">1. Santander (Base)</div>
+            <div class="map-pin" style="top: 34%; left: 73%;">2. Santoña</div>
+            <div class="map-pin" style="top: 58%; left: 53%;">3. Valles Pasiegos</div>
+            <div class="map-pin" style="top: 66%; left: 24%;">4. Potes & Liébana</div>
+            <div class="map-pin" style="top: 48%; left: 10%;">5. Picos de Europa</div>
 
-            <!-- Unidad 3 -->
-            <div class="service-box">
-                <div class="icon-circle"><i data-lucide="map"></i></div>
-                <h4>Rutas Culturales & Naturaleza</h4>
-                <p>Itinerarios guiados por valles pasiegos, Liébana, costa cantábrica y villas históricas con logística puerta a puerta.</p>
-                <ul class="spec-list">
-                    <li><i data-lucide="check-circle-2"></i> Flota de autocares VIP (19 a 55 plazas)</li>
-                    <li><i data-lucide="check-circle-2"></i> Guías oficiales habilitados en Cantabria</li>
-                    <li><i data-lucide="check-circle-2"></i> Gestión integral de entradas y permisos</li>
-                </ul>
+            <div class="map-cta-float">
+                <a href="#operativa" class="btn-sage">
+                    Ver protocolo de ruta
+                    <i data-lucide="arrow-up-right" width="14"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- 3. METODOLOGÍA Y PROTOCOLO OPERATIVO -->
+    <!-- SECCIÓN 3: PROGRAMA Y FLUJO OPERATIVO (5 FASES) -->
     <section id="operativa">
-        <div class="section-header">
-            <span class="section-tag">03. Flujo de Trabajo</span>
-            <h2 class="section-title">Protocolo Técnico de Ejecución</h2>
+        <div class="sec-head">
+            <h2 class="sec-title">Programa operativo y ejecución de servicio</h2>
+            <div class="sec-badge-icon"><i data-lucide="layers" width="18"></i></div>
         </div>
 
-        <div class="process-steps">
-            <div class="step-card">
-                <span class="step-num">FASE 01 • ANÁLISIS</span>
-                <h4>Auditoría de Necesidades</h4>
-                <p>Evaluación del perfil del grupo, volumen de asistentes, restricciones dietéticas, tiempos de tránsito y presupuesto objetivo.</p>
-            </div>
-            <div class="step-card">
-                <span class="step-num">FASE 02 • INGENIERÍA</span>
-                <h4>Diseño de Itinerario</h4>
-                <p>Elaboración de cronograma minuto a minuto, bloqueo de espacios exclusivos y emisión de propuesta económica desglosada.</p>
-            </div>
-            <div class="step-card">
-                <span class="step-num">FASE 03 • EJECUCIÓN</span>
-                <h4>Coordinación in Situ</h4>
-                <p>Supervisión directa en ruta por un jefe de expedición de La Perla del Norte, control de puntualidad y gestión de imprevistos.</p>
-            </div>
-            <div class="step-card">
-                <span class="step-num">FASE 04 • CIERRE</span>
-                <h4>Post-Servicio & KPI</h4>
-                <p>Encuesta de satisfacción del cliente, cierre administrativo transparente y reporte de calidad para futuras colaboraciones.</p>
-            </div>
-        </div>
-    </section>
+        <!-- Bloque 1: Fases 1 y 2 + Collage -->
+        <div class="program-grid">
+            <div class="program-stack">
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-title">Captación y Presupuesto</span>
+                        <span class="phase-pill">Fase 01</span>
+                    </div>
+                    <p class="phase-text">Análisis personalizado de necesidades, cálculo de tarifas (gamas Básica, Estándar o Premium) y envío de propuesta cerrada.</p>
+                </div>
 
-    <!-- 4. INFRAESTRUCTURA, CALIDAD Y DIGITALIZACIÓN -->
-    <section id="calidad">
-        <div class="compliance-banner">
-            <div>
-                <h3>Digitalización y Garantía de Calidad</h3>
-                <p>
-                    Implementamos herramientas digitales para agilizar la comunicación con clientes corporativos: propuestas web interactivas, confirmación rápida de asistencia, trazabilidad documental y atención inmediata antes, durante y después de cada servicio.
-                </p>
-                <div class="tags-wrap">
-                    <span class="tech-tag">Propuestas Web Interactivas</span>
-                    <span class="tech-tag">Control de Alérgenos y Trazabilidad</span>
-                    <span class="tech-tag">Flota Homologada UE</span>
-                    <span class="tech-tag">Sostenibilidad y Turismo Responsable</span>
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-title">Contratación y Reservas</span>
+                        <span class="phase-pill">Fase 02</span>
+                    </div>
+                    <p class="phase-text">Firma de contrato, Orden de Servicio, bloqueo de proveedores homologados (CIVA S.A., La Lleldiría, Casa El Macho) y cobro.</p>
                 </div>
             </div>
-            <div style="background: rgba(255,255,255,0.06); padding: 25px; border-radius: 12px; border: 1px solid rgba(197,155,95,0.3);">
-                <h4 style="color: #FFF; font-size: 16px; margin-bottom: 12px;">Compromiso de Respuesta</h4>
-                <ul class="spec-list" style="color: #E2E8E6;">
-                    <li><i data-lucide="clock"></i> Presupuestos a medida en menos de 24h</li>
-                    <li><i data-lucide="shield-check"></i> Política clara de modificaciones y devoluciones</li>
-                    <li><i data-lucide="handshake"></i> Bonificaciones por volumen para empresas</li>
-                    <li><i data-lucide="phone-call"></i> Línea directa de coordinación operativa</li>
+
+            <div class="collage-grid">
+                <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=600&q=80" alt="Gastronomía" class="collage-tall">
+                <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600&q=80" alt="Paisajes">
+                <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=600&q=80" alt="Grupos">
+            </div>
+        </div>
+
+        <!-- Bloque 2: Imagen izquierda + Fases 3, 4 y 5 -->
+        <div class="program-grid">
+            <div class="collage-grid">
+                <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?auto=format&fit=crop&w=600&q=80" alt="Ruta guiada" class="collage-tall">
+                <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=600&q=80" alt="Senderismo">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=600&q=80" alt="Artesanía">
+            </div>
+
+            <div class="program-stack">
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-title">Documentación y Bonos</span>
+                        <span class="phase-pill">Fase 03</span>
+                    </div>
+                    <p class="phase-text">Confirmación de proveedores, emisión de Vouchers, itinerario detallado y Factura Oficial.</p>
+                </div>
+
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-title">Ejecución en Ruta 24/7 & Cierre</span>
+                        <span class="phase-pill">Fases 04 – 05</span>
+                    </div>
+                    <p class="phase-text">Supervisión logística en tiempo real con Briefing diario, encuesta de calidad post-viaje y liquidación económica.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: DIRECCIÓN Y FICHA MERCANTIL RESUMIDA -->
+    <section id="empresa">
+        <div class="info-cards-row">
+            <div class="corporate-box">
+                <h3><i data-lucide="users" width="18" color="#6D7A5E"></i> Equipo Directivo por Áreas</h3>
+                <div class="team-pills">
+                    <div class="member-item">
+                        <strong>Lic. Lizeth Nina</strong>
+                        <span>Comercial, Compras y Ventas</span>
+                    </div>
+                    <div class="member-item">
+                        <strong>Lic. Georgii Kovalev</strong>
+                        <span>Finanzas y Contabilidad</span>
+                    </div>
+                    <div class="member-item">
+                        <strong>Lic. Elena Jenaro</strong>
+                        <span>Tesorería y Liquidez</span>
+                    </div>
+                    <div class="member-item">
+                        <strong>Lic. Maricela Gonzales</strong>
+                        <span>Recursos Humanos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="corporate-box">
+                <h3><i data-lucide="shield-check" width="18" color="#6D7A5E"></i> Ficha Oficial S.L.</h3>
+                <ul class="legal-list">
+                    <li><span>Razón Social</span> <span>La Perla del Norte S.L.</span></li>
+                    <li><span>CIF / Capital</span> <span>B-3984729 • 3.000,00 €</span></li>
+                    <li><span>CNAE</span> <span>7912 / 7911 (Agencia & Tour Op.)</span></li>
+                    <li><span>Sede Central</span> <span>Paseo de Pereda, 15, Santander</span></li>
+                    <li><span>Web & Email</span> <span>laperladecantabria.com</span></li>
                 </ul>
             </div>
         </div>
@@ -652,41 +792,14 @@
 
     <!-- PIE DE PÁGINA -->
     <footer>
-        <div class="footer-grid">
-            <div>
-                <div class="logo" style="margin-bottom: 10px;">
-                    <i data-lucide="compass" color="#C59B5F"></i>
-                    LA PERLA <span>DEL NORTE</span>
-                </div>
-                <p>Especialistas en turismo receptivo, rutas a medida y eventos corporativos en Cantabria.</p>
-            </div>
-            <div>
-                <strong style="color: #FFF; display: block; margin-bottom: 8px;">Contacto Corporativo</strong>
-                <p>Paseo de Pereda, 15 — 39004 Santander, Cantabria</p>
-                <p>Tel: +34 942 55 66 77 | info@laperladelnorte.es</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <span>© 2026 La Perla del Norte. Dossier Corporativo.</span>
-            <span>Santander • Cantabria • España</span>
-        </div>
+        <div><strong>LA PERLA DEL NORTE S.L.</strong> — Reg. Mercantil de Cantabria, Tomo 1245, Folio 88, Hoja S-12345.</div>
+        <div>Tel: +34 942 55 66 77 | WhatsApp: +34 688 11 22 33 | ldelnorte@gmail.com</div>
     </footer>
 
-    <script>
-        lucide.createIcons();
+</div>
 
-        // Activar pantalla completa para exponer en proyector o reunión
-        function toggleFullScreen() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().catch(err => {
-                    console.log(`Error al activar pantalla completa: ${err.message}`);
-                });
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
-        }
-    </script>
+<script>
+    lucide.createIcons();
+</script>
 </body>
 </html>
