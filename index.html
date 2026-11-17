@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -89,7 +88,7 @@
             left: 50%;
             transform: translateX(-50%);
             width: 96%;
-            max-width: 1220px;
+            max-width: 1260px;
             background: rgba(22, 43, 70, 0.9);
             backdrop-filter: blur(14px);
             border: 1px solid rgba(255, 255, 255, 0.18);
@@ -109,6 +108,7 @@
             font-family: var(--font-display);
             font-size: 12.5px;
             letter-spacing: 0.05em;
+            white-space: nowrap;
         }
 
         .mini-pearl {
@@ -122,7 +122,7 @@
 
         .nav-links {
             display: flex;
-            gap: 13px;
+            gap: 12px;
             list-style: none;
             font-size: 10.5px;
             font-weight: 600;
@@ -140,24 +140,32 @@
             color: #D9C3F7;
         }
 
+        .nav-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
         .btn-script {
             background: var(--lavender-pearl);
             color: #FFF;
             border: none;
-            padding: 8px 14px;
+            padding: 8px 13px;
             border-radius: 999px;
             font-size: 11px;
             font-weight: 700;
             cursor: pointer;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 6px;
+            text-decoration: none;
+            white-space: nowrap;
             transition: transform 0.2s, background 0.2s;
         }
 
         .btn-script:hover {
             transform: scale(1.04);
-            background: #8868B5;
+            filter: brightness(1.08);
         }
 
         /* ================= SEPARADORES ONDULADOS SVG ================= */
@@ -225,7 +233,6 @@
             animation: floatSlow 5.5s ease-in-out infinite;
         }
 
-        /* Halo nacarado suave detrás de la concha aislada */
         .pearl-halo {
             position: absolute;
             width: 82%;
@@ -299,17 +306,24 @@
             font-weight: 600;
         }
 
+        .hero-cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
         .btn-lavender-pill {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 9px;
             background: var(--lavender-pearl);
             color: #FFF;
             text-decoration: none;
-            padding: 12px 26px;
+            padding: 12px 22px;
             border-radius: 999px;
             font-weight: 700;
-            font-size: 13.5px;
+            font-size: 13px;
             letter-spacing: 0.03em;
             box-shadow: 0 10px 25px rgba(155, 126, 196, 0.45);
             transition: all 0.3s ease;
@@ -317,7 +331,7 @@
 
         .btn-lavender-pill:hover {
             transform: translateY(-3px);
-            background: #8666B5;
+            filter: brightness(1.06);
         }
 
         /* ================= CONTENEDORES GENERALES ================= */
@@ -818,12 +832,15 @@
             color: #F0F4F8;
         }
 
+        @media (max-width: 1040px) {
+            .nav-links { display: none; }
+        }
+
         @media (max-width: 940px) {
             .hero-grid, .grid-2, .grid-3, .clients-grid, .objections-grid, .loyalty-grid, .pearls-trio, .team-footer-grid {
                 grid-template-columns: 1fr;
             }
             .phases-necklace { grid-template-columns: 1fr 1fr; }
-            .nav-links { display: none; }
             .floating-png-stage { max-width: 290px; }
         }
     </style>
@@ -846,9 +863,24 @@
             <li><a href="#proveedores">Proveedores</a></li>
             <li><a href="#equipo">Equipo</a></li>
         </ul>
-        <button class="btn-script" onclick="toggleScript()">
-            <i data-lucide="mic" width="14"></i> Guion Orador
-        </button>
+
+        <!-- BOTONES DE ACCESO DIRECTO -->
+        <div class="nav-actions">
+            <!-- Enlace directo a tu Catálogo en GitHub Pages -->
+            <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-script" style="background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.35);">
+                <i data-lucide="book-open" width="14"></i> Catálogo Web
+            </a>
+
+            <!-- Enlace a Documentos (Cartas de pedido, comerciales...) -->
+            <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-script" style="background: #DFC39D; color: #162B46;">
+                <i data-lucide="folder-open" width="14"></i> Documentos
+            </a>
+
+            <!-- Botón del Guion -->
+            <button class="btn-script" onclick="toggleScript()">
+                <i data-lucide="mic" width="14"></i> Guion Orador
+            </button>
+        </div>
     </nav>
 
     <!-- 1. PORTADA OCEÁNICA (HERO) CON LA CONCHA PNG AISLADA -->
@@ -859,7 +891,7 @@
             <!-- Concha Nácar Esculpida PNG con Perlas Negras, Blanca y Dorada -->
             <div class="floating-png-stage">
                 <div class="pearl-halo"></div>
-                <img class="png-pearl-graphic" src="perla del norte.png" alt="Concha Nácar con Perlas Negras y Blanca - La Perla del Norte" onerror="this.src='watermarked_img_12641715550244115858.jpg'; this.onerror=null;">
+                <img class="png-pearl-graphic" src="perla del norte.png" alt="Concha Nácar con Perlas Negras y Blanca - La Perla del Norte" onerror="this.src='perla-norte.png'; this.onerror=null;">
             </div>
 
             <!-- Titular Editorial -->
@@ -870,16 +902,30 @@
                     SERVICIO TURÍSTICO
                 </h1>
                 <div class="torn-note">
-                    <strong>Sector Servicios </strong> — Turismo sostenible en el Norte de España junto a empresas y productores locales artesanales (sobaos, quesos, mermeladas, anchoas y vinos) en <strong>grupos reducidos de máximo 8 personas</strong> y paquetes flexibles a medida.
+                    <strong>Sector Servicios (Educación, Servicios Profesionales y Ocio)</strong>[cite: 31] — Turismo sostenible en el Norte de España junto a empresas y productores locales artesanales (sobaos, quesos, mermeladas, anchoas y vinos)[cite: 31, 32] en <strong>grupos reducidos de máximo 8 personas</strong> y paquetes flexibles a medida[cite: 32].
                 </div>
                 <div class="hero-pillars">
-                    <span class="hero-pillar-pill">01 • Catas y Preparación Artesanal</span>
-                    <span class="hero-pillar-pill">02 • Caminatas y Lugares Históricos</span>
-                    <span class="hero-pillar-pill">03 • Actividades al Aire Libre</span>
+                    <span class="hero-pillar-pill">01 • Catas y Preparación Artesanal[cite: 32]</span>
+                    <span class="hero-pillar-pill">02 • Caminatas y Lugares Históricos[cite: 32]</span>
+                    <span class="hero-pillar-pill">03 • Actividades al Aire Libre[cite: 32]</span>
                 </div>
-                <a href="#empresa" class="btn-lavender-pill">
-                    Explorar Dossier Estratégico <i data-lucide="arrow-down" width="16"></i>
-                </a>
+
+                <!-- Botones Principales de Acción -->
+                <div class="hero-cta-group">
+                    <a href="#empresa" class="btn-lavender-pill">
+                        Explorar Dossier <i data-lucide="arrow-down" width="16"></i>
+                    </a>
+
+                    <!-- Botón directo al Catálogo Online -->
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-lavender-pill" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); box-shadow: none;">
+                        <i data-lucide="compass" width="16"></i> Ver Catálogo Online
+                    </a>
+
+                    <!-- Botón a la carpeta/página de Documentos -->
+                    <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-lavender-pill" style="background: #DFC39D; color: #162B46; box-shadow: 0 10px 25px rgba(223, 195, 157, 0.3);">
+                        <i data-lucide="file-text" width="16"></i> Cartas y Documentos
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -896,7 +942,7 @@
         <div class="container">
             <h2 class="editorial-title reveal">IDENTIDAD, MISIÓN <span class="inline-pearl"></span> Y PROPUESTA DE VALOR</h2>
             <p class="editorial-subtitle reveal">
-                Conectamos el deseo de viajar y descansar con el desarrollo de la economía rural, protegiendo las tradiciones y el entorno natural del Norte de España.
+                Conectamos el deseo de viajar y descansar con el desarrollo de la economía rural, protegiendo las tradiciones y el entorno natural del Norte de España[cite: 31, 32].
             </p>
 
             <!-- Misión, Visión, Valores y Propósito -->
@@ -905,9 +951,9 @@
                     <span class="specimen-badge">01 • Misión, Visión y Valores</span>
                     <h3>Horizonte Estratégico</h3>
                     <ul class="protocol-list">
-                        <li><i data-lucide="compass" width="16" color="#9B7EC4"></i> <div><strong>Misión:</strong> Convertir el Norte de España en una atracción turística referente a nivel nacional e internacional y afectar de forma favorable a la economia del lugar.</div></li>
-                        <li><i data-lucide="eye" width="16" color="#9B7EC4"></i> <div><strong>Visión:</strong> Ser líderes de la industria turística sostenible del Norte, expandiéndonos progresivamente a otras CCAA vecinas.</div></li>
-                        <li><i data-lucide="heart-handshake" width="16" color="#9B7EC4"></i> <div><strong>3 Valores Clave:</strong> <em>Calidad</em> (adaptada al cliente), <em>Sostenibilidad</em> (redes locales y respeto ambiental) e <em>Innovación</em> (tecnología ecológica).</div></li>
+                        <li><i data-lucide="compass" width="16" color="#9B7EC4"></i> <div><strong>Misión:</strong> Convertir el Norte de España en una atracción turística referente a nivel nacional e internacional y afectar de forma favorable a la economía del lugar[cite: 31, 32].</div></li>
+                        <li><i data-lucide="eye" width="16" color="#9B7EC4"></i> <div><strong>Visión:</strong> Ser líderes de la industria turística sostenible del Norte, expandiéndonos progresivamente a otras CCAA vecinas[cite: 31, 32].</div></li>
+                        <li><i data-lucide="heart-handshake" width="16" color="#9B7EC4"></i> <div><strong>3 Valores Clave:</strong> <em>Calidad</em> (adaptada al cliente), <em>Sostenibilidad</em> (redes locales y respeto ambiental) e <em>Innovación</em> (tecnología ecológica)[cite: 31].</div></li>
                     </ul>
                 </div>
 
@@ -915,9 +961,9 @@
                     <span class="specimen-badge">02 • Público y Solución</span>
                     <h3>¿A quién nos dirigimos?</h3>
                     <ul class="protocol-list">
-                        <li><i data-lucide="users" width="16" color="#9B7EC4"></i> <div><strong>Viajeros Conscientes:</strong> Personas que desean vivir el ciclo real de los productos artesanales, descubrir pueblos poco conocidos y preservar el destino para futuras generaciones.</div></li>
-                        <li><i data-lucide="sparkles" width="16" color="#9B7EC4"></i> <div><strong>Doble Solución:</strong> Satisface la necesidad emocional de descanso y aventura mientras impulsa la economía local y da visibilidad a pequeños artesanos.</div></li>
-                        <li><i data-lucide="sliders" width="16" color="#9B7EC4"></i> <div><strong>Paquetes Variables:</strong> No imponemos rutas rígidas; el viajero puede elegir actividades a su medida en grupos de <strong>máx. 8 personas</strong>.</div></li>
+                        <li><i data-lucide="users" width="16" color="#9B7EC4"></i> <div><strong>Viajeros Conscientes:</strong> Personas que desean vivir el ciclo real de los productos artesanales, descubrir pueblos poco conocidos y preservar el destino para futuras generaciones[cite: 32].</div></li>
+                        <li><i data-lucide="sparkles" width="16" color="#9B7EC4"></i> <div><strong>Doble Solución:</strong> Satisface la necesidad emocional de descanso y aventura mientras impulsa la economía local y da visibilidad a pequeños artesanos[cite: 32].</div></li>
+                        <li><i data-lucide="sliders" width="16" color="#9B7EC4"></i> <div><strong>Paquetes Variables:</strong> No imponemos rutas rígidas; el viajero puede elegir actividades a su medida en grupos de <strong>máx. 8 personas</strong>[cite: 32].</div></li>
                     </ul>
                 </div>
 
@@ -926,9 +972,9 @@
                     <h3>La Perla del Norte S.L.</h3>
                     <table class="data-table">
                         <tr><td>CIF / Capital</td><td><strong>B-3984729</strong> • 3.000,00 €</td></tr>
-                        <tr><td>Sector / CNAE</td><td>Servicios • 7912 / 7911</td></tr>
+                        <tr><td>Sector / CNAE</td><td>Servicios • 7912 / 7911[cite: 31]</td></tr>
                         <tr><td>Sede Central</td><td>Paseo de Pereda, 15, Santander</td></tr>
-                        <tr><td>Canal Directo</td><td>Sin intermediarios • Oficinas, web, aeropuertos, tren, bus y ferry</td></tr>
+                        <tr><td>Canal Directo</td><td>Sin intermediarios • Oficinas, web, aeropuertos, tren, bus y ferry[cite: 32]</td></tr>
                         <tr><td>Devoluciones</td><td><strong>14 días naturales</strong> desistimiento y reembolso (No-Show sin reembolso)</td></tr>
                     </table>
                 </div>
@@ -943,25 +989,25 @@
                     <thead>
                         <tr>
                             <th>Dimensión</th>
-                            <th>Agencia Tradicional</th>
-                            <th>La Perla del Norte S.L. (Nuestro Modelo)</th>
+                            <th>Agencia Tradicional[cite: 32]</th>
+                            <th>La Perla del Norte S.L. (Nuestro Modelo)[cite: 32]</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><strong>Formato de Paquetes</strong></td>
-                            <td>Paquetes fijos, rígidos y masificados en destinos saturados.</td>
-                            <td><strong>Paquetes variables y personalizables</strong> en grupos reducidos (máx. 8 personas) por rutas auténticas.</td>
+                            <td>Paquetes fijos, rígidos y masificados en destinos saturados[cite: 32].</td>
+                            <td><strong>Paquetes variables y personalizables</strong> en grupos reducidos (máx. 8 personas) por rutas auténticas[cite: 31, 32].</td>
                         </tr>
                         <tr>
                             <td><strong>Enfoque e Impacto</strong></td>
-                            <td>Prioriza el beneficio rápido sin cuidar tradiciones ni entorno.</td>
-                            <td><strong>Sostenibilidad integral:</strong> apoyo directo a artesanos, museos locales y respeto a la idiosincrasia rural.</td>
+                            <td>Prioriza el beneficio rápido sin cuidar tradiciones ni entorno[cite: 32].</td>
+                            <td><strong>Sostenibilidad integral:</strong> apoyo directo a artesanos, museos locales y respeto a la idiosincrasia rural[cite: 31, 32].</td>
                         </tr>
                         <tr>
                             <td><strong>Canales de Captación</strong></td>
-                            <td>Dependencia de grandes turoperadores e intermediarios.</td>
-                            <td><strong>Canal directo</strong> (sin intermediarios), redes sociales, web oficial, aeropuertos, estaciones de tren, bus y ferry.</td>
+                            <td>Dependencia de grandes turoperadores e intermediarios[cite: 32].</td>
+                            <td><strong>Canal directo</strong> (sin intermediarios), redes sociales, web oficial, aeropuertos, estaciones de tren, bus y ferry[cite: 32].</td>
                         </tr>
                     </tbody>
                 </table>
@@ -981,60 +1027,60 @@
         <div class="container">
             <h2 class="editorial-title reveal">SOSTENIBILIDAD Y COMPROMISO ODS</h2>
             <p class="editorial-subtitle reveal">
-                Alineamos nuestra operación turística con los Objetivos de Desarrollo Sostenible (ODS 8, 9, 10, 11 y 12), gestionando activamente riesgos ambientales y sociales.
+                Alineamos nuestra operación turística con los Objetivos de Desarrollo Sostenible (ODS 8, 9, 10, 11 y 12)[cite: 31], gestionando activamente riesgos ambientales y sociales[cite: 31, 32].
             </p>
 
             <div class="grid-2" style="margin-bottom: 22px;">
                 <!-- ODS 8 y 9 -->
                 <div class="ods-card reveal">
                     <div class="ods-header">
-                        <span class="ods-num">ODS 8 & 9</span>
-                        <h4>Trabajo Decente, Crecimiento e Innovación</h4>
+                        <span class="ods-num">ODS 8 & 9[cite: 31]</span>
+                        <h4>Trabajo Decente, Crecimiento e Innovación[cite: 31]</h4>
                     </div>
-                    <p style="font-size: 13px; opacity: 0.9;">Fomentamos empleo local estable respetando derechos laborales, conciliación familiar y dinamizando pequeños talleres y museos poco conocidos.</p>
-                    <div class="ods-tag-box"><strong>Riesgos:</strong> Estacionalidad, subida de costes con proveedores locales y falta de personal cualificado.</div>
-                    <div class="ods-tag-box"><strong>Oportunidades y Acciones:</strong> Contratos indefinidos, integración de productores locales y rutas en zonas menos desarrolladas.</div>
+                    <p style="font-size: 13px; opacity: 0.9;">Fomentamos empleo local estable respetando derechos laborales, conciliación familiar y dinamizando pequeños talleres y museos poco conocidos[cite: 31].</p>
+                    <div class="ods-tag-box"><strong>Riesgos:</strong> Estacionalidad, subida de costes con proveedores locales y falta de personal cualificado[cite: 31].</div>
+                    <div class="ods-tag-box"><strong>Oportunidades y Acciones:</strong> Contratos indefinidos, integración de productores locales y rutas en zonas menos desarrolladas[cite: 31].</div>
                 </div>
 
                 <!-- ODS 10 -->
                 <div class="ods-card reveal">
                     <div class="ods-header">
-                        <span class="ods-num">ODS 10</span>
-                        <h4>Reducción de las Desigualdades Rurales</h4>
+                        <span class="ods-num">ODS 10[cite: 31]</span>
+                        <h4>Reducción de las Desigualdades Rurales[cite: 31]</h4>
                     </div>
-                    <p style="font-size: 13px; opacity: 0.9;">Disminuimos la brecha económica en comunidades rurales impulsando la inserción de colectivos con mayor dificultad de empleabilidad.</p>
-                    <div class="ods-tag-box"><strong>Riesgos:</strong> Descontento local por falta de oportunidades o empleo precario en el sector.</div>
-                    <div class="ods-tag-box"><strong>Oportunidades y Acciones:</strong> Salarios dignos, reinversión local y contratación inclusiva (<strong>jóvenes en primer contrato, mayores de 52 años, mujeres rurales y personas con discapacidad</strong>).</div>
+                    <p style="font-size: 13px; opacity: 0.9;">Disminuimos la brecha económica en comunidades rurales impulsando la inserción de colectivos con mayor dificultad de empleabilidad[cite: 31].</p>
+                    <div class="ods-tag-box"><strong>Riesgos:</strong> Descontento local por falta de oportunidades o empleo precario en el sector[cite: 31].</div>
+                    <div class="ods-tag-box"><strong>Oportunidades y Acciones:</strong> Salarios dignos, reinversión local y contratación inclusiva (<strong>jóvenes en primer contrato, mayores de 52 años, mujeres rurales y personas con discapacidad</strong>)[cite: 31].</div>
                 </div>
 
                 <!-- ODS 11 -->
                 <div class="ods-card reveal">
                     <div class="ods-header">
-                        <span class="ods-num">ODS 11</span>
-                        <h4>Ciudades y Comunidades Sostenibles</h4>
+                        <span class="ods-num">ODS 11[cite: 31]</span>
+                        <h4>Ciudades y Comunidades Sostenibles[cite: 31]</h4>
                     </div>
-                    <p style="font-size: 13px; opacity: 0.9;">Creamos comunidades resilientes evitando la masificación y preservando las infraestructuras y espacios comunes de los pueblos.</p>
-                    <div class="ods-tag-box"><strong>Riesgos:</strong> Degradación ambiental por turismo masivo y presión sobre servicios públicos.</div>
-                    <div class="ods-tag-box"><strong>Oportunidades y Acciones:</strong> Grupos máx. 8 personas, movilidad limpia (bici, vehículos eléctricos, transporte compartido) y <strong>rutas a pie, bici o caballo</strong> en coordinación con autoridades ambientales.</div>
+                    <p style="font-size: 13px; opacity: 0.9;">Creamos comunidades resilientes evitando la masificación y preservando las infraestructuras y espacios comunes de los pueblos[cite: 31].</p>
+                    <div class="ods-tag-box"><strong>Riesgos:</strong> Degradación ambiental por turismo masivo y presión sobre servicios públicos[cite: 31].</div>
+                    <div class="ods-tag-box"><strong>Oportunidades y Acciones:</strong> Grupos máx. 8 personas, movilidad limpia (bici, vehículos eléctricos, transporte compartido) y <strong>rutas a pie, bici o caballo</strong> en coordinación con autoridades ambientales[cite: 31].</div>
                 </div>
 
                 <!-- ODS 12 -->
                 <div class="ods-card reveal">
                     <div class="ods-header">
-                        <span class="ods-num">ODS 12</span>
-                        <h4>Producción y Consumo Responsables</h4>
+                        <span class="ods-num">ODS 12[cite: 31]</span>
+                        <h4>Producción y Consumo Responsables[cite: 31]</h4>
                     </div>
-                    <p style="font-size: 13px; opacity: 0.9;">Involucramos al viajero en el respeto por el patrimonio natural y cultural mediante consumo de kilómetro cero.</p>
-                    <div class="ods-tag-box"><strong>Riesgos:</strong> Rechazo vecinal por falta de respeto cultural o presión sobre vivienda y servicios.</div>
-                    <div class="ods-tag-box"><strong>Oportunidades y Acciones:</strong> Alianzas con productores de <strong>sobaos, quesadas, quesos y mermeladas</strong> de bajo impacto social, más ecoturismo activo (espeleología, rafting, senderismo).</div>
+                    <p style="font-size: 13px; opacity: 0.9;">Involucramos al viajero en el respeto por el patrimonio natural y cultural mediante consumo de kilómetro cero[cite: 31].</p>
+                    <div class="ods-tag-box"><strong>Riesgos:</strong> Rechazo vecinal por falta de respeto cultural o presión sobre vivienda y servicios[cite: 31].</div>
+                    <div class="ods-tag-box"><strong>Oportunidades y Acciones:</strong> Alianzas con productores de <strong>sobaos, quesadas, quesos y mermeladas</strong> de bajo impacto social, más ecoturismo activo (espeleología, rafting, senderismo)[cite: 31].</div>
                 </div>
             </div>
 
             <!-- Gestión del Impacto Ambiental y Social -->
             <div class="ods-card reveal" style="border-color: rgba(216, 197, 245, 0.45);">
-                <h4 style="font-family: var(--font-serif); font-size: 21px; margin-bottom: 8px;">🌱 Control del Impacto Ambiental y Social en Ruta</h4>
+                <h4 style="font-family: var(--font-serif); font-size: 21px; margin-bottom: 8px;">🌱 Control del Impacto Ambiental y Social en Ruta[cite: 32]</h4>
                 <p style="font-size: 13px; opacity: 0.92;">
-                    Identificamos y mitigamos los tres principales impactos de la actividad: <strong>(1) Residuos en zonas rurales</strong> (protocolo cero basura), <strong>(2) Molestias a habitantes locales</strong> (grupos reducidos y respeto vecinal) y <strong>(3) Huella de transporte</strong> (optimización de rutas, transporte colectivo y movilidad eléctrica/no motorizada).
+                    Identificamos y mitigamos los tres principales impactos de la actividad[cite: 32]: <strong>(1) Residuos en zonas rurales</strong> (protocolo cero basura)[cite: 32], <strong>(2) Molestias a habitantes locales</strong> (grupos reducidos y respeto vecinal)[cite: 31, 32] y <strong>(3) Huella de transporte</strong> (optimización de rutas, transporte colectivo y movilidad eléctrica/no motorizada)[cite: 31, 32].
                 </p>
             </div>
         </div>
@@ -1053,6 +1099,10 @@
             <h2 class="editorial-title reveal">CATÁLOGO DE EXPERIENCIAS <span class="inline-pearl"></span> Y MÁRGENES</h2>
             <p class="editorial-subtitle reveal">
                 15 experiencias y productos oficiales (21% IVA incluido). Tours con <strong>50% de margen sobre coste</strong> y souvenirs artesanales con <strong>20% de margen</strong>.
+                <br>
+                <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; color: #6B4E96; font-weight: 700; text-decoration: underline;">
+                    Abrir Catálogo Interactivo Completo en Web <i data-lucide="external-link" width="14"></i>
+                </a>
             </p>
 
             <div class="grid-3">
@@ -1119,6 +1169,48 @@
                 Adaptamos el discurso comercial a los 6 tipos de clientes y resolvemos con garantías cualquier objeción de precio, vuelos o clima.
             </p>
 
+            <div class="clients-grid">
+                <div class="client-profile-card reveal">
+                    <span class="specimen-badge">Perfil 01</span>
+                    <h4>Cliente Indeciso</h4>
+                    <p>Se abruma ante demasiadas opciones (costa vs. montaña, solo vs. acompañado) y posterga la decisión.</p>
+                    <div class="client-tactic">💡 Táctica: Acotar opciones y preguntar: "¿Qué es lo más importante para ti al elegir destino?"</div>
+                </div>
+
+                <div class="client-profile-card reveal">
+                    <span class="specimen-badge">Perfil 02</span>
+                    <h4>Cliente Racional</h4>
+                    <p>Planifica con antelación (ej. luna de miel), exige términos claros, testimonios reales, ubicaciones y precio cerrado.</p>
+                    <div class="client-tactic">💡 Táctica: Mostrar garantías escritas, reseñas verificadas y precio inamovible.</div>
+                </div>
+
+                <div class="client-profile-card reveal">
+                    <span class="specimen-badge">Perfil 03</span>
+                    <h4>Cliente Exigente</h4>
+                    <p>Conoce el destino, trae su propio itinerario/menú y pone a prueba nuestra diferenciación frente a otras agencias.</p>
+                    <div class="client-tactic">💡 Táctica: Destacar grupos VIP (máx. 8 pers.) y preguntar por amenidades y privacidad.</div>
+                </div>
+
+                <div class="client-profile-card reveal">
+                    <span class="specimen-badge">Perfil 04</span>
+                    <h4>Cliente Conflictivo</h4>
+                    <p>Actitud soberbia o exigencia de descuentos injustificados criticando detalles menores del establecimiento.</p>
+                    <div class="client-tactic">💡 Táctica: Mantener la calma, leer juntos políticas de reembolso y garantizar itinerario por escrito.</div>
+                </div>
+
+                <div class="client-profile-card reveal">
+                    <span class="specimen-badge">Perfil 05</span>
+                    <h4>Cliente Impulsivo</h4>
+                    <p>Motivado por vídeos visuales (ej. Playa del Sardinero), reserva para el mismo fin de semana asumiendo +13% última hora.</p>
+                    <div class="client-tactic">💡 Táctica: Venta cruzada rápida (+35 € terraza vista mar y souvenirs de recuerdo).</div>
+                </div>
+
+                <div class="client-profile-card reveal">
+                    <span class="specimen-badge">Perfil 06</span>
+                    <h4>Cliente Fiel</h4>
+                    <p>Repite servicios rechazando ofertas de la competencia por la confianza y sostenibilidad de nuestros productos; nos recomienda.</p>
+                    <div class="client-tactic">💡 Táctica: Trato VIP proactivo: "¿A qué ruta te acompañaremos este año? Tramitamos todo."</div>
+                </div>
             </div>
 
             <!-- Objeciones -->
@@ -1153,7 +1245,7 @@
         <div class="container">
             <h2 class="editorial-title reveal">FIDELIZACIÓN, EXPANSIÓN Y 5 FASES</h2>
             <p class="editorial-subtitle reveal">
-                Consolidamos la recomendación orgánica mediante hiperpersonalización CRM, niveles VIP y alianzas de expansión hacia todo el Norte de España.
+                Consolidamos la recomendación orgánica mediante hiperpersonalización CRM, niveles VIP y alianzas de expansión hacia todo el Norte de España[cite: 32].
             </p>
 
             <!-- 4 Pilares -->
@@ -1171,8 +1263,8 @@
                     <p>Cada euro gastado suma puntos canjeables con check-in prioritario, atención preferente y upgrades gratuitos.</p>
                 </div>
                 <div class="loyalty-card reveal">
-                    <h5><i data-lucide="map" width="18"></i> Crecimiento Norte España</h5>
-                    <p>Expansión gradual hacia otras CCAA del Norte colaborando con agencias que compartan nuestra visión sostenible.</p>
+                    <h5><i data-lucide="map" width="18"></i> Crecimiento Norte España[cite: 32]</h5>
+                    <p>Expansión gradual hacia otras CCAA del Norte colaborando con agencias que compartan nuestra visión sostenible[cite: 32].</p>
                 </div>
             </div>
 
@@ -1248,9 +1340,14 @@
 
             <!-- Matriz Proveedores -->
             <div class="suppliers-box reveal">
-                <h3 style="font-family: var(--font-serif); font-size: 23px; color: var(--abyssal-dark); margin-bottom: 12px;">
-                    Matriz de Proveedores Homologados (La Perla del Norte S.L.)
-                </h3>
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px;">
+                    <h3 style="font-family: var(--font-serif); font-size: 23px; color: var(--abyssal-dark);">
+                        Matriz de Proveedores Homologados (La Perla del Norte S.L.)
+                    </h3>
+                    <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-script" style="background: var(--abyssal-dark); color: #FFF;">
+                        <i data-lucide="file-text" width="14"></i> Ver Cartas de Pedido y Comerciales
+                    </a>
+                </div>
                 <table class="sup-table">
                     <thead>
                         <tr>
@@ -1326,16 +1423,21 @@
             <div class="team-footer-grid">
                 <div class="team-pill-card">
                     <strong>Lic. Lizeth Nina G.</strong>
-                    <span>Jefa Dpto. Comercial y Tesoreria</span>
+                    <span>Jefa Dpto. Comercial, Compras y Ventas</span>
                     <small>Paquetes, cotizaciones, cierre de ventas y proveedores</small>
                 </div>
                 <div class="team-pill-card">
-                    <strong>Lic. Georgii Kovalev</strong>
+                    <strong>Lic. Georgii Kovalev</strong>[cite: 31]
                     <span>Finanzas y Contabilidad</span>
                     <small>Control presupuestario, facturación e impuestos</small>
                 </div>
                 <div class="team-pill-card">
-                    <strong>Lic. Maricela González</strong>
+                    <strong>Lic. Elena Jenaro</strong>[cite: 31]
+                    <span>Tesorería</span>
+                    <small>Gestión de caja, liquidez y seguimiento de cobros</small>
+                </div>
+                <div class="team-pill-card">
+                    <strong>Lic. Maricela González</strong>[cite: 31]
                     <span>Recursos Humanos</span>
                     <small>Gestión de personal, contratos laborales y nóminas</small>
                 </div>
@@ -1354,10 +1456,10 @@
             <button onclick="toggleScript()" style="background:none;border:none;color:#FFF;cursor:pointer;font-size:16px;">✕</button>
         </h4>
         <p>
-            <strong>1. Propuesta y Diferenciación:</strong> "Somos <em>La Perla del Norte S.L.</em> (CIF B-3984729). Frente al turismo tradicional masificado, ofrecemos <strong>paquetes variables en grupos de máximo 8 personas</strong> que unen catas artesanales, lugares históricos y naturaleza."<br><br>
-            <strong>2. Compromiso ODS (8, 9, 10, 11 y 12):</strong> "Impulsamos el empleo rural digno (jóvenes, mayores de 52 años, mujeres rurales y personas con discapacidad), movilidad sostenible y alianzas con productores locales de sobaos, quesos, anchoas y vinos."<br><br>
-            <strong>3. Rentabilidad y Ventas:</strong> "Manejamos 15 experiencias y productos con márgenes del <strong>50% en tours</strong> y 20% en souvenirs, atención directa sin intermediarios, 14 días de desistimiento y estrategias para los 6 perfiles de cliente."<br><br>
-            <strong>4. Fidelización y Expansión:</strong> "Con nuestro CRM hiperpersonalizado y niveles <em>Plata, Oro y Platino</em>, fidelizamos al viajero y proyectamos nuestra expansión a todo el Norte de España."
+            <strong>1. Propuesta y Diferenciación:</strong> "Somos <em>La Perla del Norte S.L.</em> (CIF B-3984729). Frente al turismo tradicional masificado, ofrecemos <strong>paquetes variables en grupos de máximo 8 personas</strong> que unen catas artesanales, lugares históricos y naturaleza."[cite: 32]<br><br>
+            <strong>2. Compromiso ODS (8, 9, 10, 11 y 12):</strong> "Impulsamos el empleo rural digno (jóvenes, mayores de 52 años, mujeres rurales y personas con discapacidad), movilidad sostenible y alianzas con productores locales de sobaos, quesos, anchoas y vinos."[cite: 31]<br><br>
+            <strong>3. Rentabilidad y Ventas:</strong> "Manejamos 15 experiencias y productos con márgenes del <strong>50% en tours</strong> y 20% en souvenirs, atención directa sin intermediarios, 14 días de desistimiento y estrategias para los 6 perfiles de cliente."[cite: 32]<br><br>
+            <strong>4. Fidelización y Expansión:</strong> "Con nuestro CRM hiperpersonalizado y niveles <em>Plata, Oro y Platino</em>, fidelizamos al viajero y proyectamos nuestra expansión a todo el Norte de España."[cite: 32]
         </p>
     </div>
 
