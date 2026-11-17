@@ -3,30 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Perla del Norte S.L. | Dossier Estratégico, Sostenible y Comercial</title>
+    <title>La Perla del Norte S.L. | Dossier Editorial & Ecoturismo Sostenible</title>
 
-    <!-- Tipografías Editorial Marina -->
+    <!-- Tipografías Editorial Botánica & Clásica -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Iconos Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         :root {
-            --abyssal-dark: #162B46;
-            --abyssal-mid: #23436B;
-            --pearl-white: #F7F9FC;
-            --pearl-card: #FFFFFF;
-            --lavender-pearl: #9B7EC4;
-            --lavender-soft: #EFE9F8;
-            --gold-champagne: #DFC39D;
-            --emerald-eco: #2E7D67;
-            --text-dark: #1A2536;
-            --text-muted: #5A687D;
-            --font-display: 'Cinzel Decorative', serif;
+            --olive-deep: #3E482C;
+            --olive-main: #535E3E;
+            --olive-sage: #737E5D;
+            --paper-cream: #F6F3EB;
+            --paper-warm: #EDE7D9;
+            --paper-white: #FCFBF7;
+            --wax-gold: #C29B48;
+            --wax-gold-dark: #9B772B;
+            --mustard-tag: #E9C440;
+            --ink-dark: #252B1E;
+            --ink-muted: #58604E;
             --font-serif: 'Cormorant Garamond', serif;
+            --font-script: 'Pinyon Script', cursive;
             --font-sans: 'Plus Jakarta Sans', sans-serif;
         }
 
@@ -42,38 +43,131 @@
 
         body {
             font-family: var(--font-sans);
-            background-color: var(--pearl-white);
-            color: var(--text-dark);
+            background-color: var(--olive-deep);
+            color: var(--ink-dark);
             overflow-x: hidden;
             line-height: 1.6;
+            /* Textura sutil de papel artesanal y líneas topográficas */
+            background-image:
+                radial-gradient(rgba(233, 196, 64, 0.08) 1px, transparent 0),
+                linear-gradient(180deg, #3A4429 0%, #4D5838 50%, #363F26 100%);
+            background-size: 28px 28px, 100% 100%;
+        }
+
+        /* ================= CONTENEDOR CENTRAL TIPO LIENZO EDITORIAL ================= */
+        .editorial-canvas {
+            max-width: 1180px;
+            margin: 26px auto 50px;
+            background-color: var(--paper-cream);
+            border-radius: 28px;
+            box-shadow: 0 30px 80px rgba(15, 20, 10, 0.55);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(194, 155, 72, 0.35);
+            /* Textura grano de papel */
+            background-image: radial-gradient(rgba(83, 94, 62, 0.06) 1px, transparent 0);
+            background-size: 18px 18px;
+        }
+
+        /* ================= NAVBAR FLOTANTE BOTÁNICA ================= */
+        nav {
+            position: sticky;
+            top: 14px;
+            margin: 0 auto;
+            width: 95%;
+            max-width: 1130px;
+            background: rgba(62, 72, 44, 0.94);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(194, 155, 72, 0.45);
+            border-radius: 999px;
+            padding: 9px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            color: var(--paper-cream);
+            box-shadow: 0 12px 30px rgba(20, 26, 14, 0.35);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 15px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .wax-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #F3D98B, var(--wax-gold) 65%, var(--wax-gold-dark));
+            box-shadow: 0 0 8px rgba(194, 155, 72, 0.7);
+            display: inline-block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 13px;
+            list-style: none;
+            font-size: 10.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+        }
+
+        .nav-links a {
+            color: rgba(246, 243, 235, 0.88);
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: var(--mustard-tag);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 7px;
+            align-items: center;
+        }
+
+        .btn-botanic {
+            background: var(--mustard-tag);
+            color: var(--ink-dark);
+            border: none;
+            padding: 7px 13px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: transform 0.2s, filter 0.2s;
+        }
+
+        .btn-botanic:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
         }
 
         /* ================= ANIMACIONES ================= */
         @keyframes floatSlow {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-14px) rotate(1.5deg); }
-        }
-
-        @keyframes pearlGlow {
-            0%, 100% { box-shadow: 0 0 28px rgba(245, 224, 195, 0.45), inset -6px -6px 14px rgba(155, 126, 196, 0.4); }
-            50% { box-shadow: 0 0 55px rgba(255, 238, 214, 0.85), inset -4px -4px 10px rgba(155, 126, 196, 0.25); }
-        }
-
-        @keyframes auraPulse {
-            0%, 100% { transform: scale(0.95); opacity: 0.45; }
-            50% { transform: scale(1.06); opacity: 0.8; }
-        }
-
-        @keyframes riseBubble {
-            0% { transform: translateY(100%) scale(0.6); opacity: 0; }
-            30% { opacity: 0.45; }
-            100% { transform: translateY(-650px) scale(1.2); opacity: 0; }
+            50% { transform: translateY(-10px) rotate(1.2deg); }
         }
 
         .reveal {
             opacity: 0;
-            transform: translateY(35px);
-            transition: all 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateY(28px);
+            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .reveal.visible {
@@ -81,717 +175,632 @@
             transform: translateY(0);
         }
 
-        /* ================= NAVBAR FLOTANTE ================= */
-        nav {
-            position: fixed;
-            top: 16px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 96%;
-            max-width: 1260px;
-            background: rgba(22, 43, 70, 0.9);
-            backdrop-filter: blur(14px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: 999px;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            color: #FFF;
+        /* ================= EFECTOS DE PAPEL RASGADO Y SELLO DE LACRE ================= */
+        .torn-paper-card {
+            background: var(--paper-white);
+            padding: 26px 28px;
+            position: relative;
+            box-shadow: 0 14px 32px rgba(45, 53, 32, 0.12);
+            border: 1px solid rgba(194, 155, 72, 0.28);
+            /* Borde orgánico ligeramente irregular */
+            border-radius: 4px 18px 6px 20px;
         }
 
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-family: var(--font-display);
-            font-size: 12.5px;
-            letter-spacing: 0.05em;
-            white-space: nowrap;
+        .torn-paper-card::before {
+            content: "";
+            position: absolute;
+            top: -6px;
+            left: 12px;
+            right: 12px;
+            height: 6px;
+            background: linear-gradient(135deg, transparent 33.33%, var(--paper-white) 33.33%, var(--paper-white) 66.66%, transparent 66.66%),
+                        linear-gradient(225deg, transparent 33.33%, var(--paper-white) 33.33%, var(--paper-white) 66.66%, transparent 66.66%);
+            background-size: 12px 12px;
         }
 
-        .mini-pearl {
-            width: 14px;
-            height: 14px;
+        .wax-seal-badge {
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #FFFFFF, #D8C7F0 65%, #8A6BB8);
-            display: inline-block;
-            animation: pearlGlow 3s infinite ease-in-out;
+            background: radial-gradient(circle at 32% 30%, #F4DC94 0%, #C69E49 55%, #8C6820 100%);
+            box-shadow: 0 6px 14px rgba(55, 40, 12, 0.35), inset 0 0 0 3px rgba(255, 244, 210, 0.35);
+            display: grid;
+            place-items: center;
+            color: #FFF9E6;
+            font-family: var(--font-script);
+            font-size: 20px;
+            font-weight: bold;
+            flex-shrink: 0;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 12px;
-            list-style: none;
-            font-size: 10.5px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .nav-links a {
-            color: rgba(255, 255, 255, 0.86);
-            text-decoration: none;
-            transition: color 0.25s;
-        }
-
-        .nav-links a:hover {
-            color: #D9C3F7;
-        }
-
-        .nav-actions {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .btn-script {
-            background: var(--lavender-pearl);
-            color: #FFF;
-            border: none;
-            padding: 8px 13px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 700;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: transform 0.2s, background 0.2s;
-        }
-
-        .btn-script:hover {
-            transform: scale(1.04);
-            filter: brightness(1.08);
-        }
-
-        /* ================= SEPARADORES ONDULADOS SVG ================= */
-        .wave-divider {
+        /* ================= 1. PORTADA EDITORIAL (HERO SOBRE VERDE OLIVA + ARCO) ================= */
+        .hero-editorial {
+            background: linear-gradient(180deg, var(--olive-main) 0%, var(--olive-deep) 100%);
+            color: var(--paper-cream);
+            padding: 55px 36px 75px;
             position: relative;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            margin-top: -2px;
-        }
-
-        .wave-divider svg {
-            display: block;
-            width: calc(100% + 2px);
-            height: 52px;
-        }
-
-        /* ================= SECCIÓN 1: HERO OCEÁNICO ================= */
-        .hero-ocean {
-            position: relative;
-            min-height: 94vh;
-            background: radial-gradient(circle at 28% 48%, #345273 0%, #1C3554 45%, var(--abyssal-dark) 85%);
-            color: #FFF;
-            padding: 125px 24px 85px;
-            display: flex;
-            align-items: center;
             overflow: hidden;
         }
 
-        .bubbles-container {
+        /* Líneas topográficas decorativas SVG en el fondo */
+        .topo-bg {
             position: absolute;
             inset: 0;
+            opacity: 0.14;
             pointer-events: none;
-            overflow: hidden;
         }
 
-        .bubble {
-            position: absolute;
-            bottom: -40px;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), rgba(255,255,255,0.08));
-            border-radius: 50%;
-            animation: riseBubble linear infinite;
-        }
-
-        .hero-grid {
-            max-width: 1140px;
-            margin: 0 auto;
+        .hero-layout {
             display: grid;
             grid-template-columns: 0.92fr 1.08fr;
-            gap: 44px;
+            gap: 42px;
             align-items: center;
             position: relative;
             z-index: 2;
         }
 
-        /* CONTENEDOR DE LA CONCHA PNG AISLADA FLOTANTE */
-        .floating-png-stage {
+        /* Arco estilo invitación botánica para la Concha Nácar */
+        .arch-envelope-frame {
+            background: linear-gradient(180deg, #E8E1D1 0%, #D7CEBA 100%);
+            border-radius: 210px 210px 24px 24px;
+            padding: 26px 22px 34px;
+            border: 2px solid rgba(194, 155, 72, 0.55);
+            box-shadow: 0 24px 50px rgba(18, 24, 12, 0.45);
             position: relative;
-            width: 100%;
+            text-align: center;
             max-width: 390px;
             margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: floatSlow 5.5s ease-in-out infinite;
         }
 
-        .pearl-halo {
-            position: absolute;
-            width: 82%;
-            height: 82%;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 244, 228, 0.34) 0%, rgba(155, 126, 196, 0.16) 55%, transparent 75%);
-            filter: blur(18px);
-            z-index: 1;
-            animation: auraPulse 4.5s ease-in-out infinite;
-        }
-
-        .png-pearl-graphic {
-            position: relative;
-            z-index: 2;
+        .arch-envelope-frame img {
             width: 100%;
+            max-width: 310px;
             height: auto;
-            border-radius: 36px;
-            filter: drop-shadow(0 26px 38px rgba(7, 15, 28, 0.65));
-            transition: transform 0.4s ease;
+            border-radius: 28px;
+            animation: floatSlow 5.5s ease-in-out infinite;
+            filter: drop-shadow(0 20px 28px rgba(34, 41, 22, 0.45));
         }
 
-        .png-pearl-graphic:hover {
-            transform: scale(1.03);
-        }
-
-        .hero-text-box h1 {
-            font-family: var(--font-display);
-            font-size: clamp(32px, 4.6vw, 58px);
-            line-height: 1.12;
-            letter-spacing: 0.04em;
-            margin-bottom: 18px;
-            font-weight: 400;
-        }
-
-        .inline-pearl {
-            display: inline-block;
-            width: 0.68em;
-            height: 0.68em;
+        .envelope-flap-seal {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 54px;
+            height: 54px;
             border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #FFF, #D5C1F0 70%, #7B5CA8);
-            vertical-align: middle;
-            margin: 0 4px;
-            box-shadow: 0 0 15px rgba(255,255,255,0.6);
+            background: radial-gradient(circle at 30% 30%, #F7E19C, #C29B48 60%, #86631C);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35), inset 0 0 0 4px rgba(255, 248, 225, 0.35);
+            display: grid;
+            place-items: center;
+            color: #FFF;
+            font-family: var(--font-script);
+            font-size: 24px;
         }
 
-        .torn-note {
-            background: rgba(255, 255, 255, 0.96);
-            color: var(--text-dark);
-            padding: 16px 22px;
-            border-radius: 18px 4px 22px 6px;
+        .hero-script-kicker {
+            font-family: var(--font-script);
+            font-size: 34px;
+            color: #F2D785;
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .hero-editorial h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(36px, 4.8vw, 60px);
+            font-weight: 600;
+            line-height: 1.05;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            color: #FCFBF7;
+        }
+
+        .hero-paper-excerpt {
+            background: var(--paper-white);
+            color: var(--ink-dark);
+            padding: 18px 22px;
+            border-radius: 4px 18px 4px 18px;
             font-size: 13.5px;
-            max-width: 580px;
             margin-bottom: 20px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
-            border-left: 4px solid var(--gold-champagne);
+            border-left: 4px solid var(--wax-gold);
+            box-shadow: 0 12px 28px rgba(15, 20, 10, 0.25);
         }
 
-        .hero-pillars {
+        .hero-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 24px;
         }
 
-        .hero-pillar-pill {
-            background: rgba(255, 255, 255, 0.14);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 6px 14px;
+        .hero-tag {
+            background: rgba(252, 251, 247, 0.12);
+            border: 1px solid rgba(233, 196, 64, 0.45);
+            color: #F7F3E8;
+            padding: 5px 13px;
             border-radius: 999px;
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 600;
         }
 
-        .hero-cta-group {
+        .hero-cta-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 10px;
+            gap: 11px;
         }
 
-        .btn-lavender-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            background: var(--lavender-pearl);
-            color: #FFF;
-            text-decoration: none;
+        .btn-editorial-primary {
+            background: var(--mustard-tag);
+            color: var(--ink-dark);
             padding: 12px 22px;
             border-radius: 999px;
             font-weight: 700;
             font-size: 13px;
-            letter-spacing: 0.03em;
-            box-shadow: 0 10px 25px rgba(155, 126, 196, 0.45);
-            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+            transition: transform 0.25s;
         }
 
-        .btn-lavender-pill:hover {
+        .btn-editorial-primary:hover {
             transform: translateY(-3px);
-            filter: brightness(1.06);
         }
 
-        /* ================= CONTENEDORES GENERALES ================= */
-        .section-pearl {
-            background: var(--pearl-white);
-            padding: 75px 24px;
-            position: relative;
-        }
-
-        .section-deep {
-            background: linear-gradient(180deg, var(--abyssal-mid) 0%, var(--abyssal-dark) 100%);
+        .btn-editorial-outline {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.45);
             color: #FFF;
-            padding: 80px 24px;
+            padding: 12px 20px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.25s;
+        }
+
+        .btn-editorial-outline:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ================= CABECERAS DE SECCIÓN EDITORIAL ================= */
+        .section-block {
+            padding: 68px 36px;
             position: relative;
         }
 
-        .section-lavender {
-            background: linear-gradient(180deg, #A386CC 0%, #8C6EB8 100%);
-            color: #FFFFFF;
-            padding: 80px 24px;
+        .section-olive-band {
+            background: linear-gradient(180deg, var(--olive-main) 0%, var(--olive-deep) 100%);
+            color: var(--paper-cream);
+            padding: 68px 36px;
         }
 
-        .container {
-            max-width: 1140px;
-            margin: 0 auto;
-        }
-
-        .editorial-title {
-            font-family: var(--font-display);
-            font-size: clamp(26px, 3.6vw, 42px);
-            color: var(--abyssal-dark);
+        .section-kicker {
+            font-family: var(--font-script);
+            font-size: 32px;
+            color: var(--wax-gold-dark);
             text-align: center;
-            margin-bottom: 12px;
-            font-weight: 400;
+            line-height: 1.1;
         }
 
-        .section-deep .editorial-title,
-        .section-lavender .editorial-title {
-            color: #FFFFFF;
+        .section-olive-band .section-kicker {
+            color: var(--mustard-tag);
         }
 
-        .editorial-subtitle {
+        .section-heading {
+            font-family: var(--font-serif);
+            font-size: clamp(28px, 3.8vw, 42px);
+            font-weight: 600;
             text-align: center;
-            max-width: 750px;
-            margin: 0 auto 46px;
-            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--olive-deep);
+            margin-bottom: 10px;
+        }
+
+        .section-olive-band .section-heading {
+            color: #FCFBF7;
+        }
+
+        .section-lead {
+            text-align: center;
+            max-width: 740px;
+            margin: 0 auto 42px;
             font-size: 14.5px;
+            color: var(--ink-muted);
         }
 
-        .section-deep .editorial-subtitle {
-            color: rgba(255, 255, 255, 0.85);
+        .section-olive-band .section-lead {
+            color: rgba(246, 243, 235, 0.86);
         }
 
-        .section-lavender .editorial-subtitle {
-            color: rgba(255, 255, 255, 0.94);
+        /* ================= 2. 4 TARJETAS INCLINADAS ESTILO REFERENCIA 2 ================= */
+        .tilted-pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 42px;
         }
 
-        /* ================= TARJETAS Y TABLAS ================= */
+        .tilted-card {
+            background: var(--paper-white);
+            border: 1px solid rgba(83, 94, 62, 0.22);
+            border-radius: 18px;
+            padding: 24px 18px;
+            text-align: center;
+            box-shadow: 0 12px 26px rgba(45, 53, 32, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .tilted-card:nth-child(1) { transform: rotate(-1.5deg); }
+        .tilted-card:nth-child(2) { transform: rotate(1.2deg); background: var(--olive-main); color: #FCFBF7; }
+        .tilted-card:nth-child(3) { transform: rotate(-1deg); }
+        .tilted-card:nth-child(4) { transform: rotate(1.5deg); background: var(--olive-deep); color: #FCFBF7; }
+
+        .tilted-card:hover {
+            transform: rotate(0deg) translateY(-5px);
+        }
+
+        .tilted-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: var(--mustard-tag);
+            color: var(--ink-dark);
+            display: grid;
+            place-items: center;
+            margin: 0 auto 12px;
+        }
+
+        .tilted-card h4 {
+            font-family: var(--font-serif);
+            font-size: 21px;
+            margin-bottom: 6px;
+        }
+
+        .tilted-card p {
+            font-size: 12.5px;
+            opacity: 0.9;
+        }
+
+        /* Grid Misión/Visión/Ficha Mercantil */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 22px;
         }
 
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+        .editorial-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba(83, 94, 62, 0.25);
         }
 
-        .specimen-card {
-            background: #FFFFFF;
-            border-radius: 26px;
-            padding: 25px;
-            box-shadow: 0 15px 40px rgba(22, 43, 70, 0.06);
-            border: 1px solid rgba(155, 126, 196, 0.22);
-        }
-
-        .specimen-badge {
-            display: inline-block;
-            background: var(--lavender-soft);
-            color: #6B4E96;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 4px 13px;
-            border-radius: 999px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .specimen-card h3 {
+        .editorial-card-header h3 {
             font-family: var(--font-serif);
             font-size: 23px;
-            color: var(--abyssal-dark);
-            margin-bottom: 12px;
+            color: var(--olive-deep);
         }
 
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 13px;
-        }
-
-        .data-table td {
-            padding: 8px 6px;
-            border-bottom: 1px solid #EDF0F5;
-        }
-
-        .data-table td:first-child {
-            font-weight: 600;
-            color: var(--text-muted);
-            width: 38%;
-        }
-
-        .protocol-list {
+        .editorial-list {
             list-style: none;
             font-size: 13px;
-            color: var(--text-dark);
         }
 
-        .protocol-list li {
+        .editorial-list li {
             padding: 6px 0;
             display: flex;
             align-items: flex-start;
             gap: 8px;
         }
 
-        /* ================= ODS Y SOSTENIBILIDAD ================= */
-        .ods-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: 24px;
-            padding: 22px;
-        }
-
-        .ods-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .ods-num {
-            background: #FFFFFF;
-            color: var(--abyssal-dark);
-            font-weight: 800;
-            font-size: 12px;
-            padding: 4px 10px;
-            border-radius: 999px;
-        }
-
-        .ods-card h4 {
-            font-family: var(--font-serif);
-            font-size: 20px;
-            color: #FFFFFF;
-        }
-
-        .ods-tag-box {
-            font-size: 12px;
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px dashed rgba(255,255,255,0.2);
-            color: rgba(255,255,255,0.9);
-        }
-
-        .ods-tag-box strong {
-            color: #E2D2FA;
-        }
-
-        /* ================= COMPARATIVA VS TRADICIONAL ================= */
-        .compare-box {
-            background: #FFFFFF;
-            border-radius: 26px;
-            padding: 26px;
-            box-shadow: 0 15px 40px rgba(22, 43, 70, 0.06);
-            margin-top: 26px;
-            border: 1px solid rgba(155, 126, 196, 0.25);
-        }
-
-        .compare-table {
+        .clean-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 13px;
         }
 
-        .compare-table th {
-            padding: 12px;
+        .clean-table td, .clean-table th {
+            padding: 9px 10px;
+            border-bottom: 1px solid rgba(83, 94, 62, 0.15);
             text-align: left;
-            background: var(--lavender-soft);
-            color: #543B7A;
         }
 
-        .compare-table td {
-            padding: 11px 12px;
-            border-bottom: 1px solid #EDF0F5;
-        }
-
-        /* ================= CATÁLOGO Y MÁRGENES ================= */
-        .dive-card-head {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 16px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .dive-card-head h3 {
+        .clean-table th {
+            background: var(--paper-warm);
+            color: var(--olive-deep);
             font-family: var(--font-serif);
-            font-size: 21px;
-            color: #FFFFFF;
+            font-size: 15px;
         }
 
-        .margin-pill {
-            background: rgba(216, 197, 245, 0.2);
-            border: 1px solid #D8C5F5;
-            color: #D8C5F5;
-            font-size: 10.5px;
+        /* ================= 3. PROGRAMA DE RUTA / EXPERIENCIAS (SILUETA CENTRAL + ETIQUETAS AMARILLAS) ================= */
+        .route-map-showcase {
+            background: var(--paper-white);
+            border-radius: 26px;
+            padding: 36px 28px;
+            border: 1px solid rgba(194, 155, 72, 0.35);
+            box-shadow: 0 18px 40px rgba(34, 42, 22, 0.08);
+            margin-top: 34px;
+        }
+
+        .route-hub-grid {
+            display: grid;
+            grid-template-columns: 1fr 270px 1fr;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .route-stop {
+            background: var(--paper-cream);
+            border: 1px solid rgba(83, 94, 62, 0.2);
+            border-radius: 16px;
+            padding: 14px 16px;
+            margin-bottom: 14px;
+            position: relative;
+        }
+
+        .mustard-pill {
+            display: inline-block;
+            background: var(--mustard-tag);
+            color: var(--ink-dark);
             font-weight: 700;
+            font-size: 11px;
+            padding: 2px 10px;
+            border-radius: 6px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .route-stop h5 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            color: var(--olive-deep);
+            margin-bottom: 2px;
+        }
+
+        .route-stop p {
+            font-size: 12px;
+            color: var(--ink-muted);
+        }
+
+        .north-emblem-center {
+            background: radial-gradient(circle, var(--olive-main) 0%, var(--olive-deep) 100%);
+            color: var(--paper-cream);
+            border-radius: 50%;
+            width: 255px;
+            height: 255px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 24px;
+            border: 4px double var(--wax-gold);
+            box-shadow: 0 18px 36px rgba(38, 46, 25, 0.28);
+        }
+
+        /* ================= 4. ODS Y SOSTENIBILIDAD (TARJETAS BOTÁNICAS OSCURAS) ================= */
+        .ods-botanic-card {
+            background: rgba(252, 251, 247, 0.08);
+            border: 1px solid rgba(233, 196, 64, 0.32);
+            border-radius: 20px;
+            padding: 22px;
+        }
+
+        .ods-badge-gold {
+            background: var(--mustard-tag);
+            color: var(--ink-dark);
+            font-weight: 800;
+            font-size: 11.5px;
+            padding: 3px 11px;
+            border-radius: 999px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .ods-botanic-card h4 {
+            font-family: var(--font-serif);
+            font-size: 22px;
+            color: #FCFBF7;
+            margin-bottom: 8px;
+        }
+
+        .ods-detail {
+            font-size: 12.5px;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(246, 243, 235, 0.22);
+            color: rgba(246, 243, 235, 0.9);
+        }
+
+        /* ================= 5. CATÁLOGO OFICIAL (ESTILO ITINERARIO VERDE OLIVA) ================= */
+        .catalog-olive-box {
+            background: var(--olive-main);
+            color: var(--paper-cream);
+            border-radius: 22px;
+            padding: 24px;
+            border: 1px solid rgba(194, 155, 72, 0.45);
+            box-shadow: 0 16px 34px rgba(38, 46, 25, 0.16);
+        }
+
+        .catalog-olive-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(246, 243, 235, 0.22);
+            padding-bottom: 10px;
+            margin-bottom: 14px;
+        }
+
+        .catalog-olive-head h3 {
+            font-family: var(--font-serif);
+            font-size: 23px;
+            color: #FCFBF7;
+        }
+
+        .margin-tag {
+            background: var(--mustard-tag);
+            color: var(--ink-dark);
+            font-size: 10.5px;
+            font-weight: 800;
             padding: 3px 9px;
             border-radius: 999px;
         }
 
-        .dive-list {
+        .catalog-items {
             list-style: none;
             font-size: 12.5px;
         }
 
-        .dive-list li {
+        .catalog-items li {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 7px 0;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+            border-bottom: 1px dashed rgba(246, 243, 235, 0.18);
             gap: 8px;
         }
 
-        .dive-list li:last-child { border-bottom: none; }
+        .catalog-items li:last-child { border-bottom: none; }
 
-        .price-pearl {
-            background: #FFFFFF;
-            color: var(--abyssal-dark);
-            font-weight: 700;
+        .price-stamp {
+            background: var(--paper-white);
+            color: var(--olive-deep);
+            font-weight: 800;
             padding: 2px 10px;
-            border-radius: 999px;
-            font-size: 11.5px;
+            border-radius: 6px;
+            font-size: 12px;
             white-space: nowrap;
         }
 
-        .cost-sub {
-            display: block;
-            font-size: 10.5px;
-            color: rgba(255, 255, 255, 0.68);
+        /* ================= 6. SELLOS POSTALES (6 PERFILES DE CLIENTE + OBJECIONES) ================= */
+        .postage-stamp-card {
+            background: var(--paper-white);
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px dashed rgba(83, 94, 62, 0.35);
+            box-shadow: 0 10px 24px rgba(45, 53, 32, 0.08);
+            position: relative;
         }
 
-        /* ================= 6 PERFILES DE CLIENTE ================= */
-        .clients-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-            margin-bottom: 36px;
-        }
-
-        .client-profile-card {
-            background: #FFFFFF;
-            border-radius: 22px;
-            padding: 22px;
-            box-shadow: 0 12px 30px rgba(22, 43, 70, 0.05);
-            border-top: 4px solid var(--lavender-pearl);
-            color: var(--text-dark);
-        }
-
-        .client-profile-card h4 {
+        .postage-stamp-card h4 {
             font-family: var(--font-serif);
             font-size: 21px;
-            color: var(--abyssal-dark);
+            color: var(--olive-deep);
             margin-bottom: 6px;
         }
 
-        .client-profile-card p {
+        .postage-stamp-card p {
             font-size: 12.5px;
-            color: var(--text-muted);
+            color: var(--ink-muted);
             margin-bottom: 10px;
         }
 
-        .client-tactic {
-            background: var(--lavender-soft);
-            color: #4D3573;
+        .tactic-strip {
+            background: var(--paper-warm);
+            border-left: 3px solid var(--wax-gold);
+            padding: 8px 10px;
             font-size: 11.5px;
             font-weight: 600;
-            padding: 8px 12px;
-            border-radius: 12px;
+            color: var(--ink-dark);
+            border-radius: 0 8px 8px 0;
         }
 
-        /* ================= OBJECIONES Y GARANTÍAS ================= */
-        .objections-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
-
-        .obj-card {
-            background: rgba(255, 255, 255, 0.09);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 22px;
-            padding: 22px;
-        }
-
-        .obj-q {
-            font-weight: 700;
-            font-size: 13.5px;
-            color: #E2D2FA;
-            margin-bottom: 8px;
-        }
-
-        .obj-a {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        /* ================= FIDELIZACIÓN 4 PILARES ================= */
-        .loyalty-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-top: 28px;
-        }
-
-        .loyalty-card {
-            background: rgba(255, 255, 255, 0.16);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.32);
-            border-radius: 22px;
-            padding: 20px 18px;
-        }
-
-        .loyalty-card h5 {
-            font-size: 15px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .loyalty-card p {
-            font-size: 12px;
-            opacity: 0.94;
-        }
-
-        /* ================= GAMAS + PROVEEDORES ================= */
-        .pearls-trio {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-            margin-bottom: 36px;
-        }
-
-        .pearl-tier {
-            text-align: center;
-            background: #FFFFFF;
-            border-radius: 26px;
-            padding: 26px 20px;
-            box-shadow: 0 14px 35px rgba(22, 43, 70, 0.06);
-        }
-
-        .orb-sample {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin: 0 auto 12px;
-            animation: floatSlow 4.5s ease-in-out infinite;
-        }
-
-        .orb-white { background: radial-gradient(circle at 30% 30%, #FFFFFF, #E5EAF2 70%, #B8C4D4); }
-        .orb-tahiti { background: radial-gradient(circle at 30% 30%, #9E8BC2, #3A2E52 70%, #191426); }
-        .orb-gold { background: radial-gradient(circle at 30% 30%, #FFF6D6, #DFB35C 70%, #9E7324); }
-
-        .suppliers-box {
-            background: #FFFFFF;
-            border-radius: 26px;
-            padding: 26px;
-            box-shadow: 0 14px 35px rgba(22, 43, 70, 0.06);
-            border: 1px solid rgba(155, 126, 196, 0.25);
-            overflow-x: auto;
-        }
-
-        .sup-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 12.5px;
-            min-width: 680px;
-        }
-
-        .sup-table th {
-            text-align: left;
-            padding: 10px 12px;
-            background: var(--lavender-soft);
-            color: #543B7A;
-            font-weight: 700;
-        }
-
-        .sup-table td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #EDF0F5;
-        }
-
-        /* ================= 5 FASES OPERATIVAS ================= */
-        .phases-necklace {
+        /* ================= 7. PROVEEDORES Y 5 FASES ================= */
+        .phases-row {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 14px;
-            margin-bottom: 30px;
+            margin-bottom: 34px;
         }
 
-        .bead-card {
-            background: rgba(255, 255, 255, 0.16);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.32);
-            border-radius: 22px;
+        .phase-seal-card {
+            background: var(--paper-white);
+            border: 1px solid rgba(194, 155, 72, 0.4);
+            border-radius: 18px;
             padding: 18px 14px;
             text-align: center;
+            box-shadow: 0 10px 22px rgba(45, 53, 32, 0.07);
         }
 
-        .bead-num {
-            width: 32px;
-            height: 32px;
+        .phase-num {
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
-            background: #FFFFFF;
-            color: #6B4E96;
-            font-weight: 800;
-            font-size: 13px;
+            background: var(--olive-main);
+            color: var(--mustard-tag);
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 17px;
             display: grid;
             place-items: center;
             margin: 0 auto 8px;
         }
 
-        .bead-card h5 { font-size: 14px; margin-bottom: 6px; }
-        .bead-card p { font-size: 11.5px; opacity: 0.94; }
+        /* ================= 8. CIERRE CINEMATOGRÁFICO (ESTILO REFERENCIA 2 INFERIOR) ================= */
+        .cinematic-closing {
+            background: linear-gradient(180deg, rgba(42, 51, 29, 0.88) 0%, rgba(28, 35, 19, 0.96) 100%);
+            color: var(--paper-cream);
+            padding: 64px 36px 46px;
+            position: relative;
+        }
 
-        /* ================= EQUIPO DIRECTIVO ================= */
-        .team-footer-grid {
+        .filmstrip-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 16px;
             margin-top: 28px;
+            padding: 18px;
+            background: #1B2014;
+            border-radius: 16px;
+            border-top: 6px dashed rgba(246, 243, 235, 0.35);
+            border-bottom: 6px dashed rgba(246, 243, 235, 0.35);
         }
 
-        .team-pill-card {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 18px;
+        .team-frame {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(194, 155, 72, 0.35);
+            border-radius: 12px;
+            padding: 16px;
             text-align: center;
         }
 
-        .team-pill-card strong { display: block; font-size: 15px; margin-bottom: 4px; }
-        .team-pill-card span { font-size: 12px; color: #D8C5F5; display: block; margin-bottom: 6px; }
-        .team-pill-card small { font-size: 11px; opacity: 0.82; display: block; }
+        .team-frame strong {
+            font-family: var(--font-serif);
+            font-size: 19px;
+            display: block;
+            color: #FCFBF7;
+        }
+
+        .team-frame span {
+            font-size: 11.5px;
+            color: var(--mustard-tag);
+            display: block;
+            margin: 4px 0;
+            font-weight: 600;
+        }
+
+        .team-frame small {
+            font-size: 11px;
+            opacity: 0.82;
+        }
 
         /* ================= MODAL GUION ORADOR ================= */
         .script-drawer {
@@ -800,13 +809,13 @@
             right: 20px;
             width: 400px;
             max-width: 90vw;
-            background: rgba(22, 43, 70, 0.96);
-            backdrop-filter: blur(14px);
-            color: #FFF;
-            border-radius: 24px;
+            background: rgba(45, 54, 31, 0.97);
+            backdrop-filter: blur(12px);
+            color: var(--paper-cream);
+            border-radius: 20px;
             padding: 22px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+            border: 1px solid var(--wax-gold);
             z-index: 2000;
             display: none;
         }
@@ -814,10 +823,10 @@
         .script-drawer.open { display: block; }
 
         .script-drawer h4 {
-            font-size: 13px;
+            font-size: 12.5px;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: #D8C5F5;
+            color: var(--mustard-tag);
             margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
@@ -829,526 +838,509 @@
             line-height: 1.55;
             max-height: 280px;
             overflow-y: auto;
-            color: #F0F4F8;
         }
 
         @media (max-width: 1040px) {
             .nav-links { display: none; }
+            .tilted-pillars-grid { grid-template-columns: 1fr 1fr; }
+            .route-hub-grid { grid-template-columns: 1fr; }
         }
 
-        @media (max-width: 940px) {
-            .hero-grid, .grid-2, .grid-3, .clients-grid, .objections-grid, .loyalty-grid, .pearls-trio, .team-footer-grid {
-                grid-template-columns: 1fr;
-            }
-            .phases-necklace { grid-template-columns: 1fr 1fr; }
-            .floating-png-stage { max-width: 290px; }
+        @media (max-width: 860px) {
+            .hero-layout, .grid-3, .grid-2, .filmstrip-grid { grid-template-columns: 1fr; }
+            .phases-row { grid-template-columns: 1fr 1fr; }
+            .editorial-canvas { margin: 10px; border-radius: 18px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVEGACIÓN FLOTANTE -->
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
     <nav>
         <div class="nav-brand">
-            <span class="mini-pearl"></span>
+            <span class="wax-dot"></span>
             LA PERLA DEL NORTE S.L.
         </div>
         <ul class="nav-links">
-            <li><a href="#empresa">Identidad</a></li>
-            <li><a href="#sostenibilidad">ODS & Impacto</a></li>
+            <li><a href="#identidad">Identidad</a></li>
+            <li><a href="#ruta">Rutas</a></li>
+            <li><a href="#sostenibilidad">ODS</a></li>
             <li><a href="#catalogo">Catálogo</a></li>
             <li><a href="#clientes">6 Clientes</a></li>
-            <li><a href="#objeciones">Objeciones</a></li>
-            <li><a href="#fidelizacion">Fidelización</a></li>
             <li><a href="#proveedores">Proveedores</a></li>
             <li><a href="#equipo">Equipo</a></li>
         </ul>
 
-        <!-- BOTONES DE ACCESO DIRECTO -->
         <div class="nav-actions">
-            <!-- Enlace directo a tu Catálogo en GitHub Pages -->
-            <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-script" style="background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.35);">
-                <i data-lucide="book-open" width="14"></i> Catálogo Web
+            <!-- Enlace directo a tu Catálogo Online -->
+            <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-botanic" style="background: rgba(255,255,255,0.16); color: #FCFBF7; border: 1px solid rgba(233,196,64,0.45);">
+                <i data-lucide="book-open" width="13"></i> Catálogo Web
             </a>
 
             <!-- Enlace a Documentos (Cartas de pedido, comerciales...) -->
-            <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-script" style="background: #DFC39D; color: #162B46;">
-                <i data-lucide="folder-open" width="14"></i> Documentos
+            <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-botanic" style="background: var(--wax-gold); color: #1E2416;">
+                <i data-lucide="folder-open" width="13"></i> Documentos
             </a>
 
-            <!-- Botón del Guion -->
-            <button class="btn-script" onclick="toggleScript()">
-                <i data-lucide="mic" width="14"></i> Guion Orador
+            <!-- Botón Guion Orador -->
+            <button class="btn-botanic" onclick="toggleScript()">
+                <i data-lucide="mic" width="13"></i> Guion
             </button>
         </div>
     </nav>
 
-    <!-- 1. PORTADA OCEÁNICA (HERO) CON LA CONCHA PNG AISLADA -->
-    <section class="hero-ocean">
-        <div class="bubbles-container" id="bubbles"></div>
+    <!-- LIENZO EDITORIAL PRINCIPAL -->
+    <main class="editorial-canvas">
 
-        <div class="hero-grid">
-            <!-- Concha Nácar Esculpida PNG con Perlas Negras, Blanca y Dorada -->
-            <div class="floating-png-stage">
-                <div class="pearl-halo"></div>
-                <img class="png-pearl-graphic" src="perla del norte.png" alt="Concha Nácar con Perlas Negras y Blanca - La Perla del Norte" onerror="this.src='perla-norte.png'; this.onerror=null;">
+        <!-- 1. PORTADA EDITORIAL CON ARCO Y SELLO DE LACRE -->
+        <section class="hero-editorial">
+            <!-- Líneas topográficas SVG de fondo -->
+            <svg class="topo-bg" viewBox="0 0 1200 600" fill="none" stroke="#E9C440" stroke-width="1.5">
+                <path d="M-50,120 C180,40 320,240 540,150 C760,60 920,260 1250,110" />
+                <path d="M-50,260 C210,180 390,380 620,270 C850,160 1010,360 1250,240" />
+                <path d="M-50,420 C160,340 410,510 680,400 C950,290 1050,490 1250,390" />
+            </svg>
+
+            <div class="hero-layout">
+                <!-- Marco en Arco estilo invitación con Sello de Lacre Dorado -->
+                <div class="arch-envelope-frame">
+                    <img src="perla del norte.png" alt="Concha Nácar con Perlas - La Perla del Norte" onerror="this.src='perla-norte.png'; this.onerror=null;">
+                    <div class="envelope-flap-seal" title="Sello Oficial La Perla del Norte">PN</div>
+                </div>
+
+                <!-- Texto Editorial -->
+                <div>
+                    <div class="hero-script-kicker">Ecoturismo & Tradición Artesanal</div>
+                    <h1>LA PERLA DEL NORTE<br>SERVICIO TURÍSTICO</h1>
+
+                    <div class="hero-paper-excerpt">
+                        <strong>Sector Servicios (Educación, Servicios Profesionales y Ocio)</strong> — Experiencias sostenibles en el Norte de España junto a empresas y productores locales artesanales (sobaos, quesos, mermeladas, anchoas y vinos) en <strong>grupos reducidos de máximo 8 personas</strong> y paquetes flexibles a medida.
+                    </div>
+
+                    <div class="hero-tags">
+                        <span class="hero-tag">01 • Catas y Preparación Artesanal</span>
+                        <span class="hero-tag">02 • Caminatas y Lugares Históricos</span>
+                        <span class="hero-tag">03 • Actividades al Aire Libre</span>
+                    </div>
+
+                    <div class="hero-cta-row">
+                        <a href="#identidad" class="btn-editorial-primary">
+                            Explorar Dossier <i data-lucide="arrow-down" width="15"></i>
+                        </a>
+                        <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-editorial-outline">
+                            <i data-lucide="compass" width="15"></i> Ver Catálogo Online
+                        </a>
+                        <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-editorial-outline" style="border-color: var(--mustard-tag); color: #F7E19C;">
+                            <i data-lucide="file-text" width="15"></i> Cartas y Documentos
+                        </a>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <!-- Titular Editorial -->
-            <div class="hero-text-box">
-                <h1>
-                    LA PERLA<br>
-                    DEL<span class="inline-pearl"></span>NORTE<br>
-                    SERVICIO TURÍSTICO
-                </h1>
-                <div class="torn-note">
-                    <strong>Sector Servicios (Educación, Servicios Profesionales y Ocio)</strong>[cite: 31] — Turismo sostenible en el Norte de España junto a empresas y productores locales artesanales (sobaos, quesos, mermeladas, anchoas y vinos)[cite: 31, 32] en <strong>grupos reducidos de máximo 8 personas</strong> y paquetes flexibles a medida[cite: 32].
-                </div>
-                <div class="hero-pillars">
-                    <span class="hero-pillar-pill">01 • Catas y Preparación Artesanal[cite: 32]</span>
-                    <span class="hero-pillar-pill">02 • Caminatas y Lugares Históricos[cite: 32]</span>
-                    <span class="hero-pillar-pill">03 • Actividades al Aire Libre[cite: 32]</span>
-                </div>
-
-                <!-- Botones Principales de Acción -->
-                <div class="hero-cta-group">
-                    <a href="#empresa" class="btn-lavender-pill">
-                        Explorar Dossier <i data-lucide="arrow-down" width="16"></i>
-                    </a>
-
-                    <!-- Botón directo al Catálogo Online -->
-                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-lavender-pill" style="background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.4); box-shadow: none;">
-                        <i data-lucide="compass" width="16"></i> Ver Catálogo Online
-                    </a>
-
-                    <!-- Botón a la carpeta/página de Documentos -->
-                    <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-lavender-pill" style="background: #DFC39D; color: #162B46; box-shadow: 0 10px 25px rgba(223, 195, 157, 0.3);">
-                        <i data-lucide="file-text" width="16"></i> Cartas y Documentos
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEPARADOR ONDULADO BLANCO -->
-    <div class="wave-divider" style="background: var(--abyssal-dark);">
-        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-            <path d="M0,25 C180,60 340,0 560,30 C780,60 980,5 1200,32 L1200,60 L0,60 Z" fill="#F7F9FC"/>
-        </svg>
-    </div>
-
-    <!-- 2. IDENTIDAD ESTRATÉGICA, MISIÓN/VISIÓN/VALORES Y DIFERENCIACIÓN -->
-    <section class="section-pearl" id="empresa">
-        <div class="container">
-            <h2 class="editorial-title reveal">IDENTIDAD, MISIÓN <span class="inline-pearl"></span> Y PROPUESTA DE VALOR</h2>
-            <p class="editorial-subtitle reveal">
-                Conectamos el deseo de viajar y descansar con el desarrollo de la economía rural, protegiendo las tradiciones y el entorno natural del Norte de España[cite: 31, 32].
+        <!-- 2. IDENTIDAD, 4 TARJETAS INCLINADAS Y COMPARATIVA -->
+        <section class="section-block" id="identidad">
+            <div class="section-kicker reveal">Nuestra Esencia</div>
+            <h2 class="section-heading reveal">Identidad, Misión y Propuesta de Valor</h2>
+            <p class="section-lead reveal">
+                Conectamos el deseo de viajar y descansar con el impulso directo a la economía rural, preservando la cultura y el entorno natural del Norte de España.
             </p>
 
-            <!-- Misión, Visión, Valores y Propósito -->
-            <div class="grid-3" style="margin-bottom: 24px;">
-                <div class="specimen-card reveal">
-                    <span class="specimen-badge">01 • Misión, Visión y Valores</span>
-                    <h3>Horizonte Estratégico</h3>
-                    <ul class="protocol-list">
-                        <li><i data-lucide="compass" width="16" color="#9B7EC4"></i> <div><strong>Misión:</strong> Convertir el Norte de España en una atracción turística referente a nivel nacional e internacional y afectar de forma favorable a la economía del lugar[cite: 31, 32].</div></li>
-                        <li><i data-lucide="eye" width="16" color="#9B7EC4"></i> <div><strong>Visión:</strong> Ser líderes de la industria turística sostenible del Norte, expandiéndonos progresivamente a otras CCAA vecinas[cite: 31, 32].</div></li>
-                        <li><i data-lucide="heart-handshake" width="16" color="#9B7EC4"></i> <div><strong>3 Valores Clave:</strong> <em>Calidad</em> (adaptada al cliente), <em>Sostenibilidad</em> (redes locales y respeto ambiental) e <em>Innovación</em> (tecnología ecológica)[cite: 31].</div></li>
+            <!-- 4 Tarjetas Inclinadas (Inspiración Referencia 2) -->
+            <div class="tilted-pillars-grid reveal">
+                <div class="tilted-card">
+                    <div class="tilted-icon"><i data-lucide="users" width="18"></i></div>
+                    <h4>Máx. 8 Viajeros</h4>
+                    <p>Sin masificación. Trato cercano, ritmo pausado y acceso exclusivo a talleres rurales.</p>
+                </div>
+                <div class="tilted-card">
+                    <div class="tilted-icon"><i data-lucide="sliders" width="18"></i></div>
+                    <h4>100% A Medida</h4>
+                    <p>Paquetes variables donde cada viajero elige sus actividades y gastronomía.</p>
+                </div>
+                <div class="tilted-card">
+                    <div class="tilted-icon"><i data-lucide="sprout" width="18"></i></div>
+                    <h4>Productores Km 0</h4>
+                    <p>Alianza directa con artesanos de sobaos, quesos, anchoas, mermeladas y vinos.</p>
+                </div>
+                <div class="tilted-card">
+                    <div class="tilted-icon"><i data-lucide="shield-check" width="18"></i></div>
+                    <h4>Canal Directo</h4>
+                    <p>Sin intermediarios. Garantía de desistimiento en 14 días naturales y soporte 24/7.</p>
+                </div>
+            </div>
+
+            <!-- 3 Bloques de Papel Rasgado -->
+            <div class="grid-3" style="margin-bottom: 34px;">
+                <div class="torn-paper-card reveal">
+                    <div class="editorial-card-header">
+                        <h3>Misión, Visión y Valores</h3>
+                        <div class="wax-seal-badge">01</div>
+                    </div>
+                    <ul class="editorial-list">
+                        <li><i data-lucide="compass" width="16" color="#535E3E"></i> <div><strong>Misión:</strong> Convertir el Norte de España en referente turístico nacional e internacional favoreciendo la economía local.</div></li>
+                        <li><i data-lucide="eye" width="16" color="#535E3E"></i> <div><strong>Visión:</strong> Liderar el turismo sostenible del Norte, expandiéndonos progresivamente a otras CCAA vecinas.</div></li>
+                        <li><i data-lucide="award" width="16" color="#535E3E"></i> <div><strong>Valores:</strong> <em>Calidad</em> adaptada, <em>Sostenibilidad</em> real e <em>Innovación</em> tecnológica ecológica.</div></li>
                     </ul>
                 </div>
 
-                <div class="specimen-card reveal">
-                    <span class="specimen-badge">02 • Público y Solución</span>
-                    <h3>¿A quién nos dirigimos?</h3>
-                    <ul class="protocol-list">
-                        <li><i data-lucide="users" width="16" color="#9B7EC4"></i> <div><strong>Viajeros Conscientes:</strong> Personas que desean vivir el ciclo real de los productos artesanales, descubrir pueblos poco conocidos y preservar el destino para futuras generaciones[cite: 32].</div></li>
-                        <li><i data-lucide="sparkles" width="16" color="#9B7EC4"></i> <div><strong>Doble Solución:</strong> Satisface la necesidad emocional de descanso y aventura mientras impulsa la economía local y da visibilidad a pequeños artesanos[cite: 32].</div></li>
-                        <li><i data-lucide="sliders" width="16" color="#9B7EC4"></i> <div><strong>Paquetes Variables:</strong> No imponemos rutas rígidas; el viajero puede elegir actividades a su medida en grupos de <strong>máx. 8 personas</strong>[cite: 32].</div></li>
+                <div class="torn-paper-card reveal">
+                    <div class="editorial-card-header">
+                        <h3>Público y Doble Solución</h3>
+                        <div class="wax-seal-badge">02</div>
+                    </div>
+                    <ul class="editorial-list">
+                        <li><i data-lucide="heart" width="16" color="#535E3E"></i> <div><strong>Viajeros Conscientes:</strong> Personas que buscan vivir el ciclo real de los productos artesanales y descubrir pueblos auténticos.</div></li>
+                        <li><i data-lucide="store" width="16" color="#535E3E"></i> <div><strong>Impacto Rural:</strong> Damos visibilidad a pequeños obradores, museos locales y productores familiares.</div></li>
+                        <li><i data-lucide="map-pin" width="16" color="#535E3E"></i> <div><strong>Captación Directa:</strong> Web oficial, redes sociales, aeropuertos, estaciones de tren, bus y ferry.</div></li>
                     </ul>
                 </div>
 
-                <div class="specimen-card reveal">
-                    <span class="specimen-badge">03 • Ficha Mercantil & Legal</span>
-                    <h3>La Perla del Norte S.L.</h3>
-                    <table class="data-table">
-                        <tr><td>CIF / Capital</td><td><strong>B-3984729</strong> • 3.000,00 €</td></tr>
-                        <tr><td>Sector / CNAE</td><td>Servicios • 7912 / 7911[cite: 31]</td></tr>
-                        <tr><td>Sede Central</td><td>Paseo de Pereda, 15, Santander</td></tr>
-                        <tr><td>Canal Directo</td><td>Sin intermediarios • Oficinas, web, aeropuertos, tren, bus y ferry[cite: 32]</td></tr>
-                        <tr><td>Devoluciones</td><td><strong>14 días naturales</strong> desistimiento y reembolso (No-Show sin reembolso)</td></tr>
+                <div class="torn-paper-card reveal">
+                    <div class="editorial-card-header">
+                        <h3>Ficha Mercantil S.L.</h3>
+                        <div class="wax-seal-badge">03</div>
+                    </div>
+                    <table class="clean-table">
+                        <tr><td><strong>Razón Social</strong></td><td>La Perla del Norte S.L.</td></tr>
+                        <tr><td><strong>CIF / Capital</strong></td><td>B-3984729 • 3.000,00 €</td></tr>
+                        <tr><td><strong>Sector / CNAE</strong></td><td>Servicios • 7912 / 7911</td></tr>
+                        <tr><td><strong>Sede Central</strong></td><td>Paseo de Pereda, 15, Santander</td></tr>
+                        <tr><td><strong>Desistimiento</strong></td><td>14 días naturales (No-Show sin reembolso)</td></tr>
                     </table>
                 </div>
             </div>
 
-            <!-- Tabla Comparativa: La Perla del Norte vs Agencia Tradicional -->
-            <div class="compare-box reveal">
-                <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--abyssal-dark); margin-bottom: 12px;">
-                    Diferenciación: La Perla del Norte S.L. frente al Turismo Tradicional
+            <!-- Tabla Comparativa -->
+            <div class="torn-paper-card reveal">
+                <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--olive-deep); margin-bottom: 12px;">
+                    La Perla del Norte S.L. frente a la Agencia Tradicional
                 </h3>
-                <table class="compare-table">
+                <table class="clean-table">
                     <thead>
                         <tr>
                             <th>Dimensión</th>
-                            <th>Agencia Tradicional[cite: 32]</th>
-                            <th>La Perla del Norte S.L. (Nuestro Modelo)[cite: 32]</th>
+                            <th>Agencia Tradicional</th>
+                            <th>La Perla del Norte S.L. (Nuestro Modelo)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><strong>Formato de Paquetes</strong></td>
-                            <td>Paquetes fijos, rígidos y masificados en destinos saturados[cite: 32].</td>
-                            <td><strong>Paquetes variables y personalizables</strong> en grupos reducidos (máx. 8 personas) por rutas auténticas[cite: 31, 32].</td>
+                            <td>Paquetes fijos, rígidos y masificados en destinos saturados.</td>
+                            <td><strong>Paquetes variables y personalizables</strong> en grupos reducidos (máx. 8 personas) por rutas poco exploradas.</td>
                         </tr>
                         <tr>
                             <td><strong>Enfoque e Impacto</strong></td>
-                            <td>Prioriza el beneficio rápido sin cuidar tradiciones ni entorno[cite: 32].</td>
-                            <td><strong>Sostenibilidad integral:</strong> apoyo directo a artesanos, museos locales y respeto a la idiosincrasia rural[cite: 31, 32].</td>
+                            <td>Prioriza el beneficio rápido sin cuidar tradiciones ni entorno.</td>
+                            <td><strong>Sostenibilidad integral:</strong> apoyo directo a artesanos, museos locales y respeto a la idiosincrasia rural.</td>
                         </tr>
                         <tr>
-                            <td><strong>Canales de Captación</strong></td>
-                            <td>Dependencia de grandes turoperadores e intermediarios[cite: 32].</td>
-                            <td><strong>Canal directo</strong> (sin intermediarios), redes sociales, web oficial, aeropuertos, estaciones de tren, bus y ferry[cite: 32].</td>
+                            <td><strong>Canales de Venta</strong></td>
+                            <td>Dependencia de grandes turoperadores e intermediarios.</td>
+                            <td><strong>Canal directo sin intermediarios:</strong> web, redes sociales, aeropuertos, estaciones de tren, bus y ferry.</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
-    </section>
 
-    <!-- SEPARADOR ONDULADO AZUL PROFUNDO -->
-    <div class="wave-divider" style="background: var(--pearl-white);">
-        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-            <path d="M0,35 C240,0 450,55 720,20 C950,-5 1080,45 1200,25 L1200,60 L0,60 Z" fill="#23436B"/>
-        </svg>
-    </div>
+            <!-- 3. MAPA DE PROGRAMA / EXPERIENCIAS (INSPIRACIÓN SILUETA CENTRAL + ETIQUETAS AMARILLAS) -->
+            <div class="route-map-showcase reveal" id="ruta">
+                <div class="section-kicker">Itinerario & Experiencias</div>
+                <h3 class="section-heading" style="font-size: 32px; margin-bottom: 26px;">Programa del Norte & Gamas de Viaje</h3>
 
-    <!-- 3. COMPROMISO ODS, RIESGOS, OPORTUNIDADES E IMPACTO AMBIENTAL -->
-    <section class="section-deep" id="sostenibilidad">
-        <div class="container">
-            <h2 class="editorial-title reveal">SOSTENIBILIDAD Y COMPROMISO ODS</h2>
-            <p class="editorial-subtitle reveal">
-                Alineamos nuestra operación turística con los Objetivos de Desarrollo Sostenible (ODS 8, 9, 10, 11 y 12)[cite: 31], gestionando activamente riesgos ambientales y sociales[cite: 31, 32].
+                <div class="route-hub-grid">
+                    <div>
+                        <div class="route-stop">
+                            <span class="mustard-pill">Gama Básica • Express</span>
+                            <h5>Ruta Cantábrica Express</h5>
+                            <p>Jóvenes e independientes. Transporte y entradas autoguiadas en Santander y Santillana del Mar.</p>
+                        </div>
+                        <div class="route-stop">
+                            <span class="mustard-pill">Gama Estándar • Más Vendido</span>
+                            <h5>Esencia Pasiega y Picos</h5>
+                            <p>Familias y parejas. Alojamiento rural, guía local, catas artesanales, Comillas y Potes.</p>
+                        </div>
+                        <div class="route-stop">
+                            <span class="mustard-pill">Gama Premium • VIP</span>
+                            <h5>Cantabria Infinita Deluxe</h5>
+                            <p>100% privado, Paradores/5*, gastronomía Michelin y velero o helicóptero.</p>
+                        </div>
+                    </div>
+
+                    <!-- Emblema Central -->
+                    <div class="north-emblem-center">
+                        <i data-lucide="compass" width="38" color="#E9C440" style="margin-bottom: 8px;"></i>
+                        <div style="font-family: var(--font-script); font-size: 28px; color: #E9C440; line-height: 1;">Norte de España</div>
+                        <strong style="font-family: var(--font-serif); font-size: 22px; letter-spacing: 0.05em; margin: 4px 0;">PROGRAMA DE RUTA</strong>
+                        <span style="font-size: 11.5px; opacity: 0.88;">3 Pilares: Gastronomía, Historia y Ecoturismo</span>
+                    </div>
+
+                    <div>
+                        <div class="route-stop">
+                            <span class="mustard-pill">Pilar 01 • Gastronomía</span>
+                            <h5>Obradores, Cavas y Cofradías</h5>
+                            <p>Elaboración y cata de sobaos pasiegos, quesos artesanales, anchoas de Santoña y vinos cántabros.</p>
+                        </div>
+                        <div class="route-stop">
+                            <span class="mustard-pill">Pilar 02 • Patrimonio</span>
+                            <h5>Pueblos Históricos y Museos</h5>
+                            <p>Visitas guiadas a conjuntos históricos, villas marineras y pequeños museos locales.</p>
+                        </div>
+                        <div class="route-stop">
+                            <span class="mustard-pill">Pilar 03 • Naturaleza Activa</span>
+                            <h5>Senderismo, Rafting y Espeleología</h5>
+                            <p>Rutas a pie, bici eléctrica o caballo en Picos de Europa, Valle del Asón y costa cantábrica.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. COMPROMISO ODS E IMPACTO AMBIENTAL (FRANJA VERDE OLIVA PROFUNDO) -->
+        <section class="section-olive-band" id="sostenibilidad">
+            <div class="section-kicker reveal">Agenda 2030</div>
+            <h2 class="section-heading reveal">Sostenibilidad y Compromiso ODS</h2>
+            <p class="section-lead reveal">
+                Alineamos cada ruta con los Objetivos de Desarrollo Sostenible (ODS 8, 9, 10, 11 y 12), anticipando riesgos y generando oportunidades reales en el medio rural.
             </p>
 
             <div class="grid-2" style="margin-bottom: 22px;">
-                <!-- ODS 8 y 9 -->
-                <div class="ods-card reveal">
-                    <div class="ods-header">
-                        <span class="ods-num">ODS 8 & 9[cite: 31]</span>
-                        <h4>Trabajo Decente, Crecimiento e Innovación[cite: 31]</h4>
-                    </div>
-                    <p style="font-size: 13px; opacity: 0.9;">Fomentamos empleo local estable respetando derechos laborales, conciliación familiar y dinamizando pequeños talleres y museos poco conocidos[cite: 31].</p>
-                    <div class="ods-tag-box"><strong>Riesgos:</strong> Estacionalidad, subida de costes con proveedores locales y falta de personal cualificado[cite: 31].</div>
-                    <div class="ods-tag-box"><strong>Oportunidades y Acciones:</strong> Contratos indefinidos, integración de productores locales y rutas en zonas menos desarrolladas[cite: 31].</div>
+                <div class="ods-botanic-card reveal">
+                    <span class="ods-badge-gold">ODS 8 & 9</span>
+                    <h4>Trabajo Decente, Crecimiento e Innovación</h4>
+                    <p style="font-size: 13px; opacity: 0.92;">Empleo local estable con conciliación familiar y dinamización de talleres y museos poco conocidos.</p>
+                    <div class="ods-detail"><strong>Riesgos:</strong> Estacionalidad, subida de costes locales y falta de personal cualificado.</div>
+                    <div class="ods-detail"><strong>Acciones:</strong> Contratos indefinidos, integración de productores locales y rutas en zonas menos desarrolladas.</div>
                 </div>
 
-                <!-- ODS 10 -->
-                <div class="ods-card reveal">
-                    <div class="ods-header">
-                        <span class="ods-num">ODS 10[cite: 31]</span>
-                        <h4>Reducción de las Desigualdades Rurales[cite: 31]</h4>
-                    </div>
-                    <p style="font-size: 13px; opacity: 0.9;">Disminuimos la brecha económica en comunidades rurales impulsando la inserción de colectivos con mayor dificultad de empleabilidad[cite: 31].</p>
-                    <div class="ods-tag-box"><strong>Riesgos:</strong> Descontento local por falta de oportunidades o empleo precario en el sector[cite: 31].</div>
-                    <div class="ods-tag-box"><strong>Oportunidades y Acciones:</strong> Salarios dignos, reinversión local y contratación inclusiva (<strong>jóvenes en primer contrato, mayores de 52 años, mujeres rurales y personas con discapacidad</strong>)[cite: 31].</div>
+                <div class="ods-botanic-card reveal">
+                    <span class="ods-badge-gold">ODS 10</span>
+                    <h4>Reducción de las Desigualdades Rurales</h4>
+                    <p style="font-size: 13px; opacity: 0.92;">Inserción laboral de colectivos con mayor dificultad de acceso al empleo en entornos rurales.</p>
+                    <div class="ods-detail"><strong>Riesgos:</strong> Descontento local por falta de oportunidades o precariedad laboral.</div>
+                    <div class="ods-detail"><strong>Acciones:</strong> Salarios dignos y contratación inclusiva (<strong>jóvenes en primer contrato, mayores de 52 años, mujeres rurales y personas con discapacidad</strong>).</div>
                 </div>
 
-                <!-- ODS 11 -->
-                <div class="ods-card reveal">
-                    <div class="ods-header">
-                        <span class="ods-num">ODS 11[cite: 31]</span>
-                        <h4>Ciudades y Comunidades Sostenibles[cite: 31]</h4>
-                    </div>
-                    <p style="font-size: 13px; opacity: 0.9;">Creamos comunidades resilientes evitando la masificación y preservando las infraestructuras y espacios comunes de los pueblos[cite: 31].</p>
-                    <div class="ods-tag-box"><strong>Riesgos:</strong> Degradación ambiental por turismo masivo y presión sobre servicios públicos[cite: 31].</div>
-                    <div class="ods-tag-box"><strong>Oportunidades y Acciones:</strong> Grupos máx. 8 personas, movilidad limpia (bici, vehículos eléctricos, transporte compartido) y <strong>rutas a pie, bici o caballo</strong> en coordinación con autoridades ambientales[cite: 31].</div>
+                <div class="ods-botanic-card reveal">
+                    <span class="ods-badge-gold">ODS 11</span>
+                    <h4>Ciudades y Comunidades Sostenibles</h4>
+                    <p style="font-size: 13px; opacity: 0.92;">Preservación de la infraestructura rural evitando la saturación turística.</p>
+                    <div class="ods-detail"><strong>Riesgos:</strong> Degradación ambiental por turismo masivo y presión sobre servicios públicos.</div>
+                    <div class="ods-detail"><strong>Acciones:</strong> Grupos máx. 8 personas, vehículos eléctricos/compartidos y <strong>rutas a pie, bici o caballo</strong> coordinadas con autoridades ambientales.</div>
                 </div>
 
-                <!-- ODS 12 -->
-                <div class="ods-card reveal">
-                    <div class="ods-header">
-                        <span class="ods-num">ODS 12[cite: 31]</span>
-                        <h4>Producción y Consumo Responsables[cite: 31]</h4>
-                    </div>
-                    <p style="font-size: 13px; opacity: 0.9;">Involucramos al viajero en el respeto por el patrimonio natural y cultural mediante consumo de kilómetro cero[cite: 31].</p>
-                    <div class="ods-tag-box"><strong>Riesgos:</strong> Rechazo vecinal por falta de respeto cultural o presión sobre vivienda y servicios[cite: 31].</div>
-                    <div class="ods-tag-box"><strong>Oportunidades y Acciones:</strong> Alianzas con productores de <strong>sobaos, quesadas, quesos y mermeladas</strong> de bajo impacto social, más ecoturismo activo (espeleología, rafting, senderismo)[cite: 31].</div>
+                <div class="ods-botanic-card reveal">
+                    <span class="ods-badge-gold">ODS 12</span>
+                    <h4>Producción y Consumo Responsables</h4>
+                    <p style="font-size: 13px; opacity: 0.92;">Fomento del consumo de kilómetro cero y respeto activo por el patrimonio natural.</p>
+                    <div class="ods-detail"><strong>Riesgos:</strong> Rechazo vecinal o presión sobre vivienda y recursos.</div>
+                    <div class="ods-detail"><strong>Acciones:</strong> Alianzas con productores de <strong>sobaos, quesadas, quesos y mermeladas</strong> y ecoturismo activo (espeleología, rafting, senderismo).</div>
                 </div>
             </div>
 
-            <!-- Gestión del Impacto Ambiental y Social -->
-            <div class="ods-card reveal" style="border-color: rgba(216, 197, 245, 0.45);">
-                <h4 style="font-family: var(--font-serif); font-size: 21px; margin-bottom: 8px;">🌱 Control del Impacto Ambiental y Social en Ruta[cite: 32]</h4>
-                <p style="font-size: 13px; opacity: 0.92;">
-                    Identificamos y mitigamos los tres principales impactos de la actividad[cite: 32]: <strong>(1) Residuos en zonas rurales</strong> (protocolo cero basura)[cite: 32], <strong>(2) Molestias a habitantes locales</strong> (grupos reducidos y respeto vecinal)[cite: 31, 32] y <strong>(3) Huella de transporte</strong> (optimización de rutas, transporte colectivo y movilidad eléctrica/no motorizada)[cite: 31, 32].
+            <div class="ods-botanic-card reveal" style="background: rgba(233, 196, 64, 0.12);">
+                <h4>🌿 Protocolo de Control Ambiental y Social en Ruta</h4>
+                <p style="font-size: 13px;">
+                    Mitigamos los tres impactos clave de nuestra actividad: <strong>(1) Residuos en zonas rurales</strong> (política cero plásticos y recogida integral), <strong>(2) Molestias a vecinos</strong> (grupos reducidos y horarios respetuosos) y <strong>(3) Huella de carbono en transporte</strong> (optimización de trayectos, transporte colectivo y movilidad limpia).
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SEPARADOR ONDULADO BLANCO -->
-    <div class="wave-divider" style="background: var(--abyssal-dark);">
-        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-            <path d="M0,20 C220,55 480,5 760,38 C960,55 1100,15 1200,30 L1200,60 L0,60 Z" fill="#F7F9FC"/>
-        </svg>
-    </div>
-
-    <!-- 4. CATÁLOGO OFICIAL + ESTRUCTURA ECONÓMICA -->
-    <section class="section-pearl" id="catalogo">
-        <div class="container">
-            <h2 class="editorial-title reveal">CATÁLOGO DE EXPERIENCIAS <span class="inline-pearl"></span> Y MÁRGENES</h2>
-            <p class="editorial-subtitle reveal">
+        <!-- 5. CATÁLOGO OFICIAL DE 15 EXPERIENCIAS Y MÁRGENES -->
+        <section class="section-block" id="catalogo">
+            <div class="section-kicker reveal">Tarifas Oficiales</div>
+            <h2 class="section-heading reveal">Catálogo de Experiencias y Márgenes</h2>
+            <p class="section-lead reveal">
                 15 experiencias y productos oficiales (21% IVA incluido). Tours con <strong>50% de margen sobre coste</strong> y souvenirs artesanales con <strong>20% de margen</strong>.
                 <br>
-                <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; color: #6B4E96; font-weight: 700; text-decoration: underline;">
+                <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; color: var(--olive-deep); font-weight: 700; text-decoration: underline;">
                     Abrir Catálogo Interactivo Completo en Web <i data-lucide="external-link" width="14"></i>
                 </a>
             </p>
 
             <div class="grid-3">
-                <!-- Categoría A -->
-                <div class="specimen-card reveal" style="background: var(--abyssal-dark); color: #FFF;">
-                    <div class="dive-card-head">
+                <div class="catalog-olive-box reveal">
+                    <div class="catalog-olive-head">
                         <h3>A. Sabores del Norte</h3>
-                        <span class="margin-pill">Margen 50%</span>
+                        <span class="margin-tag">Margen 50%</span>
                     </div>
-                    <ul class="dive-list">
-                        <li><div>1. Sobaos y Queserías <span class="cost-sub">Coste: 82,64 € | 1 día</span></div><span class="price-pearl">150 €</span></li>
-                        <li><div>2. Queserías Valles Pasiegos <span class="cost-sub">Coste: 82,64 € | 1 día</span></div><span class="price-pearl">150 €</span></li>
-                        <li><div>3. Granjas Ecológicas <span class="cost-sub">Coste: 55,10 € | 1 día</span></div><span class="price-pearl">100 €</span></li>
-                        <li><div>4. Ruta Vinos Cántabros <span class="cost-sub">Coste: 93,66 € | 6-8 h</span></div><span class="price-pearl">170 €</span></li>
-                        <li><div>5. Anchoas de Santoña <span class="cost-sub">Coste: 66,12 € | 5-7 h</span></div><span class="price-pearl">120 €</span></li>
+                    <ul class="catalog-items">
+                        <li><div>1. Sobaos y Queserías <small style="display:block;opacity:0.78;">Coste: 82,64 € | 1 día</small></div><span class="price-stamp">150 €</span></li>
+                        <li><div>2. Queserías Valles Pasiegos <small style="display:block;opacity:0.78;">Coste: 82,64 € | 1 día</small></div><span class="price-stamp">150 €</span></li>
+                        <li><div>3. Granjas Ecológicas <small style="display:block;opacity:0.78;">Coste: 55,10 € | 1 día</small></div><span class="price-stamp">100 €</span></li>
+                        <li><div>4. Ruta Vinos Cántabros <small style="display:block;opacity:0.78;">Coste: 93,66 € | 6-8 h</small></div><span class="price-stamp">170 €</span></li>
+                        <li><div>5. Anchoas de Santoña <small style="display:block;opacity:0.78;">Coste: 66,12 € | 5-7 h</small></div><span class="price-stamp">120 €</span></li>
                     </ul>
                 </div>
 
-                <!-- Categoría B -->
-                <div class="specimen-card reveal" style="background: var(--abyssal-dark); color: #FFF;">
-                    <div class="dive-card-head">
+                <div class="catalog-olive-box reveal">
+                    <div class="catalog-olive-head">
                         <h3>B. Vistas del Norte</h3>
-                        <span class="margin-pill">Margen 50%</span>
+                        <span class="margin-tag">Margen 50%</span>
                     </div>
-                    <ul class="dive-list">
-                        <li><div>6. Camino Lebaniego (72 km) <span class="cost-sub">Coste: 248,00 € | 3 días</span></div><span class="price-pearl">450 €</span></li>
-                        <li><div>7. Ruta del Cares (12 km) <span class="cost-sub">Coste: 77,00 € | 4 h</span></div><span class="price-pearl">140 €</span></li>
-                        <li><div>8. Lagos de Covadonga <span class="cost-sub">Coste: 77,00 € | 6-8 h</span></div><span class="price-pearl">140 €</span></li>
-                        <li><div>9. Costas y Playas Cantabria <span class="cost-sub">Coste: 77,00 € | 6-8 h</span></div><span class="price-pearl">140 €</span></li>
-                        <li><div>10. Collados Valle Asón <span class="cost-sub">Coste: 66,00 € | 12 km</span></div><span class="price-pearl">120 €</span></li>
+                    <ul class="catalog-items">
+                        <li><div>6. Camino Lebaniego (72 km) <small style="display:block;opacity:0.78;">Coste: 248,00 € | 3 días</small></div><span class="price-stamp">450 €</span></li>
+                        <li><div>7. Ruta del Cares (12 km) <small style="display:block;opacity:0.78;">Coste: 77,00 € | 4 h</small></div><span class="price-stamp">140 €</span></li>
+                        <li><div>8. Lagos de Covadonga <small style="display:block;opacity:0.78;">Coste: 77,00 € | 6-8 h</small></div><span class="price-stamp">140 €</span></li>
+                        <li><div>9. Costas y Playas Cantabria <small style="display:block;opacity:0.78;">Coste: 77,00 € | 6-8 h</small></div><span class="price-stamp">140 €</span></li>
+                        <li><div>10. Collados Valle Asón <small style="display:block;opacity:0.78;">Coste: 66,00 € | 12 km</small></div><span class="price-stamp">120 €</span></li>
                     </ul>
                 </div>
 
-                <!-- Categoría C -->
-                <div class="specimen-card reveal" style="background: var(--abyssal-dark); color: #FFF;">
-                    <div class="dive-card-head">
+                <div class="catalog-olive-box reveal">
+                    <div class="catalog-olive-head">
                         <h3>C. Souvenirs Tierra</h3>
-                        <span class="margin-pill">Margen 20%</span>
+                        <span class="margin-tag">Margen 20%</span>
                     </div>
-                    <ul class="dive-list">
-                        <li><div>11. Lote 'Sabores Cantabria' <span class="cost-sub">Coste: 51,66 € (Sobaos, queso, anchoas, vino)</span></div><span class="price-pearl">75 €</span></li>
-                        <li><div>12. Imanes Artesanales <span class="cost-sub">Coste: 6,88 € (Hechos a mano)</span></div><span class="price-pearl">10 €</span></li>
-                        <li><div>13. Tazas Artesanales <span class="cost-sub">Coste: 13,78 € (Cerámica pintada)</span></div><span class="price-pearl">25 €</span></li>
-                        <li><div>14. Platos Decorativos <span class="cost-sub">Coste: 13,78 € (Cerámica regional)</span></div><span class="price-pearl">25 €</span></li>
-                        <li><div>15. Llaveros Tallados <span class="cost-sub">Coste: 10,33 € (Madera noble)</span></div><span class="price-pearl">15 €</span></li>
+                    <ul class="catalog-items">
+                        <li><div>11. Lote 'Sabores Cantabria' <small style="display:block;opacity:0.78;">Coste: 51,66 € (Sobaos, queso, anchoas, vino)</small></div><span class="price-stamp">75 €</span></li>
+                        <li><div>12. Imanes Artesanales <small style="display:block;opacity:0.78;">Coste: 6,88 € (Hechos a mano)</small></div><span class="price-stamp">10 €</span></li>
+                        <li><div>13. Tazas Artesanales <small style="display:block;opacity:0.78;">Coste: 13,78 € (Cerámica pintada)</small></div><span class="price-stamp">25 €</span></li>
+                        <li><div>14. Platos Decorativos <small style="display:block;opacity:0.78;">Coste: 13,78 € (Cerámica regional)</small></div><span class="price-stamp">25 €</span></li>
+                        <li><div>15. Llaveros Tallados <small style="display:block;opacity:0.78;">Coste: 10,33 € (Madera noble)</small></div><span class="price-stamp">15 €</span></li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SEPARADOR ONDULADO AZUL PROFUNDO -->
-    <div class="wave-divider" style="background: var(--pearl-white);">
-        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-            <path d="M0,35 C240,0 450,55 720,20 C950,-5 1080,45 1200,25 L1200,60 L0,60 Z" fill="#23436B"/>
-        </svg>
-    </div>
-
-    <!-- 5. PSICOLOGÍA DE VENTAS (6 PERFILES) Y OBJECIONES -->
-    <section class="section-deep" id="clientes">
-        <div class="container">
-            <h2 class="editorial-title reveal">ESTRATEGIAS POR PERFIL Y OBJECIONES</h2>
-            <p class="editorial-subtitle reveal">
-                Adaptamos el discurso comercial a los 6 tipos de clientes y resolvemos con garantías cualquier objeción de precio, vuelos o clima.
+        <!-- 6. PSICOLOGÍA DE VENTAS (SELLOS POSTALES), OBJECIONES Y FIDELIZACIÓN -->
+        <section class="section-block" id="clientes" style="background: var(--paper-warm);">
+            <div class="section-kicker reveal">Atención Personalizada</div>
+            <h2 class="section-heading reveal">6 Perfiles de Cliente y Objeciones</h2>
+            <p class="section-lead reveal">
+                Adaptamos nuestro asesoramiento comercial a cada personalidad de viajero y respondemos con garantías frente a precio, vuelos o climatología.
             </p>
 
-            <div class="clients-grid">
-                <div class="client-profile-card reveal">
-                    <span class="specimen-badge">Perfil 01</span>
+            <!-- 6 Perfiles estilo Sello Postal -->
+            <div class="grid-3" style="margin-bottom: 34px;">
+                <div class="postage-stamp-card reveal">
+                    <span class="mustard-pill">Perfil 01</span>
                     <h4>Cliente Indeciso</h4>
-                    <p>Se abruma ante demasiadas opciones (costa vs. montaña, solo vs. acompañado) y posterga la decisión.</p>
-                    <div class="client-tactic">💡 Táctica: Acotar opciones y preguntar: "¿Qué es lo más importante para ti al elegir destino?"</div>
+                    <p>Se abruma ante demasiadas opciones (costa vs. montaña, solo vs. acompañado) y posterga su reserva.</p>
+                    <div class="tactic-strip">💡 Acotar opciones y preguntar: "¿Qué es lo más importante para ti al elegir destino?"</div>
                 </div>
 
-                <div class="client-profile-card reveal">
-                    <span class="specimen-badge">Perfil 02</span>
+                <div class="postage-stamp-card reveal">
+                    <span class="mustard-pill">Perfil 02</span>
                     <h4>Cliente Racional</h4>
-                    <p>Planifica con antelación (ej. luna de miel), exige términos claros, testimonios reales, ubicaciones y precio cerrado.</p>
-                    <div class="client-tactic">💡 Táctica: Mostrar garantías escritas, reseñas verificadas y precio inamovible.</div>
+                    <p>Planifica con antelación (ej. luna de miel), exige términos claros, testimonios reales y precio cerrado.</p>
+                    <div class="tactic-strip">💡 Mostrar garantías por escrito, reseñas verificadas y precio inamovible.</div>
                 </div>
 
-                <div class="client-profile-card reveal">
-                    <span class="specimen-badge">Perfil 03</span>
+                <div class="postage-stamp-card reveal">
+                    <span class="mustard-pill">Perfil 03</span>
                     <h4>Cliente Exigente</h4>
-                    <p>Conoce el destino, trae su propio itinerario/menú y pone a prueba nuestra diferenciación frente a otras agencias.</p>
-                    <div class="client-tactic">💡 Táctica: Destacar grupos VIP (máx. 8 pers.) y preguntar por amenidades y privacidad.</div>
+                    <p>Conoce el destino, trae su propio itinerario/menú y pone a prueba nuestra diferenciación.</p>
+                    <div class="tactic-strip">💡 Destacar grupos VIP (máx. 8 pers.) y consultar amenidades y privacidad.</div>
                 </div>
 
-                <div class="client-profile-card reveal">
-                    <span class="specimen-badge">Perfil 04</span>
+                <div class="postage-stamp-card reveal">
+                    <span class="mustard-pill">Perfil 04</span>
                     <h4>Cliente Conflictivo</h4>
-                    <p>Actitud soberbia o exigencia de descuentos injustificados criticando detalles menores del establecimiento.</p>
-                    <div class="client-tactic">💡 Táctica: Mantener la calma, leer juntos políticas de reembolso y garantizar itinerario por escrito.</div>
+                    <p>Actitud exigente buscando descuentos injustificados o criticando detalles menores.</p>
+                    <div class="tactic-strip">💡 Mantener la calma, revisar juntos la política de reembolso y firmar itinerario.</div>
                 </div>
 
-                <div class="client-profile-card reveal">
-                    <span class="specimen-badge">Perfil 05</span>
+                <div class="postage-stamp-card reveal">
+                    <span class="mustard-pill">Perfil 05</span>
                     <h4>Cliente Impulsivo</h4>
-                    <p>Motivado por vídeos visuales (ej. Playa del Sardinero), reserva para el mismo fin de semana asumiendo +13% última hora.</p>
-                    <div class="client-tactic">💡 Táctica: Venta cruzada rápida (+35 € terraza vista mar y souvenirs de recuerdo).</div>
+                    <p>Motivado por vídeos visuales (ej. Playa del Sardinero), reserva para el mismo fin de semana (+13% última hora).</p>
+                    <div class="tactic-strip">💡 Venta cruzada ágil (+35 € terraza vista mar y souvenirs artesanales).</div>
                 </div>
 
-                <div class="client-profile-card reveal">
-                    <span class="specimen-badge">Perfil 06</span>
+                <div class="postage-stamp-card reveal">
+                    <span class="mustard-pill">Perfil 06</span>
                     <h4>Cliente Fiel</h4>
-                    <p>Repite servicios rechazando ofertas de la competencia por la confianza y sostenibilidad de nuestros productos; nos recomienda.</p>
-                    <div class="client-tactic">💡 Táctica: Trato VIP proactivo: "¿A qué ruta te acompañaremos este año? Tramitamos todo."</div>
+                    <p>Repite servicios rechazando ofertas de la competencia por la confianza y sostenibilidad; nos recomienda.</p>
+                    <div class="tactic-strip">💡 Trato VIP proactivo: "¿A qué ruta te acompañaremos este año? Tramitamos todo."</div>
                 </div>
             </div>
 
-            <!-- Objeciones -->
-            <div class="objections-grid" id="objeciones">
-                <div class="obj-card reveal">
-                    <div class="obj-q">❓ “¿Por qué cobran más si otras agencias ofrecen lo mismo?”</div>
-                    <div class="obj-a">“Destacamos la tranquilidad y comodidad del turista: <strong>no operamos grupos masificados de más de 8 integrantes</strong>, garantizando acceso exclusivo y trato personalizado.”</div>
+            <!-- 3 Objeciones Clave -->
+            <div class="grid-3" style="margin-bottom: 34px;">
+                <div class="torn-paper-card reveal" style="background: var(--olive-deep); color: var(--paper-cream);">
+                    <div style="color: var(--mustard-tag); font-weight: 700; font-size: 13.5px; margin-bottom: 6px;">❓ “¿Por qué cobran más si otras agencias ofrecen lo mismo?”</div>
+                    <p style="font-size: 12.5px;">“Priorizamos la tranquilidad y comodidad del turista: <strong>no operamos grupos masificados de más de 8 integrantes</strong>, garantizando acceso exclusivo y trato personalizado.”</p>
                 </div>
 
-                <div class="obj-card reveal">
-                    <div class="obj-q">✈️ “¿Qué pasa si mi vuelo se demora y pierdo el primer día?”</div>
-                    <div class="obj-a">“Ofrecemos una <strong>tarifa con flexibilidad</strong> para reprogramar el inicio del tour sin penalización, o acceso inmediato a una <strong>sala VIP</strong> durante la espera.”</div>
+                <div class="torn-paper-card reveal" style="background: var(--olive-deep); color: var(--paper-cream);">
+                    <div style="color: var(--mustard-tag); font-weight: 700; font-size: 13.5px; margin-bottom: 6px;">✈️ “¿Qué pasa si mi vuelo se demora y pierdo el primer día?”</div>
+                    <p style="font-size: 12.5px;">“Ofrecemos una <strong>tarifa con flexibilidad</strong> para reprogramar el inicio del tour sin penalización, o acceso inmediato a una <strong>sala VIP</strong> durante la espera.”</p>
                 </div>
 
-                <div class="obj-card reveal">
-                    <div class="obj-q">🌧️ “¿Y si hace mal tiempo en la fecha de mi reserva?”</div>
-                    <div class="obj-a">“Contamos con <strong>planes alternativos cubiertos</strong> (museos, catas gastronómicas en cavas y obradores) y seguro de viaje frente a causas climáticas extremas.”</div>
+                <div class="torn-paper-card reveal" style="background: var(--olive-deep); color: var(--paper-cream);">
+                    <div style="color: var(--mustard-tag); font-weight: 700; font-size: 13.5px; margin-bottom: 6px;">🌧️ “¿Y si hace mal tiempo en la fecha de mi reserva?”</div>
+                    <p style="font-size: 12.5px;">“Contamos con <strong>planes alternativos cubiertos</strong> (museos, catas gastronómicas en cavas y obradores) y seguro de viaje frente a causas climáticas extremas.”</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- SEPARADOR ONDULADO LILA PERLADO -->
-    <div class="wave-divider" style="background: var(--abyssal-dark);">
-        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-            <path d="M0,30 C200,0 420,55 680,22 C920,-5 1080,45 1200,25 L1200,60 L0,60 Z" fill="#A386CC"/>
-        </svg>
-    </div>
+            <!-- Fidelización 4 Pilares -->
+            <div class="torn-paper-card reveal">
+                <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--olive-deep); margin-bottom: 12px;">
+                    Programa de Fidelización (Plata, Oro, Platino) y Expansión
+                </h3>
+                <div class="grid-2">
+                    <ul class="editorial-list">
+                        <li><i data-lucide="sparkles" width="16" color="#C29B48"></i> <div><strong>Experiencias Exclusivas:</strong> Preventas anticipadas en temporada alta y obsequios artesanales en la habitación.</div></li>
+                        <li><i data-lucide="cpu" width="16" color="#C29B48"></i> <div><strong>Hiperpersonalización CRM:</strong> Registro de preferencias (almohadas, vinos favoritos) y descuentos automáticos de cumpleaños.</div></li>
+                    </ul>
+                    <ul class="editorial-list">
+                        <li><i data-lucide="award" width="16" color="#C29B48"></i> <div><strong>Niveles Plata, Oro y Platino:</strong> Cada euro suma puntos canjeables con check-in prioritario y upgrades gratuitos.</div></li>
+                        <li><i data-lucide="map" width="16" color="#C29B48"></i> <div><strong>Expansión Norte de España:</strong> Crecimiento progresivo hacia otras CCAA vecinas mediante alianzas sostenibles.</div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <!-- 6. PROGRAMA DE FIDELIZACIÓN, EXPANSIÓN Y FLUJO DE 5 FASES -->
-    <section class="section-lavender" id="fidelizacion">
-        <div class="container">
-            <h2 class="editorial-title reveal">FIDELIZACIÓN, EXPANSIÓN Y 5 FASES</h2>
-            <p class="editorial-subtitle reveal">
-                Consolidamos la recomendación orgánica mediante hiperpersonalización CRM, niveles VIP y alianzas de expansión hacia todo el Norte de España[cite: 32].
+        <!-- 7. OPERATIVA DE 5 FASES Y MATRIZ DE PROVEEDORES -->
+        <section class="section-block" id="proveedores">
+            <div class="section-kicker reveal">Logística & Alianzas</div>
+            <h2 class="section-heading reveal">5 Fases Operativas y Proveedores</h2>
+            <p class="section-lead reveal">
+                Control riguroso desde la captación hasta el cierre postventa, respaldado por productores homologados de Cantabria.
             </p>
 
-            <!-- 4 Pilares -->
-            <div class="loyalty-grid" style="margin-bottom: 42px;">
-                <div class="loyalty-card reveal">
-                    <h5><i data-lucide="sparkles" width="18"></i> Experiencias Exclusivas</h5>
-                    <p>Acceso anticipado a preventas de temporada alta y sorpresas locales en la habitación durante el viaje.</p>
+            <!-- 5 Fases -->
+            <div class="phases-row reveal">
+                <div class="phase-seal-card">
+                    <div class="phase-num">1</div>
+                    <strong style="font-family: var(--font-serif); font-size: 18px; color: var(--olive-deep);">Captación</strong>
+                    <p style="font-size: 11.5px; color: var(--ink-muted); margin-top: 4px;">Análisis de necesidades y presupuesto.</p>
                 </div>
-                <div class="loyalty-card reveal">
-                    <h5><i data-lucide="cpu" width="18"></i> Hiperpersonalización CRM</h5>
-                    <p>Registro de preferencias (almohadas hipoalergénicas, vinos favoritos) y descuentos automáticos en cumpleaños.</p>
+                <div class="phase-seal-card">
+                    <div class="phase-num">2</div>
+                    <strong style="font-family: var(--font-serif); font-size: 18px; color: var(--olive-deep);">Contratación</strong>
+                    <p style="font-size: 11.5px; color: var(--ink-muted); margin-top: 4px;">Contrato, Orden de Servicio y bloqueo.</p>
                 </div>
-                <div class="loyalty-card reveal">
-                    <h5><i data-lucide="award" width="18"></i> Niveles Plata, Oro, Platino</h5>
-                    <p>Cada euro gastado suma puntos canjeables con check-in prioritario, atención preferente y upgrades gratuitos.</p>
+                <div class="phase-seal-card">
+                    <div class="phase-num">3</div>
+                    <strong style="font-family: var(--font-serif); font-size: 18px; color: var(--olive-deep);">Documentación</strong>
+                    <p style="font-size: 11.5px; color: var(--ink-muted); margin-top: 4px;">Bonos/Vouchers, itinerario y Factura.</p>
                 </div>
-                <div class="loyalty-card reveal">
-                    <h5><i data-lucide="map" width="18"></i> Crecimiento Norte España[cite: 32]</h5>
-                    <p>Expansión gradual hacia otras CCAA del Norte colaborando con agencias que compartan nuestra visión sostenible[cite: 32].</p>
+                <div class="phase-seal-card">
+                    <div class="phase-num">4</div>
+                    <strong style="font-family: var(--font-serif); font-size: 18px; color: var(--olive-deep);">Ejecución 24/7</strong>
+                    <p style="font-size: 11.5px; color: var(--ink-muted); margin-top: 4px;">Seguimiento logístico en tiempo real.</p>
                 </div>
-            </div>
-
-            <!-- 5 Fases Operativas -->
-            <div class="phases-necklace">
-                <div class="bead-card reveal">
-                    <div class="bead-num">1</div>
-                    <h5>Captación</h5>
-                    <p>Análisis de necesidades, asesoramiento y presupuesto.</p>
-                </div>
-                <div class="bead-card reveal">
-                    <div class="bead-num">2</div>
-                    <h5>Contratación</h5>
-                    <p>Contrato, Orden de Servicio y bloqueo de 5 proveedores.</p>
-                </div>
-                <div class="bead-card reveal">
-                    <div class="bead-num">3</div>
-                    <h5>Documentación</h5>
-                    <p>Emisión de Bonos/Vouchers, itinerario y Factura Oficial.</p>
-                </div>
-                <div class="bead-card reveal">
-                    <div class="bead-num">4</div>
-                    <h5>Ejecución 24/7</h5>
-                    <p>Seguimiento logístico en tiempo real y soporte en ruta.</p>
-                </div>
-                <div class="bead-card reveal">
-                    <div class="bead-num">5</div>
-                    <h5>Postventa</h5>
-                    <p>Encuesta de satisfacción, pagos y cierre de margen.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEPARADOR ONDULADO BLANCO -->
-    <div class="wave-divider" style="background: #8C6EB8;">
-        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-            <path d="M0,25 C280,60 520,0 820,35 C1020,55 1120,15 1200,28 L1200,60 L0,60 Z" fill="#F7F9FC"/>
-        </svg>
-    </div>
-
-    <!-- 7. GAMAS DE PAQUETES Y MATRIZ DE PROVEEDORES -->
-    <section class="section-pearl" id="proveedores">
-        <div class="container">
-            <h2 class="editorial-title reveal">GAMAS DE PAQUETES Y <span class="inline-pearl"></span> PROVEEDORES</h2>
-            <p class="editorial-subtitle reveal">
-                Tres niveles adaptados a cada presupuesto y alianzas homologadas con productores locales y transportistas de Cantabria.
-            </p>
-
-            <!-- 3 Gamas -->
-            <div class="pearls-trio">
-                <div class="pearl-tier reveal">
-                    <div class="orb-sample orb-white"></div>
-                    <span class="specimen-badge">Gama Básica • Alto Volumen</span>
-                    <h4 style="font-family: var(--font-serif); font-size: 22px; margin-bottom: 6px;">Ruta Cantábrica Express</h4>
-                    <p style="font-size: 13px; color: var(--text-muted);">Jóvenes e independientes. Transporte y entradas autoguiadas en Santander y Santillana del Mar.</p>
-                </div>
-
-                <div class="pearl-tier reveal" style="border: 2px solid var(--lavender-pearl);">
-                    <div class="orb-sample orb-tahiti"></div>
-                    <span class="specimen-badge">⭐ Gama Estándar • Más Vendido</span>
-                    <h4 style="font-family: var(--font-serif); font-size: 22px; margin-bottom: 6px;">Esencia Pasiega y Picos</h4>
-                    <p style="font-size: 13px; color: var(--text-muted);">Familias y parejas. Alojamiento rural, guía local, catas artesanales, Comillas y Potes.</p>
-                </div>
-
-                <div class="pearl-tier reveal">
-                    <div class="orb-sample orb-gold"></div>
-                    <span class="specimen-badge">Gama Premium • Alto Margen</span>
-                    <h4 style="font-family: var(--font-serif); font-size: 22px; margin-bottom: 6px;">Cantabria Infinita Deluxe</h4>
-                    <p style="font-size: 13px; color: var(--text-muted);">VIP y corporativo. 100% privado, Paradores/5*, Michelin y helicóptero o velero.</p>
+                <div class="phase-seal-card">
+                    <div class="phase-num">5</div>
+                    <strong style="font-family: var(--font-serif); font-size: 18px; color: var(--olive-deep);">Postventa</strong>
+                    <p style="font-size: 11.5px; color: var(--ink-muted); margin-top: 4px;">Encuesta calidad, pagos y margen.</p>
                 </div>
             </div>
 
             <!-- Matriz Proveedores -->
-            <div class="suppliers-box reveal">
-                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px;">
-                    <h3 style="font-family: var(--font-serif); font-size: 23px; color: var(--abyssal-dark);">
+            <div class="torn-paper-card reveal" style="overflow-x: auto;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px;">
+                    <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--olive-deep);">
                         Matriz de Proveedores Homologados (La Perla del Norte S.L.)
                     </h3>
-                    <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-script" style="background: var(--abyssal-dark); color: #FFF;">
+                    <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-botanic" style="background: var(--olive-deep); color: var(--paper-cream);">
                         <i data-lucide="file-text" width="14"></i> Ver Cartas de Pedido y Comerciales
                     </a>
                 </div>
-                <table class="sup-table">
+                <table class="clean-table" style="min-width: 680px;">
                     <thead>
                         <tr>
                             <th>Proveedor (Sede)</th>
@@ -1396,58 +1388,62 @@
                         </tr>
                     </tbody>
                 </table>
-                <p style="font-size: 12px; color: var(--text-muted); margin-top: 12px;">
+                <p style="font-size: 12px; color: var(--ink-muted); margin-top: 12px;">
                     <strong>Red Logística Externa:</strong> Transportistas (<em>CIVA S.A., Santa Francesca, Tutti Tour</em>), hoteles, restaurantes, obradores, guías oficiales y traductores.
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SEPARADOR FINAL AZUL ABISAL -->
-    <div class="wave-divider" style="background: var(--pearl-white);">
-        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-            <path d="M0,30 C250,0 500,55 800,20 C1000,0 1120,40 1200,25 L1200,60 L0,60 Z" fill="#162B46"/>
-        </svg>
-    </div>
+        <!-- 8. CIERRE CINEMATOGRÁFICO (ESTILO REFERENCIA 2 INFERIOR) + EQUIPO DIRECTIVO -->
+        <footer class="cinematic-closing" id="equipo">
+            <div style="text-align: center; max-width: 720px; margin: 0 auto;">
+                <div style="font-family: var(--font-script); font-size: 36px; color: var(--mustard-tag); line-height: 1;">Estructura Directiva</div>
+                <h3 style="font-family: var(--font-serif); font-size: 32px; text-transform: uppercase; letter-spacing: 0.05em; margin: 6px 0 10px;">
+                    Equipo de La Perla del Norte S.L.
+                </h3>
+                <p style="font-size: 13px; opacity: 0.88;">
+                    CIF: B-3984729 • Paseo de Pereda, 15, Bajo, 39004 Santander (Cantabria)
+                </p>
+                <div style="margin-top: 18px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-editorial-primary">
+                        Visitar Catálogo Online <i data-lucide="external-link" width="14"></i>
+                    </a>
+                    <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-editorial-outline">
+                        Archivo de Cartas y Documentos <i data-lucide="folder-open" width="14"></i>
+                    </a>
+                </div>
+            </div>
 
-    <!-- FOOTER EQUIPO DIRECTIVO -->
-    <footer class="section-deep" id="equipo" style="padding: 50px 24px 40px;">
-        <div class="container">
-            <h3 style="font-family: var(--font-display); text-align: center; font-size: 24px; font-weight: 400; margin-bottom: 8px;">
-                ESTRUCTURA ORGANIZATIVA Y DIRECCIÓN
-            </h3>
-            <p style="text-align: center; font-size: 13px; opacity: 0.85;">
-                LA PERLA DEL NORTE S.L. • CIF: B-3984729 • Paseo de Pereda, 15, Bajo, 39004 Santander (Cantabria)
-            </p>
-
-            <div class="team-footer-grid">
-                <div class="team-pill-card">
+            <!-- Tira de película con los 4 directivos -->
+            <div class="filmstrip-grid">
+                <div class="team-frame">
                     <strong>Lic. Lizeth Nina G.</strong>
                     <span>Jefa Dpto. Comercial, Compras y Ventas</span>
                     <small>Paquetes, cotizaciones, cierre de ventas y proveedores</small>
                 </div>
-                <div class="team-pill-card">
-                    <strong>Lic. Georgii Kovalev</strong>[cite: 31]
+                <div class="team-frame">
+                    <strong>Lic. Georgii Kovalev</strong>
                     <span>Finanzas y Contabilidad</span>
                     <small>Control presupuestario, facturación e impuestos</small>
                 </div>
-                <div class="team-pill-card">
-                    <strong>Lic. Elena Jenaro</strong>[cite: 31]
+                <div class="team-frame">
+                    <strong>Lic. Elena Jenaro</strong>
                     <span>Tesorería</span>
                     <small>Gestión de caja, liquidez y seguimiento de cobros</small>
                 </div>
-                <div class="team-pill-card">
-                    <strong>Lic. Maricela González</strong>[cite: 31]
+                <div class="team-frame">
+                    <strong>Lic. Maricela González</strong>
                     <span>Recursos Humanos</span>
                     <small>Gestión de personal, contratos laborales y nóminas</small>
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 30px; font-size: 12px; opacity: 0.85;">
+            <div style="text-align: center; margin-top: 26px; font-size: 12px; opacity: 0.82;">
                 Tel: +34 942 55 66 77 | Fax: 941-222-666 | WhatsApp: +34 688 11 22 33 | ventas@laperladelnorte.es | www.laperladelnorte.es
             </div>
-        </div>
-    </footer>
+        </footer>
+
+    </main>
 
     <!-- PANEL FLOTANTE DE GUION PARA EL ORADOR -->
     <div class="script-drawer" id="scriptDrawer">
@@ -1456,29 +1452,15 @@
             <button onclick="toggleScript()" style="background:none;border:none;color:#FFF;cursor:pointer;font-size:16px;">✕</button>
         </h4>
         <p>
-            <strong>1. Propuesta y Diferenciación:</strong> "Somos <em>La Perla del Norte S.L.</em> (CIF B-3984729). Frente al turismo tradicional masificado, ofrecemos <strong>paquetes variables en grupos de máximo 8 personas</strong> que unen catas artesanales, lugares históricos y naturaleza."[cite: 32]<br><br>
-            <strong>2. Compromiso ODS (8, 9, 10, 11 y 12):</strong> "Impulsamos el empleo rural digno (jóvenes, mayores de 52 años, mujeres rurales y personas con discapacidad), movilidad sostenible y alianzas con productores locales de sobaos, quesos, anchoas y vinos."[cite: 31]<br><br>
-            <strong>3. Rentabilidad y Ventas:</strong> "Manejamos 15 experiencias y productos con márgenes del <strong>50% en tours</strong> y 20% en souvenirs, atención directa sin intermediarios, 14 días de desistimiento y estrategias para los 6 perfiles de cliente."[cite: 32]<br><br>
-            <strong>4. Fidelización y Expansión:</strong> "Con nuestro CRM hiperpersonalizado y niveles <em>Plata, Oro y Platino</em>, fidelizamos al viajero y proyectamos nuestra expansión a todo el Norte de España."[cite: 32]
+            <strong>1. Propuesta y Diferenciación:</strong> "Somos <em>La Perla del Norte S.L.</em> (CIF B-3984729). Frente al turismo tradicional masificado, ofrecemos <strong>paquetes variables en grupos de máximo 8 personas</strong> que unen catas artesanales, lugares históricos y naturaleza."<br><br>
+            <strong>2. Compromiso ODS (8, 9, 10, 11 y 12):</strong> "Impulsamos el empleo rural digno (jóvenes, mayores de 52 años, mujeres rurales y personas con discapacidad), movilidad sostenible y alianzas con productores locales de sobaos, quesos, anchoas y vinos."<br><br>
+            <strong>3. Rentabilidad y Ventas:</strong> "Manejamos 15 experiencias y productos con márgenes del <strong>50% en tours</strong> y 20% en souvenirs, atención directa sin intermediarios, 14 días de desistimiento y estrategias para los 6 perfiles de cliente."<br><br>
+            <strong>4. Fidelización y Expansión:</strong> "Con nuestro CRM hiperpersonalizado y niveles <em>Plata, Oro y Platino</em>, fidelizamos al viajero y proyectamos nuestra expansión a todo el Norte de España."
         </p>
     </div>
 
     <script>
         lucide.createIcons();
-
-        // Generar burbujas animadas en el Hero
-        const bubblesContainer = document.getElementById('bubbles');
-        for (let i = 0; i < 18; i++) {
-            const b = document.createElement('div');
-            b.classList.add('bubble');
-            const size = Math.random() * 16 + 6;
-            b.style.width = `${size}px`;
-            b.style.height = `${size}px`;
-            b.style.left = `${Math.random() * 100}%`;
-            b.style.animationDuration = `${Math.random() * 7 + 6}s`;
-            b.style.animationDelay = `${Math.random() * 5}s`;
-            bubblesContainer.appendChild(b);
-        }
 
         // Animación al hacer scroll
         const observer = new IntersectionObserver((entries) => {
