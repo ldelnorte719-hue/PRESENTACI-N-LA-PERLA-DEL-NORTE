@@ -51,34 +51,13 @@
             position: relative;
         }
 
-        /* ================= FONDO ANIMADO GLOBAL (MONTAÑAS + PARTÍCULAS + TOPOGRAFÍA) ================= */
+        /* ================= FONDO ANIMADO GLOBAL ================= */
         .global-animated-backdrop {
             position: fixed;
             inset: 0;
             pointer-events: none;
             z-index: 0;
             overflow: hidden;
-        }
-
-        .bg-mountains-svg {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 200%;
-            height: 360px;
-            opacity: 0.24;
-            animation: mountainDrift 45s linear infinite alternate;
-        }
-
-        .bg-mist {
-            position: absolute;
-            bottom: 60px;
-            left: -20%;
-            width: 140%;
-            height: 180px;
-            background: radial-gradient(ellipse at center, rgba(246, 243, 235, 0.14) 0%, transparent 70%);
-            filter: blur(22px);
-            animation: mistFloat 14s ease-in-out infinite alternate;
         }
 
         .floating-spore {
@@ -91,20 +70,30 @@
         }
 
         /* ================= KEYFRAMES DE ANIMACIÓN ================= */
-        @keyframes mountainDrift {
-            0% { transform: translateX(0%); }
-            100% { transform: translateX(-25%); }
+        @keyframes parallaxBack {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes parallaxMid {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes parallaxFront {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
 
         @keyframes mistFloat {
-            0% { transform: translateX(-4%) translateY(0px); opacity: 0.35; }
-            100% { transform: translateX(4%) translateY(-16px); opacity: 0.7; }
+            0% { transform: translateX(-5%) translateY(0px); opacity: 0.35; }
+            100% { transform: translateX(5%) translateY(-14px); opacity: 0.72; }
         }
 
         @keyframes sporeRise {
             0% { transform: translateY(0) translateX(0) scale(0.6); opacity: 0; }
-            20% { opacity: 0.8; }
-            80% { opacity: 0.6; }
+            20% { opacity: 0.85; }
+            80% { opacity: 0.65; }
             100% { transform: translateY(-105vh) translateX(45px) scale(1.2); opacity: 0; }
         }
 
@@ -128,11 +117,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        @keyframes shipSail {
-            0%, 100% { transform: translateX(-18px) rotate(-2deg); }
-            50% { transform: translateX(18px) rotate(2.5deg); }
-        }
-
         @keyframes shimmerSweep {
             0% { left: -120%; }
             100% { left: 160%; }
@@ -144,8 +128,8 @@
         }
 
         @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 12px rgba(233, 196, 64, 0.3); }
-            50% { box-shadow: 0 0 26px rgba(233, 196, 64, 0.75); }
+            0%, 100% { box-shadow: 0 0 12px rgba(233, 196, 64, 0.35); }
+            50% { box-shadow: 0 0 28px rgba(233, 196, 64, 0.85); }
         }
 
         /* ================= REVELADO AL HACER SCROLL ================= */
@@ -330,21 +314,89 @@
             transform: rotate(15deg) scale(1.08);
         }
 
-        /* ================= 1. PORTADA EDITORIAL CON MONTAÑAS + OLAS DEL MAR ================= */
+        /* ================= 1. PORTADA EDITORIAL CON MONTAÑAS PARALLAX EN MOVIMIENTO + MAR ================= */
         .hero-editorial {
-            background: linear-gradient(180deg, #4E5B39 0%, #374226 68%, #283A3B 100%);
+            background: linear-gradient(180deg, #5F6D45 0%, #465331 55%, #2D3921 100%);
             color: var(--paper-cream);
-            padding: 55px 36px 115px;
+            padding: 58px 36px 125px;
             position: relative;
             overflow: hidden;
         }
 
-        .topo-bg {
+        /* Resplandor solar dorado tras las montañas */
+        .hero-sun-glow {
+            position: absolute;
+            top: 8%;
+            right: 16%;
+            width: 340px;
+            height: 340px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(247, 224, 152, 0.32) 0%, rgba(233, 196, 64, 0.08) 45%, transparent 72%);
+            filter: blur(10px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Escenario de las 3 Cordilleras en Movimiento Parallax */
+        .hero-mountains-stage {
             position: absolute;
             inset: 0;
-            opacity: 0.16;
             pointer-events: none;
-            animation: mistFloat 12s ease-in-out infinite alternate;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .mountain-layer {
+            position: absolute;
+            bottom: 38px;
+            left: 0;
+            display: flex;
+            width: 200%;
+            height: 330px;
+        }
+
+        .mountain-layer svg {
+            width: 50%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Cordillera lejana (lenta, más clara y alta) */
+        .mountains-back {
+            bottom: 65px;
+            height: 370px;
+            opacity: 0.42;
+            animation: parallaxBack 42s linear infinite;
+        }
+
+        /* Cordillera intermedia (velocidad media, cumbres perfiladas en oro) */
+        .mountains-mid {
+            bottom: 48px;
+            height: 300px;
+            opacity: 0.65;
+            animation: parallaxMid 28s linear infinite;
+        }
+
+        /* Cordillera cercana (más rápida y profunda) */
+        .mountains-front {
+            bottom: 32px;
+            height: 235px;
+            opacity: 0.88;
+            animation: parallaxFront 19s linear infinite;
+        }
+
+        /* Niebla suave flotando entre las montañas de la portada */
+        .hero-mountain-mist {
+            position: absolute;
+            bottom: 85px;
+            left: -15%;
+            width: 130%;
+            height: 130px;
+            background: radial-gradient(ellipse at center, rgba(246, 243, 235, 0.22) 0%, transparent 72%);
+            filter: blur(18px);
+            animation: mistFloat 11s ease-in-out infinite alternate;
+            z-index: 2;
+            pointer-events: none;
         }
 
         /* Olas del Mar Cantábrico en la base del Hero */
@@ -353,7 +405,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 85px;
+            height: 82px;
             overflow: hidden;
             pointer-events: none;
             z-index: 3;
@@ -371,7 +423,7 @@
 
         .wave-track-2 {
             position: absolute;
-            top: 12px;
+            top: 10px;
             left: 0;
             animation: waveMove2 19s linear infinite;
             opacity: 0.85;
@@ -383,7 +435,7 @@
             gap: 42px;
             align-items: center;
             position: relative;
-            z-index: 4;
+            z-index: 5;
         }
 
         .arch-envelope-frame {
@@ -432,10 +484,11 @@
 
         .hero-script-kicker {
             font-family: var(--font-script);
-            font-size: 34px;
-            color: #F2D785;
+            font-size: 36px;
+            color: #F6DC8A;
             line-height: 1;
             margin-bottom: 4px;
+            text-shadow: 0 2px 10px rgba(20, 26, 12, 0.4);
         }
 
         .hero-editorial h1 {
@@ -447,17 +500,18 @@
             text-transform: uppercase;
             margin-bottom: 18px;
             color: #FCFBF7;
+            text-shadow: 0 4px 16px rgba(18, 24, 12, 0.45);
         }
 
         .hero-paper-excerpt {
-            background: var(--paper-white);
+            background: rgba(252, 251, 247, 0.96);
             color: var(--ink-dark);
             padding: 18px 22px;
             border-radius: 4px 18px 4px 18px;
             font-size: 13.5px;
             margin-bottom: 20px;
             border-left: 4px solid var(--wax-gold);
-            box-shadow: 0 12px 28px rgba(15, 20, 10, 0.25);
+            box-shadow: 0 12px 28px rgba(15, 20, 10, 0.28);
         }
 
         .hero-tags {
@@ -468,8 +522,9 @@
         }
 
         .hero-tag {
-            background: rgba(252, 251, 247, 0.12);
-            border: 1px solid rgba(233, 196, 64, 0.45);
+            background: rgba(34, 42, 22, 0.55);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(233, 196, 64, 0.55);
             color: #F7F3E8;
             padding: 5px 13px;
             border-radius: 999px;
@@ -479,7 +534,7 @@
         }
 
         .hero-tag:hover {
-            background: rgba(233, 196, 64, 0.25);
+            background: rgba(233, 196, 64, 0.28);
             transform: translateY(-2px);
         }
 
@@ -500,18 +555,19 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
             transition: transform 0.25s, box-shadow 0.25s;
         }
 
         .btn-editorial-primary:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 24px rgba(233, 196, 64, 0.38);
+            box-shadow: 0 12px 24px rgba(233, 196, 64, 0.42);
         }
 
         .btn-editorial-outline {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.45);
+            background: rgba(34, 42, 22, 0.5);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
             color: #FFF;
             padding: 12px 20px;
             border-radius: 999px;
@@ -583,7 +639,7 @@
             color: rgba(246, 243, 235, 0.86);
         }
 
-        /* ================= 2. 4 TARJETAS INCLINADAS CON EFECTO HOVER ================= */
+        /* ================= 2. 4 TARJETAS INCLINADAS ================= */
         .tilted-pillars-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -702,7 +758,7 @@
             font-size: 15px;
         }
 
-        /* ================= 3. PROGRAMA DE RUTA CON SILUETA MONTAÑA + MAR Y BRÚJULA GIRATORIA ================= */
+        /* ================= 3. PROGRAMA DE RUTA ================= */
         .route-map-showcase {
             background: linear-gradient(180deg, var(--paper-white) 0%, #EFECE1 100%);
             border-radius: 26px;
@@ -714,7 +770,6 @@
             overflow: hidden;
         }
 
-        /* Cordillera + Mar animada en el fondo de la tarjeta de Rutas */
         .route-landscape-bg {
             position: absolute;
             bottom: 0;
@@ -797,7 +852,7 @@
             animation: spinCompass 18s linear infinite;
         }
 
-        /* ================= 4. ODS Y SOSTENIBILIDAD CON LUCIÉRNAGAS ================= */
+        /* ================= 4. ODS Y SOSTENIBILIDAD ================= */
         .ods-botanic-card {
             background: rgba(252, 251, 247, 0.08);
             backdrop-filter: blur(6px);
@@ -839,7 +894,7 @@
             color: rgba(246, 243, 235, 0.9);
         }
 
-        /* ================= 5. CATÁLOGO OFICIAL CON DESTELLO SHIMMER ================= */
+        /* ================= 5. CATÁLOGO OFICIAL ================= */
         .catalog-olive-box {
             background: var(--olive-main);
             color: var(--paper-cream);
@@ -861,7 +916,6 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255, 248, 220, 0.16), transparent);
             transform: skewX(-22deg);
-            transition: none;
         }
 
         .catalog-olive-box:hover {
@@ -1110,17 +1164,8 @@
 </head>
 <body>
 
-    <!-- FONDO ANIMADO GLOBAL: CORDILLERA DE PICOS DE EUROPA, NIEBLA Y ESPORAS DORADAS -->
-    <div class="global-animated-backdrop" id="globalBackdrop">
-        <div class="bg-mist"></div>
-        <!-- Silueta montañosa continua en capas -->
-        <svg class="bg-mountains-svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-            <!-- Capa trasera Picos -->
-            <path fill="#232B17" d="M0,220 L120,110 L240,190 L380,75 L520,200 L680,90 L830,185 L980,65 L1140,195 L1290,95 L1440,210 L1440,320 L0,320 Z"/>
-            <!-- Capa delantera Valle Verde -->
-            <path fill="#1B2212" d="M0,260 L180,175 L340,245 L510,150 L690,250 L870,165 L1050,245 L1240,160 L1440,250 L1440,320 L0,320 Z"/>
-        </svg>
-    </div>
+    <!-- FONDO ANIMADO GLOBAL: ESPORAS DORADAS FLOTANTES -->
+    <div class="global-animated-backdrop" id="globalBackdrop"></div>
 
     <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
     <nav>
@@ -1159,13 +1204,46 @@
     <!-- LIENZO EDITORIAL PRINCIPAL -->
     <main class="editorial-canvas">
 
-        <!-- 1. PORTADA EDITORIAL CON MONTAÑAS, SELLO DE LACRE Y OLAS DEL MAR CANTÁBRICO -->
+        <!-- 1. PORTADA EDITORIAL CON MONTAÑAS MOVIÉNDOSE POR DETRÁS + MAR CANTÁBRICO -->
         <section class="hero-editorial">
-            <svg class="topo-bg" viewBox="0 0 1200 600" fill="none" stroke="#E9C440" stroke-width="1.5">
-                <path d="M-50,120 C180,40 320,240 540,150 C760,60 920,260 1250,110" />
-                <path d="M-50,260 C210,180 390,380 620,270 C850,160 1010,360 1250,240" />
-                <path d="M-50,420 C160,340 410,510 680,400 C950,290 1050,490 1250,390" />
-            </svg>
+            <!-- Resplandor Solar -->
+            <div class="hero-sun-glow"></div>
+
+            <!-- 3 CORDILLERAS DE MONTAÑAS MOVIÉNDOSE EN EFECTO PARALLAX -->
+            <div class="hero-mountains-stage">
+                <!-- Cordillera Lejana (Picos altos y suaves) -->
+                <div class="mountain-layer mountains-back">
+                    <svg viewBox="0 0 1200 350" preserveAspectRatio="none">
+                        <path fill="#768458" d="M0,260 L110,95 L230,210 L370,60 L520,220 L680,75 L840,205 L990,55 L1120,190 L1200,260 L1200,350 L0,350 Z"/>
+                    </svg>
+                    <svg viewBox="0 0 1200 350" preserveAspectRatio="none">
+                        <path fill="#768458" d="M0,260 L110,95 L230,210 L370,60 L520,220 L680,75 L840,205 L990,55 L1120,190 L1200,260 L1200,350 L0,350 Z"/>
+                    </svg>
+                </div>
+
+                <!-- Cordillera Intermedia (Cumbres perfiladas con filo dorado) -->
+                <div class="mountain-layer mountains-mid">
+                    <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
+                        <path fill="#3A4627" stroke="rgba(233, 196, 64, 0.38)" stroke-width="2" d="M0,240 L150,115 L290,215 L450,85 L620,205 L790,95 L960,210 L1100,110 L1200,240 L1200,300 L0,300 Z"/>
+                    </svg>
+                    <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
+                        <path fill="#3A4627" stroke="rgba(233, 196, 64, 0.38)" stroke-width="2" d="M0,240 L150,115 L290,215 L450,85 L620,205 L790,95 L960,210 L1100,110 L1200,240 L1200,300 L0,300 Z"/>
+                    </svg>
+                </div>
+
+                <!-- Cordillera Cercana (Valles verdes oscuros) -->
+                <div class="mountain-layer mountains-front">
+                    <svg viewBox="0 0 1200 240" preserveAspectRatio="none">
+                        <path fill="#252F18" d="M0,190 L180,95 L350,175 L540,80 L730,180 L920,90 L1080,170 L1200,190 L1200,240 L0,240 Z"/>
+                    </svg>
+                    <svg viewBox="0 0 1200 240" preserveAspectRatio="none">
+                        <path fill="#252F18" d="M0,190 L180,95 L350,175 L540,80 L730,180 L920,90 L1080,170 L1200,190 L1200,240 L0,240 Z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Niebla flotando entre los valles -->
+            <div class="hero-mountain-mist"></div>
 
             <div class="hero-layout">
                 <!-- Marco en Arco estilo invitación con Sello de Lacre Dorado -->
@@ -1207,10 +1285,10 @@
             <div class="cantabrian-sea-waves">
                 <div class="wave-track wave-track-2">
                     <svg viewBox="0 0 1200 90" preserveAspectRatio="none" style="width: 50%; height: 100%;">
-                        <path d="M0,35 C200,75 400,5 600,40 C800,75 1000,5 1200,35 L1200,90 L0,90 Z" fill="rgba(233, 196, 64, 0.25)"/>
+                        <path d="M0,35 C200,75 400,5 600,40 C800,75 1000,5 1200,35 L1200,90 L0,90 Z" fill="rgba(233, 196, 64, 0.28)"/>
                     </svg>
                     <svg viewBox="0 0 1200 90" preserveAspectRatio="none" style="width: 50%; height: 100%;">
-                        <path d="M0,35 C200,75 400,5 600,40 C800,75 1000,5 1200,35 L1200,90 L0,90 Z" fill="rgba(233, 196, 64, 0.25)"/>
+                        <path d="M0,35 C200,75 400,5 600,40 C800,75 1000,5 1200,35 L1200,90 L0,90 Z" fill="rgba(233, 196, 64, 0.28)"/>
                     </svg>
                 </div>
                 <div class="wave-track wave-track-1">
