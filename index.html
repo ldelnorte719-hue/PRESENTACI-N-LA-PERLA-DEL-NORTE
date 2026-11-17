@@ -323,7 +323,6 @@
             overflow: hidden;
         }
 
-        /* Resplandor solar dorado tras las montañas */
         .hero-sun-glow {
             position: absolute;
             top: 8%;
@@ -337,7 +336,6 @@
             z-index: 1;
         }
 
-        /* Escenario de las 3 Cordilleras en Movimiento Parallax */
         .hero-mountains-stage {
             position: absolute;
             inset: 0;
@@ -361,7 +359,6 @@
             display: block;
         }
 
-        /* Cordillera lejana (lenta, más clara y alta) */
         .mountains-back {
             bottom: 65px;
             height: 370px;
@@ -369,7 +366,6 @@
             animation: parallaxBack 42s linear infinite;
         }
 
-        /* Cordillera intermedia (velocidad media, cumbres perfiladas en oro) */
         .mountains-mid {
             bottom: 48px;
             height: 300px;
@@ -377,7 +373,6 @@
             animation: parallaxMid 28s linear infinite;
         }
 
-        /* Cordillera cercana (más rápida y profunda) */
         .mountains-front {
             bottom: 32px;
             height: 235px;
@@ -385,7 +380,6 @@
             animation: parallaxFront 19s linear infinite;
         }
 
-        /* Niebla suave flotando entre las montañas de la portada */
         .hero-mountain-mist {
             position: absolute;
             bottom: 85px;
@@ -399,7 +393,6 @@
             pointer-events: none;
         }
 
-        /* Olas del Mar Cantábrico en la base del Hero */
         .cantabrian-sea-waves {
             position: absolute;
             bottom: 0;
@@ -1189,8 +1182,8 @@
                 <i data-lucide="book-open" width="13"></i> Catálogo Web
             </a>
 
-            <!-- Enlace a Documentos -->
-            <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-botanic" style="background: var(--wax-gold); color: #1E2416;">
+            <!-- Enlace a tu carpeta de Google Drive (Documentos) -->
+            <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-botanic" style="background: var(--wax-gold); color: #1E2416;">
                 <i data-lucide="folder-open" width="13"></i> Documentos
             </a>
 
@@ -1206,12 +1199,10 @@
 
         <!-- 1. PORTADA EDITORIAL CON MONTAÑAS MOVIÉNDOSE POR DETRÁS + MAR CANTÁBRICO -->
         <section class="hero-editorial">
-            <!-- Resplandor Solar -->
             <div class="hero-sun-glow"></div>
 
             <!-- 3 CORDILLERAS DE MONTAÑAS MOVIÉNDOSE EN EFECTO PARALLAX -->
             <div class="hero-mountains-stage">
-                <!-- Cordillera Lejana (Picos altos y suaves) -->
                 <div class="mountain-layer mountains-back">
                     <svg viewBox="0 0 1200 350" preserveAspectRatio="none">
                         <path fill="#768458" d="M0,260 L110,95 L230,210 L370,60 L520,220 L680,75 L840,205 L990,55 L1120,190 L1200,260 L1200,350 L0,350 Z"/>
@@ -1221,7 +1212,6 @@
                     </svg>
                 </div>
 
-                <!-- Cordillera Intermedia (Cumbres perfiladas con filo dorado) -->
                 <div class="mountain-layer mountains-mid">
                     <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
                         <path fill="#3A4627" stroke="rgba(233, 196, 64, 0.38)" stroke-width="2" d="M0,240 L150,115 L290,215 L450,85 L620,205 L790,95 L960,210 L1100,110 L1200,240 L1200,300 L0,300 Z"/>
@@ -1231,7 +1221,6 @@
                     </svg>
                 </div>
 
-                <!-- Cordillera Cercana (Valles verdes oscuros) -->
                 <div class="mountain-layer mountains-front">
                     <svg viewBox="0 0 1200 240" preserveAspectRatio="none">
                         <path fill="#252F18" d="M0,190 L180,95 L350,175 L540,80 L730,180 L920,90 L1080,170 L1200,190 L1200,240 L0,240 Z"/>
@@ -1242,7 +1231,6 @@
                 </div>
             </div>
 
-            <!-- Niebla flotando entre los valles -->
             <div class="hero-mountain-mist"></div>
 
             <div class="hero-layout">
@@ -1275,7 +1263,7 @@
                             <i data-lucide="compass" width="15"></i> Ver Catálogo Online
                         </a>
                         <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-editorial-outline" style="border-color: var(--mustard-tag); color: #F7E19C;">
-                            <i data-lucide="file-text" width="15"></i> Cartas y Documentos
+                            <i data-lucide="file-text" width="15"></i> Cartas y Documentos (Drive)
                         </a>
                     </div>
                 </div>
@@ -1432,7 +1420,6 @@
                         </div>
                     </div>
 
-                    <!-- Emblema Central con Brújula Giratoria -->
                     <div class="north-emblem-center">
                         <i data-lucide="compass" width="42" color="#E9C440" class="compass-spin" style="margin-bottom: 8px;"></i>
                         <div style="font-family: var(--font-script); font-size: 28px; color: #E9C440; line-height: 1;">Norte de España</div>
@@ -1459,7 +1446,6 @@
                     </div>
                 </div>
 
-                <!-- Paisaje Montaña + Mar en la base de la tarjeta de Rutas -->
                 <svg class="route-landscape-bg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path fill="#535E3E" d="M0,95 L140,30 L280,85 L440,20 L610,80 L780,25 L940,85 L1090,35 L1200,90 L1200,120 L0,120 Z"/>
                     <path fill="#3E482C" d="M0,100 C250,75 450,115 700,90 C950,65 1100,105 1200,85 L1200,120 L0,120 Z"/>
@@ -1639,8 +1625,8 @@
                     <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--olive-deep);">
                         Matriz de Proveedores Homologados (La Perla del Norte S.L.)
                     </h3>
-                    <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-botanic" style="background: var(--olive-deep); color: var(--paper-cream);">
-                        <i data-lucide="file-text" width="14"></i> Ver Cartas de Pedido y Comerciales
+                    <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-botanic" style="background: var(--olive-deep); color: var(--paper-cream);">
+                        <i data-lucide="file-text" width="14"></i> Ver Cartas de Pedido y Documentos (Drive)
                     </a>
                 </div>
                 <table class="clean-table" style="min-width: 680px;">
@@ -1711,8 +1697,8 @@
                     <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-editorial-primary">
                         Visitar Catálogo Online <i data-lucide="external-link" width="14"></i>
                     </a>
-                    <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-editorial-outline">
-                        Archivo de Cartas y Documentos <i data-lucide="folder-open" width="14"></i>
+                    <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-editorial-outline">
+                        Archivo de Cartas y Documentos (Drive) <i data-lucide="folder-open" width="14"></i>
                     </a>
                 </div>
             </div>
