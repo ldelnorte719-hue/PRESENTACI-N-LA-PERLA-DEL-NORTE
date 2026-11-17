@@ -51,7 +51,7 @@
         /* ================= ANIMACIONES ================= */
         @keyframes floatSlow {
             0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-12px) rotate(1.2deg); }
+            50% { transform: translateY(-14px) rotate(1.5deg); }
         }
 
         @keyframes pearlGlow {
@@ -59,9 +59,9 @@
             50% { box-shadow: 0 0 55px rgba(255, 238, 214, 0.85), inset -4px -4px 10px rgba(155, 126, 196, 0.25); }
         }
 
-        @keyframes shimmerSweep {
-            0% { transform: translateX(-140%) rotate(25deg); }
-            50%, 100% { transform: translateX(240%) rotate(25deg); }
+        @keyframes auraPulse {
+            0%, 100% { transform: scale(0.95); opacity: 0.45; }
+            50% { transform: scale(1.06); opacity: 0.8; }
         }
 
         @keyframes riseBubble {
@@ -178,7 +178,7 @@
         .hero-ocean {
             position: relative;
             min-height: 94vh;
-            background: radial-gradient(circle at 28% 45%, #345273 0%, #1C3554 45%, var(--abyssal-dark) 85%);
+            background: radial-gradient(circle at 28% 48%, #345273 0%, #1C3554 45%, var(--abyssal-dark) 85%);
             color: #FFF;
             padding: 125px 24px 85px;
             display: flex;
@@ -205,57 +205,49 @@
             max-width: 1140px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
+            grid-template-columns: 0.92fr 1.08fr;
             gap: 44px;
             align-items: center;
             position: relative;
             z-index: 2;
         }
 
-        /* CONCHA ESCULPIDA CON PERLAS NEGRAS Y BLANCA */
-        .luxury-pearl-showcase {
+        /* CONTENEDOR DE LA CONCHA PNG AISLADA FLOTANTE */
+        .floating-png-stage {
             position: relative;
             width: 100%;
-            max-width: 360px;
-            aspect-ratio: 3 / 4.2;
+            max-width: 390px;
             margin: 0 auto;
-            border-radius: 180px 180px 36px 36px;
-            overflow: hidden;
-            border: 2px solid rgba(235, 214, 184, 0.55);
-            box-shadow: 0 28px 65px rgba(8, 16, 28, 0.65), 0 0 45px rgba(223, 195, 157, 0.25);
-            animation: floatSlow 5.5s ease-in-out infinite, pearlGlow 4s infinite ease-in-out;
-            background: linear-gradient(180deg, #D8C7B4 0%, #B8A38E 65%, #7C6E63 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: floatSlow 5.5s ease-in-out infinite;
         }
 
-        .luxury-pearl-showcase img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
+        /* Halo nacarado suave detrás de la concha aislada */
+        .pearl-halo {
+            position: absolute;
+            width: 82%;
+            height: 82%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 244, 228, 0.34) 0%, rgba(155, 126, 196, 0.16) 55%, transparent 75%);
+            filter: blur(18px);
+            z-index: 1;
+            animation: auraPulse 4.5s ease-in-out infinite;
+        }
+
+        .png-pearl-graphic {
             position: relative;
             z-index: 2;
-        }
-
-        .luxury-pearl-showcase::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 60%;
-            height: 200%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
-            z-index: 3;
-            pointer-events: none;
-            animation: shimmerSweep 6.5s infinite ease-in-out;
-        }
-
-        .fallback-luxury-shell {
-            position: absolute;
-            inset: 0;
             width: 100%;
-            height: 100%;
-            z-index: 1;
+            height: auto;
+            border-radius: 36px;
+            filter: drop-shadow(0 26px 38px rgba(7, 15, 28, 0.65));
+            transition: transform 0.4s ease;
+        }
+
+        .png-pearl-graphic:hover {
+            transform: scale(1.03);
         }
 
         .hero-text-box h1 {
@@ -395,12 +387,6 @@
             gap: 20px;
         }
 
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 18px;
-        }
-
         .specimen-card {
             background: #FFFFFF;
             border-radius: 26px;
@@ -420,19 +406,6 @@
             margin-bottom: 12px;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-        }
-
-        .eco-badge {
-            display: inline-block;
-            background: #E2F3EE;
-            color: #1F5E4D;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 4px 13px;
-            border-radius: 999px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
         .specimen-card h3 {
@@ -544,20 +517,6 @@
         }
 
         /* ================= CATÁLOGO Y MÁRGENES ================= */
-        .dive-card {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            border-radius: 26px;
-            padding: 24px;
-            transition: transform 0.3s ease, background 0.3s ease;
-        }
-
-        .dive-card:hover {
-            transform: translateY(-6px);
-            background: rgba(255, 255, 255, 0.13);
-        }
-
         .dive-card-head {
             display: flex;
             align-items: center;
@@ -570,6 +529,7 @@
         .dive-card-head h3 {
             font-family: var(--font-serif);
             font-size: 21px;
+            color: #FFFFFF;
         }
 
         .margin-pill {
@@ -628,6 +588,7 @@
             padding: 22px;
             box-shadow: 0 12px 30px rgba(22, 43, 70, 0.05);
             border-top: 4px solid var(--lavender-pearl);
+            color: var(--text-dark);
         }
 
         .client-profile-card h4 {
@@ -857,12 +818,12 @@
         }
 
         @media (max-width: 940px) {
-            .hero-grid, .grid-2, .grid-3, .grid-4, .clients-grid, .objections-grid, .loyalty-grid, .pearls-trio, .team-footer-grid {
+            .hero-grid, .grid-2, .grid-3, .clients-grid, .objections-grid, .loyalty-grid, .pearls-trio, .team-footer-grid {
                 grid-template-columns: 1fr;
             }
             .phases-necklace { grid-template-columns: 1fr 1fr; }
             .nav-links { display: none; }
-            .luxury-pearl-showcase { max-width: 280px; }
+            .floating-png-stage { max-width: 290px; }
         }
     </style>
 </head>
@@ -889,90 +850,15 @@
         </button>
     </nav>
 
-    <!-- 1. PORTADA OCEÁNICA (HERO) CON EL GRÁFICO DE LA CONCHA NÁCAR Y PERLAS -->
+    <!-- 1. PORTADA OCEÁNICA (HERO) CON LA CONCHA PNG AISLADA -->
     <section class="hero-ocean">
         <div class="bubbles-container" id="bubbles"></div>
 
         <div class="hero-grid">
-            <!-- Concha Nácar Esculpida con Perlas Negras, Blanca y Dorada -->
-            <div class="luxury-pearl-showcase">
-                <img src="495536765275027574_2.jpeg" alt="Concha Nácar con Perlas Negras y Blanca - La Perla del Norte" onerror="this.style.display='none'">
-
-                <svg class="fallback-luxury-shell" viewBox="0 0 400 560" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="bgWarm" x1="200" y1="0" x2="200" y2="390" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#D6C6B4"/>
-                            <stop offset="100%" stop-color="#B9A692"/>
-                        </linearGradient>
-                        <linearGradient id="waterMetal" x1="200" y1="380" x2="200" y2="560" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#A69787"/>
-                            <stop offset="35%" stop-color="#6B625A"/>
-                            <stop offset="70%" stop-color="#D9CFC3"/>
-                            <stop offset="100%" stop-color="#4A4540"/>
-                        </linearGradient>
-                        <radialGradient id="nacreInterior" cx="52%" cy="42%" r="55%">
-                            <stop offset="0%" stop-color="#FFFDF9"/>
-                            <stop offset="45%" stop-color="#F0DFCE"/>
-                            <stop offset="80%" stop-color="#C9B09A"/>
-                            <stop offset="100%" stop-color="#8C7460"/>
-                        </radialGradient>
-                        <linearGradient id="shellRim" x1="60" y1="110" x2="340" y2="410" gradientUnits="userSpaceOnUse">
-                            <stop offset="0%" stop-color="#F7E8D0"/>
-                            <stop offset="50%" stop-color="#B89B78"/>
-                            <stop offset="100%" stop-color="#6E5840"/>
-                        </linearGradient>
-                        <radialGradient id="blackPearl" cx="32%" cy="28%" r="68%">
-                            <stop offset="0%" stop-color="#FFFFFF"/>
-                            <stop offset="14%" stop-color="#8E96A0"/>
-                            <stop offset="45%" stop-color="#22262B"/>
-                            <stop offset="85%" stop-color="#0B0D10"/>
-                            <stop offset="100%" stop-color="#3B3530"/>
-                        </radialGradient>
-                        <radialGradient id="whitePearl" cx="35%" cy="28%" r="68%">
-                            <stop offset="0%" stop-color="#FFFFFF"/>
-                            <stop offset="35%" stop-color="#F9F2EA"/>
-                            <stop offset="75%" stop-color="#D4C2B0"/>
-                            <stop offset="100%" stop-color="#8F7D6C"/>
-                        </radialGradient>
-                        <radialGradient id="goldOrb" cx="35%" cy="30%" r="65%">
-                            <stop offset="0%" stop-color="#FFF3C4"/>
-                            <stop offset="50%" stop-color="#D4A24C"/>
-                            <stop offset="100%" stop-color="#785219"/>
-                        </radialGradient>
-                    </defs>
-
-                    <rect width="400" height="390" fill="url(#bgWarm)"/>
-                    <rect y="385" width="400" height="175" fill="url(#waterMetal)"/>
-
-                    <ellipse cx="200" cy="435" rx="145" ry="26" fill="rgba(60, 48, 36, 0.45)"/>
-                    <ellipse cx="200" cy="485" rx="115" ry="14" stroke="rgba(255, 250, 240, 0.65)" stroke-width="5" fill="none"/>
-                    <ellipse cx="145" cy="520" rx="85" ry="10" stroke="rgba(255, 250, 240, 0.45)" stroke-width="4" fill="none"/>
-
-                    <path d="M95 170 C92 125, 130 110, 155 135 Z" fill="url(#shellRim)" stroke="#6E5840" stroke-width="2"/>
-                    <path d="M140 132 C165 110, 195 110, 222 122 C252 115, 282 132, 298 158 C332 175, 355 212, 358 255 C368 295, 352 342, 322 372 C295 408, 245 422, 195 420 C140 418, 92 392, 68 348 C42 308, 42 252, 62 212 C68 175, 102 145, 140 132 Z"
-                          fill="url(#shellRim)" stroke="#5E4934" stroke-width="3"/>
-                    <path d="M150 148 C185 130, 245 142, 285 182 C328 225, 338 295, 305 348 C275 392, 210 406, 158 392 C105 376, 72 325, 76 265 C80 212, 112 166, 150 148 Z"
-                          fill="url(#nacreInterior)"/>
-
-                    <path d="M195 360 Q145 255 155 150" stroke="rgba(165, 138, 115, 0.35)" stroke-width="10" stroke-linecap="round"/>
-                    <path d="M205 360 Q205 250 220 145" stroke="rgba(165, 138, 115, 0.32)" stroke-width="12" stroke-linecap="round"/>
-                    <path d="M215 360 Q265 265 288 188" stroke="rgba(165, 138, 115, 0.35)" stroke-width="11" stroke-linecap="round"/>
-                    <path d="M185 360 Q112 285 84 235" stroke="rgba(165, 138, 115, 0.3)" stroke-width="9" stroke-linecap="round"/>
-
-                    <circle cx="182" cy="116" r="5" fill="url(#blackPearl)"/>
-                    <circle cx="242" cy="122" r="5" fill="url(#blackPearl)"/>
-                    <circle cx="305" cy="160" r="5.5" fill="url(#blackPearl)"/>
-                    <circle cx="350" cy="222" r="5.5" fill="url(#blackPearl)"/>
-                    <circle cx="352" cy="296" r="5" fill="url(#blackPearl)"/>
-                    <circle cx="56" cy="272" r="5.5" fill="url(#blackPearl)"/>
-                    <circle cx="66" cy="202" r="5" fill="url(#blackPearl)"/>
-
-                    <circle cx="195" cy="298" r="26" fill="url(#goldOrb)"/>
-                    <circle cx="232" cy="316" r="34" fill="url(#whitePearl)"/>
-                    <circle cx="145" cy="315" r="42" fill="url(#blackPearl)"/>
-                    <circle cx="202" cy="356" r="32" fill="url(#blackPearl)"/>
-                    <circle cx="268" cy="356" r="30" fill="url(#blackPearl)"/>
-                </svg>
+            <!-- Concha Nácar Esculpida PNG con Perlas Negras, Blanca y Dorada -->
+            <div class="floating-png-stage">
+                <div class="pearl-halo"></div>
+                <img class="png-pearl-graphic" src="perla-norte.png" alt="Concha Nácar con Perlas Negras y Blanca - La Perla del Norte" onerror="this.src='watermarked_img_12641715550244115858.jpg'; this.onerror=null;">
             </div>
 
             <!-- Titular Editorial -->
@@ -1233,42 +1119,42 @@
             </p>
 
             <div class="clients-grid">
-                <div class="client-profile-card reveal" style="color: var(--text-dark);">
+                <div class="client-profile-card reveal">
                     <span class="specimen-badge">Perfil 01</span>
                     <h4>Cliente Indeciso</h4>
                     <p>Se abruma ante demasiadas opciones (costa vs. montaña, solo vs. acompañado) y posterga la decisión.</p>
                     <div class="client-tactic">💡 Táctica: Acotar opciones y preguntar: "¿Qué es lo más importante para ti al elegir destino?"</div>
                 </div>
 
-                <div class="client-profile-card reveal" style="color: var(--text-dark);">
+                <div class="client-profile-card reveal">
                     <span class="specimen-badge">Perfil 02</span>
                     <h4>Cliente Racional</h4>
                     <p>Planifica con antelación (ej. luna de miel), exige términos claros, testimonios reales, ubicaciones y precio cerrado.</p>
                     <div class="client-tactic">💡 Táctica: Mostrar garantías escritas, reseñas verificadas y precio inamovible.</div>
                 </div>
 
-                <div class="client-profile-card reveal" style="color: var(--text-dark);">
+                <div class="client-profile-card reveal">
                     <span class="specimen-badge">Perfil 03</span>
                     <h4>Cliente Exigente</h4>
                     <p>Conoce el destino, trae su propio itinerario/menú y pone a prueba nuestra diferenciación frente a otras agencias.</p>
                     <div class="client-tactic">💡 Táctica: Destacar grupos VIP (máx. 8 pers.) y preguntar por amenidades y privacidad.</div>
                 </div>
 
-                <div class="client-profile-card reveal" style="color: var(--text-dark);">
+                <div class="client-profile-card reveal">
                     <span class="specimen-badge">Perfil 04</span>
                     <h4>Cliente Conflictivo</h4>
                     <p>Actitud soberbia o exigencia de descuentos injustificados criticando detalles menores del establecimiento.</p>
                     <div class="client-tactic">💡 Táctica: Mantener la calma, leer juntos políticas de reembolso y garantizar itinerario por escrito.</div>
                 </div>
 
-                <div class="client-profile-card reveal" style="color: var(--text-dark);">
+                <div class="client-profile-card reveal">
                     <span class="specimen-badge">Perfil 05</span>
                     <h4>Cliente Impulsivo</h4>
                     <p>Motivado por vídeos visuales (ej. Playa del Sardinero), reserva para el mismo fin de semana asumiendo +13% última hora.</p>
                     <div class="client-tactic">💡 Táctica: Venta cruzada rápida (+35 € terraza vista mar y souvenirs de recuerdo).</div>
                 </div>
 
-                <div class="client-profile-card reveal" style="color: var(--text-dark);">
+                <div class="client-profile-card reveal">
                     <span class="specimen-badge">Perfil 06</span>
                     <h4>Cliente Fiel</h4>
                     <p>Repite servicios rechazando ofertas de la competencia por la confianza y sostenibilidad de nuestros productos; nos recomienda.</p>
