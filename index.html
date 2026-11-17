@@ -17,7 +17,7 @@
         :root {
             --bg-abyss: #091211;
             --bg-forest: #0F1E1C;
-            --bg-card: rgba(20, 38, 35, 0.72);
+            --bg-card: rgba(20, 38, 35, 0.74);
             --bg-card-solid: #132522;
             --aurora-emerald: #266D5B;
             --aurora-teal: #1B4E47;
@@ -54,7 +54,7 @@
                 linear-gradient(180deg, #091211 0%, #0E1C1A 50%, #08100F 100%);
         }
 
-        /* ================= FONDO ANIMADO GLOBAL (AURORA + PARTÍCULAS) ================= */
+        /* ================= FONDO ANIMADO GLOBAL: AURORA + PERLAS PEQUEÑAS NACARADAS ================= */
         .global-aurora-backdrop {
             position: fixed;
             inset: 0;
@@ -74,13 +74,37 @@
             animation: auroraWave 14s ease-in-out infinite alternate;
         }
 
-        .floating-spore {
+        /* Perlas pequeñas nacaradas flotantes */
+        .floating-pearl {
             position: absolute;
-            bottom: -20px;
+            bottom: -24px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(245, 212, 131, 0.9), rgba(38, 109, 91, 0.2));
-            box-shadow: 0 0 10px rgba(229, 185, 92, 0.6);
-            animation: sporeRise linear infinite;
+            background: radial-gradient(circle at 32% 28%, #FFFFFF 0%, #FDF7EA 38%, #E6D7BE 78%, #B89F74 100%);
+            box-shadow:
+                0 0 8px rgba(255, 250, 240, 0.75),
+                0 0 16px rgba(245, 212, 131, 0.45),
+                inset -2px -2px 4px rgba(130, 108, 72, 0.45);
+            animation: pearlRise linear infinite;
+        }
+
+        @keyframes pearlRise {
+            0% {
+                transform: translateY(0) translateX(0) scale(0.75);
+                opacity: 0;
+            }
+            15% {
+                opacity: 0.92;
+            }
+            50% {
+                transform: translateY(-52vh) translateX(22px) scale(1);
+            }
+            85% {
+                opacity: 0.85;
+            }
+            100% {
+                transform: translateY(-108vh) translateX(-18px) scale(0.9);
+                opacity: 0;
+            }
         }
 
         @keyframes auroraWave {
@@ -113,15 +137,61 @@
             50% { transform: translateY(-10px); }
         }
 
-        @keyframes sporeRise {
-            0% { transform: translateY(0) translateX(0) scale(0.6); opacity: 0; }
-            25% { opacity: 0.85; }
-            100% { transform: translateY(-105vh) translateX(40px) scale(1.1); opacity: 0; }
+        /* ================= ANIMACIÓN PELÍCANO VOLANDO ================= */
+        .pelican-flight-path {
+            position: absolute;
+            top: 46px;
+            left: -160px;
+            z-index: 3;
+            pointer-events: none;
+            animation: pelicanGlide 24s linear infinite;
+            filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.5));
         }
 
-        @keyframes spinCompass {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        @keyframes pelicanGlide {
+            0% {
+                transform: translateX(0) translateY(12px) scale(0.85);
+                opacity: 0;
+            }
+            8% {
+                opacity: 0.95;
+            }
+            25% {
+                transform: translateX(340px) translateY(-14px) scale(0.95);
+            }
+            50% {
+                transform: translateX(680px) translateY(8px) scale(1);
+            }
+            75% {
+                transform: translateX(1020px) translateY(-16px) scale(0.92);
+            }
+            92% {
+                opacity: 0.95;
+            }
+            100% {
+                transform: translateX(1380px) translateY(4px) scale(0.85);
+                opacity: 0;
+            }
+        }
+
+        .pelican-wing-back {
+            transform-origin: 58px 44px;
+            animation: flapBack 0.95s ease-in-out infinite alternate;
+        }
+
+        .pelican-wing-front {
+            transform-origin: 62px 46px;
+            animation: flapFront 0.95s ease-in-out infinite alternate;
+        }
+
+        @keyframes flapBack {
+            0% { transform: rotate(-18deg) scaleY(0.85); }
+            100% { transform: rotate(22deg) scaleY(1.05); }
+        }
+
+        @keyframes flapFront {
+            0% { transform: rotate(26deg) scaleY(0.9); }
+            100% { transform: rotate(-24deg) scaleY(1.08); }
         }
 
         /* ================= REVELADO AL HACER SCROLL ================= */
@@ -136,7 +206,7 @@
             transform: translateY(0);
         }
 
-        /* ================= CONTENEDOR CENTRAL ESTILO MOCKUP OSCURO ================= */
+        /* ================= CONTENEDOR CENTRAL ================= */
         .editorial-canvas {
             max-width: 1200px;
             margin: 22px auto 50px;
@@ -182,12 +252,12 @@
             white-space: nowrap;
         }
 
-        .wax-dot {
-            width: 14px;
-            height: 14px;
+        .pearl-dot {
+            width: 15px;
+            height: 15px;
             border-radius: 50%;
-            background: radial-gradient(circle at 35% 35%, #FFF3C4, var(--gold-accent));
-            box-shadow: 0 0 12px rgba(229, 185, 92, 0.8);
+            background: radial-gradient(circle at 32% 28%, #FFFFFF 0%, #FDF7EA 42%, #DFC8A2 85%, #B4986B 100%);
+            box-shadow: 0 0 12px rgba(255, 248, 230, 0.85);
             display: inline-block;
         }
 
@@ -261,17 +331,16 @@
             border-color: var(--gold-accent);
         }
 
-        /* ================= 1. PORTADA ESTILO SKANDI TOURS CON MONTAÑAS EN MOVIMIENTO ================= */
+        /* ================= 1. PORTADA CON MONTAÑAS EN MOVIMIENTO + PELÍCANO VOLANDO ================= */
         .hero-nordic {
             position: relative;
-            padding: 64px 40px 95px;
+            padding: 68px 40px 95px;
             background:
                 radial-gradient(ellipse at 65% 18%, rgba(52, 168, 130, 0.34) 0%, transparent 55%),
                 linear-gradient(180deg, #0C1B19 0%, #122926 58%, #0D1A18 100%);
             overflow: hidden;
         }
 
-        /* Cordilleras en movimiento parallax en la portada */
         .hero-mountains-stage {
             position: absolute;
             inset: 0;
@@ -315,8 +384,7 @@
             animation: parallaxFront 20s linear infinite;
         }
 
-        /* Olas nocturnas reflejando la aurora */
-        .cantabrian-sea-waves {
+        .north-sea-waves {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -398,7 +466,7 @@
             filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.6));
         }
 
-        /* BARRA DE FILTRO FLOTANTE ESTILO SKANDI TOURS EN LA BASE DE LA PORTADA */
+        /* BARRA DE FILTRO FLOTANTE EN LA BASE DE LA PORTADA */
         .skandi-search-bar {
             position: relative;
             z-index: 5;
@@ -471,7 +539,7 @@
             color: var(--text-muted);
         }
 
-        /* ================= MAPA DE IMPACTO ESTILO MOCKUP ("20 тыс.+") ================= */
+        /* ================= BLOQUE DE INDICADORES NORTE DE ESPAÑA ================= */
         .north-stats-banner {
             background: radial-gradient(circle at 50% 50%, rgba(38, 109, 91, 0.25) 0%, rgba(13, 26, 24, 0.6) 70%);
             border: 1px solid var(--border-glass);
@@ -590,7 +658,7 @@
             background: rgba(229, 185, 92, 0.08);
         }
 
-        /* ================= CATÁLOGO CON TARJETAS VISUALES ESCALONADAS (ESTILO SKANDI TOURS) ================= */
+        /* ================= CATÁLOGO CON TARJETAS VISUALES ESCALONADAS ================= */
         .tour-category-block {
             margin-bottom: 58px;
         }
@@ -619,7 +687,6 @@
             border-radius: 999px;
         }
 
-        /* Cuadrícula en abanico escalonado como en la imagen */
         .staggered-cards-row {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -644,7 +711,6 @@
             background-position: center;
         }
 
-        /* Efecto escalonado (tarjeta central más grande y destacada como en la imagen) */
         .staggered-cards-row .tour-visual-card:nth-child(1),
         .staggered-cards-row .tour-visual-card:nth-child(5) {
             height: 255px;
@@ -910,7 +976,7 @@
 </head>
 <body>
 
-    <!-- FONDO ANIMADO AURORA + PARTÍCULAS DORADAS -->
+    <!-- FONDO ANIMADO AURORA + PERLAS PEQUEÑAS FLOTANTES -->
     <div class="global-aurora-backdrop" id="globalBackdrop">
         <div class="aurora-ribbon"></div>
     </div>
@@ -918,7 +984,7 @@
     <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
     <nav>
         <div class="nav-brand">
-            <span class="wax-dot"></span>
+            <span class="pearl-dot"></span>
             LA PERLA DEL NORTE S.L.
         </div>
         <ul class="nav-links">
@@ -950,8 +1016,35 @@
     <!-- LIENZO PRINCIPAL -->
     <main class="editorial-canvas">
 
-        <!-- 1. PORTADA CON MONTAÑAS EN MOVIMIENTO + BARRA BUSCADOR -->
+        <!-- 1. PORTADA CON MONTAÑAS EN MOVIMIENTO + PELÍCANO BONITO VOLANDO -->
         <section class="hero-nordic">
+
+            <!-- PELÍCANO ILUSTRADO VOLANDO SUAVEMENTE SOBRE LAS MONTAÑAS -->
+            <div class="pelican-flight-path" aria-hidden="true">
+                <svg width="130" height="85" viewBox="0 0 130 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Ala trasera -->
+                    <g class="pelican-wing-back">
+                        <path d="M58 44 C44 18, 26 10, 14 20 C28 24, 42 32, 52 46 Z" fill="#C7D3CF" opacity="0.88"/>
+                    </g>
+                    <!-- Cola -->
+                    <path d="M22 48 L6 43 L10 51 L6 56 L24 53 Z" fill="#DDE6E3"/>
+                    <!-- Cuerpo elegante -->
+                    <path d="M20 49 C34 40, 62 38, 82 43 C90 45, 92 52, 82 56 C64 61, 36 59, 20 49 Z" fill="#F8FAF9"/>
+                    <!-- Cuello curvado y cabeza -->
+                    <path d="M78 44 C86 35, 94 27, 102 29 C108 31, 107 39, 100 42 C93 45, 87 50, 82 53 Z" fill="#FFFFFF"/>
+                    <!-- Ojo -->
+                    <circle cx="101" cy="33" r="1.8" fill="#0B1615"/>
+                    <!-- Pico largo característico del pelícano + bolsa dorada suave -->
+                    <path d="M105 32 L127 36 L105 37 Z" fill="#E5B95C"/>
+                    <path d="M104 36 C112 36, 121 36, 126 36 C121 43, 110 45, 102 40 Z" fill="#F3C96B"/>
+                    <!-- Ala delantera principal con puntas oscuras -->
+                    <g class="pelican-wing-front">
+                        <path d="M62 46 C46 20, 22 14, 8 26 C22 30, 36 38, 48 50 Z" fill="#FFFFFF"/>
+                        <path d="M18 20 C13 21, 10 23, 8 26 C13 27, 18 29, 22 31 Z" fill="#2A403C"/>
+                    </g>
+                </svg>
+            </div>
+
             <!-- 3 Cordilleras en Movimiento Parallax -->
             <div class="hero-mountains-stage">
                 <div class="mountain-layer mountains-back">
@@ -982,8 +1075,8 @@
                 </div>
             </div>
 
-            <!-- Olas suaves del Mar Cantábrico -->
-            <div class="cantabrian-sea-waves">
+            <!-- Olas suaves del Mar del Norte -->
+            <div class="north-sea-waves">
                 <div class="wave-track">
                     <svg viewBox="0 0 1200 80" preserveAspectRatio="none" style="width: 50%; height: 100%;">
                         <path d="M0,42 C200,12 400,72 600,42 C800,12 1000,72 1200,42 L1200,80 L0,80 Z" fill="rgba(13, 26, 24, 0.92)"/>
@@ -997,10 +1090,10 @@
             <div class="hero-grid">
                 <div>
                     <div class="hero-kicker">Descubre el Norte de España</div>
-                    <h1>Explora el Cantábrico con <span>La Perla del Norte</span></h1>
+                    <h1>Explora el Norte con <span>La Perla del Norte</span></h1>
 
                     <div class="hero-subbox">
-                        <strong>Sector Servicios (Educación, Servicios Profesionales y Ocio)</strong> — Experiencias sostenibles junto a productores locales artesanales (sobaos, quesos, mermeladas, anchoas y vinos) en <strong>grupos reducidos de máximo 8 personas</strong> y paquetes flexibles a medida.
+                        <strong>Sector Servicios (Educación, Servicios Profesionales y Ocio)</strong> — Experiencias sostenibles en el Norte de España junto a productores locales artesanales (sobaos, quesos, mermeladas, anchoas y vinos) en <strong>grupos reducidos de máximo 8 personas</strong> y paquetes flexibles a medida.
                     </div>
 
                     <div style="display: flex; flex-wrap: wrap; gap: 12px;">
@@ -1020,16 +1113,16 @@
                 <div class="hero-emblem-card">
                     <img src="perla del norte.png" alt="Concha Nácar con Perlas - La Perla del Norte" onerror="this.src='perla-norte.png'; this.onerror=null;">
                     <div style="margin-top: 10px; font-family: var(--font-serif); font-size: 18px; color: var(--gold-bright); letter-spacing: 0.06em;">
-                        SANTANDER • CANTABRIA
+                        NORTE DE ESPAÑA • SANTANDER
                     </div>
                 </div>
             </div>
 
-            <!-- Barra flotante inferior estilo Skandi Tours -->
+            <!-- Barra flotante inferior -->
             <div class="skandi-search-bar">
                 <div class="search-pill-item">
                     <small>Destino</small>
-                    <span>Cantabria, Picos de Europa y Costa</span>
+                    <span>Norte de España, Picos de Europa y Costa</span>
                 </div>
                 <div class="search-pill-item">
                     <small>Modalidad</small>
@@ -1045,7 +1138,7 @@
             </div>
         </section>
 
-        <!-- 2. IDENTIDAD, MAPA DE IMPACTO Y COMPARATIVA -->
+        <!-- 2. IDENTIDAD, INDICADORES NORTE DE ESPAÑA Y COMPARATIVA -->
         <section class="section-dark" id="identidad">
             <div class="section-kicker reveal">Nuestra Esencia</div>
             <h2 class="section-heading reveal">Identidad, Misión y Propuesta de Valor</h2>
@@ -1053,7 +1146,7 @@
                 Conectamos el deseo de viajar y descansar con el impulso directo a la economía rural, preservando la cultura y el entorno natural del Norte de España.
             </p>
 
-            <!-- Bloque de Métricas e Impacto estilo mapa central del mockup -->
+            <!-- Bloque de Métricas e Impacto -->
             <div class="north-stats-banner reveal">
                 <div>
                     <div style="font-family: var(--font-script); font-size: 30px; color: var(--gold-accent);">Norte de España</div>
@@ -1061,7 +1154,7 @@
                         Turismo Sostenible Sin Intermediarios
                     </h3>
                     <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 18px;">
-                        Operamos mediante canal directo (web oficial, redes sociales, aeropuertos, estaciones de tren, bus y ferry) garantizando experiencias auténticas y trato cercano.
+                        Operamos mediante canal directo (web oficial, redes sociales, aeropuertos, estaciones de tren, bus y ferry) garantizando experiencias auténticas y trato cercano en el Norte de España.
                     </p>
                     <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                         <span class="card-duration-pill">CIF: B-3984729</span>
@@ -1104,7 +1197,7 @@
                 <div class="glass-card reveal">
                     <h3>02 • Público y Doble Solución</h3>
                     <ul class="dark-list">
-                        <li><i data-lucide="heart" width="16" color="#E5B95C"></i> <div><strong>Viajeros Conscientes:</strong> Personas que buscan vivir el ciclo real de los productos artesanales y descubrir pueblos auténticos.</div></li>
+                        <li><i data-lucide="heart" width="16" color="#E5B95C"></i> <div><strong>Viajeros Conscientes:</strong> Personas que buscan vivir el ciclo real de los productos artesanales y descubrir pueblos auténticos del Norte.</div></li>
                         <li><i data-lucide="store" width="16" color="#E5B95C"></i> <div><strong>Impacto Rural:</strong> Damos visibilidad a pequeños obradores, museos locales y productores familiares.</div></li>
                         <li><i data-lucide="map-pin" width="16" color="#E5B95C"></i> <div><strong>Captación Directa:</strong> Web oficial, redes sociales, aeropuertos, estaciones de tren, bus y ferry.</div></li>
                     </ul>
@@ -1159,13 +1252,13 @@
             <div class="section-kicker reveal">Itinerario & Experiencias</div>
             <h2 class="section-heading reveal">Programa del Norte & Gamas de Viaje</h2>
             <p class="section-lead reveal">
-                Tres niveles de viaje flexibles combinados con nuestros tres pilares culturales, gastronómicos y naturales.
+                Tres niveles de viaje flexibles por el Norte de España combinados con nuestros tres pilares culturales, gastronómicos y naturales.
             </p>
 
             <div class="grid-3">
                 <div class="glass-card reveal">
                     <span class="card-duration-pill" style="margin-bottom: 10px; display: inline-block;">Gama Básica • Express</span>
-                    <h3>Ruta Cantábrica Express</h3>
+                    <h3>Ruta Norte Express</h3>
                     <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
                         Ideal para jóvenes e independientes. Transporte y entradas autoguiadas en Santander y Santillana del Mar.
                     </p>
@@ -1183,7 +1276,7 @@
 
                 <div class="glass-card reveal">
                     <span class="card-duration-pill" style="margin-bottom: 10px; display: inline-block;">Gama Premium • VIP</span>
-                    <h3>Cantabria Infinita Deluxe</h3>
+                    <h3>Norte Infinito Deluxe</h3>
                     <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
                         100% privado, Paradores/5*, gastronomía Michelin y experiencias exclusivas en velero o helicóptero.
                     </p>
@@ -1197,7 +1290,7 @@
             <div class="section-kicker reveal">Agenda 2030</div>
             <h2 class="section-heading reveal">Sostenibilidad y Compromiso ODS</h2>
             <p class="section-lead reveal">
-                Alineamos cada ruta con los Objetivos de Desarrollo Sostenible (ODS 8, 9, 10, 11 y 12), anticipando riesgos y generando oportunidades reales en el medio rural.
+                Alineamos cada ruta del Norte de España con los Objetivos de Desarrollo Sostenible (ODS 8, 9, 10, 11 y 12), anticipando riesgos y generando oportunidades reales en el medio rural.
             </p>
 
             <div class="grid-2" style="margin-bottom: 22px;">
@@ -1242,19 +1335,19 @@
             </div>
         </section>
 
-        <!-- 5. CATÁLOGO VISUAL ESCALONADO ESTILO SKANDI TOURS (SIN COSTE) -->
+        <!-- 5. CATÁLOGO VISUAL ESCALONADO (SIN COSTE) -->
         <section class="section-dark" id="catalogo">
             <div class="section-kicker reveal">Tarifas Oficiales</div>
             <h2 class="section-heading reveal">Catálogo de Experiencias y Productos</h2>
             <p class="section-lead reveal">
-                15 experiencias y productos oficiales (21% IVA incluido) diseñados en grupos reducidos de máximo 8 personas.
+                15 experiencias y productos oficiales (21% IVA incluido) diseñados en grupos reducidos de máximo 8 personas en el Norte de España.
                 <br>
                 <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; color: var(--gold-bright); font-weight: 700; text-decoration: underline;">
                     Abrir Catálogo Interactivo Completo en Web <i data-lucide="external-link" width="14"></i>
                 </a>
             </p>
 
-            <!-- BLOQUE A: SABORES DEL NORTE (5 Tarjetas en abanico escalonado) -->
+            <!-- BLOQUE A: SABORES DEL NORTE -->
             <div class="tour-category-block reveal">
                 <h3 class="tour-category-title">A. Sabores del Norte <span>Gastronomía Artesanal</span></h3>
                 <div class="staggered-cards-row">
@@ -1282,7 +1375,7 @@
                         <div class="card-top-row"><span class="card-duration-pill">6-8 h</span><span class="card-heart">♥</span></div>
                         <div class="card-bottom-info">
                             <div class="stars-gold">★★★★★</div>
-                            <h4>4. Ruta Vinos Cántabros</h4>
+                            <h4>4. Ruta Vinos del Norte</h4>
                             <p>Viñedos atlánticos, bodega y maridaje local.</p>
                             <div class="card-price-footer"><span class="price-tag-nordic">170 €</span><span class="spots-badge">Destacado • 8 plazas</span></div>
                         </div>
@@ -1311,7 +1404,7 @@
                 <div class="carousel-dots"><span></span><span class="active"></span><span></span></div>
             </div>
 
-            <!-- BLOQUE B: VISTAS DEL NORTE (5 Tarjetas en abanico escalonado) -->
+            <!-- BLOQUE B: VISTAS DEL NORTE -->
             <div class="tour-category-block reveal">
                 <h3 class="tour-category-title">B. Vistas del Norte <span>Naturaleza & Senderismo</span></h3>
                 <div class="staggered-cards-row">
@@ -1349,7 +1442,7 @@
                         <div class="card-top-row"><span class="card-duration-pill">6-8 h</span><span class="card-heart">♥</span></div>
                         <div class="card-bottom-info">
                             <div class="stars-gold">★★★★★</div>
-                            <h4>9. Costas y Playas Cantabria</h4>
+                            <h4>9. Costas y Playas del Norte</h4>
                             <p>Acantilados, dunas y villas marineras.</p>
                             <div class="card-price-footer"><span class="price-tag-nordic">140 €</span><span class="spots-badge">Máx. 8 plazas</span></div>
                         </div>
@@ -1360,7 +1453,7 @@
                         <div class="card-bottom-info">
                             <div class="stars-gold">★★★★★</div>
                             <h4>10. Collados Valle Asón</h4>
-                            <p>Hayedos, cascadas y karst cantábrico.</p>
+                            <p>Hayedos, cascadas y senderos del Norte.</p>
                             <div class="card-price-footer"><span class="price-tag-nordic">120 €</span><span class="spots-badge">Máx. 8 plazas</span></div>
                         </div>
                     </div>
@@ -1368,7 +1461,7 @@
                 <div class="carousel-dots"><span></span><span class="active"></span><span></span></div>
             </div>
 
-            <!-- BLOQUE C: SOUVENIRS TIERRA (5 Tarjetas en abanico escalonado) -->
+            <!-- BLOQUE C: SOUVENIRS TIERRA -->
             <div class="tour-category-block reveal" style="margin-bottom: 10px;">
                 <h3 class="tour-category-title">C. Souvenirs Tierra <span>Artesanía & Recuerdos</span></h3>
                 <div class="staggered-cards-row">
@@ -1377,7 +1470,7 @@
                         <div class="card-bottom-info">
                             <div class="stars-gold">★★★★★</div>
                             <h4>12. Imanes Artesanales</h4>
-                            <p>Piezas hechas y pintadas a mano en Cantabria.</p>
+                            <p>Piezas hechas y pintadas a mano en el Norte.</p>
                             <div class="card-price-footer"><span class="price-tag-nordic">10 €</span><span class="spots-badge">Edición Local</span></div>
                         </div>
                     </div>
@@ -1396,7 +1489,7 @@
                         <div class="card-top-row"><span class="card-duration-pill">Cesta Gourmet</span><span class="card-heart">♥</span></div>
                         <div class="card-bottom-info">
                             <div class="stars-gold">★★★★★</div>
-                            <h4>11. Lote 'Sabores Cantabria'</h4>
+                            <h4>11. Lote 'Sabores del Norte'</h4>
                             <p>Sobaos, queso pasiego, anchoas y vino blanco.</p>
                             <div class="card-price-footer"><span class="price-tag-nordic">75 €</span><span class="spots-badge">Selección VIP</span></div>
                         </div>
@@ -1431,7 +1524,7 @@
             <div class="section-kicker reveal">Comunidad & Futuro</div>
             <h2 class="section-heading reveal">Programa de Fidelización y Expansión</h2>
             <p class="section-lead reveal">
-                Consolidamos la recurrencia y recomendación orgánica mediante hiperpersonalización CRM, niveles VIP y alianzas de crecimiento sostenible.
+                Consolidamos la recurrencia y recomendación orgánica mediante hiperpersonalización CRM, niveles VIP y alianzas de crecimiento sostenible en el Norte de España.
             </p>
 
             <div class="glass-card reveal">
@@ -1453,7 +1546,7 @@
             <div class="section-kicker reveal">Logística & Alianzas</div>
             <h2 class="section-heading reveal">5 Fases Operativas y Proveedores</h2>
             <p class="section-lead reveal">
-                Control riguroso desde la captación hasta el cierre postventa, respaldado por productores homologados de Cantabria.
+                Control riguroso desde la captación hasta el cierre postventa, respaldado por productores homologados del Norte de España.
             </p>
 
             <div class="phases-row reveal">
@@ -1518,14 +1611,14 @@
                         </tr>
                         <tr>
                             <td><strong>Bodegas El Miradorio S.L.</strong> (Ruiloba)</td>
-                            <td>Vino blanco cántabro</td>
+                            <td>Vino blanco del Norte</td>
                             <td>11,00 € → <strong>9,90 €/bot.</strong> (-10%)</td>
                             <td>2 días • Gratis (>200 €)</td>
                             <td><strong>Pagaré a 60 días</strong></td>
                         </tr>
                         <tr>
                             <td><strong>Conservas Hoya S.A.</strong> (Santoña)</td>
-                            <td>Anchoas del Cantábrico</td>
+                            <td>Anchoas del Norte</td>
                             <td>4,80 € → <strong>4,22 €/lata</strong> (-12% rappel)</td>
                             <td><strong>24h</strong> • Pagados (DDP)</td>
                             <td>Transferencia 30 días</td>
@@ -1551,7 +1644,7 @@
                 <div class="section-kicker">Estructura Directiva</div>
                 <h3 class="section-heading" style="font-size: 32px;">Equipo de La Perla del Norte S.L.</h3>
                 <p style="font-size: 13px; color: var(--text-muted);">
-                    CIF: B-3984729 • Paseo de Pereda, 15, Bajo, 39004 Santander (Cantabria)
+                    CIF: B-3984729 • Paseo de Pereda, 15, Bajo, 39004 Santander (Norte de España)
                 </p>
                 <div style="margin-top: 18px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
                     <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-gold" style="padding: 11px 22px; font-size: 13px;">
@@ -1595,7 +1688,7 @@
             <button onclick="toggleScript()" style="background:none;border:none;color:#FFF;cursor:pointer;font-size:16px;">✕</button>
         </h4>
         <p>
-            <strong>1. Propuesta y Diferenciación:</strong> "Somos <em>La Perla del Norte S.L.</em> (CIF B-3984729). Frente al turismo tradicional masificado, ofrecemos <strong>paquetes variables en grupos de máximo 8 personas</strong> que unen catas artesanales, lugares históricos y naturaleza."<br><br>
+            <strong>1. Propuesta y Diferenciación:</strong> "Somos <em>La Perla del Norte S.L.</em> (CIF B-3984729). Frente al turismo tradicional masificado, ofrecemos <strong>paquetes variables en grupos de máximo 8 personas</strong> por el Norte de España que unen catas artesanales, lugares históricos y naturaleza."<br><br>
             <strong>2. Compromiso ODS (8, 9, 10, 11 y 12):</strong> "Impulsamos el empleo rural digno (jóvenes, mayores de 52 años, mujeres rurales y personas con discapacidad), movilidad sostenible y alianzas con productores locales de sobaos, quesos, anchoas y vinos."<br><br>
             <strong>3. Catálogo y Canales Directos:</strong> "Contamos con 15 experiencias gastronómicas, rutas naturales y souvenirs artesanales con atención directa sin intermediarios y 14 días de desistimiento."<br><br>
             <strong>4. Fidelización y Expansión:</strong> "Con nuestro CRM hiperpersonalizado y niveles <em>Plata, Oro y Platino</em>, fidelizamos al viajero y proyectamos nuestra expansión a todo el Norte de España."
@@ -1605,18 +1698,18 @@
     <script>
         lucide.createIcons();
 
-        // Generar esporas doradas flotantes en el fondo
+        // Generar perlas pequeñas nacaradas flotantes en el fondo
         const backdrop = document.getElementById('globalBackdrop');
-        for (let i = 0; i < 24; i++) {
-            const spore = document.createElement('div');
-            spore.classList.add('floating-spore');
-            const size = Math.random() * 5 + 3;
-            spore.style.width = `${size}px`;
-            spore.style.height = `${size}px`;
-            spore.style.left = `${Math.random() * 100}%`;
-            spore.style.animationDuration = `${Math.random() * 12 + 10}s`;
-            spore.style.animationDelay = `${Math.random() * 8}s`;
-            backdrop.appendChild(spore);
+        for (let i = 0; i < 32; i++) {
+            const pearl = document.createElement('div');
+            pearl.classList.add('floating-pearl');
+            const size = Math.random() * 6 + 4; // perlas pequeñas entre 4px y 10px
+            pearl.style.width = `${size}px`;
+            pearl.style.height = `${size}px`;
+            pearl.style.left = `${Math.random() * 100}%`;
+            pearl.style.animationDuration = `${Math.random() * 14 + 12}s`;
+            pearl.style.animationDelay = `${Math.random() * 10}s`;
+            backdrop.appendChild(pearl);
         }
 
         // Animación al hacer scroll
