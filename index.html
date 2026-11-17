@@ -3,30 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presentación Comercial | La Perla del Norte S.L.</title>
-    
-    <!-- Tipografía moderna -->
+    <title>La Perla del Norte S.L. | Dossier Ejecutivo y Presentación Integral</title>
+
+    <!-- Tipografías Editorial Marina -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <!-- Iconos Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         :root {
-            --bg-outer: #E5E7EB;
-            --bg-sheet: #FFFFFF;
-            --bg-soft: #F4F5F3;
-            --sage-primary: #6D7A5E;
-            --sage-dark: #4B563F;
-            --sage-light: #E8ECE4;
-            --text-main: #1C1E1B;
-            --text-muted: #686D65;
-            --border-light: #E6E8E3;
-            --radius-xl: 32px;
-            --radius-lg: 22px;
-            --radius-pill: 999px;
+            --abyssal-dark: #162B46;
+            --abyssal-mid: #23436B;
+            --pearl-white: #F7F9FC;
+            --pearl-card: #FFFFFF;
+            --lavender-pearl: #9B7EC4;
+            --lavender-soft: #EFE9F8;
+            --text-dark: #1A2536;
+            --text-muted: #5A687D;
+            --font-display: 'Cinzel Decorative', serif;
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
         }
 
         * {
@@ -35,1030 +34,1257 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg-outer);
-            color: var(--text-main);
-            height: 100vh;
-            overflow: hidden;
+            font-family: var(--font-sans);
+            background-color: var(--pearl-white);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ================= ANIMACIONES ================= */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-14px) rotate(2deg); }
+        }
+
+        @keyframes pearlGlow {
+            0%, 100% { box-shadow: 0 0 25px rgba(255, 255, 255, 0.7), inset -6px -6px 14px rgba(155, 126, 196, 0.5); }
+            50% { box-shadow: 0 0 45px rgba(235, 215, 255, 0.95), inset -4px -4px 10px rgba(155, 126, 196, 0.3); }
+        }
+
+        @keyframes riseBubble {
+            0% { transform: translateY(100%) scale(0.6); opacity: 0; }
+            30% { opacity: 0.5; }
+            100% { transform: translateY(-600px) scale(1.2); opacity: 0; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: all 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================= NAVBAR FLOTANTE ================= */
+        nav {
+            position: fixed;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 94%;
+            max-width: 1180px;
+            background: rgba(22, 43, 70, 0.86);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 999px;
+            padding: 10px 22px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            color: #FFF;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-display);
+            font-size: 13px;
+            letter-spacing: 0.05em;
+        }
+
+        .mini-pearl {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #FFFFFF, #D8C7F0 65%, #8A6BB8);
+            display: inline-block;
+            animation: pearlGlow 3s infinite ease-in-out;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 16px;
+            list-style: none;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: #D9C3F7;
+        }
+
+        .btn-script {
+            background: var(--lavender-pearl);
+            color: #FFF;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 999px;
+            font-size: 11.5px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn-script:hover {
+            transform: scale(1.04);
+            background: #8868B5;
+        }
+
+        /* ================= SEPARADORES ONDULADOS SVG ================= */
+        .wave-divider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            margin-top: -2px;
+        }
+
+        .wave-divider svg {
+            display: block;
+            width: calc(100% + 2px);
+            height: 52px;
+        }
+
+        /* ================= SECCIÓN 1: HERO OCEÁNICO ================= */
+        .hero-ocean {
+            position: relative;
+            min-height: 92vh;
+            background: radial-gradient(circle at 70% 25%, #2B5382 0%, var(--abyssal-dark) 75%);
+            color: #FFF;
+            padding: 130px 24px 85px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .bubbles-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -40px;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.6), rgba(255,255,255,0.08));
+            border-radius: 50%;
+            animation: riseBubble linear infinite;
+        }
+
+        .hero-grid {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .shell-stage {
+            position: relative;
+            display: flex;
             justify-content: center;
             align-items: center;
-            padding: 16px;
+            animation: floatSlow 5.5s ease-in-out infinite;
         }
 
-        /* CONTENEDOR DE DIAPOSITIVA */
-        .deck-wrapper {
-            width: 100%;
-            max-width: 1180px;
-            height: 92vh;
-            background: var(--bg-sheet);
-            border-radius: 36px;
-            padding: 24px 36px 20px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
+        .hero-pearl-orb {
+            position: absolute;
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 32% 28%, #FFFFFF 0%, #F1E8FC 45%, #B99CE0 85%, #7F61AB 100%);
+            top: 48%;
+            animation: pearlGlow 3.5s infinite ease-in-out;
+            z-index: 3;
         }
 
-        /* BARRA SUPERIOR */
-        header {
-            display: flex;
-            justify-content: space-between;
+        .hero-text-box h1 {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 4.6vw, 58px);
+            line-height: 1.12;
+            letter-spacing: 0.04em;
+            margin-bottom: 18px;
+            font-weight: 400;
+        }
+
+        .inline-pearl {
+            display: inline-block;
+            width: 0.68em;
+            height: 0.68em;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #FFF, #D5C1F0 70%, #7B5CA8);
+            vertical-align: middle;
+            margin: 0 4px;
+            box-shadow: 0 0 15px rgba(255,255,255,0.6);
+        }
+
+        .torn-note {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text-dark);
+            padding: 16px 22px;
+            border-radius: 18px 4px 22px 6px;
+            font-size: 13.5px;
+            max-width: 540px;
+            margin-bottom: 24px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+            border-left: 4px solid var(--lavender-pearl);
+        }
+
+        .btn-lavender-pill {
+            display: inline-flex;
             align-items: center;
-            gap: 12px;
-            flex-shrink: 0;
-        }
-
-        .brand-logo {
-            font-weight: 800;
-            font-size: 15px;
-            letter-spacing: -0.02em;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .slide-dots {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .dot {
-            width: 28px;
-            height: 6px;
-            border-radius: var(--radius-pill);
-            background: var(--border-light);
-            cursor: pointer;
+            gap: 10px;
+            background: var(--lavender-pearl);
+            color: #FFF;
+            text-decoration: none;
+            padding: 12px 26px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13.5px;
+            letter-spacing: 0.03em;
+            box-shadow: 0 10px 25px rgba(155, 126, 196, 0.45);
             transition: all 0.3s ease;
         }
 
-        .dot.active {
-            width: 48px;
-            background: var(--sage-primary);
+        .btn-lavender-pill:hover {
+            transform: translateY(-3px);
+            background: #8666B5;
         }
 
-        .header-actions {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-        }
-
-        .btn-pill-outline {
-            background: #FFF;
-            border: 1px solid var(--border-light);
-            color: var(--text-main);
-            padding: 7px 14px;
-            border-radius: var(--radius-pill);
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.2s;
-        }
-
-        .btn-pill-outline:hover {
-            border-color: var(--sage-primary);
-            background: var(--bg-soft);
-        }
-
-        .btn-pill-outline.active-notes {
-            background: var(--sage-light);
-            border-color: var(--sage-primary);
-            color: var(--sage-dark);
-        }
-
-        /* ÁREA CENTRAL DE DIAPOSITIVAS */
-        .slides-viewport {
-            flex: 1;
+        /* ================= CONTENEDORES GENERALES ================= */
+        .section-pearl {
+            background: var(--pearl-white);
+            padding: 75px 24px;
             position: relative;
-            overflow-y: auto;
-            margin: 18px 0;
-            border-radius: var(--radius-xl);
         }
 
-        .slide {
-            display: none;
-            height: 100%;
-            animation: fadeIn 0.4s ease forwards;
-        }
-
-        .slide.active {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* SLIDE 1: PORTADA HERO */
-        .hero-slide {
+        .section-deep {
+            background: linear-gradient(180deg, var(--abyssal-mid) 0%, var(--abyssal-dark) 100%);
+            color: #FFF;
+            padding: 80px 24px;
             position: relative;
-            height: 100%;
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            background: linear-gradient(180deg, rgba(20, 32, 26, 0.22) 0%, rgba(16, 24, 20, 0.78) 100%),
-                        url('https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 40px 44px;
-            color: #FFF;
         }
 
-        .hero-curve {
-            position: absolute;
-            top: 24%;
-            left: 0;
-            width: 100%;
-            pointer-events: none;
-            opacity: 0.8;
+        .section-lavender {
+            background: linear-gradient(180deg, #A386CC 0%, #8C6EB8 100%);
+            color: #FFFFFF;
+            padding: 80px 24px;
         }
 
-        .hero-top {
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .editorial-title {
+            font-family: var(--font-display);
+            font-size: clamp(26px, 3.6vw, 42px);
+            color: var(--abyssal-dark);
             text-align: center;
-            z-index: 2;
-            margin-top: 10px;
+            margin-bottom: 12px;
+            font-weight: 400;
         }
 
-        .hero-kicker {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(8px);
-            padding: 6px 16px;
-            border-radius: var(--radius-pill);
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            margin-bottom: 14px;
+        .section-deep .editorial-title,
+        .section-lavender .editorial-title {
+            color: #FFFFFF;
         }
 
-        .hero-title {
-            font-size: clamp(42px, 6.5vw, 76px);
-            font-weight: 800;
-            letter-spacing: 0.02em;
-            line-height: 1.02;
-            text-transform: uppercase;
-        }
-
-        .hero-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            gap: 20px;
-            z-index: 2;
-            flex-wrap: wrap;
-        }
-
-        .hero-desc {
-            max-width: 540px;
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.94);
-        }
-
-        .kpi-strip {
-            display: flex;
-            gap: 12px;
-        }
-
-        .kpi-pill-glass {
-            background: rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.35);
-            padding: 10px 18px;
-            border-radius: 20px;
+        .editorial-subtitle {
             text-align: center;
-        }
-
-        .kpi-pill-glass strong {
-            display: block;
-            font-size: 18px;
-            font-weight: 800;
-        }
-
-        .kpi-pill-glass span {
-            font-size: 11px;
-            opacity: 0.9;
-        }
-
-        /* CABECERA INTERNA DE DIAPOSITIVAS */
-        .slide-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 22px;
-        }
-
-        .slide-tag {
-            background: var(--sage-light);
-            color: var(--sage-dark);
-            font-size: 12px;
-            font-weight: 700;
-            padding: 5px 14px;
-            border-radius: var(--radius-pill);
-            display: inline-block;
-            margin-bottom: 6px;
-        }
-
-        .slide-title {
-            font-size: clamp(24px, 3vw, 32px);
-            font-weight: 700;
-            letter-spacing: -0.02em;
-        }
-
-        /* SLIDE 2: PROPUESTA DE VALOR */
-        .value-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .value-card {
-            background: var(--bg-soft);
-            border-radius: var(--radius-lg);
-            padding: 26px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .value-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--sage-primary);
-            color: #FFF;
-            border-radius: 14px;
-            display: grid;
-            place-items: center;
-            margin-bottom: 16px;
-        }
-
-        .value-card h3 {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .value-card p {
-            font-size: 13.5px;
+            max-width: 680px;
+            margin: 0 auto 48px;
             color: var(--text-muted);
-            margin-bottom: 14px;
+            font-size: 14.5px;
         }
 
-        .highlight-badge {
-            background: #FFF;
-            padding: 8px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--sage-dark);
-            border: 1px solid var(--border-light);
+        .section-deep .editorial-subtitle {
+            color: rgba(255, 255, 255, 0.82);
         }
 
-        /* SLIDE 3: CATÁLOGO 3 CATEGORÍAS */
-        .catalog-grid {
+        .section-lavender .editorial-subtitle {
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        /* ================= SECCIÓN 2: FICHA MERCANTIL Y GOBIERNO ================= */
+        .grid-2 {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 28px;
         }
 
-        .cat-box {
-            background: var(--bg-soft);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
+        .specimen-card {
+            background: #FFFFFF;
+            border-radius: 26px;
+            padding: 28px;
+            box-shadow: 0 15px 40px rgba(22, 43, 70, 0.06);
+            border: 1px solid rgba(155, 126, 196, 0.22);
         }
 
-        .cat-img-top {
-            height: 125px;
-            position: relative;
-        }
-
-        .cat-img-top img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .cat-badge-float {
-            position: absolute;
-            bottom: 10px;
-            left: 12px;
-            background: rgba(255,255,255,0.95);
-            padding: 4px 12px;
-            border-radius: var(--radius-pill);
-            font-size: 12px;
-            font-weight: 700;
-        }
-
-        .cat-body {
-            padding: 16px 18px;
-            flex: 1;
-        }
-
-        .cat-list {
-            list-style: none;
-            font-size: 12.5px;
-        }
-
-        .cat-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 5px 0;
-            border-bottom: 1px dashed var(--border-light);
-        }
-
-        .cat-list li:last-child { border-bottom: none; }
-
-        .price-pill {
-            background: var(--sage-light);
-            color: var(--sage-dark);
-            font-weight: 700;
-            padding: 1px 8px;
-            border-radius: var(--radius-pill);
-        }
-
-        /* SLIDE 4: GAMAS DE PAQUETES */
-        .tiers-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .tier-card {
-            background: var(--bg-soft);
-            border-radius: var(--radius-lg);
-            padding: 26px;
-            border: 2px solid transparent;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .tier-card.featured {
-            background: #FFF;
-            border-color: var(--sage-primary);
-            box-shadow: 0 12px 30px rgba(109, 122, 94, 0.12);
-        }
-
-        .tier-tag {
+        .specimen-badge {
+            display: inline-block;
+            background: var(--lavender-soft);
+            color: #6B4E96;
             font-size: 11px;
             font-weight: 700;
+            padding: 4px 13px;
+            border-radius: 999px;
+            margin-bottom: 12px;
             text-transform: uppercase;
-            color: var(--sage-primary);
-            margin-bottom: 6px;
+            letter-spacing: 0.06em;
         }
 
-        .tier-card h3 {
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
-
-        .tier-target {
-            font-size: 12.5px;
-            color: var(--text-muted);
+        .specimen-card h3 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            color: var(--abyssal-dark);
             margin-bottom: 14px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid var(--border-light);
         }
 
-        .tier-features {
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .data-table td {
+            padding: 8px 6px;
+            border-bottom: 1px solid #EDF0F5;
+        }
+
+        .data-table td:first-child {
+            font-weight: 600;
+            color: var(--text-muted);
+            width: 38%;
+        }
+
+        .protocol-list {
             list-style: none;
             font-size: 13px;
-            margin-bottom: 16px;
+            color: var(--text-dark);
         }
 
-        .tier-features li {
-            padding: 4px 0;
+        .protocol-list li {
+            padding: 6px 0;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 8px;
         }
 
-        /* SLIDE 5: MAPA DE RUTA Y FLUJO 5 FASES */
-        .ops-layout {
+        .protocol-list li strong {
+            color: var(--abyssal-dark);
+        }
+
+        /* ================= SECCIÓN 3: CATÁLOGO 15 PRODUCTOS + ECONOMÍA ================= */
+        .dive-grid {
             display: grid;
-            grid-template-columns: 1fr 1.1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 22px;
-            align-items: stretch;
         }
 
-        .mini-map {
-            position: relative;
-            background: #EDF1EE;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            min-height: 280px;
-            border: 1px solid var(--border-light);
+        .dive-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 26px;
+            padding: 24px;
+            transition: transform 0.3s ease, background 0.3s ease;
         }
 
-        .map-pin {
-            position: absolute;
-            background: var(--sage-primary);
-            color: #FFF;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 5px 11px;
-            border-radius: var(--radius-pill);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        .dive-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.13);
         }
 
-        .phases-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .phase-row {
-            background: var(--bg-soft);
-            padding: 12px 16px;
-            border-radius: 16px;
+        .dive-card-head {
             display: flex;
             align-items: center;
-            gap: 14px;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        .phase-badge {
-            background: var(--sage-primary);
-            color: #FFF;
-            font-size: 11px;
+        .dive-card-head h3 {
+            font-family: var(--font-serif);
+            font-size: 21px;
+        }
+
+        .margin-pill {
+            background: rgba(216, 197, 245, 0.2);
+            border: 1px solid #D8C5F5;
+            color: #D8C5F5;
+            font-size: 10.5px;
             font-weight: 700;
-            padding: 4px 10px;
-            border-radius: var(--radius-pill);
+            padding: 3px 9px;
+            border-radius: 999px;
+        }
+
+        .dive-list {
+            list-style: none;
+            font-size: 12.5px;
+        }
+
+        .dive-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 7px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+            gap: 8px;
+        }
+
+        .dive-list li:last-child { border-bottom: none; }
+
+        .price-pearl {
+            background: #FFFFFF;
+            color: var(--abyssal-dark);
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 999px;
+            font-size: 11.5px;
             white-space: nowrap;
         }
 
-        .phase-row p {
-            font-size: 12.5px;
+        .cost-sub {
+            display: block;
+            font-size: 10.5px;
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        /* ================= SECCIÓN 4: 3 GAMAS + PROVEEDORES HOMOLOGADOS ================= */
+        .pearls-trio {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 45px;
+        }
+
+        .pearl-tier {
+            text-align: center;
+            background: #FFFFFF;
+            border-radius: 28px;
+            padding: 30px 22px;
+            box-shadow: 0 14px 35px rgba(22, 43, 70, 0.06);
+            transition: transform 0.3s;
+        }
+
+        .pearl-tier:hover {
+            transform: translateY(-6px);
+        }
+
+        .orb-sample {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            margin: 0 auto 14px;
+            animation: floatSlow 4.5s ease-in-out infinite;
+        }
+
+        .orb-white {
+            background: radial-gradient(circle at 30% 30%, #FFFFFF, #E5EAF2 70%, #B8C4D4);
+            box-shadow: 0 10px 25px rgba(184, 196, 212, 0.5);
+        }
+
+        .orb-tahiti {
+            background: radial-gradient(circle at 30% 30%, #9E8BC2, #3A2E52 70%, #191426);
+            box-shadow: 0 10px 25px rgba(58, 46, 82, 0.4);
+        }
+
+        .orb-gold {
+            background: radial-gradient(circle at 30% 30%, #FFF6D6, #DFB35C 70%, #9E7324);
+            box-shadow: 0 10px 25px rgba(223, 179, 92, 0.45);
+        }
+
+        .pearl-tier h4 {
+            font-family: var(--font-serif);
+            font-size: 23px;
+            color: var(--abyssal-dark);
+            margin-bottom: 8px;
+        }
+
+        .pearl-tier p {
+            font-size: 13px;
             color: var(--text-muted);
         }
 
-        /* SLIDE 6: EQUIPO Y CONTACTO CIERRE */
-        .closing-grid {
+        /* Matriz Proveedores */
+        .suppliers-box {
+            background: #FFFFFF;
+            border-radius: 26px;
+            padding: 28px;
+            box-shadow: 0 14px 35px rgba(22, 43, 70, 0.06);
+            border: 1px solid rgba(155, 126, 196, 0.25);
+            overflow-x: auto;
+        }
+
+        .sup-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12.5px;
+            min-width: 680px;
+        }
+
+        .sup-table th {
+            text-align: left;
+            padding: 10px 12px;
+            background: var(--lavender-soft);
+            color: #543B7A;
+            font-weight: 700;
+        }
+
+        .sup-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #EDF0F5;
+        }
+
+        /* ================= SECCIÓN 5: 5 FASES + MANUAL DE PROTOCOLO ESCRITO ================= */
+        .phases-necklace {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 22px;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+            margin-bottom: 36px;
         }
 
-        .team-grid-4 {
+        .bead-card {
+            background: rgba(255, 255, 255, 0.16);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.32);
+            border-radius: 22px;
+            padding: 20px 16px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .bead-card:hover {
+            transform: translateY(-6px);
+            background: rgba(255, 255, 255, 0.24);
+        }
+
+        .bead-num {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            color: #6B4E96;
+            font-weight: 800;
+            font-size: 13px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            place-items: center;
+            margin: 0 auto 10px;
         }
 
-        .person-card {
-            background: var(--bg-soft);
-            padding: 16px;
-            border-radius: 18px;
+        .bead-card h5 {
+            font-size: 14.5px;
+            margin-bottom: 6px;
         }
 
-        .person-card strong {
+        .bead-card p {
+            font-size: 12px;
+            opacity: 0.94;
+        }
+
+        .manual-banner {
+            background: rgba(22, 43, 70, 0.32);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 24px;
+            padding: 24px 28px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .swatch-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .swatch-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.92);
+            color: var(--text-dark);
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 11.5px;
+            font-weight: 700;
+        }
+
+        .swatch-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,0.15);
+        }
+
+        /* ================= SECCIÓN 6: PERGAMINO Y EQUIPO DIRECTIVO ================= */
+        .parchment-map {
+            background: linear-gradient(135deg, #EFE9F8 0%, #DFD3F2 100%);
+            border-radius: 28px;
+            padding: 32px;
+            margin: 25px auto 10px;
+            border: 2px solid #C8B4E6;
+            box-shadow: 0 18px 45px rgba(107, 78, 150, 0.14);
+        }
+
+        .map-pins-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .route-chip {
+            background: var(--abyssal-dark);
+            color: #FFF;
+            padding: 7px 16px;
+            border-radius: 999px;
+            font-size: 12.5px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .team-footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .team-pill-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .team-pill-card strong {
             display: block;
             font-size: 15px;
-            margin-bottom: 2px;
+            margin-bottom: 4px;
         }
 
-        .person-card span {
+        .team-pill-card span {
             font-size: 12px;
-            color: var(--sage-dark);
-            font-weight: 700;
+            color: #D8C5F5;
             display: block;
             margin-bottom: 6px;
         }
 
-        .person-card p {
-            font-size: 12px;
-            color: var(--text-muted);
-        }
-
-        .cta-panel {
-            background: var(--sage-primary);
-            color: #FFF;
-            border-radius: var(--radius-lg);
-            padding: 28px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .cta-panel h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .cta-details {
-            list-style: none;
-            font-size: 13px;
-            margin: 16px 0;
-        }
-
-        .cta-details li {
-            padding: 6px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-white-pill {
-            background: #FFF;
-            color: var(--text-main);
-            text-align: center;
-            padding: 12px 20px;
-            border-radius: var(--radius-pill);
-            font-weight: 700;
-            font-size: 14px;
-            text-decoration: none;
-            display: block;
-        }
-
-        /* PANEL DE GUION / NOTAS DEL ORADOR */
-        .speaker-notes {
-            display: none;
-            background: #1C1E1B;
-            color: #F4F5F3;
-            padding: 14px 22px;
-            border-radius: 18px;
-            font-size: 13px;
-            line-height: 1.5;
-            margin-bottom: 12px;
-            border-left: 4px solid var(--sage-primary);
-        }
-
-        .speaker-notes.visible {
-            display: block;
-        }
-
-        .speaker-notes strong {
-            color: #B7C9A6;
-            text-transform: uppercase;
+        .team-pill-card small {
             font-size: 11px;
-            letter-spacing: 0.06em;
+            opacity: 0.8;
             display: block;
-            margin-bottom: 4px;
         }
 
-        /* CONTROLES INFERIORES */
-        footer {
+        /* ================= MODAL GUION ORADOR ================= */
+        .script-drawer {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 390px;
+            max-width: 90vw;
+            background: rgba(22, 43, 70, 0.96);
+            backdrop-filter: blur(14px);
+            color: #FFF;
+            border-radius: 24px;
+            padding: 22px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            z-index: 2000;
+            display: none;
+        }
+
+        .script-drawer.open {
+            display: block;
+        }
+
+        .script-drawer h4 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #D8C5F5;
+            margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-shrink: 0;
-            padding-top: 8px;
-            border-top: 1px solid var(--border-light);
         }
 
-        .slide-counter {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-muted);
+        .script-drawer p {
+            font-size: 12.5px;
+            line-height: 1.55;
+            max-height: 240px;
+            overflow-y: auto;
+            color: #F0F4F8;
         }
 
-        .nav-controls {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn-nav {
-            background: var(--sage-primary);
-            color: #FFF;
-            border: none;
-            padding: 9px 18px;
-            border-radius: var(--radius-pill);
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .btn-nav:disabled {
-            background: var(--border-light);
-            color: var(--text-muted);
-            cursor: not-allowed;
-        }
-
-        @media (max-width: 900px) {
-            body { height: auto; overflow-y: auto; }
-            .deck-wrapper { height: auto; min-height: 92vh; }
-            .value-grid, .catalog-grid, .tiers-grid, .ops-layout, .closing-grid {
+        @media (max-width: 920px) {
+            .hero-grid, .grid-2, .dive-grid, .pearls-trio, .team-footer-grid, .manual-banner {
                 grid-template-columns: 1fr;
             }
+            .phases-necklace {
+                grid-template-columns: 1fr 1fr;
+            }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-<div class="deck-wrapper">
-    <!-- BARRA SUPERIOR -->
-    <header>
-        <div class="brand-logo">
-            <i data-lucide="compass" color="#6D7A5E"></i>
+    <!-- NAVEGACIÓN FLOTANTE -->
+    <nav>
+        <div class="nav-brand">
+            <span class="mini-pearl"></span>
             LA PERLA DEL NORTE S.L.
         </div>
+        <ul class="nav-links">
+            <li><a href="#empresa">Identidad</a></li>
+            <li><a href="#catalogo">Catálogo & Márgenes</a></li>
+            <li><a href="#proveedores">Gamas & Proveedores</a></li>
+            <li><a href="#metodo">Flujo & Manual</a></li>
+            <li><a href="#equipo">Dirección</a></li>
+        </ul>
+        <button class="btn-script" onclick="toggleScript()">
+            <i data-lucide="mic" width="14"></i> Guion Orador
+        </button>
+    </nav>
 
-        <div class="slide-dots" id="dotsContainer"></div>
+    <!-- 1. PORTADA OCEÁNICA (HERO) -->
+    <section class="hero-ocean">
+        <div class="bubbles-container" id="bubbles"></div>
 
-        <div class="header-actions">
-            <button class="btn-pill-outline" id="btnNotes" onclick="toggleNotes()">
-                <i data-lucide="mic" width="14"></i> Guion Orador
-            </button>
-            <button class="btn-pill-outline" onclick="toggleFullScreen()">
-                <i data-lucide="maximize-2" width="14"></i> Pantalla Completa
-            </button>
-        </div>
-    </header>
-
-    <!-- CONTENEDOR DE DIAPOSITIVAS -->
-    <div class="slides-viewport">
-
-        <!-- DIAPOSITIVA 1: PORTADA COMERCIAL -->
-        <div class="slide active" data-note="“Buenos días. Somos La Perla del Norte S.L., agencia de viajes y operador turístico con sede en el Paseo de Pereda de Santander. No vendemos simples excursiones: diseñamos experiencias auténticas que conectan la gastronomía, la naturaleza y la cultura de Cantabria con total tranquilidad logística.”">
-            <div class="hero-slide">
-                <svg class="hero-curve" viewBox="0 0 1200 220" fill="none">
-                    <path d="M-20 40 C 260 220, 420 -20, 740 120 C 980 220, 1100 80, 1240 130" stroke="white" stroke-width="12" stroke-linecap="round"/>
+        <div class="hero-grid">
+            <!-- Concha y Perla Ilustrada Animada -->
+            <div class="shell-stage">
+                <div class="hero-pearl-orb"></div>
+                <svg width="310" height="290" viewBox="0 0 320 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M160 25 C 95 25, 45 75, 55 140 C 90 165, 230 165, 265 140 C 275 75, 225 25, 160 25 Z" fill="url(#shellGradTop)"/>
+                    <path d="M160 155 L160 28 M160 155 L115 36 M160 155 L205 36 M160 155 L78 65 M160 155 L242 65" stroke="rgba(155,126,196,0.35)" stroke-width="2"/>
+                    <path d="M45 175 C 75 235, 245 235, 275 175 C 235 160, 85 160, 45 175 Z" fill="url(#shellGradBottom)"/>
+                    <defs>
+                        <linearGradient id="shellGradTop" x1="160" y1="25" x2="160" y2="160" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#FFFFFF"/>
+                            <stop offset="1" stop-color="#DCD2EE"/>
+                        </linearGradient>
+                        <linearGradient id="shellGradBottom" x1="160" y1="165" x2="160" y2="230" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#EDE6F7"/>
+                            <stop offset="1" stop-color="#B9A6D6"/>
+                        </linearGradient>
+                    </defs>
                 </svg>
+            </div>
 
-                <div class="hero-top">
-                    <span class="hero-kicker">Agencia de Viajes & Turismo Receptivo • Santander, Cantabria</span>
-                    <h1 class="hero-title">DESCUBRE EL NORTE <br>SIN LÍMITES</h1>
+            <!-- Titular Editorial -->
+            <div class="hero-text-box">
+                <h1>
+                    LA PERLA<br>
+                    DEL<span class="inline-pearl"></span>NORTE<br>
+                    AGENCIA S.L.
+                </h1>
+                <div class="torn-note">
+                    <strong>Informe Ejecutivo y Operativo Integral</strong> — Organización, intermediación y comercialización de servicios turísticos, rutas gastronómicas y artesanía regional desde Santander, Cantabria.
+                </div>
+                <a href="#empresa" class="btn-lavender-pill">
+                    Explorar Dossier Ejecutivo <i data-lucide="arrow-down" width="16"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEPARADOR ONDULADO BLANCO -->
+    <div class="wave-divider" style="background: var(--abyssal-dark);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,25 C180,60 340,0 560,30 C780,60 980,5 1200,32 L1200,60 L0,60 Z" fill="#F7F9FC"/>
+        </svg>
+    </div>
+
+    <!-- 2. FICHA CORPORATIVA Y GOBIERNO INTERNO -->
+    <section class="section-pearl" id="empresa">
+        <div class="container">
+            <h2 class="editorial-title reveal">IDENTIDAD <span class="inline-pearl"></span> Y GOBIERNO CORPORATIVO</h2>
+            <p class="editorial-subtitle reveal">
+                Estructura jurídica constituida en Cantabria y protocolos internos diseñados para garantizar excelencia operativa, ética profesional y control diario.
+            </p>
+
+            <div class="grid-2">
+                <!-- Ficha Mercantil -->
+                <div class="specimen-card reveal">
+                    <span class="specimen-badge">01 • Ficha Mercantil Oficial</span>
+                    <h3>Agencia de Viajes La Perla del Norte S.L.</h3>
+                    <table class="data-table">
+                        <tr>
+                            <td>CIF / Forma Jurídica</td>
+                            <td><strong>B-3984729</strong> • Sociedad Limitada (S.L.)</td>
+                        </tr>
+                        <tr>
+                            <td>Capital Social</td>
+                            <td>3.000,00 € (Totalmente suscrito e integrado)</td>
+                        </tr>
+                        <tr>
+                            <td>Clasificación CNAE</td>
+                            <td>7912 (Operadores turísticos) / 7911 (Agencias)</td>
+                        </tr>
+                        <tr>
+                            <td>Domicilio Social</td>
+                            <td>Paseo de Pereda, 15, Bajo, 39004 Santander</td>
+                        </tr>
+                        <tr>
+                            <td>Registro Mercantil</td>
+                            <td>Cantabria: Tomo 1245, Folio 88, Hoja S-12345</td>
+                        </tr>
+                        <tr>
+                            <td>Contacto Oficial</td>
+                            <td>+34 942 55 66 77 | www.laperladelnorte.es</td>
+                        </tr>
+                    </table>
                 </div>
 
-                <div class="hero-bottom">
-                    <p class="hero-desc">
-                        Especialistas en rutas gastronómicas, expediciones por Picos de Europa, eventos corporativos y artesanía local. Un único interlocutor con asistencia en ruta 24/7.
+                <!-- Protocolos Diarios y Convivencia -->
+                <div class="specimen-card reveal">
+                    <span class="specimen-badge">02 • Cultura y Protocolos Diarios</span>
+                    <h3>Normas Internas y Control Operativo</h3>
+                    <ul class="protocol-list">
+                        <li><i data-lucide="sunrise" width="16" color="#9B7EC4"></i> <div><strong>Briefing Matutino:</strong> Reunión previa diaria para revisar metas, necesidades e itinerarios.</div></li>
+                        <li><i data-lucide="users" width="16" color="#9B7EC4"></i> <div><strong>Asignación y Contacto Responsable:</strong> Distribución clara de tareas y canalización directa de incidencias.</div></li>
+                        <li><i data-lucide="sunset" width="16" color="#9B7EC4"></i> <div><strong>Debriefing de Cierre:</strong> Evaluación al finalizar la jornada para corregir desvíos y reconocer desempeño.</div></li>
+                        <li><i data-lucide="shield-check" width="16" color="#9B7EC4"></i> <div><strong>Convivencia y Ética:</strong> Uniforme corporativo impecable, lenguaje profesional, uso restringido de móviles personales y transparencia total.</div></li>
+                        <li><i data-lucide="trending-up" width="16" color="#9B7EC4"></i> <div><strong>Rol de Gerencia:</strong> Planificación estratégica, supervisión de calidad, control presupuestario y fidelización.</div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEPARADOR ONDULADO AZUL PROFUNDO -->
+    <div class="wave-divider" style="background: var(--pearl-white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,35 C240,0 450,55 720,20 C950,-5 1080,45 1200,25 L1200,60 L0,60 Z" fill="#23436B"/>
+        </svg>
+    </div>
+
+    <!-- 3. CATÁLOGO OFICIAL + ESTRUCTURA ECONÓMICA -->
+    <section class="section-deep" id="catalogo">
+        <div class="container">
+            <h2 class="editorial-title reveal">PORTAFOLIO Y ESTRUCTURA DE MÁRGENES</h2>
+            <p class="editorial-subtitle reveal">
+                15 productos oficiales con PVP (21% IVA incluido). Nuestros tours operan con un <strong>50% de margen sobre coste</strong> y los souvenirs con un <strong>20% de margen</strong>.
+            </p>
+
+            <div class="dive-grid">
+                <!-- Categoría A -->
+                <div class="dive-card reveal">
+                    <div class="dive-card-head">
+                        <h3>A. Sabores del Norte</h3>
+                        <span class="margin-pill">Margen 50%</span>
+                    </div>
+                    <ul class="dive-list">
+                        <li>
+                            <div>1. Sobaos y Queserías <span class="cost-sub">Coste: 82,64 € | 1 día</span></div>
+                            <span class="price-pearl">150 €</span>
+                        </li>
+                        <li>
+                            <div>2. Queserías Valles Pasiegos <span class="cost-sub">Coste: 82,64 € | 1 día</span></div>
+                            <span class="price-pearl">150 €</span>
+                        </li>
+                        <li>
+                            <div>3. Granjas de Cantabria <span class="cost-sub">Coste: 55,10 € | 1 día</span></div>
+                            <span class="price-pearl">100 €</span>
+                        </li>
+                        <li>
+                            <div>4. Ruta Vinos Cántabros <span class="cost-sub">Coste: 93,66 € | 6-8 h</span></div>
+                            <span class="price-pearl">170 €</span>
+                        </li>
+                        <li>
+                            <div>5. Anchoas de Santoña <span class="cost-sub">Coste: 66,12 € | 5-7 h</span></div>
+                            <span class="price-pearl">120 €</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Categoría B -->
+                <div class="dive-card reveal">
+                    <div class="dive-card-head">
+                        <h3>B. Vistas del Norte</h3>
+                        <span class="margin-pill">Margen 50%</span>
+                    </div>
+                    <ul class="dive-list">
+                        <li>
+                            <div>6. Camino Lebaniego (72 km) <span class="cost-sub">Coste: 248,00 € | 3 días</span></div>
+                            <span class="price-pearl">450 €</span>
+                        </li>
+                        <li>
+                            <div>7. Ruta del Cares (12 km) <span class="cost-sub">Coste: 77,00 € | 4 h</span></div>
+                            <span class="price-pearl">140 €</span>
+                        </li>
+                        <li>
+                            <div>8. Lagos de Covadonga <span class="cost-sub">Coste: 77,00 € | 6-8 h</span></div>
+                            <span class="price-pearl">140 €</span>
+                        </li>
+                        <li>
+                            <div>9. Costas y Playas Cantabria <span class="cost-sub">Coste: 77,00 € | 6-8 h</span></div>
+                            <span class="price-pearl">140 €</span>
+                        </li>
+                        <li>
+                            <div>10. Collados Valle Asón <span class="cost-sub">Coste: 66,00 € | 12 km</span></div>
+                            <span class="price-pearl">120 €</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Categoría C -->
+                <div class="dive-card reveal">
+                    <div class="dive-card-head">
+                        <h3>C. Souvenirs Tierra</h3>
+                        <span class="margin-pill">Margen 20%</span>
+                    </div>
+                    <ul class="dive-list">
+                        <li>
+                            <div>11. Lote 'Sabores Cantabria' <span class="cost-sub">Coste: 51,66 € (Sobaos, queso, anchoas, vino)</span></div>
+                            <span class="price-pearl">75 €</span>
+                        </li>
+                        <li>
+                            <div>12. Imanes Artesanales <span class="cost-sub">Coste: 6,88 € (Hechos a mano)</span></div>
+                            <span class="price-pearl">10 €</span>
+                        </li>
+                        <li>
+                            <div>13. Tazas Artesanales <span class="cost-sub">Coste: 13,78 € (Cerámica pintada)</span></div>
+                            <span class="price-pearl">25 €</span>
+                        </li>
+                        <li>
+                            <div>14. Platos Decorativos <span class="cost-sub">Coste: 13,78 € (Cerámica regional)</span></div>
+                            <span class="price-pearl">25 €</span>
+                        </li>
+                        <li>
+                            <div>15. Llaveros Tallados <span class="cost-sub">Coste: 10,33 € (Madera noble)</span></div>
+                            <span class="price-pearl">15 €</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEPARADOR ONDULADO BLANCO -->
+    <div class="wave-divider" style="background: var(--abyssal-dark);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,20 C220,55 480,5 760,38 C960,55 1100,15 1200,30 L1200,60 L0,60 Z" fill="#F7F9FC"/>
+        </svg>
+    </div>
+
+    <!-- 4. GAMAS COMERCIALES Y PROVEEDORES HOMOLOGADOS -->
+    <section class="section-pearl" id="proveedores">
+        <div class="container">
+            <h2 class="editorial-title reveal">GAMAS DE PAQUETES Y <span class="inline-pearl"></span> PROVEEDORES</h2>
+            <p class="editorial-subtitle reveal">
+                Perfil objetivo de 30 a 65 años (nivel socioeconómico medio-alto y alto, preferiblemente internacional) atendido mediante alianzas estratégicas con productores cántabros.
+            </p>
+
+            <!-- 3 Gamas -->
+            <div class="pearls-trio">
+                <div class="pearl-tier reveal">
+                    <div class="orb-sample orb-white"></div>
+                    <span class="specimen-badge">Gama Básica • Alto Volumen</span>
+                    <h4>Ruta Cantábrica Express</h4>
+                    <p>Dirigido a estudiantes, jóvenes e independientes. Incluye transporte y entradas autoguiadas por Santander y Santillana del Mar.</p>
+                </div>
+
+                <div class="pearl-tier reveal" style="border: 2px solid var(--lavender-pearl);">
+                    <div class="orb-sample orb-tahiti"></div>
+                    <span class="specimen-badge">⭐ Gama Estándar • Más Vendido</span>
+                    <h4>Esencia Pasiega y Picos</h4>
+                    <p>Para familias y parejas. Alojamiento rural, guía local, catas artesanales y visitas a Comillas y Potes con equilibrio perfecto.</p>
+                </div>
+
+                <div class="pearl-tier reveal">
+                    <div class="orb-sample orb-gold"></div>
+                    <span class="specimen-badge">Gama Premium • Alto Margen</span>
+                    <h4>Cantabria Infinita Deluxe</h4>
+                    <p>Turismo VIP, lujo y corporativo. Viaje 100% personalizado, transporte privado, Paradores/5*, Michelin y helicóptero o velero.</p>
+                </div>
+            </div>
+
+            <!-- Matriz Homologada de Proveedores -->
+            <div class="suppliers-box reveal">
+                <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--abyssal-dark); margin-bottom: 14px;">
+                    Matriz de Homologación y Financiación de Proveedores
+                </h3>
+                <table class="sup-table">
+                    <thead>
+                        <tr>
+                            <th>Proveedor (CIF / Sede)</th>
+                            <th>Producto</th>
+                            <th>P. Base → Neto</th>
+                            <th>Plazo & Portes</th>
+                            <th>Condición de Pago</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>La Lleldiría Artesanos S.L.</strong> (Merilla)</td>
+                            <td>Quesos tradicionales</td>
+                            <td>18,50 € → <strong>17,02 €/kg</strong> (-8%)</td>
+                            <td>1-2 días • Gratis (>150 €)</td>
+                            <td>Transferencia 30 días</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Casa El Macho S.L.</strong> (Selaya)</td>
+                            <td>Sobaos pasiegos</td>
+                            <td>6,20 € → <strong>5,89 €/caja</strong> (-5%)</td>
+                            <td>2 días • 8,00 € fijos</td>
+                            <td>Contado / Transferencia</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bodegas El Miradorio S.L.</strong> (Ruiloba)</td>
+                            <td>Vino blanco cántabro</td>
+                            <td>11,00 € → <strong>9,90 €/bot.</strong> (-10%)</td>
+                            <td>2 días • Gratis (>200 €)</td>
+                            <td><strong>Pagaré a 60 días</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Conservas Hoya S.A.</strong> (Santoña)</td>
+                            <td>Anchoas del Cantábrico</td>
+                            <td>4,80 € → <strong>4,22 €/lata</strong> (-12% rappel)</td>
+                            <td><strong>24h</strong> • Pagados (DDP)</td>
+                            <td>Transferencia 30 días</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cerveza Dougall's S.L.</strong> (Liérganes)</td>
+                            <td>Cerveza artesana</td>
+                            <td>1,85 € → <strong>1,76 €/bot.</strong> (-5%)</td>
+                            <td>2 días • 6,50 € / envío</td>
+                            <td>Recibo girado 15 días</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 12px; color: var(--text-muted); margin-top: 12px;">
+                    <strong>Red Logística Externa Homologada:</strong> Transportistas (<em>CIVA S.A., Santa Francesca, Tutti Tour</em>), hoteles, restaurantes, obradores, guías oficiales y traductores.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEPARADOR ONDULADO LILA PERLADO -->
+    <div class="wave-divider" style="background: var(--pearl-white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,30 C200,0 420,55 680,22 C920,-5 1080,45 1200,25 L1200,60 L0,60 Z" fill="#A386CC"/>
+        </svg>
+    </div>
+
+    <!-- 5. FLUJO EN 5 FASES + MANUAL DE PROTOCOLO ESCRITO -->
+    <section class="section-lavender" id="metodo">
+        <div class="container">
+            <h2 class="editorial-title reveal">FLUJO OPERATIVO Y PROTOCOLO ESCRITO</h2>
+            <p class="editorial-subtitle reveal">
+                Cinco fases trazables desde la captación hasta el análisis de margen final, respaldadas por nuestro Manual de Identidad Visual y Comunicación Corporativa.
+            </p>
+
+            <div class="phases-necklace">
+                <div class="bead-card reveal">
+                    <div class="bead-num">1</div>
+                    <h5>Captación</h5>
+                    <p>Marketing y Ventas: análisis de necesidades, asesoramiento y presupuesto.</p>
+                </div>
+                <div class="bead-card reveal">
+                    <div class="bead-num">2</div>
+                    <h5>Contratación</h5>
+                    <p>Firma de contrato, Orden de Servicio, reserva de 5 proveedores y cobro.</p>
+                </div>
+                <div class="bead-card reveal">
+                    <div class="bead-num">3</div>
+                    <h5>Documentación</h5>
+                    <p>Emisión de Bonos/Vouchers, itinerario oficial y Factura Oficial.</p>
+                </div>
+                <div class="bead-card reveal">
+                    <div class="bead-num">4</div>
+                    <h5>Ejecución 24/7</h5>
+                    <p>Seguimiento logístico en tiempo real y resolución de incidencias en ruta.</p>
+                </div>
+                <div class="bead-card reveal">
+                    <div class="bead-num">5</div>
+                    <h5>Postventa</h5>
+                    <p>Encuestas de satisfacción, pago a proveedores y análisis de margen final.</p>
+                </div>
+            </div>
+
+            <!-- Resumen Manual de Protocolo Escrito -->
+            <div class="manual-banner reveal">
+                <div>
+                    <h4 style="font-family: var(--font-serif); font-size: 22px; margin-bottom: 6px;">
+                        Manual de Protocolo Escrito (Versión 1.0 • Oct. 2026)
+                    </h4>
+                    <p style="font-size: 13px; opacity: 0.94;">
+                        Estandarización de cartas comerciales (7 elementos oficiales), asuntos estructurados por departamento (ej. <code>[Ventas]</code>), tipografía Arial/Calibri 11pt (interlineado 1.15) y firma unificada de <strong>La Perla del Norte S.L.</strong> con aviso legal RGPD.
                     </p>
-                    <div class="kpi-strip">
-                        <div class="kpi-pill-glass">
-                            <strong>15</strong>
-                            <span>Experiencias y Productos</span>
-                        </div>
-                        <div class="kpi-pill-glass">
-                            <strong>24/7</strong>
-                            <span>Soporte en Ruta</span>
-                        </div>
-                        <div class="kpi-pill-glass">
-                            <strong>100%</strong>
-                            <span>A Medida</span>
-                        </div>
-                    </div>
+                </div>
+                <div class="swatch-row">
+                    <div class="swatch-pill"><span class="swatch-dot" style="background:#0A2540;"></span> Azul Marino #0A2540</div>
+                    <div class="swatch-pill"><span class="swatch-dot" style="background:#0073E6;"></span> Azul Cantábrico #0073E6</div>
+                    <div class="swatch-pill"><span class="swatch-dot" style="background:#1A202C;"></span> Gris Corp. #1A202C</div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- DIAPOSITIVA 2: ¿POR QUÉ ELEGIRNOS? -->
-        <div class="slide" data-note="“¿Por qué contratar nuestros servicios frente a organizar un viaje por cuenta propia? Primero, porque eliminamos la fragmentación: gestionamos transporte privado, guías locales y reservas en un solo presupuesto cerrado. Segundo, porque tenemos acuerdos directos con productores de Km 0 como La Lleldiría o Casa El Macho. Y tercero, por nuestra garantía legal y atención 24/7.”">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-tag">01 • Propuesta de Valor</span>
-                    <h2 class="slide-title">¿Por qué confiar en La Perla del Norte?</h2>
+    <!-- SEPARADOR ONDULADO BLANCO -->
+    <div class="wave-divider" style="background: #8C6EB8;">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,25 C280,60 520,0 820,35 C1020,55 1120,15 1200,28 L1200,60 L0,60 Z" fill="#F7F9FC"/>
+        </svg>
+    </div>
+
+    <!-- 6. RED TERRITORIAL EN CANTABRIA -->
+    <section class="section-pearl" style="padding-bottom: 35px;">
+        <div class="container">
+            <h2 class="editorial-title reveal">RUTAS Y DESTINOS DE <span class="inline-pearl"></span> LA PERLA DEL NORTE</h2>
+
+            <div class="parchment-map reveal">
+                <p style="text-align: center; font-family: var(--font-serif); font-size: 22px; color: var(--abyssal-dark); font-weight: 700;">
+                    Cobertura Integral en Cantabria y Picos de Europa
+                </p>
+                <div class="map-pins-row">
+                    <span class="route-chip"><i data-lucide="map-pin" width="14"></i> Santander (Paseo de Pereda, 15)</span>
+                    <span class="route-chip"><i data-lucide="anchor" width="14"></i> Santoña (Galería de la Anchoa)</span>
+                    <span class="route-chip"><i data-lucide="trees" width="14"></i> Valles Pasiegos (Pas, Miera, Pisueña)</span>
+                    <span class="route-chip"><i data-lucide="compass" width="14"></i> Potes y Santo Toribio de Liébana</span>
+                    <span class="route-chip"><i data-lucide="mountain" width="14"></i> Ruta del Cares y Lagos Covadonga</span>
+                    <span class="route-chip"><i data-lucide="waves" width="14"></i> Comillas, Liencres y Valle del Asón</span>
                 </div>
-            </div>
-
-            <div class="value-grid">
-                <div class="value-card">
-                    <div>
-                        <div class="value-icon"><i data-lucide="shield-check"></i></div>
-                        <h3>Gestión Integral Llave en Mano</h3>
-                        <p>Olvídese de coordinar múltiples proveedores. Integramos transporte privado desde Santander, guías oficiales, entradas, catas y alojamiento rural bajo una única factura.</p>
-                    </div>
-                    <div class="highlight-badge">✓ Cero imprevistos y presupuesto cerrado</div>
-                </div>
-
-                <div class="value-card">
-                    <div>
-                        <div class="value-icon"><i data-lucide="award"></i></div>
-                        <h3>Acceso Exclusivo a Productores Km 0</h3>
-                        <p>Abrimos las puertas de obradores tradicionales, bodegas atlánticas y cavas familiares que no están accesibles al turismo masivo, con talleres y catas privadas.</p>
-                    </div>
-                    <div class="highlight-badge">✓ Alianzas con La Lleldiría, Hoya y El Macho</div>
-                </div>
-
-                <div class="value-card">
-                    <div>
-                        <div class="value-icon"><i data-lucide="headphones"></i></div>
-                        <h3>Respaldo Legal y Asistencia 24/7</h3>
-                        <p>Sociedad mercantil registrada (CIF B-3984729, CNAE 7911/7912) con seguro de responsabilidad civil, protocolos estrictos de calidad y supervisión directa en cada ruta.</p>
-                    </div>
-                    <div class="highlight-badge">✓ Sede central en Paseo de Pereda, 15</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- DIAPOSITIVA 3: NUESTRO CATÁLOGO OFICIAL -->
-        <div class="slide" data-note="“Nuestro catálogo se divide en 3 grandes líneas con precios transparentes (IVA incluido). En 'Sabores del Norte' llevamos al cliente al origen del sobao, el queso pasiego, el vino costero y la anchoa de Santoña. En 'Vistas del Norte' conquistamos Picos de Europa, el Cares y el Camino Lebaniego. Y con 'Souvenirs de la Tierra', el cliente se lleva Cantabria a casa.”">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-tag">02 • Portafolio de Experiencias</span>
-                    <h2 class="slide-title">15 Experiencias y Productos Oficiales (PVP)</h2>
-                </div>
-            </div>
-
-            <div class="catalog-grid">
-                <!-- Sabores -->
-                <div class="cat-box">
-                    <div class="cat-img-top">
-                        <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=600&q=80" alt="Sabores del Norte">
-                        <span class="cat-badge-float">A. Sabores del Norte</span>
-                    </div>
-                    <div class="cat-body">
-                        <ul class="cat-list">
-                            <li><span>1. Sobaos y Queserías</span> <span class="price-pill">150 €</span></li>
-                            <li><span>2. Queserías Valles Pasiegos</span> <span class="price-pill">150 €</span></li>
-                            <li><span>3. Granjas Ecológicas</span> <span class="price-pill">100 €</span></li>
-                            <li><span>4. Ruta de Vinos Cántabros</span> <span class="price-pill">170 €</span></li>
-                            <li><span>5. Gourmet Anchoas Santoña</span> <span class="price-pill">120 €</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Vistas -->
-                <div class="cat-box">
-                    <div class="cat-img-top">
-                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80" alt="Vistas del Norte">
-                        <span class="cat-badge-float">B. Vistas del Norte</span>
-                    </div>
-                    <div class="cat-body">
-                        <ul class="cat-list">
-                            <li><span>6. Camino Lebaniego (3 días)</span> <span class="price-pill">450 €</span></li>
-                            <li><span>7. Ruta del Cares (12 km)</span> <span class="price-pill">140 €</span></li>
-                            <li><span>8. Lagos de Covadonga</span> <span class="price-pill">140 €</span></li>
-                            <li><span>9. Costas y Playas Cantabria</span> <span class="price-pill">140 €</span></li>
-                            <li><span>10. Collados Valle Asón</span> <span class="price-pill">120 €</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Souvenirs -->
-                <div class="cat-box">
-                    <div class="cat-img-top">
-                        <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=600&q=80" alt="Souvenirs de la Tierra">
-                        <span class="cat-badge-float">C. Souvenirs de la Tierra</span>
-                    </div>
-                    <div class="cat-body">
-                        <ul class="cat-list">
-                            <li><span>11. Lote 'Sabores Cantabria'</span> <span class="price-pill">75 €</span></li>
-                            <li><span>12. Imanes Artesanales</span> <span class="price-pill">10 €</span></li>
-                            <li><span>13. Tazas Pintadas a Mano</span> <span class="price-pill">25 €</span></li>
-                            <li><span>14. Platos Decorativos</span> <span class="price-pill">25 €</span></li>
-                            <li><span>15. Llaveros Tallados</span> <span class="price-pill">15 €</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- DIAPOSITIVA 4: PAQUETES ADAPTADOS A CADA PERFIL -->
-        <div class="slide" data-note="“Nos adaptamos a cada perfil de viajero con tres niveles de servicio: desde nuestra gama Básica para viajeros independientes, pasando por nuestro producto estrella 'Esencia Pasiega y Picos' ideal para familias y parejas, hasta 'Cantabria Infinita Deluxe' con alojamiento 5 estrellas, gastronomía Michelin y traslados VIP.”">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-tag">03 • Segmentación Comercial</span>
-                    <h2 class="slide-title">Tres Gamas Diseñadas para Cada Cliente</h2>
-                </div>
-            </div>
-
-            <div class="tiers-grid">
-                <div class="tier-card">
-                    <div>
-                        <div class="tier-tag">Gama Básica</div>
-                        <h3>Ruta Cantábrica Express</h3>
-                        <p class="tier-target">Ideal para jóvenes, estudiantes y viajeros independientes.</p>
-                        <ul class="tier-features">
-                            <li><i data-lucide="check" width="16" color="#6D7A5E"></i> Transporte organizado desde Santander</li>
-                            <li><i data-lucide="check" width="16" color="#6D7A5E"></i> Entradas autoguiadas incluidas</li>
-                            <li><i data-lucide="check" width="16" color="#6D7A5E"></i> Recorrido Santander y Santillana</li>
-                        </ul>
-                    </div>
-                    <div class="highlight-badge">Máxima agilidad y precio accesible</div>
-                </div>
-
-                <div class="tier-card featured">
-                    <div>
-                        <div class="tier-tag">⭐ Gama Estándar (Más Vendida)</div>
-                        <h3>Esencia Pasiega y Picos</h3>
-                        <p class="tier-target">Ideal para parejas, familias y grupos culturales (30–65 años).</p>
-                        <ul class="tier-features">
-                            <li><i data-lucide="check" width="16" color="#6D7A5E"></i> Alojamiento rural con encanto</li>
-                            <li><i data-lucide="check" width="16" color="#6D7A5E"></i> Guía local especializado en ruta</li>
-                            <li><i data-lucide="check" width="16" color="#6D7A5E"></i> Catas artesanales, Comillas y Potes</li>
-                        </ul>
-                    </div>
-                    <div class="highlight-badge" style="background: var(--sage-primary); color: #FFF;">Equilibrio perfecto calidad-experiencia</div>
-                </div>
-
-                <div class="tier-card">
-                    <div>
-                        <div class="tier-tag">Gama Premium</div>
-                        <h3>Cantabria Infinita Deluxe</h3>
-                        <p class="tier-target">Ideal para clientes VIP, turismo de lujo e incentivos de empresa.</p>
-                        <ul class="tier-features">
-                            <li><i data-lucide="check" width="16" color="#6D7A5E"></i> Viaje 100% privado y personalizado</li>
-                            <li><i data-lucide="check" width="16" color="#6D7A5E"></i> Paradores / Hoteles 5* y alta cocina</li>
-                            <li><i data-lucide="check" width="16" color="#6D7A5E"></i> Experiencias exclusivas (velero/helicóptero)</li>
-                        </ul>
-                    </div>
-                    <div class="highlight-badge">Exclusividad absoluta y trato VIP</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- DIAPOSITIVA 5: CÓMO TRABAJAMOS (5 FASES + MAPA) -->
-        <div class="slide" data-note="“Detrás de cada viaje hay un método riguroso en 5 fases: desde el presupuesto personalizado en menos de 24 horas, el bloqueo de los 5 proveedores clave, la entrega de bonos y factura oficial, hasta el acompañamiento en ruta con briefing diario del equipo para que nada falle.”">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-tag">04 • Garantía Operativa</span>
-                    <h2 class="slide-title">Nuestro Método de Trabajo en 5 Fases</h2>
-                </div>
-            </div>
-
-            <div class="ops-layout">
-                <div class="mini-map">
-                    <svg width="100%" height="100%" viewBox="0 0 500 320" fill="none">
-                        <rect width="500" height="320" fill="#EDF1EE"/>
-                        <path d="M0 100 Q 150 90, 280 110 T 500 115 L 500 320 L 0 320 Z" fill="#FFFFFF"/>
-                        <path d="M 270 115 C 330 110, 380 115, 410 120 C 370 175, 310 195, 260 205 C 190 215, 130 225, 85 180" 
-                              stroke="#6D7A5E" stroke-width="3" stroke-dasharray="6 6"/>
-                    </svg>
-                    <div class="map-pin" style="top: 28%; left: 46%;">Santander (Base)</div>
-                    <div class="map-pin" style="top: 30%; left: 73%;">Santoña</div>
-                    <div class="map-pin" style="top: 56%; left: 45%;">Valles Pasiegos</div>
-                    <div class="map-pin" style="top: 48%; left: 10%;">Picos de Europa</div>
-                </div>
-
-                <div class="phases-list">
-                    <div class="phase-row">
-                        <span class="phase-badge">Fase 01</span>
-                        <p><strong>Captación y Presupuesto:</strong> Asesoramiento a medida y cotización transparente.</p>
-                    </div>
-                    <div class="phase-row">
-                        <span class="phase-badge">Fase 02</span>
-                        <p><strong>Contratación y Reservas:</strong> Firma de contrato, Orden de Servicio y bloqueo de proveedores.</p>
-                    </div>
-                    <div class="phase-row">
-                        <span class="phase-badge">Fase 03</span>
-                        <p><strong>Documentación:</strong> Emisión de Bonos/Vouchers, itinerario oficial y Factura.</p>
-                    </div>
-                    <div class="phase-row">
-                        <span class="phase-badge">Fase 04</span>
-                        <p><strong>Ejecución 24/7:</strong> Control logístico en tiempo real y resolución inmediata en ruta.</p>
-                    </div>
-                    <div class="phase-row">
-                        <span class="phase-badge">Fase 05</span>
-                        <p><strong>Postventa:</strong> Encuesta de satisfacción, control de calidad y cierre económico.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- DIAPOSITIVA 6: EQUIPO Y CONTACTO -->
-        <div class="slide" data-note="“Por último, detrás de La Perla del Norte hay un equipo directivo especializado en cada área: Lizeth Nina en Comercial y Ventas, Georgii Kovalev en Finanzas, Elena Jenaro en Tesorería y Maricela Gonzales en Recursos Humanos. Estamos en el Paseo de Pereda, 15, listos para diseñar su próxima experiencia en Cantabria. Muchas gracias.”">
-            <div class="slide-header">
-                <div>
-                    <span class="slide-tag">05 • Equipo & Contacto</span>
-                    <h2 class="slide-title">Un Equipo Profesional a su Disposición</h2>
-                </div>
-            </div>
-
-            <div class="closing-grid">
-                <div class="team-grid-4">
-                    <div class="person-card">
-                        <strong>Lic. Lizeth Nina</strong>
-                        <span>Comercial, Compras y Ventas</span>
-                        <p>Diseño de paquetes, presupuestos a medida y contratación de proveedores.</p>
-                    </div>
-                    <div class="person-card">
-                        <strong>Lic. Georgii Kovalev</strong>
-                        <span>Finanzas y Contabilidad</span>
-                        <p>Control presupuestario, contabilidad general y facturación oficial.</p>
-                    </div>
-                    <div class="person-card">
-                        <strong>Lic. Elena Jenaro</strong>
-                        <span>Tesorería y Liquidez</span>
-                        <p>Gestión de caja, seguimiento de cobros y control financiero.</p>
-                    </div>
-                    <div class="person-card">
-                        <strong>Lic. Maricela Gonzales</strong>
-                        <span>Recursos Humanos</span>
-                        <p>Gestión de personal, guías especializados, contratos y nóminas.</p>
-                    </div>
-                </div>
-
-                <div class="cta-panel">
-                    <div>
-                        <h3>¿Diseñamos su próxima experiencia en Cantabria?</h3>
-                        <p style="font-size: 13.5px; opacity: 0.92;">Solicite hoy mismo una propuesta personalizada sin compromiso para particulares o grupos de empresa.</p>
-                        <ul class="cta-details">
-                            <li><i data-lucide="map-pin" width="16"></i> Paseo de Pereda, 15, Bajo — Santander</li>
-                            <li><i data-lucide="phone" width="16"></i> +34 942 55 66 77 | WhatsApp: +34 688 11 22 33</li>
-                            <li><i data-lucide="mail" width="16"></i> ldelnorte@gmail.com | reservas@laperladecantabria.es</li>
-                            <li><i data-lucide="globe" width="16"></i> www.laperladecantabria.com (CIF: B-3984729)</li>
-                        </ul>
-                    </div>
-                    <a href="mailto:reservas@laperladecantabria.es" class="btn-white-pill">
-                        Solicitar Presupuesto Ahora →
+                <div style="text-align: center; margin-top: 24px;">
+                    <a href="mailto:ventas@laperladelnorte.es" class="btn-lavender-pill">
+                        Contactar con Dirección Comercial
                     </a>
                 </div>
             </div>
         </div>
+    </section>
 
+    <!-- SEPARADOR FINAL AZUL ABISAL -->
+    <div class="wave-divider" style="background: var(--pearl-white);">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+            <path d="M0,30 C250,0 500,55 800,20 C1000,0 1120,40 1200,25 L1200,60 L0,60 Z" fill="#162B46"/>
+        </svg>
     </div>
 
-    <!-- PANEL DE GUION DEL ORADOR (DESPLEGABLE) -->
-    <div class="speaker-notes" id="speakerNotes">
-        <strong>🎙️ Qué decir en esta diapositiva:</strong>
-        <span id="noteText"></span>
-    </div>
+    <!-- FOOTER EQUIPO DIRECTIVO -->
+    <footer class="section-deep" id="equipo" style="padding: 50px 24px 40px;">
+        <div class="container">
+            <h3 style="font-family: var(--font-display); text-align: center; font-size: 24px; font-weight: 400; margin-bottom: 8px;">
+                ESTRUCTURA ORGANIZATIVA Y DIRECCIÓN
+            </h3>
+            <p style="text-align: center; font-size: 13px; opacity: 0.85;">
+                LA PERLA DEL NORTE S.L. • CIF: B-3984729 • Paseo de Pereda, 15, Bajo, 39004 Santander (Cantabria)
+            </p>
 
-    <!-- BARRA INFERIOR DE NAVEGACIÓN -->
-    <footer>
-        <div class="slide-counter" id="slideCounter">Diapositiva 1 de 6</div>
-        <div class="nav-controls">
-            <button class="btn-nav" id="prevBtn" onclick="changeSlide(-1)" disabled>
-                <i data-lucide="arrow-left" width="15"></i> Anterior
-            </button>
-            <button class="btn-nav" id="nextBtn" onclick="changeSlide(1)">
-                Siguiente <i data-lucide="arrow-right" width="15"></i>
-            </button>
+            <div class="team-footer-grid">
+                <div class="team-pill-card">
+                    <strong>Lic. Lizeth Nina G.</strong>
+                    <span>Jefa Dpto. Comercial, Compras y Ventas</span>
+                    <small>Paquetes, cotizaciones, cierre de ventas y proveedores</small>
+                </div>
+                <div class="team-pill-card">
+                    <strong>Lic. Georgii Kovalev</strong>
+                    <span>Finanzas y Contabilidad</span>
+                    <small>Control presupuestario, facturación e impuestos</small>
+                </div>
+                <div class="team-pill-card">
+                    <strong>Lic. Elena Jenaro</strong>
+                    <span>Tesorería</span>
+                    <small>Gestión de caja, liquidez y seguimiento de cobros</small>
+                </div>
+                <div class="team-pill-card">
+                    <strong>Lic. Maricela Gonzales</strong>
+                    <span>Recursos Humanos</span>
+                    <small>Gestión de personal, contratos laborales y nóminas</small>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; font-size: 12px; opacity: 0.8;">
+                Tel: +34 942 55 66 77 | Fax: 941-222-666 | WhatsApp: +34 688 11 22 33 | ventas@laperladelnorte.es | www.laperladelnorte.es
+            </div>
         </div>
     </footer>
-</div>
 
-<script>
-    lucide.createIcons();
+    <!-- PANEL FLOTANTE DE GUION PARA EL ORADOR -->
+    <div class="script-drawer" id="scriptDrawer">
+        <h4>
+            <span>🎙️ Guion Exposición — La Perla del Norte S.L.</span>
+            <button onclick="toggleScript()" style="background:none;border:none;color:#FFF;cursor:pointer;font-size:16px;">✕</button>
+        </h4>
+        <p>
+            <strong>1. Identidad:</strong> "Buenos días. Somos <em>La Perla del Norte S.L.</em> (CIF B-3984729), agencia de viajes y operador turístico con sede en el Paseo de Pereda, 15 de Santander."<br><br>
+            <strong>2. Rentabilidad y Catálogo:</strong> "Contamos con 15 productos en 3 líneas: <em>Sabores del Norte</em> (100€–170€) y <em>Vistas del Norte</em> (120€–450€) con un margen bruto del 50% sobre coste, y <em>Souvenirs de la Tierra</em> (10€–75€) con un 20% de margen."<br><br>
+            <strong>3. Proveedores y Liquidez:</strong> "Trabajamos con proveedores homologados Km 0 como <em>Bodegas El Miradorio</em> (pagaré a 60 días), <em>Conservas Hoya</em> (entrega 24h y portes pagados) y <em>La Lleldiría</em>."<br><br>
+            <strong>4. Método y Equipo:</strong> "Operamos en 5 fases con briefing diario, Manual de Protocolo Escrito y un equipo directivo liderado por Lizeth Nina, Georgii Kovalev, Elena Jenaro y Maricela Gonzales."
+        </p>
+    </div>
 
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const dotsContainer = document.getElementById('dotsContainer');
-    const slideCounter = document.getElementById('slideCounter');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const noteText = document.getElementById('noteText');
-    const speakerNotes = document.getElementById('speakerNotes');
-    const btnNotes = document.getElementById('btnNotes');
+    <script>
+        lucide.createIcons();
 
-    // Crear indicadores superiores
-    slides.forEach((_, idx) => {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (idx === 0) dot.classList.add('active');
-        dot.onclick = () => goToSlide(idx);
-        dotsContainer.appendChild(dot);
-    });
-
-    const dots = document.querySelectorAll('.dot');
-
-    function updateUI() {
-        slides.forEach((s, i) => {
-            s.classList.toggle('active', i === currentSlide);
-            dots[i].classList.toggle('active', i === currentSlide);
-        });
-        slideCounter.textContent = `Diapositiva ${currentSlide + 1} de ${slides.length}`;
-        prevBtn.disabled = currentSlide === 0;
-        nextBtn.disabled = currentSlide === slides.length - 1;
-        noteText.textContent = slides[currentSlide].getAttribute('data-note');
-    }
-
-    function changeSlide(dir) {
-        const next = currentSlide + dir;
-        if (next >= 0 && next < slides.length) {
-            currentSlide = next;
-            updateUI();
+        // Generar burbujas animadas en el Hero
+        const bubblesContainer = document.getElementById('bubbles');
+        for (let i = 0; i < 18; i++) {
+            const b = document.createElement('div');
+            b.classList.add('bubble');
+            const size = Math.random() * 16 + 6;
+            b.style.width = `${size}px`;
+            b.style.height = `${size}px`;
+            b.style.left = `${Math.random() * 100}%`;
+            b.style.animationDuration = `${Math.random() * 7 + 6}s`;
+            b.style.animationDelay = `${Math.random() * 5}s`;
+            bubblesContainer.appendChild(b);
         }
-    }
 
-    function goToSlide(index) {
-        currentSlide = index;
-        updateUI();
-    }
+        // Animación al hacer scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.12 });
 
-    function toggleNotes() {
-        speakerNotes.classList.toggle('visible');
-        btnNotes.classList.toggle('active-notes');
-    }
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    function toggleFullScreen() {
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(() => {});
-        } else if (document.exitFullscreen) {
-            document.exitFullscreen();
+        // Mostrar/Ocultar guion del orador
+        function toggleScript() {
+            document.getElementById('scriptDrawer').classList.toggle('open');
         }
-    }
-
-    // Navegación por teclado
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') changeSlide(1);
-        if (e.key === 'ArrowLeft') changeSlide(-1);
-    });
-
-    updateUI();
-</script>
+    </script>
 </body>
 </html>
