@@ -47,24 +47,130 @@
             color: var(--ink-dark);
             overflow-x: hidden;
             line-height: 1.6;
-            /* Textura sutil de papel artesanal y líneas topográficas */
-            background-image:
-                radial-gradient(rgba(233, 196, 64, 0.08) 1px, transparent 0),
-                linear-gradient(180deg, #3A4429 0%, #4D5838 50%, #363F26 100%);
-            background-size: 28px 28px, 100% 100%;
+            background: linear-gradient(180deg, #323B22 0%, #4A5536 45%, #2D361E 100%);
+            position: relative;
+        }
+
+        /* ================= FONDO ANIMADO GLOBAL (MONTAÑAS + PARTÍCULAS + TOPOGRAFÍA) ================= */
+        .global-animated-backdrop {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-mountains-svg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 360px;
+            opacity: 0.24;
+            animation: mountainDrift 45s linear infinite alternate;
+        }
+
+        .bg-mist {
+            position: absolute;
+            bottom: 60px;
+            left: -20%;
+            width: 140%;
+            height: 180px;
+            background: radial-gradient(ellipse at center, rgba(246, 243, 235, 0.14) 0%, transparent 70%);
+            filter: blur(22px);
+            animation: mistFloat 14s ease-in-out infinite alternate;
+        }
+
+        .floating-spore {
+            position: absolute;
+            bottom: -20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(233, 196, 64, 0.85), rgba(194, 155, 72, 0.1));
+            box-shadow: 0 0 10px rgba(233, 196, 64, 0.5);
+            animation: sporeRise linear infinite;
+        }
+
+        /* ================= KEYFRAMES DE ANIMACIÓN ================= */
+        @keyframes mountainDrift {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-25%); }
+        }
+
+        @keyframes mistFloat {
+            0% { transform: translateX(-4%) translateY(0px); opacity: 0.35; }
+            100% { transform: translateX(4%) translateY(-16px); opacity: 0.7; }
+        }
+
+        @keyframes sporeRise {
+            0% { transform: translateY(0) translateX(0) scale(0.6); opacity: 0; }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.6; }
+            100% { transform: translateY(-105vh) translateX(45px) scale(1.2); opacity: 0; }
+        }
+
+        @keyframes waveMove1 {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes waveMove2 {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(1.5deg); }
+        }
+
+        @keyframes spinCompass {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes shipSail {
+            0%, 100% { transform: translateX(-18px) rotate(-2deg); }
+            50% { transform: translateX(18px) rotate(2.5deg); }
+        }
+
+        @keyframes shimmerSweep {
+            0% { left: -120%; }
+            100% { left: 160%; }
+        }
+
+        @keyframes filmScroll {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 0; }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 12px rgba(233, 196, 64, 0.3); }
+            50% { box-shadow: 0 0 26px rgba(233, 196, 64, 0.75); }
+        }
+
+        /* ================= REVELADO AL HACER SCROLL ================= */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px) scale(0.98);
+            transition: all 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
         }
 
         /* ================= CONTENEDOR CENTRAL TIPO LIENZO EDITORIAL ================= */
         .editorial-canvas {
             max-width: 1180px;
-            margin: 26px auto 50px;
+            margin: 24px auto 50px;
             background-color: var(--paper-cream);
             border-radius: 28px;
-            box-shadow: 0 30px 80px rgba(15, 20, 10, 0.55);
+            box-shadow: 0 30px 80px rgba(12, 18, 8, 0.6);
             overflow: hidden;
             position: relative;
-            border: 1px solid rgba(194, 155, 72, 0.35);
-            /* Textura grano de papel */
+            z-index: 2;
+            border: 1px solid rgba(194, 155, 72, 0.4);
             background-image: radial-gradient(rgba(83, 94, 62, 0.06) 1px, transparent 0);
             background-size: 18px 18px;
         }
@@ -76,9 +182,9 @@
             margin: 0 auto;
             width: 95%;
             max-width: 1130px;
-            background: rgba(62, 72, 44, 0.94);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(194, 155, 72, 0.45);
+            background: rgba(54, 64, 38, 0.94);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(194, 155, 72, 0.5);
             border-radius: 999px;
             padding: 9px 18px;
             display: flex;
@@ -86,7 +192,7 @@
             align-items: center;
             z-index: 1000;
             color: var(--paper-cream);
-            box-shadow: 0 12px 30px rgba(20, 26, 14, 0.35);
+            box-shadow: 0 14px 32px rgba(15, 22, 10, 0.4);
         }
 
         .nav-brand {
@@ -106,13 +212,13 @@
             height: 15px;
             border-radius: 50%;
             background: radial-gradient(circle at 35% 35%, #F3D98B, var(--wax-gold) 65%, var(--wax-gold-dark));
-            box-shadow: 0 0 8px rgba(194, 155, 72, 0.7);
             display: inline-block;
+            animation: pulseGlow 3s infinite ease-in-out;
         }
 
         .nav-links {
             display: flex;
-            gap: 13px;
+            gap: 14px;
             list-style: none;
             font-size: 10.5px;
             font-weight: 600;
@@ -121,13 +227,31 @@
         }
 
         .nav-links a {
-            color: rgba(246, 243, 235, 0.88);
+            color: rgba(246, 243, 235, 0.9);
             text-decoration: none;
+            position: relative;
+            padding: 4px 2px;
             transition: color 0.25s;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--mustard-tag);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
         }
 
         .nav-links a:hover {
             color: var(--mustard-tag);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .nav-actions {
@@ -150,29 +274,12 @@
             gap: 5px;
             text-decoration: none;
             white-space: nowrap;
-            transition: transform 0.2s, filter 0.2s;
+            transition: transform 0.25s, box-shadow 0.25s;
         }
 
         .btn-botanic:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.05);
-        }
-
-        /* ================= ANIMACIONES ================= */
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(1.2deg); }
-        }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 16px rgba(233, 196, 64, 0.4);
         }
 
         /* ================= EFECTOS DE PAPEL RASGADO Y SELLO DE LACRE ================= */
@@ -181,9 +288,14 @@
             padding: 26px 28px;
             position: relative;
             box-shadow: 0 14px 32px rgba(45, 53, 32, 0.12);
-            border: 1px solid rgba(194, 155, 72, 0.28);
-            /* Borde orgánico ligeramente irregular */
+            border: 1px solid rgba(194, 155, 72, 0.32);
             border-radius: 4px 18px 6px 20px;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .torn-paper-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 22px 42px rgba(45, 53, 32, 0.18);
         }
 
         .torn-paper-card::before {
@@ -211,23 +323,58 @@
             font-size: 20px;
             font-weight: bold;
             flex-shrink: 0;
+            transition: transform 0.4s ease;
         }
 
-        /* ================= 1. PORTADA EDITORIAL (HERO SOBRE VERDE OLIVA + ARCO) ================= */
+        .torn-paper-card:hover .wax-seal-badge {
+            transform: rotate(15deg) scale(1.08);
+        }
+
+        /* ================= 1. PORTADA EDITORIAL CON MONTAÑAS + OLAS DEL MAR ================= */
         .hero-editorial {
-            background: linear-gradient(180deg, var(--olive-main) 0%, var(--olive-deep) 100%);
+            background: linear-gradient(180deg, #4E5B39 0%, #374226 68%, #283A3B 100%);
             color: var(--paper-cream);
-            padding: 55px 36px 75px;
+            padding: 55px 36px 115px;
             position: relative;
             overflow: hidden;
         }
 
-        /* Líneas topográficas decorativas SVG en el fondo */
         .topo-bg {
             position: absolute;
             inset: 0;
-            opacity: 0.14;
+            opacity: 0.16;
             pointer-events: none;
+            animation: mistFloat 12s ease-in-out infinite alternate;
+        }
+
+        /* Olas del Mar Cantábrico en la base del Hero */
+        .cantabrian-sea-waves {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 85px;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .wave-track {
+            display: flex;
+            width: 200%;
+            height: 100%;
+        }
+
+        .wave-track-1 {
+            animation: waveMove1 14s linear infinite;
+        }
+
+        .wave-track-2 {
+            position: absolute;
+            top: 12px;
+            left: 0;
+            animation: waveMove2 19s linear infinite;
+            opacity: 0.85;
         }
 
         .hero-layout {
@@ -236,20 +383,24 @@
             gap: 42px;
             align-items: center;
             position: relative;
-            z-index: 2;
+            z-index: 4;
         }
 
-        /* Arco estilo invitación botánica para la Concha Nácar */
         .arch-envelope-frame {
             background: linear-gradient(180deg, #E8E1D1 0%, #D7CEBA 100%);
             border-radius: 210px 210px 24px 24px;
             padding: 26px 22px 34px;
-            border: 2px solid rgba(194, 155, 72, 0.55);
+            border: 2px solid rgba(194, 155, 72, 0.65);
             box-shadow: 0 24px 50px rgba(18, 24, 12, 0.45);
             position: relative;
             text-align: center;
             max-width: 390px;
             margin: 0 auto;
+            transition: transform 0.4s ease;
+        }
+
+        .arch-envelope-frame:hover {
+            transform: translateY(-6px);
         }
 
         .arch-envelope-frame img {
@@ -276,6 +427,7 @@
             color: #FFF;
             font-family: var(--font-script);
             font-size: 24px;
+            animation: pulseGlow 3.5s infinite ease-in-out;
         }
 
         .hero-script-kicker {
@@ -323,6 +475,12 @@
             border-radius: 999px;
             font-size: 11.5px;
             font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .hero-tag:hover {
+            background: rgba(233, 196, 64, 0.25);
+            transform: translateY(-2px);
         }
 
         .hero-cta-row {
@@ -343,11 +501,12 @@
             align-items: center;
             gap: 8px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
-            transition: transform 0.25s;
+            transition: transform 0.25s, box-shadow 0.25s;
         }
 
         .btn-editorial-primary:hover {
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 24px rgba(233, 196, 64, 0.38);
         }
 
         .btn-editorial-outline {
@@ -362,23 +521,27 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: background 0.25s;
+            transition: all 0.25s;
         }
 
         .btn-editorial-outline:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.22);
+            transform: translateY(-3px);
         }
 
         /* ================= CABECERAS DE SECCIÓN EDITORIAL ================= */
         .section-block {
             padding: 68px 36px;
             position: relative;
+            overflow: hidden;
         }
 
         .section-olive-band {
             background: linear-gradient(180deg, var(--olive-main) 0%, var(--olive-deep) 100%);
             color: var(--paper-cream);
             padding: 68px 36px;
+            position: relative;
+            overflow: hidden;
         }
 
         .section-kicker {
@@ -420,7 +583,7 @@
             color: rgba(246, 243, 235, 0.86);
         }
 
-        /* ================= 2. 4 TARJETAS INCLINADAS ESTILO REFERENCIA 2 ================= */
+        /* ================= 2. 4 TARJETAS INCLINADAS CON EFECTO HOVER ================= */
         .tilted-pillars-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -435,16 +598,18 @@
             padding: 24px 18px;
             text-align: center;
             box-shadow: 0 12px 26px rgba(45, 53, 32, 0.08);
-            transition: transform 0.3s ease;
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
         }
 
-        .tilted-card:nth-child(1) { transform: rotate(-1.5deg); }
-        .tilted-card:nth-child(2) { transform: rotate(1.2deg); background: var(--olive-main); color: #FCFBF7; }
-        .tilted-card:nth-child(3) { transform: rotate(-1deg); }
-        .tilted-card:nth-child(4) { transform: rotate(1.5deg); background: var(--olive-deep); color: #FCFBF7; }
+        .tilted-card:nth-child(1) { transform: rotate(-1.8deg); }
+        .tilted-card:nth-child(2) { transform: rotate(1.4deg); background: var(--olive-main); color: #FCFBF7; }
+        .tilted-card:nth-child(3) { transform: rotate(-1.2deg); }
+        .tilted-card:nth-child(4) { transform: rotate(1.8deg); background: var(--olive-deep); color: #FCFBF7; }
 
         .tilted-card:hover {
-            transform: rotate(0deg) translateY(-5px);
+            transform: rotate(0deg) translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 38px rgba(45, 53, 32, 0.2);
+            z-index: 5;
         }
 
         .tilted-icon {
@@ -456,6 +621,11 @@
             display: grid;
             place-items: center;
             margin: 0 auto 12px;
+            transition: transform 0.35s ease;
+        }
+
+        .tilted-card:hover .tilted-icon {
+            transform: scale(1.15) rotate(10deg);
         }
 
         .tilted-card h4 {
@@ -469,7 +639,6 @@
             opacity: 0.9;
         }
 
-        /* Grid Misión/Visión/Ficha Mercantil */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -519,6 +688,11 @@
             padding: 9px 10px;
             border-bottom: 1px solid rgba(83, 94, 62, 0.15);
             text-align: left;
+            transition: background 0.2s;
+        }
+
+        .clean-table tbody tr:hover td {
+            background: rgba(233, 196, 64, 0.12);
         }
 
         .clean-table th {
@@ -528,14 +702,27 @@
             font-size: 15px;
         }
 
-        /* ================= 3. PROGRAMA DE RUTA / EXPERIENCIAS (SILUETA CENTRAL + ETIQUETAS AMARILLAS) ================= */
+        /* ================= 3. PROGRAMA DE RUTA CON SILUETA MONTAÑA + MAR Y BRÚJULA GIRATORIA ================= */
         .route-map-showcase {
-            background: var(--paper-white);
+            background: linear-gradient(180deg, var(--paper-white) 0%, #EFECE1 100%);
             border-radius: 26px;
-            padding: 36px 28px;
-            border: 1px solid rgba(194, 155, 72, 0.35);
-            box-shadow: 0 18px 40px rgba(34, 42, 22, 0.08);
+            padding: 36px 28px 65px;
+            border: 1px solid rgba(194, 155, 72, 0.4);
+            box-shadow: 0 18px 40px rgba(34, 42, 22, 0.1);
             margin-top: 34px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Cordillera + Mar animada en el fondo de la tarjeta de Rutas */
+        .route-landscape-bg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 110px;
+            pointer-events: none;
+            opacity: 0.45;
         }
 
         .route-hub-grid {
@@ -543,15 +730,24 @@
             grid-template-columns: 1fr 270px 1fr;
             gap: 22px;
             align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
         .route-stop {
-            background: var(--paper-cream);
-            border: 1px solid rgba(83, 94, 62, 0.2);
+            background: rgba(252, 251, 247, 0.92);
+            border: 1px solid rgba(83, 94, 62, 0.22);
             border-radius: 16px;
             padding: 14px 16px;
             margin-bottom: 14px;
             position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .route-stop:hover {
+            transform: translateX(6px);
+            border-color: var(--wax-gold);
+            box-shadow: 0 10px 24px rgba(62, 72, 44, 0.14);
         }
 
         .mustard-pill {
@@ -593,15 +789,28 @@
             text-align: center;
             padding: 24px;
             border: 4px double var(--wax-gold);
-            box-shadow: 0 18px 36px rgba(38, 46, 25, 0.28);
+            box-shadow: 0 18px 36px rgba(38, 46, 25, 0.32);
+            animation: pulseGlow 4s infinite ease-in-out;
         }
 
-        /* ================= 4. ODS Y SOSTENIBILIDAD (TARJETAS BOTÁNICAS OSCURAS) ================= */
+        .compass-spin {
+            animation: spinCompass 18s linear infinite;
+        }
+
+        /* ================= 4. ODS Y SOSTENIBILIDAD CON LUCIÉRNAGAS ================= */
         .ods-botanic-card {
             background: rgba(252, 251, 247, 0.08);
+            backdrop-filter: blur(6px);
             border: 1px solid rgba(233, 196, 64, 0.32);
             border-radius: 20px;
             padding: 22px;
+            transition: transform 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+        }
+
+        .ods-botanic-card:hover {
+            transform: translateY(-6px);
+            background: rgba(252, 251, 247, 0.14);
+            border-color: var(--mustard-tag);
         }
 
         .ods-badge-gold {
@@ -630,7 +839,7 @@
             color: rgba(246, 243, 235, 0.9);
         }
 
-        /* ================= 5. CATÁLOGO OFICIAL (ESTILO ITINERARIO VERDE OLIVA) ================= */
+        /* ================= 5. CATÁLOGO OFICIAL CON DESTELLO SHIMMER ================= */
         .catalog-olive-box {
             background: var(--olive-main);
             color: var(--paper-cream);
@@ -638,6 +847,30 @@
             padding: 24px;
             border: 1px solid rgba(194, 155, 72, 0.45);
             box-shadow: 0 16px 34px rgba(38, 46, 25, 0.16);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .catalog-olive-box::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 248, 220, 0.16), transparent);
+            transform: skewX(-22deg);
+            transition: none;
+        }
+
+        .catalog-olive-box:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 24px 44px rgba(38, 46, 25, 0.25);
+        }
+
+        .catalog-olive-box:hover::after {
+            animation: shimmerSweep 0.95s ease forwards;
         }
 
         .catalog-olive-head {
@@ -673,9 +906,16 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 7px 0;
+            padding: 7px 4px;
             border-bottom: 1px dashed rgba(246, 243, 235, 0.18);
             gap: 8px;
+            transition: transform 0.2s ease, background 0.2s ease;
+            border-radius: 6px;
+        }
+
+        .catalog-items li:hover {
+            transform: translateX(4px);
+            background: rgba(255, 255, 255, 0.06);
         }
 
         .catalog-items li:last-child { border-bottom: none; }
@@ -688,39 +928,21 @@
             border-radius: 6px;
             font-size: 12px;
             white-space: nowrap;
+            transition: transform 0.2s ease, background 0.2s ease;
         }
 
-        /* ================= 6. SELLOS POSTALES (6 PERFILES DE CLIENTE + OBJECIONES) ================= */
-        .postage-stamp-card {
-            background: var(--paper-white);
-            padding: 20px;
-            border-radius: 12px;
-            border: 2px dashed rgba(83, 94, 62, 0.35);
-            box-shadow: 0 10px 24px rgba(45, 53, 32, 0.08);
-            position: relative;
+        .catalog-items li:hover .price-stamp {
+            background: var(--mustard-tag);
+            transform: scale(1.08);
         }
 
-        .postage-stamp-card h4 {
-            font-family: var(--font-serif);
-            font-size: 21px;
-            color: var(--olive-deep);
-            margin-bottom: 6px;
-        }
-
-        .postage-stamp-card p {
-            font-size: 12.5px;
-            color: var(--ink-muted);
-            margin-bottom: 10px;
-        }
-
-        .tactic-strip {
+        /* ================= 6. FIDELIZACIÓN Y EXPANSIÓN ================= */
+        .loyalty-strip {
             background: var(--paper-warm);
-            border-left: 3px solid var(--wax-gold);
-            padding: 8px 10px;
-            font-size: 11.5px;
-            font-weight: 600;
-            color: var(--ink-dark);
-            border-radius: 0 8px 8px 0;
+            padding: 58px 36px;
+            border-top: 1px solid rgba(194, 155, 72, 0.28);
+            border-bottom: 1px solid rgba(194, 155, 72, 0.28);
+            position: relative;
         }
 
         /* ================= 7. PROVEEDORES Y 5 FASES ================= */
@@ -738,6 +960,12 @@
             padding: 18px 14px;
             text-align: center;
             box-shadow: 0 10px 22px rgba(45, 53, 32, 0.07);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .phase-seal-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--olive-main);
         }
 
         .phase-num {
@@ -752,54 +980,81 @@
             display: grid;
             place-items: center;
             margin: 0 auto 8px;
+            transition: transform 0.35s ease;
         }
 
-        /* ================= 8. CIERRE CINEMATOGRÁFICO (ESTILO REFERENCIA 2 INFERIOR) ================= */
+        .phase-seal-card:hover .phase-num {
+            transform: scale(1.18) rotate(360deg);
+        }
+
+        /* ================= 8. CIERRE CINEMATOGRÁFICO + EQUIPO (3 DIRECTIVOS) ================= */
         .cinematic-closing {
-            background: linear-gradient(180deg, rgba(42, 51, 29, 0.88) 0%, rgba(28, 35, 19, 0.96) 100%);
+            background: linear-gradient(180deg, rgba(42, 51, 29, 0.94) 0%, rgba(25, 32, 17, 0.99) 100%);
             color: var(--paper-cream);
             padding: 64px 36px 46px;
             position: relative;
+            overflow: hidden;
         }
 
         .filmstrip-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
             margin-top: 28px;
-            padding: 18px;
-            background: #1B2014;
+            padding: 22px 20px;
+            background: #181D12;
             border-radius: 16px;
-            border-top: 6px dashed rgba(246, 243, 235, 0.35);
-            border-bottom: 6px dashed rgba(246, 243, 235, 0.35);
+            position: relative;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
         }
+
+        .filmstrip-grid::before,
+        .filmstrip-grid::after {
+            content: "";
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            height: 6px;
+            background-image: linear-gradient(90deg, rgba(246, 243, 235, 0.45) 50%, transparent 50%);
+            background-size: 20px 6px;
+            animation: filmScroll 3s linear infinite;
+        }
+
+        .filmstrip-grid::before { top: 6px; }
+        .filmstrip-grid::after { bottom: 6px; }
 
         .team-frame {
             background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(194, 155, 72, 0.35);
+            border: 1px solid rgba(194, 155, 72, 0.38);
             border-radius: 12px;
-            padding: 16px;
+            padding: 18px 16px;
             text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .team-frame:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.12);
         }
 
         .team-frame strong {
             font-family: var(--font-serif);
-            font-size: 19px;
+            font-size: 20px;
             display: block;
             color: #FCFBF7;
         }
 
         .team-frame span {
-            font-size: 11.5px;
+            font-size: 12px;
             color: var(--mustard-tag);
             display: block;
-            margin: 4px 0;
+            margin: 5px 0;
             font-weight: 600;
         }
 
         .team-frame small {
-            font-size: 11px;
-            opacity: 0.82;
+            font-size: 11.5px;
+            opacity: 0.84;
         }
 
         /* ================= MODAL GUION ORADOR ================= */
@@ -855,6 +1110,18 @@
 </head>
 <body>
 
+    <!-- FONDO ANIMADO GLOBAL: CORDILLERA DE PICOS DE EUROPA, NIEBLA Y ESPORAS DORADAS -->
+    <div class="global-animated-backdrop" id="globalBackdrop">
+        <div class="bg-mist"></div>
+        <!-- Silueta montañosa continua en capas -->
+        <svg class="bg-mountains-svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <!-- Capa trasera Picos -->
+            <path fill="#232B17" d="M0,220 L120,110 L240,190 L380,75 L520,200 L680,90 L830,185 L980,65 L1140,195 L1290,95 L1440,210 L1440,320 L0,320 Z"/>
+            <!-- Capa delantera Valle Verde -->
+            <path fill="#1B2212" d="M0,260 L180,175 L340,245 L510,150 L690,250 L870,165 L1050,245 L1240,160 L1440,250 L1440,320 L0,320 Z"/>
+        </svg>
+    </div>
+
     <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
     <nav>
         <div class="nav-brand">
@@ -866,7 +1133,7 @@
             <li><a href="#ruta">Rutas</a></li>
             <li><a href="#sostenibilidad">ODS</a></li>
             <li><a href="#catalogo">Catálogo</a></li>
-            <li><a href="#clientes">6 Clientes</a></li>
+            <li><a href="#fidelizacion">Fidelización</a></li>
             <li><a href="#proveedores">Proveedores</a></li>
             <li><a href="#equipo">Equipo</a></li>
         </ul>
@@ -877,7 +1144,7 @@
                 <i data-lucide="book-open" width="13"></i> Catálogo Web
             </a>
 
-            <!-- Enlace a Documentos (Cartas de pedido, comerciales...) -->
+            <!-- Enlace a Documentos -->
             <a href="documentos.html" target="_blank" rel="noopener noreferrer" class="btn-botanic" style="background: var(--wax-gold); color: #1E2416;">
                 <i data-lucide="folder-open" width="13"></i> Documentos
             </a>
@@ -892,9 +1159,8 @@
     <!-- LIENZO EDITORIAL PRINCIPAL -->
     <main class="editorial-canvas">
 
-        <!-- 1. PORTADA EDITORIAL CON ARCO Y SELLO DE LACRE -->
+        <!-- 1. PORTADA EDITORIAL CON MONTAÑAS, SELLO DE LACRE Y OLAS DEL MAR CANTÁBRICO -->
         <section class="hero-editorial">
-            <!-- Líneas topográficas SVG de fondo -->
             <svg class="topo-bg" viewBox="0 0 1200 600" fill="none" stroke="#E9C440" stroke-width="1.5">
                 <path d="M-50,120 C180,40 320,240 540,150 C760,60 920,260 1250,110" />
                 <path d="M-50,260 C210,180 390,380 620,270 C850,160 1010,360 1250,240" />
@@ -910,7 +1176,7 @@
 
                 <!-- Texto Editorial -->
                 <div>
-                    <div class="hero-script-kicker">Ecoturismo & Tradición Artesanal</div>
+                    <div class="hero-script-kicker">Mar Cantábrico & Picos de Europa</div>
                     <h1>LA PERLA DEL NORTE<br>SERVICIO TURÍSTICO</h1>
 
                     <div class="hero-paper-excerpt">
@@ -936,6 +1202,26 @@
                     </div>
                 </div>
             </div>
+
+            <!-- OLAS ANIMADAS DEL MAR CANTÁBRICO EN LA BASE DE LA PORTADA -->
+            <div class="cantabrian-sea-waves">
+                <div class="wave-track wave-track-2">
+                    <svg viewBox="0 0 1200 90" preserveAspectRatio="none" style="width: 50%; height: 100%;">
+                        <path d="M0,35 C200,75 400,5 600,40 C800,75 1000,5 1200,35 L1200,90 L0,90 Z" fill="rgba(233, 196, 64, 0.25)"/>
+                    </svg>
+                    <svg viewBox="0 0 1200 90" preserveAspectRatio="none" style="width: 50%; height: 100%;">
+                        <path d="M0,35 C200,75 400,5 600,40 C800,75 1000,5 1200,35 L1200,90 L0,90 Z" fill="rgba(233, 196, 64, 0.25)"/>
+                    </svg>
+                </div>
+                <div class="wave-track wave-track-1">
+                    <svg viewBox="0 0 1200 90" preserveAspectRatio="none" style="width: 50%; height: 100%;">
+                        <path d="M0,45 C180,10 380,80 600,45 C820,10 1020,80 1200,45 L1200,90 L0,90 Z" fill="#F6F3EB"/>
+                    </svg>
+                    <svg viewBox="0 0 1200 90" preserveAspectRatio="none" style="width: 50%; height: 100%;">
+                        <path d="M0,45 C180,10 380,80 600,45 C820,10 1020,80 1200,45 L1200,90 L0,90 Z" fill="#F6F3EB"/>
+                    </svg>
+                </div>
+            </div>
         </section>
 
         <!-- 2. IDENTIDAD, 4 TARJETAS INCLINADAS Y COMPARATIVA -->
@@ -946,7 +1232,7 @@
                 Conectamos el deseo de viajar y descansar con el impulso directo a la economía rural, preservando la cultura y el entorno natural del Norte de España.
             </p>
 
-            <!-- 4 Tarjetas Inclinadas (Inspiración Referencia 2) -->
+            <!-- 4 Tarjetas Inclinadas -->
             <div class="tilted-pillars-grid reveal">
                 <div class="tilted-card">
                     <div class="tilted-icon"><i data-lucide="users" width="18"></i></div>
@@ -1044,7 +1330,7 @@
                 </table>
             </div>
 
-            <!-- 3. MAPA DE PROGRAMA / EXPERIENCIAS (INSPIRACIÓN SILUETA CENTRAL + ETIQUETAS AMARILLAS) -->
+            <!-- 3. MAPA DE PROGRAMA CON SILUETA MONTAÑOSA Y BRÚJULA ANIMADA -->
             <div class="route-map-showcase reveal" id="ruta">
                 <div class="section-kicker">Itinerario & Experiencias</div>
                 <h3 class="section-heading" style="font-size: 32px; margin-bottom: 26px;">Programa del Norte & Gamas de Viaje</h3>
@@ -1068,9 +1354,9 @@
                         </div>
                     </div>
 
-                    <!-- Emblema Central -->
+                    <!-- Emblema Central con Brújula Giratoria -->
                     <div class="north-emblem-center">
-                        <i data-lucide="compass" width="38" color="#E9C440" style="margin-bottom: 8px;"></i>
+                        <i data-lucide="compass" width="42" color="#E9C440" class="compass-spin" style="margin-bottom: 8px;"></i>
                         <div style="font-family: var(--font-script); font-size: 28px; color: #E9C440; line-height: 1;">Norte de España</div>
                         <strong style="font-family: var(--font-serif); font-size: 22px; letter-spacing: 0.05em; margin: 4px 0;">PROGRAMA DE RUTA</strong>
                         <span style="font-size: 11.5px; opacity: 0.88;">3 Pilares: Gastronomía, Historia y Ecoturismo</span>
@@ -1094,10 +1380,16 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Paisaje Montaña + Mar en la base de la tarjeta de Rutas -->
+                <svg class="route-landscape-bg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path fill="#535E3E" d="M0,95 L140,30 L280,85 L440,20 L610,80 L780,25 L940,85 L1090,35 L1200,90 L1200,120 L0,120 Z"/>
+                    <path fill="#3E482C" d="M0,100 C250,75 450,115 700,90 C950,65 1100,105 1200,85 L1200,120 L0,120 Z"/>
+                </svg>
             </div>
         </section>
 
-        <!-- 4. COMPROMISO ODS E IMPACTO AMBIENTAL (FRANJA VERDE OLIVA PROFUNDO) -->
+        <!-- 4. COMPROMISO ODS E IMPACTO AMBIENTAL -->
         <section class="section-olive-band" id="sostenibilidad">
             <div class="section-kicker reveal">Agenda 2030</div>
             <h2 class="section-heading reveal">Sostenibilidad y Compromiso ODS</h2>
@@ -1139,7 +1431,7 @@
                 </div>
             </div>
 
-            <div class="ods-botanic-card reveal" style="background: rgba(233, 196, 64, 0.12);">
+            <div class="ods-botanic-card reveal" style="background: rgba(233, 196, 64, 0.14);">
                 <h4>🌿 Protocolo de Control Ambiental y Social en Ruta</h4>
                 <p style="font-size: 13px;">
                     Mitigamos los tres impactos clave de nuestra actividad: <strong>(1) Residuos en zonas rurales</strong> (política cero plásticos y recogida integral), <strong>(2) Molestias a vecinos</strong> (grupos reducidos y horarios respetuosos) y <strong>(3) Huella de carbono en transporte</strong> (optimización de trayectos, transporte colectivo y movilidad limpia).
@@ -1204,90 +1496,23 @@
             </div>
         </section>
 
-        <!-- 6. PSICOLOGÍA DE VENTAS (SELLOS POSTALES), OBJECIONES Y FIDELIZACIÓN -->
-        <section class="section-block" id="clientes" style="background: var(--paper-warm);">
-            <div class="section-kicker reveal">Atención Personalizada</div>
-            <h2 class="section-heading reveal">6 Perfiles de Cliente y Objeciones</h2>
+        <!-- 6. FIDELIZACIÓN Y EXPANSIÓN -->
+        <section class="loyalty-strip" id="fidelizacion">
+            <div class="section-kicker reveal">Comunidad & Futuro</div>
+            <h2 class="section-heading reveal">Programa de Fidelización y Expansión</h2>
             <p class="section-lead reveal">
-                Adaptamos nuestro asesoramiento comercial a cada personalidad de viajero y respondemos con garantías frente a precio, vuelos o climatología.
+                Consolidamos la recurrencia y recomendación orgánica mediante hiperpersonalización CRM, niveles VIP y alianzas de crecimiento sostenible.
             </p>
 
-            <!-- 6 Perfiles estilo Sello Postal -->
-            <div class="grid-3" style="margin-bottom: 34px;">
-                <div class="postage-stamp-card reveal">
-                    <span class="mustard-pill">Perfil 01</span>
-                    <h4>Cliente Indeciso</h4>
-                    <p>Se abruma ante demasiadas opciones (costa vs. montaña, solo vs. acompañado) y posterga su reserva.</p>
-                    <div class="tactic-strip">💡 Acotar opciones y preguntar: "¿Qué es lo más importante para ti al elegir destino?"</div>
-                </div>
-
-                <div class="postage-stamp-card reveal">
-                    <span class="mustard-pill">Perfil 02</span>
-                    <h4>Cliente Racional</h4>
-                    <p>Planifica con antelación (ej. luna de miel), exige términos claros, testimonios reales y precio cerrado.</p>
-                    <div class="tactic-strip">💡 Mostrar garantías por escrito, reseñas verificadas y precio inamovible.</div>
-                </div>
-
-                <div class="postage-stamp-card reveal">
-                    <span class="mustard-pill">Perfil 03</span>
-                    <h4>Cliente Exigente</h4>
-                    <p>Conoce el destino, trae su propio itinerario/menú y pone a prueba nuestra diferenciación.</p>
-                    <div class="tactic-strip">💡 Destacar grupos VIP (máx. 8 pers.) y consultar amenidades y privacidad.</div>
-                </div>
-
-                <div class="postage-stamp-card reveal">
-                    <span class="mustard-pill">Perfil 04</span>
-                    <h4>Cliente Conflictivo</h4>
-                    <p>Actitud exigente buscando descuentos injustificados o criticando detalles menores.</p>
-                    <div class="tactic-strip">💡 Mantener la calma, revisar juntos la política de reembolso y firmar itinerario.</div>
-                </div>
-
-                <div class="postage-stamp-card reveal">
-                    <span class="mustard-pill">Perfil 05</span>
-                    <h4>Cliente Impulsivo</h4>
-                    <p>Motivado por vídeos visuales (ej. Playa del Sardinero), reserva para el mismo fin de semana (+13% última hora).</p>
-                    <div class="tactic-strip">💡 Venta cruzada ágil (+35 € terraza vista mar y souvenirs artesanales).</div>
-                </div>
-
-                <div class="postage-stamp-card reveal">
-                    <span class="mustard-pill">Perfil 06</span>
-                    <h4>Cliente Fiel</h4>
-                    <p>Repite servicios rechazando ofertas de la competencia por la confianza y sostenibilidad; nos recomienda.</p>
-                    <div class="tactic-strip">💡 Trato VIP proactivo: "¿A qué ruta te acompañaremos este año? Tramitamos todo."</div>
-                </div>
-            </div>
-
-            <!-- 3 Objeciones Clave -->
-            <div class="grid-3" style="margin-bottom: 34px;">
-                <div class="torn-paper-card reveal" style="background: var(--olive-deep); color: var(--paper-cream);">
-                    <div style="color: var(--mustard-tag); font-weight: 700; font-size: 13.5px; margin-bottom: 6px;">❓ “¿Por qué cobran más si otras agencias ofrecen lo mismo?”</div>
-                    <p style="font-size: 12.5px;">“Priorizamos la tranquilidad y comodidad del turista: <strong>no operamos grupos masificados de más de 8 integrantes</strong>, garantizando acceso exclusivo y trato personalizado.”</p>
-                </div>
-
-                <div class="torn-paper-card reveal" style="background: var(--olive-deep); color: var(--paper-cream);">
-                    <div style="color: var(--mustard-tag); font-weight: 700; font-size: 13.5px; margin-bottom: 6px;">✈️ “¿Qué pasa si mi vuelo se demora y pierdo el primer día?”</div>
-                    <p style="font-size: 12.5px;">“Ofrecemos una <strong>tarifa con flexibilidad</strong> para reprogramar el inicio del tour sin penalización, o acceso inmediato a una <strong>sala VIP</strong> durante la espera.”</p>
-                </div>
-
-                <div class="torn-paper-card reveal" style="background: var(--olive-deep); color: var(--paper-cream);">
-                    <div style="color: var(--mustard-tag); font-weight: 700; font-size: 13.5px; margin-bottom: 6px;">🌧️ “¿Y si hace mal tiempo en la fecha de mi reserva?”</div>
-                    <p style="font-size: 12.5px;">“Contamos con <strong>planes alternativos cubiertos</strong> (museos, catas gastronómicas en cavas y obradores) y seguro de viaje frente a causas climáticas extremas.”</p>
-                </div>
-            </div>
-
-            <!-- Fidelización 4 Pilares -->
             <div class="torn-paper-card reveal">
-                <h3 style="font-family: var(--font-serif); font-size: 24px; color: var(--olive-deep); margin-bottom: 12px;">
-                    Programa de Fidelización (Plata, Oro, Platino) y Expansión
-                </h3>
                 <div class="grid-2">
                     <ul class="editorial-list">
-                        <li><i data-lucide="sparkles" width="16" color="#C29B48"></i> <div><strong>Experiencias Exclusivas:</strong> Preventas anticipadas en temporada alta y obsequios artesanales en la habitación.</div></li>
-                        <li><i data-lucide="cpu" width="16" color="#C29B48"></i> <div><strong>Hiperpersonalización CRM:</strong> Registro de preferencias (almohadas, vinos favoritos) y descuentos automáticos de cumpleaños.</div></li>
+                        <li><i data-lucide="sparkles" width="17" color="#C29B48"></i> <div><strong>Experiencias Exclusivas:</strong> Preventas anticipadas en temporada alta y obsequios artesanales locales en la habitación.</div></li>
+                        <li><i data-lucide="cpu" width="17" color="#C29B48"></i> <div><strong>Hiperpersonalización CRM:</strong> Registro de preferencias (almohadas hipoalergénicas, vinos favoritos) y descuentos automáticos de cumpleaños.</div></li>
                     </ul>
                     <ul class="editorial-list">
-                        <li><i data-lucide="award" width="16" color="#C29B48"></i> <div><strong>Niveles Plata, Oro y Platino:</strong> Cada euro suma puntos canjeables con check-in prioritario y upgrades gratuitos.</div></li>
-                        <li><i data-lucide="map" width="16" color="#C29B48"></i> <div><strong>Expansión Norte de España:</strong> Crecimiento progresivo hacia otras CCAA vecinas mediante alianzas sostenibles.</div></li>
+                        <li><i data-lucide="award" width="17" color="#C29B48"></i> <div><strong>Niveles Plata, Oro y Platino:</strong> Cada euro gastado suma puntos canjeables con check-in prioritario, atención preferente y upgrades gratuitos.</div></li>
+                        <li><i data-lucide="map" width="17" color="#C29B48"></i> <div><strong>Expansión Norte de España:</strong> Crecimiento progresivo hacia otras CCAA vecinas colaborando con agencias afines a nuestra visión sostenible.</div></li>
                     </ul>
                 </div>
             </div>
@@ -1394,7 +1619,7 @@
             </div>
         </section>
 
-        <!-- 8. CIERRE CINEMATOGRÁFICO (ESTILO REFERENCIA 2 INFERIOR) + EQUIPO DIRECTIVO -->
+        <!-- 8. CIERRE CINEMATOGRÁFICO + EQUIPO DIRECTIVO (3 INTEGRANTES) -->
         <footer class="cinematic-closing" id="equipo">
             <div style="text-align: center; max-width: 720px; margin: 0 auto;">
                 <div style="font-family: var(--font-script); font-size: 36px; color: var(--mustard-tag); line-height: 1;">Estructura Directiva</div>
@@ -1414,7 +1639,7 @@
                 </div>
             </div>
 
-            <!-- Tira de película con los 4 directivos -->
+            <!-- Tira de película animada con los 3 directivos -->
             <div class="filmstrip-grid">
                 <div class="team-frame">
                     <strong>Lic. Lizeth Nina G.</strong>
@@ -1425,11 +1650,6 @@
                     <strong>Lic. Georgii Kovalev</strong>
                     <span>Finanzas y Contabilidad</span>
                     <small>Control presupuestario, facturación e impuestos</small>
-                </div>
-                <div class="team-frame">
-                    <strong>Lic. Elena Jenaro</strong>
-                    <span>Tesorería</span>
-                    <small>Gestión de caja, liquidez y seguimiento de cobros</small>
                 </div>
                 <div class="team-frame">
                     <strong>Lic. Maricela González</strong>
@@ -1454,13 +1674,27 @@
         <p>
             <strong>1. Propuesta y Diferenciación:</strong> "Somos <em>La Perla del Norte S.L.</em> (CIF B-3984729). Frente al turismo tradicional masificado, ofrecemos <strong>paquetes variables en grupos de máximo 8 personas</strong> que unen catas artesanales, lugares históricos y naturaleza."<br><br>
             <strong>2. Compromiso ODS (8, 9, 10, 11 y 12):</strong> "Impulsamos el empleo rural digno (jóvenes, mayores de 52 años, mujeres rurales y personas con discapacidad), movilidad sostenible y alianzas con productores locales de sobaos, quesos, anchoas y vinos."<br><br>
-            <strong>3. Rentabilidad y Ventas:</strong> "Manejamos 15 experiencias y productos con márgenes del <strong>50% en tours</strong> y 20% en souvenirs, atención directa sin intermediarios, 14 días de desistimiento y estrategias para los 6 perfiles de cliente."<br><br>
+            <strong>3. Rentabilidad y Ventas:</strong> "Manejamos 15 experiencias y productos con márgenes del <strong>50% en tours</strong> y 20% en souvenirs, atención directa sin intermediarios y 14 días de desistimiento."<br><br>
             <strong>4. Fidelización y Expansión:</strong> "Con nuestro CRM hiperpersonalizado y niveles <em>Plata, Oro y Platino</em>, fidelizamos al viajero y proyectamos nuestra expansión a todo el Norte de España."
         </p>
     </div>
 
     <script>
         lucide.createIcons();
+
+        // Generar partículas/esporas doradas flotantes en el fondo global
+        const backdrop = document.getElementById('globalBackdrop');
+        for (let i = 0; i < 24; i++) {
+            const spore = document.createElement('div');
+            spore.classList.add('floating-spore');
+            const size = Math.random() * 6 + 3;
+            spore.style.width = `${size}px`;
+            spore.style.height = `${size}px`;
+            spore.style.left = `${Math.random() * 100}%`;
+            spore.style.animationDuration = `${Math.random() * 12 + 10}s`;
+            spore.style.animationDelay = `${Math.random() * 8}s`;
+            backdrop.appendChild(spore);
+        }
 
         // Animación al hacer scroll
         const observer = new IntersectionObserver((entries) => {
