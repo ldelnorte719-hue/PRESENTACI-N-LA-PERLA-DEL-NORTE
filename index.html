@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Perla del Norte S.L. | Ecoturismo & Experiencias en el Norte de España</title>
+    <title>La Perla del Norte S.L. | Turismo Rural, Gastronomía & Naturaleza en el Norte de España</title>
 
-    <!-- Tipografías Editorial & Moderna -->
+    <!-- Tipografías Artesanales, Caligráficas y Editoriales -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Pinyon+Script&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Caveat:wght@600;700&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Iconos Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
         :root {
-            --bg-abyss: #091211;
-            --bg-forest: #0F1E1C;
-            --bg-card: rgba(20, 38, 35, 0.74);
-            --bg-card-solid: #132522;
-            --aurora-emerald: #266D5B;
-            --aurora-teal: #1B4E47;
-            --gold-accent: #E5B95C;
-            --gold-bright: #F5D483;
-            --text-light: #F3F5F2;
-            --text-muted: #A6B8B3;
-            --border-glass: rgba(229, 185, 92, 0.24);
+            --olive-leaf: #5A6B38;
+            --olive-dark: #3B4723;
+            --harvest-gold: #E7C53D;
+            --harvest-gold-hover: #D4B128;
+            --terracotta: #D96B27;
+            --cream-paper: #F7F5EE;
+            --sand-soft: #EFECE2;
+            --pure-white: #FFFFFF;
+            --ink-charcoal: #262A20;
+            --ink-muted: #666B5E;
+            --font-script: 'Caveat', cursive;
+            --font-hand: 'Amatic SC', cursive;
             --font-serif: 'Cormorant Garamond', serif;
-            --font-script: 'Pinyon Script', cursive;
             --font-sans: 'Plus Jakarta Sans', sans-serif;
         }
 
@@ -43,75 +43,43 @@
 
         body {
             font-family: var(--font-sans);
-            background-color: var(--bg-abyss);
-            color: var(--text-light);
+            background-color: var(--cream-paper);
+            color: var(--ink-charcoal);
             overflow-x: hidden;
             line-height: 1.6;
-            background-image:
-                radial-gradient(circle at 18% 12%, rgba(38, 109, 91, 0.26) 0%, transparent 45%),
-                radial-gradient(circle at 82% 38%, rgba(229, 185, 92, 0.12) 0%, transparent 42%),
-                radial-gradient(circle at 30% 75%, rgba(27, 78, 71, 0.28) 0%, transparent 50%),
-                linear-gradient(180deg, #091211 0%, #0E1C1A 50%, #08100F 100%);
+            position: relative;
         }
 
-        /* ================= FONDO ANIMADO GLOBAL: AURORA + PERLAS PEQUEÑAS NACARADAS ================= */
-        .global-aurora-backdrop {
+        /* ================= FONDO ANIMADO: PERLAS PEQUEÑAS NACARADAS ================= */
+        .pearls-backdrop {
             position: fixed;
             inset: 0;
             pointer-events: none;
-            z-index: 0;
+            z-index: 999;
             overflow: hidden;
         }
 
-        .aurora-ribbon {
-            position: absolute;
-            top: -10%;
-            left: -20%;
-            width: 140%;
-            height: 480px;
-            background: radial-gradient(ellipse at center, rgba(46, 158, 126, 0.22) 0%, rgba(229, 185, 92, 0.08) 45%, transparent 72%);
-            filter: blur(45px);
-            animation: auroraWave 14s ease-in-out infinite alternate;
-        }
-
-        /* Perlas pequeñas nacaradas flotantes */
         .floating-pearl {
             position: absolute;
             bottom: -24px;
             border-radius: 50%;
-            background: radial-gradient(circle at 32% 28%, #FFFFFF 0%, #FDF7EA 38%, #E6D7BE 78%, #B89F74 100%);
+            background: radial-gradient(circle at 32% 28%, #FFFFFF 0%, #FFFDF8 45%, #EADBC0 82%, #C2A97E 100%);
             box-shadow:
-                0 0 8px rgba(255, 250, 240, 0.75),
-                0 0 16px rgba(245, 212, 131, 0.45),
-                inset -2px -2px 4px rgba(130, 108, 72, 0.45);
+                0 2px 8px rgba(90, 107, 56, 0.25),
+                0 0 12px rgba(255, 252, 240, 0.9),
+                inset -2px -2px 3px rgba(145, 123, 86, 0.35);
             animation: pearlRise linear infinite;
         }
 
         @keyframes pearlRise {
-            0% {
-                transform: translateY(0) translateX(0) scale(0.75);
-                opacity: 0;
-            }
-            15% {
-                opacity: 0.92;
-            }
-            50% {
-                transform: translateY(-52vh) translateX(22px) scale(1);
-            }
-            85% {
-                opacity: 0.85;
-            }
-            100% {
-                transform: translateY(-108vh) translateX(-18px) scale(0.9);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) translateX(0) scale(0.75); opacity: 0; }
+            15% { opacity: 0.92; }
+            50% { transform: translateY(-50vh) translateX(24px) scale(1); }
+            85% { opacity: 0.85; }
+            100% { transform: translateY(-108vh) translateX(-18px) scale(0.9); opacity: 0; }
         }
 
-        @keyframes auroraWave {
-            0% { transform: translateX(-6%) translateY(0px) scale(1); opacity: 0.55; }
-            100% { transform: translateX(6%) translateY(22px) scale(1.08); opacity: 0.9; }
-        }
-
+        /* ================= KEYFRAMES DE MONTAÑAS Y PELÍCANO ================= */
         @keyframes parallaxBack {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -127,61 +95,39 @@
             100% { transform: translateX(-50%); }
         }
 
-        @keyframes waveMove1 {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
         @keyframes floatSlow {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
         }
 
-        /* ================= ANIMACIÓN PELÍCANO VOLANDO ================= */
+        /* Animación del Pelícano volando */
         .pelican-flight-path {
             position: absolute;
-            top: 46px;
-            left: -160px;
-            z-index: 3;
+            top: 44px;
+            left: -170px;
+            z-index: 5;
             pointer-events: none;
             animation: pelicanGlide 24s linear infinite;
-            filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.5));
+            filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.35));
         }
 
         @keyframes pelicanGlide {
-            0% {
-                transform: translateX(0) translateY(12px) scale(0.85);
-                opacity: 0;
-            }
-            8% {
-                opacity: 0.95;
-            }
-            25% {
-                transform: translateX(340px) translateY(-14px) scale(0.95);
-            }
-            50% {
-                transform: translateX(680px) translateY(8px) scale(1);
-            }
-            75% {
-                transform: translateX(1020px) translateY(-16px) scale(0.92);
-            }
-            92% {
-                opacity: 0.95;
-            }
-            100% {
-                transform: translateX(1380px) translateY(4px) scale(0.85);
-                opacity: 0;
-            }
+            0% { transform: translateX(0) translateY(10px) scale(0.85); opacity: 0; }
+            8% { opacity: 0.98; }
+            30% { transform: translateX(420px) translateY(-16px) scale(0.95); }
+            60% { transform: translateX(880px) translateY(8px) scale(1); }
+            90% { opacity: 0.98; }
+            100% { transform: translateX(1550px) translateY(-10px) scale(0.88); opacity: 0; }
         }
 
         .pelican-wing-back {
             transform-origin: 58px 44px;
-            animation: flapBack 0.95s ease-in-out infinite alternate;
+            animation: flapBack 0.9s ease-in-out infinite alternate;
         }
 
         .pelican-wing-front {
             transform-origin: 62px 46px;
-            animation: flapFront 0.95s ease-in-out infinite alternate;
+            animation: flapFront 0.9s ease-in-out infinite alternate;
         }
 
         @keyframes flapBack {
@@ -194,11 +140,10 @@
             100% { transform: rotate(-24deg) scaleY(1.08); }
         }
 
-        /* ================= REVELADO AL HACER SCROLL ================= */
         .reveal {
             opacity: 0;
-            transform: translateY(28px);
-            transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translateY(26px);
+            transition: all 0.75s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .reveal.visible {
@@ -206,152 +151,185 @@
             transform: translateY(0);
         }
 
-        /* ================= CONTENEDOR CENTRAL ================= */
-        .editorial-canvas {
-            max-width: 1200px;
-            margin: 22px auto 50px;
-            background: rgba(13, 26, 24, 0.88);
-            backdrop-filter: blur(18px);
-            border-radius: 32px;
-            box-shadow: 0 35px 90px rgba(0, 0, 0, 0.75);
-            overflow: hidden;
-            position: relative;
-            z-index: 2;
-            border: 1px solid rgba(229, 185, 92, 0.25);
+        /* ================= BARRA SUPERIOR BLANCA + FRANJA DE CATEGORÍAS (ESTILO GROUNDY & AGRARIUM) ================= */
+        header.site-header {
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            background: var(--pure-white);
+            box-shadow: 0 4px 20px rgba(38, 42, 32, 0.08);
         }
 
-        /* ================= NAVBAR FLOTANTE OSCURA ================= */
-        nav {
-            position: sticky;
-            top: 14px;
+        .top-nav {
+            max-width: 1220px;
             margin: 0 auto;
-            width: 95%;
-            max-width: 1150px;
-            background: rgba(11, 22, 20, 0.88);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(229, 185, 92, 0.3);
-            border-radius: 999px;
-            padding: 10px 20px;
+            padding: 12px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
-            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.55);
+            gap: 16px;
         }
 
-        .nav-brand {
+        .brand-logo-wrap {
             display: flex;
             align-items: center;
             gap: 10px;
-            font-family: var(--font-serif);
+            text-decoration: none;
+            color: var(--ink-charcoal);
+        }
+
+        .brand-badge-olive {
+            background: var(--olive-leaf);
+            color: #FFF;
+            font-family: var(--font-script);
+            font-size: 25px;
             font-weight: 700;
-            font-size: 16px;
+            padding: 2px 14px;
+            border-radius: 999px;
+            line-height: 1.2;
+        }
+
+        .brand-subtext {
+            font-size: 11px;
+            font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            color: var(--text-light);
-            white-space: nowrap;
+            color: var(--olive-dark);
         }
 
-        .pearl-dot {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 32% 28%, #FFFFFF 0%, #FDF7EA 42%, #DFC8A2 85%, #B4986B 100%);
-            box-shadow: 0 0 12px rgba(255, 248, 230, 0.85);
-            display: inline-block;
-        }
-
-        .nav-links {
+        .nav-menu {
             display: flex;
-            gap: 15px;
             list-style: none;
-            font-size: 11px;
-            font-weight: 600;
+            gap: 18px;
+            font-size: 12px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.07em;
+            letter-spacing: 0.05em;
         }
 
-        .nav-links a {
-            color: var(--text-muted);
+        .nav-menu a {
             text-decoration: none;
-            transition: color 0.25s;
+            color: var(--ink-charcoal);
+            transition: color 0.2s;
         }
 
-        .nav-links a:hover {
-            color: var(--gold-bright);
+        .nav-menu a:hover {
+            color: var(--terracotta);
         }
 
-        .nav-actions {
+        .nav-buttons {
             display: flex;
             gap: 8px;
             align-items: center;
         }
 
-        .btn-gold {
-            background: linear-gradient(135deg, var(--gold-bright), var(--gold-accent));
-            color: #0D1917;
+        .btn-harvest {
+            background: var(--harvest-gold);
+            color: var(--ink-charcoal);
             border: none;
-            padding: 7px 14px;
-            border-radius: 999px;
-            font-size: 11px;
+            padding: 8px 16px;
+            font-size: 11.5px;
             font-weight: 700;
-            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            text-decoration: none;
+            gap: 6px;
+            cursor: pointer;
+            transition: background 0.25s, transform 0.2s;
             white-space: nowrap;
-            transition: transform 0.25s, box-shadow 0.25s;
         }
 
-        .btn-gold:hover {
+        .btn-harvest:hover {
+            background: var(--harvest-gold-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 18px rgba(229, 185, 92, 0.45);
         }
 
-        .btn-glass {
-            background: rgba(255, 255, 255, 0.07);
-            color: var(--text-light);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            padding: 7px 13px;
+        .btn-olive-pill {
+            background: var(--olive-leaf);
+            color: #FFFFFF;
+            border: none;
+            padding: 8px 15px;
+            font-size: 11.5px;
+            font-weight: 700;
             border-radius: 999px;
-            font-size: 11px;
-            font-weight: 600;
-            cursor: pointer;
+            text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 5px;
-            text-decoration: none;
+            gap: 6px;
+            cursor: pointer;
+            transition: background 0.25s, transform 0.2s;
             white-space: nowrap;
-            transition: all 0.25s;
         }
 
-        .btn-glass:hover {
-            background: rgba(229, 185, 92, 0.16);
-            border-color: var(--gold-accent);
+        .btn-olive-pill:hover {
+            background: var(--olive-dark);
+            transform: translateY(-2px);
         }
 
-        /* ================= 1. PORTADA CON MONTAÑAS EN MOVIMIENTO + PELÍCANO VOLANDO ================= */
-        .hero-nordic {
+        /* Franja de Categorías con Iconos de Línea (Estilo Groundy) */
+        .groundy-category-strip {
+            background: var(--olive-leaf);
+            color: #FFFFFF;
+            padding: 10px 20px;
+        }
+
+        .groundy-cat-inner {
+            max-width: 1060px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .cat-icon-link {
+            color: rgba(255, 255, 255, 0.92);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .cat-icon-link:hover {
+            color: var(--harvest-gold);
+            transform: translateY(-2px);
+        }
+
+        /* ================= 1. PORTADA EDITORIAL HARVEST + GROUNDY CON MONTAÑAS Y PELÍCANO ================= */
+        .hero-harvest {
             position: relative;
-            padding: 68px 40px 95px;
+            min-height: 560px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 72px 24px 115px;
             background:
-                radial-gradient(ellipse at 65% 18%, rgba(52, 168, 130, 0.34) 0%, transparent 55%),
-                linear-gradient(180deg, #0C1B19 0%, #122926 58%, #0D1A18 100%);
+                linear-gradient(180deg, rgba(28, 36, 18, 0.54) 0%, rgba(36, 46, 22, 0.62) 65%, rgba(28, 36, 18, 0.85) 100%),
+                url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat;
+            color: #FFFFFF;
             overflow: hidden;
         }
 
+        /* Montañas en movimiento sutil en la parte baja de la portada */
         .hero-mountains-stage {
             position: absolute;
             inset: 0;
             pointer-events: none;
-            z-index: 1;
+            z-index: 2;
             overflow: hidden;
         }
 
         .mountain-layer {
             position: absolute;
-            bottom: 45px;
+            bottom: 0;
             left: 0;
             display: flex;
             width: 200%;
@@ -364,576 +342,619 @@
         }
 
         .mountains-back {
-            bottom: 70px;
-            height: 360px;
-            opacity: 0.45;
-            animation: parallaxBack 44s linear infinite;
+            height: 230px;
+            opacity: 0.35;
+            animation: parallaxBack 46s linear infinite;
         }
 
         .mountains-mid {
-            bottom: 50px;
-            height: 290px;
-            opacity: 0.72;
-            animation: parallaxMid 29s linear infinite;
+            height: 175px;
+            opacity: 0.55;
+            animation: parallaxMid 30s linear infinite;
         }
 
         .mountains-front {
-            bottom: 28px;
-            height: 220px;
-            opacity: 0.92;
-            animation: parallaxFront 20s linear infinite;
+            height: 120px;
+            opacity: 0.88;
+            animation: parallaxFront 21s linear infinite;
         }
 
-        .north-sea-waves {
+        .hero-center-content {
+            position: relative;
+            z-index: 6;
+            max-width: 820px;
+            margin: 0 auto;
+        }
+
+        .hero-script-title {
+            font-family: var(--font-script);
+            font-size: clamp(56px, 8vw, 96px);
+            font-weight: 700;
+            line-height: 0.95;
+            color: #FFFFFF;
+            text-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+            margin-bottom: 14px;
+        }
+
+        .hero-subtitle-lead {
+            font-size: 15.5px;
+            color: #F7F5EE;
+            max-width: 650px;
+            margin: 0 auto 24px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* Barra inferior de la portada estilo Agrarium ("Ver Vídeo / Catálogo" + botón amarillo) */
+        .hero-bottom-bar {
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 100%;
-            height: 72px;
+            right: 0;
+            z-index: 7;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .hero-video-tab {
+            background: rgba(24, 28, 20, 0.88);
+            color: #FFFFFF;
+            padding: 12px 22px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .hero-scroll-square {
+            background: var(--harvest-gold);
+            color: var(--ink-charcoal);
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* ================= 2. SELLOS DE CONFIANZA + BLOQUE EDITORIAL AGRARIUM ================= */
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .trust-seals-row {
+            background: var(--pure-white);
+            padding: 28px 24px;
+            border-bottom: 1px solid rgba(90, 107, 56, 0.14);
+        }
+
+        .seals-flex {
+            max-width: 1060px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 18px;
+            align-items: center;
+            text-align: center;
+        }
+
+        .vintage-seal {
+            border: 1.5px dashed rgba(90, 107, 56, 0.45);
+            border-radius: 999px;
+            padding: 8px 18px;
+            font-family: var(--font-serif);
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--olive-dark);
+            letter-spacing: 0.04em;
+        }
+
+        /* Bloque Editorial 2 Columnas con Marca de Agua Gigante (Estilo Agrarium) */
+        .editorial-story-section {
+            background: var(--pure-white);
+            padding: 76px 24px 60px;
+            position: relative;
             overflow: hidden;
+        }
+
+        .watermark-bg-word {
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--font-script);
+            font-size: clamp(90px, 16vw, 210px);
+            color: rgba(90, 107, 56, 0.07);
+            white-space: nowrap;
             pointer-events: none;
+            user-select: none;
+        }
+
+        .agrarium-two-col {
+            max-width: 1080px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 0.95fr 1.05fr;
+            gap: 44px;
+            align-items: start;
+            position: relative;
             z-index: 2;
         }
 
-        .wave-track {
-            display: flex;
-            width: 200%;
-            height: 100%;
-            animation: waveMove1 15s linear infinite;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.15fr 0.85fr;
-            gap: 36px;
-            align-items: center;
-            position: relative;
-            z-index: 4;
-        }
-
-        .hero-kicker {
+        .script-eyebrow {
             font-family: var(--font-script);
-            font-size: 34px;
-            color: var(--gold-bright);
-            line-height: 1;
-            margin-bottom: 6px;
+            font-size: 28px;
+            color: var(--harvest-gold-hover);
+            line-height: 1.1;
+            margin-bottom: 4px;
         }
 
-        .hero-nordic h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(38px, 4.8vw, 60px);
-            font-weight: 600;
-            line-height: 1.06;
-            color: #FFFFFF;
-            margin-bottom: 16px;
-            text-shadow: 0 6px 24px rgba(0, 0, 0, 0.55);
+        .editorial-h2 {
+            font-size: clamp(28px, 3.6vw, 40px);
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--ink-charcoal);
+            margin-bottom: 18px;
         }
 
-        .hero-nordic h1 span {
-            color: var(--gold-bright);
-            font-style: italic;
-        }
-
-        .hero-subbox {
-            background: rgba(12, 25, 23, 0.75);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(229, 185, 92, 0.28);
-            border-radius: 18px;
-            padding: 16px 20px;
-            font-size: 13.5px;
-            color: #DCE6E3;
-            margin-bottom: 22px;
-            max-width: 610px;
-        }
-
-        .hero-emblem-card {
-            background: radial-gradient(circle at 50% 35%, rgba(44, 118, 98, 0.35), rgba(13, 26, 24, 0.88));
-            border: 1px solid rgba(229, 185, 92, 0.38);
-            border-radius: 220px 220px 28px 28px;
-            padding: 26px 22px 28px;
-            text-align: center;
-            max-width: 350px;
-            margin: 0 auto;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
-            position: relative;
-        }
-
-        .hero-emblem-card img {
-            width: 100%;
-            max-width: 275px;
-            border-radius: 24px;
-            animation: floatSlow 5s ease-in-out infinite;
-            filter: drop-shadow(0 16px 28px rgba(0, 0, 0, 0.6));
-        }
-
-        /* BARRA DE FILTRO FLOTANTE EN LA BASE DE LA PORTADA */
-        .skandi-search-bar {
-            position: relative;
-            z-index: 5;
-            margin-top: 34px;
-            background: rgba(14, 29, 27, 0.86);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(229, 185, 92, 0.35);
-            border-radius: 999px;
-            padding: 10px 14px 10px 26px;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr auto;
-            gap: 16px;
+        .signature-line {
+            margin-top: 22px;
+            display: flex;
             align-items: center;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+            gap: 16px;
         }
 
-        .search-pill-item {
-            border-right: 1px solid rgba(255, 255, 255, 0.12);
-            padding-right: 12px;
+        .signature-script {
+            font-family: var(--font-script);
+            font-size: 32px;
+            color: var(--olive-dark);
         }
 
-        .search-pill-item:last-of-type {
-            border-right: none;
+        /* ================= 3. 4 TARJETAS VERTICALES CON TÍTULO CALIGRÁFICO SUPERPUESTO (ESTILO AGRARIUM) ================= */
+        .four-pillars-section {
+            background: var(--pure-white);
+            padding: 20px 24px 80px;
+            position: relative;
         }
 
-        .search-pill-item small {
-            display: block;
-            font-size: 10.5px;
+        .agrarium-cards-4 {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .agrarium-photo-card {
+            position: relative;
+            height: 360px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 16px 34px rgba(38, 42, 32, 0.14);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 18px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.35s ease;
+        }
+
+        .agrarium-photo-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .agrarium-photo-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(20, 26, 15, 0.25) 0%, rgba(20, 26, 15, 0.1) 50%, rgba(16, 22, 12, 0.82) 100%);
+            z-index: 1;
+        }
+
+        .card-mini-kicker {
+            position: relative;
+            z-index: 2;
+            color: #FFFFFF;
+            font-size: 11.5px;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            color: var(--gold-accent);
         }
 
-        .search-pill-item span {
-            font-size: 13px;
-            font-weight: 600;
-            color: #FFFFFF;
-        }
-
-        /* ================= SECCIONES GENERALES ================= */
-        .section-dark {
-            padding: 68px 40px;
+        .card-bottom-overlay {
             position: relative;
-            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            z-index: 2;
         }
 
-        .section-kicker {
+        .card-bottom-overlay p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 12px;
+            margin-bottom: 6px;
+            line-height: 1.4;
+        }
+
+        .card-script-label {
+            font-family: var(--font-script);
+            font-size: 42px;
+            font-weight: 700;
+            color: #FFFFFF;
+            line-height: 0.9;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* ================= 4. PROCESO DE 5 FASES CON ICONOS CIRCULARES Y FLECHAS (ESTILO GROUNDY) ================= */
+        .groundy-process-section {
+            background: var(--sand-soft);
+            padding: 68px 24px;
+            border-top: 1px solid rgba(90, 107, 56, 0.15);
+            border-bottom: 1px solid rgba(90, 107, 56, 0.15);
+        }
+
+        .groundy-script-heading {
+            font-family: var(--font-script);
+            font-size: clamp(36px, 4.5vw, 52px);
+            text-align: center;
+            color: var(--ink-charcoal);
+            margin-bottom: 8px;
+        }
+
+        .groundy-script-heading span {
+            background: var(--olive-leaf);
+            color: #FFFFFF;
+            padding: 0 12px;
+            border-radius: 999px;
+            font-size: 0.82em;
+        }
+
+        .process-circles-grid {
+            max-width: 1140px;
+            margin: 38px auto 0;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+            text-align: center;
+        }
+
+        .process-step-box {
+            position: relative;
+            padding: 10px;
+        }
+
+        .process-step-box:not(:last-child)::after {
+            content: "→";
+            position: absolute;
+            top: 42px;
+            right: -14px;
             font-family: var(--font-script);
             font-size: 32px;
-            color: var(--gold-accent);
-            text-align: center;
-            line-height: 1.1;
+            color: var(--olive-leaf);
         }
 
-        .section-heading {
-            font-family: var(--font-serif);
-            font-size: clamp(28px, 3.6vw, 42px);
-            font-weight: 600;
-            text-align: center;
+        .circle-botanic-icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: rgba(90, 107, 56, 0.14);
+            border: 2px solid var(--olive-leaf);
+            color: var(--olive-dark);
+            display: grid;
+            place-items: center;
+            margin: 0 auto 14px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .process-step-box:hover .circle-botanic-icon {
+            transform: scale(1.08);
+            background: var(--olive-leaf);
             color: #FFFFFF;
-            margin-bottom: 10px;
-            letter-spacing: 0.02em;
         }
 
-        .section-lead {
-            text-align: center;
-            max-width: 720px;
-            margin: 0 auto 42px;
-            font-size: 14px;
-            color: var(--text-muted);
+        .process-step-box h4 {
+            font-family: var(--font-script);
+            font-size: 28px;
+            color: var(--ink-charcoal);
+            margin-bottom: 4px;
         }
 
-        /* ================= BLOQUE DE INDICADORES NORTE DE ESPAÑA ================= */
-        .north-stats-banner {
-            background: radial-gradient(circle at 50% 50%, rgba(38, 109, 91, 0.25) 0%, rgba(13, 26, 24, 0.6) 70%);
-            border: 1px solid var(--border-glass);
-            border-radius: 26px;
-            padding: 36px 28px;
-            margin-bottom: 44px;
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 28px;
-            align-items: center;
-        }
-
-        .stats-grid-4 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .stat-glow-card {
-            background: rgba(10, 20, 18, 0.72);
-            border: 1px solid rgba(229, 185, 92, 0.24);
-            border-radius: 18px;
-            padding: 18px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .stat-glow-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--gold-bright);
-        }
-
-        .stat-glow-card strong {
-            font-family: var(--font-serif);
-            font-size: 32px;
-            color: var(--gold-bright);
-            display: block;
-            line-height: 1.1;
-        }
-
-        .stat-glow-card span {
-            font-size: 12.5px;
-            color: var(--text-muted);
-        }
-
-        /* ================= TARJETAS GLASS OSCURAS ================= */
-        .glass-card {
-            background: var(--bg-card);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--border-glass);
-            border-radius: 22px;
-            padding: 26px;
-            box-shadow: 0 16px 38px rgba(0, 0, 0, 0.35);
-            transition: transform 0.35s ease, border-color 0.35s ease;
-        }
-
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(245, 212, 131, 0.55);
-        }
-
-        .glass-card h3 {
-            font-family: var(--font-serif);
-            font-size: 24px;
-            color: var(--gold-bright);
+        .process-step-box p {
+            font-size: 12px;
+            color: var(--ink-muted);
             margin-bottom: 12px;
         }
 
-        .grid-3 {
+        .btn-groundy-mini {
+            display: inline-block;
+            background: var(--olive-leaf);
+            color: #FFFFFF;
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 5px 14px;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+
+        /* ================= 5. CATÁLOGO OFICIAL ESTILO PAQUETES GROUNDY (SIN COSTE) ================= */
+        .catalog-groundy-section {
+            background: var(--pure-white);
+            padding: 72px 24px;
+        }
+
+        .catalog-group-title {
+            font-family: var(--font-script);
+            font-size: 38px;
+            text-align: center;
+            color: var(--olive-dark);
+            margin: 36px 0 22px;
+        }
+
+        .groundy-packages-grid {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .groundy-pkg-card {
+            background: var(--cream-paper);
+            border: 1px solid rgba(90, 107, 56, 0.2);
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .groundy-pkg-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(38, 42, 32, 0.14);
+        }
+
+        .pkg-top-header {
+            padding: 18px 12px 14px;
+        }
+
+        .pkg-title-hand {
+            font-family: var(--font-hand);
+            font-size: 26px;
+            line-height: 1.05;
+            color: var(--ink-charcoal);
+            margin-bottom: 6px;
+        }
+
+        .pkg-price-hand {
+            font-family: var(--font-script);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--olive-leaf);
+            line-height: 1;
+        }
+
+        .pkg-duration-sub {
+            font-size: 11px;
+            color: var(--ink-muted);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .pkg-photo-bottom {
+            height: 145px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pkg-photo-bottom::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(24, 30, 18, 0.28);
+            transition: background 0.3s;
+        }
+
+        .groundy-pkg-card:hover .pkg-photo-bottom::before {
+            background: rgba(24, 30, 18, 0.48);
+        }
+
+        .pkg-btn-overlay {
+            position: relative;
+            z-index: 2;
+            background: rgba(34, 42, 24, 0.88);
+            color: #FFFFFF;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 6px 14px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+
+        /* ================= 6. FRANJA FOTOGRÁFICA DE 3 PASOS NUMÉRICOS (ESTILO GROUNDY) ================= */
+        .groundy-steps-banner {
+            background:
+                linear-gradient(90deg, rgba(24, 32, 16, 0.84) 0%, rgba(36, 48, 24, 0.78) 100%),
+                url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+            color: #FFFFFF;
+            padding: 54px 24px;
+        }
+
+        .steps-banner-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .steps-banner-tag {
+            display: inline-block;
+            background: var(--olive-leaf);
+            font-family: var(--font-script);
+            font-size: 30px;
+            padding: 2px 18px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+        }
+
+        .three-numbered-cols {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
+            gap: 28px;
+        }
+
+        .num-step-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .big-script-num {
+            font-family: var(--font-script);
+            font-size: 64px;
+            color: var(--harvest-gold);
+            line-height: 0.8;
+        }
+
+        .num-step-text {
+            font-family: var(--font-script);
+            font-size: 25px;
+            line-height: 1.15;
+        }
+
+        /* ================= 7. SECCIÓN ODS + COMPARATIVA + PROVEEDORES (TARJETAS EDITORIALES GROUNDY) ================= */
+        .editorial-cards-section {
+            background: var(--cream-paper);
+            padding: 72px 24px;
         }
 
         .grid-2 {
+            max-width: 1120px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 22px;
+            gap: 24px;
         }
 
-        .dark-list {
-            list-style: none;
-            font-size: 13px;
-            color: #DCE6E3;
+        .groundy-news-card {
+            background: var(--pure-white);
+            border: 1px solid rgba(90, 107, 56, 0.18);
+            border-radius: 6px;
+            padding: 22px;
+            box-shadow: 0 10px 26px rgba(38, 42, 32, 0.06);
         }
 
-        .dark-list li {
-            padding: 7px 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 9px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        .groundy-news-card h3 {
+            font-family: var(--font-serif);
+            font-size: 23px;
+            color: var(--olive-dark);
+            margin-bottom: 8px;
         }
 
-        .dark-list li:last-child { border-bottom: none; }
+        .tag-terracotta {
+            display: inline-block;
+            background: var(--terracotta);
+            color: #FFFFFF;
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 3px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
 
-        .dark-table {
+        .clean-table {
             width: 100%;
             border-collapse: collapse;
             font-size: 13px;
         }
 
-        .dark-table th, .dark-table td {
-            padding: 11px 12px;
+        .clean-table th, .clean-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(90, 107, 56, 0.16);
             text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .dark-table th {
-            color: var(--gold-bright);
+        .clean-table th {
+            background: var(--sand-soft);
+            color: var(--olive-dark);
             font-family: var(--font-serif);
-            font-size: 16px;
-            background: rgba(255, 255, 255, 0.03);
+            font-size: 15.5px;
         }
 
-        .dark-table tbody tr:hover td {
-            background: rgba(229, 185, 92, 0.08);
+        /* ================= 8. PIE DE PÁGINA Y EQUIPO DIRECTIVO (3 INTEGRANTES) ================= */
+        footer.organic-footer {
+            background: var(--olive-dark);
+            color: #F7F5EE;
+            padding: 64px 24px 44px;
         }
 
-        /* ================= CATÁLOGO CON TARJETAS VISUALES ESCALONADAS ================= */
-        .tour-category-block {
-            margin-bottom: 58px;
-        }
-
-        .tour-category-title {
-            font-family: var(--font-serif);
-            font-size: 30px;
-            text-align: center;
-            color: #FFFFFF;
-            margin-bottom: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-        }
-
-        .tour-category-title span {
-            font-size: 11px;
-            font-family: var(--font-sans);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            background: rgba(229, 185, 92, 0.18);
-            color: var(--gold-bright);
-            border: 1px solid rgba(229, 185, 92, 0.4);
-            padding: 4px 12px;
-            border-radius: 999px;
-        }
-
-        .staggered-cards-row {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 14px;
-            align-items: center;
-        }
-
-        .tour-visual-card {
-            position: relative;
-            height: 295px;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.55);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 14px;
-            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-            cursor: pointer;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .staggered-cards-row .tour-visual-card:nth-child(1),
-        .staggered-cards-row .tour-visual-card:nth-child(5) {
-            height: 255px;
-            opacity: 0.88;
-        }
-
-        .staggered-cards-row .tour-visual-card:nth-child(2),
-        .staggered-cards-row .tour-visual-card:nth-child(4) {
-            height: 280px;
-            opacity: 0.95;
-        }
-
-        .staggered-cards-row .tour-visual-card:nth-child(3) {
-            height: 315px;
-            border-color: var(--gold-accent);
-            box-shadow: 0 22px 48px rgba(0, 0, 0, 0.75), 0 0 24px rgba(229, 185, 92, 0.25);
-            z-index: 3;
-        }
-
-        .tour-visual-card:hover {
-            transform: translateY(-10px) scale(1.04);
-            opacity: 1 !important;
-            border-color: var(--gold-bright);
-            z-index: 10;
-        }
-
-        .tour-visual-card::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(9, 18, 17, 0.2) 0%, rgba(9, 18, 17, 0.45) 45%, rgba(7, 15, 14, 0.94) 100%);
-            z-index: 1;
-        }
-
-        .card-top-row, .card-bottom-info {
-            position: relative;
-            z-index: 2;
-        }
-
-        .card-top-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .card-duration-pill {
-            background: rgba(11, 22, 20, 0.72);
-            backdrop-filter: blur(6px);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            color: #F3F5F2;
-            font-size: 10.5px;
-            font-weight: 600;
-            padding: 3px 9px;
-            border-radius: 999px;
-        }
-
-        .card-heart {
-            width: 26px;
-            height: 26px;
-            border-radius: 50%;
-            background: rgba(11, 22, 20, 0.65);
-            display: grid;
-            place-items: center;
-            color: var(--gold-bright);
-            font-size: 12px;
-        }
-
-        .stars-gold {
-            color: var(--gold-bright);
-            font-size: 11px;
-            letter-spacing: 2px;
-            margin-bottom: 3px;
-        }
-
-        .tour-visual-card h4 {
-            font-family: var(--font-serif);
-            font-size: 19px;
-            line-height: 1.15;
-            color: #FFFFFF;
-            margin-bottom: 4px;
-        }
-
-        .tour-visual-card p {
-            font-size: 11px;
-            color: #C4D4D0;
-            margin-bottom: 10px;
-            line-height: 1.35;
-        }
-
-        .card-price-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 8px;
-            border-top: 1px solid rgba(255, 255, 255, 0.14);
-        }
-
-        .price-tag-nordic {
-            font-size: 16px;
-            font-weight: 800;
-            color: var(--gold-bright);
-        }
-
-        .spots-badge {
-            background: rgba(255, 255, 255, 0.14);
-            color: #FFFFFF;
-            font-size: 10px;
-            font-weight: 600;
-            padding: 3px 8px;
-            border-radius: 999px;
-        }
-
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px;
-            margin-top: 18px;
-        }
-
-        .carousel-dots span {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        .carousel-dots span.active {
-            width: 22px;
-            border-radius: 999px;
-            background: var(--gold-bright);
-        }
-
-        /* ================= 5 FASES OPERATIVAS ================= */
-        .phases-row {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 14px;
-            margin-bottom: 32px;
-        }
-
-        .phase-dark-card {
-            background: rgba(16, 32, 30, 0.85);
-            border: 1px solid rgba(229, 185, 92, 0.28);
-            border-radius: 18px;
-            padding: 18px 14px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .phase-dark-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold-bright);
-        }
-
-        .phase-num {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--gold-bright), var(--gold-accent));
-            color: #0D1917;
-            font-weight: 800;
-            display: grid;
-            place-items: center;
-            margin: 0 auto 8px;
-        }
-
-        /* ================= EQUIPO DIRECTIVO (3 INTEGRANTES) ================= */
         .team-grid-3 {
+            max-width: 1080px;
+            margin: 28px auto;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-top: 28px;
         }
 
-        .team-card-nordic {
-            background: rgba(16, 33, 30, 0.85);
-            border: 1px solid rgba(229, 185, 92, 0.32);
-            border-radius: 20px;
-            padding: 24px 18px;
+        .team-card-organic {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(231, 197, 61, 0.35);
+            border-radius: 8px;
+            padding: 22px 18px;
             text-align: center;
-            transition: transform 0.3s ease;
         }
 
-        .team-card-nordic:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold-bright);
-        }
-
-        .team-card-nordic strong {
+        .team-card-organic strong {
             font-family: var(--font-serif);
             font-size: 22px;
+            display: block;
             color: #FFFFFF;
-            display: block;
         }
 
-        .team-card-nordic span {
+        .team-card-organic span {
             display: block;
             font-size: 12px;
-            color: var(--gold-bright);
-            font-weight: 600;
-            margin: 6px 0;
+            color: var(--harvest-gold);
+            font-weight: 700;
+            margin: 5px 0;
         }
 
-        .team-card-nordic small {
-            color: var(--text-muted);
+        .team-card-organic small {
             font-size: 12px;
+            opacity: 0.85;
         }
 
-        /* ================= MODAL GUION ORADOR ================= */
+        /* ================= PANEL FLOTANTE GUION ORADOR ================= */
         .script-drawer {
             position: fixed;
             bottom: 20px;
             right: 20px;
             width: 400px;
             max-width: 90vw;
-            background: rgba(12, 25, 23, 0.97);
-            backdrop-filter: blur(14px);
-            color: var(--text-light);
-            border-radius: 20px;
+            background: var(--olive-dark);
+            color: #FFFFFF;
+            border-radius: 14px;
             padding: 22px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75);
-            border: 1px solid var(--gold-accent);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+            border: 2px solid var(--harvest-gold);
             z-index: 2000;
             display: none;
         }
@@ -944,7 +965,7 @@
             font-size: 12.5px;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: var(--gold-bright);
+            color: var(--harvest-gold);
             margin-bottom: 10px;
             display: flex;
             justify-content: space-between;
@@ -958,633 +979,544 @@
             overflow-y: auto;
         }
 
-        @media (max-width: 1040px) {
-            .nav-links { display: none; }
-            .staggered-cards-row { grid-template-columns: repeat(2, 1fr); }
-            .staggered-cards-row .tour-visual-card { height: 270px !important; opacity: 1 !important; }
-            .skandi-search-bar { grid-template-columns: 1fr; border-radius: 22px; }
-            .search-pill-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 8px; }
+        @media (max-width: 1024px) {
+            .nav-menu { display: none; }
+            .agrarium-cards-4, .groundy-packages-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-circles-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-step-box::after { display: none; }
         }
 
-        @media (max-width: 820px) {
-            .hero-grid, .north-stats-banner, .grid-3, .grid-2, .team-grid-3 { grid-template-columns: 1fr; }
-            .phases-row { grid-template-columns: 1fr 1fr; }
-            .staggered-cards-row { grid-template-columns: 1fr; }
-            .editorial-canvas { margin: 10px; border-radius: 20px; }
+        @media (max-width: 780px) {
+            .agrarium-two-col, .three-numbered-cols, .grid-2, .team-grid-3 { grid-template-columns: 1fr; }
+            .agrarium-cards-4, .groundy-packages-grid, .process-circles-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- FONDO ANIMADO AURORA + PERLAS PEQUEÑAS FLOTANTES -->
-    <div class="global-aurora-backdrop" id="globalBackdrop">
-        <div class="aurora-ribbon"></div>
-    </div>
+    <!-- FONDO ANIMADO DE PERLAS PEQUEÑAS NACARADAS FLOTANDO -->
+    <div class="pearls-backdrop" id="pearlsBackdrop"></div>
 
-    <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
-    <nav>
-        <div class="nav-brand">
-            <span class="pearl-dot"></span>
-            LA PERLA DEL NORTE S.L.
-        </div>
-        <ul class="nav-links">
-            <li><a href="#identidad">Identidad</a></li>
-            <li><a href="#ruta">Rutas</a></li>
-            <li><a href="#sostenibilidad">ODS</a></li>
-            <li><a href="#catalogo">Catálogo</a></li>
-            <li><a href="#fidelizacion">Fidelización</a></li>
-            <li><a href="#proveedores">Proveedores</a></li>
-            <li><a href="#equipo">Equipo</a></li>
-        </ul>
-
-        <div class="nav-actions">
-            <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-glass">
-                <i data-lucide="book-open" width="13"></i> Catálogo Web
+    <!-- CABECERA BLANCA + FRANJA DE ICONOS DE CATEGORÍA (GROUNDY + AGRARIUM) -->
+    <header class="site-header">
+        <div class="top-nav">
+            <a href="#" class="brand-logo-wrap">
+                <span class="brand-badge-olive">La Perla del Norte</span>
+                <span class="brand-subtext">S.L. • Norte de España</span>
             </a>
 
-            <!-- Enlace a tu carpeta de Google Drive -->
-            <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-gold">
-                <i data-lucide="folder-open" width="13"></i> Documentos
-            </a>
+            <ul class="nav-menu">
+                <li><a href="#identidad">Nuestra Esencia</a></li>
+                <li><a href="#pilares">Gamas y Rutas</a></li>
+                <li><a href="#fases">Cómo Funciona</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#sostenibilidad">ODS</a></li>
+                <li><a href="#proveedores">Proveedores</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+            </ul>
 
-            <button class="btn-glass" onclick="toggleScript()">
-                <i data-lucide="mic" width="13"></i> Guion
-            </button>
+            <div class="nav-buttons">
+                <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-olive-pill">
+                    <i data-lucide="book-open" width="13"></i> Catálogo Web
+                </a>
+                <!-- Enlace directo a tu carpeta de Google Drive -->
+                <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-harvest">
+                    <i data-lucide="folder-open" width="13"></i> Documentos
+                </a>
+                <button class="btn-olive-pill" style="background: var(--terracotta);" onclick="toggleScript()">
+                    <i data-lucide="mic" width="13"></i> Guion
+                </button>
+            </div>
         </div>
-    </nav>
 
-    <!-- LIENZO PRINCIPAL -->
-    <main class="editorial-canvas">
+        <!-- Franja verde oliva con iconos minimalistas estilo Groundy -->
+        <div class="groundy-category-strip">
+            <div class="groundy-cat-inner">
+                <a href="#catalogo" class="cat-icon-link"><i data-lucide="utensils" width="18"></i> Sabores del Norte</a>
+                <a href="#catalogo" class="cat-icon-link"><i data-lucide="mountain" width="18"></i> Vistas y Senderos</a>
+                <a href="#catalogo" class="cat-icon-link"><i data-lucide="wine" width="18"></i> Bodegas y Quesos</a>
+                <a href="#catalogo" class="cat-icon-link"><i data-lucide="fish" width="18"></i> Conservas Artesanas</a>
+                <a href="#catalogo" class="cat-icon-link"><i data-lucide="gift" width="18"></i> Souvenirs Tierra</a>
+                <a href="#sostenibilidad" class="cat-icon-link"><i data-lucide="sprout" width="18"></i> Compromiso ODS</a>
+            </div>
+        </div>
+    </header>
 
-        <!-- 1. PORTADA CON MONTAÑAS EN MOVIMIENTO + PELÍCANO BONITO VOLANDO -->
-        <section class="hero-nordic">
+    <!-- 1. PORTADA EDITORIAL HARVEST CON MONTAÑAS EN MOVIMIENTO + PELÍCANO VOLANDO -->
+    <section class="hero-harvest">
+        <!-- PELÍCANO ILUSTRADO VOLANDO SUAVEMENTE -->
+        <div class="pelican-flight-path" aria-hidden="true">
+            <svg width="135" height="88" viewBox="0 0 130 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g class="pelican-wing-back">
+                    <path d="M58 44 C44 18, 26 10, 14 20 C28 24, 42 32, 52 46 Z" fill="#E3E6DC" opacity="0.9"/>
+                </g>
+                <path d="M22 48 L6 43 L10 51 L6 56 L24 53 Z" fill="#F2F4EE"/>
+                <path d="M20 49 C34 40, 62 38, 82 43 C90 45, 92 52, 82 56 C64 61, 36 59, 20 49 Z" fill="#FFFFFF"/>
+                <path d="M78 44 C86 35, 94 27, 102 29 C108 31, 107 39, 100 42 C93 45, 87 50, 82 53 Z" fill="#FFFFFF"/>
+                <circle cx="101" cy="33" r="1.8" fill="#262A20"/>
+                <path d="M105 32 L127 36 L105 37 Z" fill="#D96B27"/>
+                <path d="M104 36 C112 36, 121 36, 126 36 C121 43, 110 45, 102 40 Z" fill="#E7C53D"/>
+                <g class="pelican-wing-front">
+                    <path d="M62 46 C46 20, 22 14, 8 26 C22 30, 36 38, 48 50 Z" fill="#FFFFFF"/>
+                    <path d="M18 20 C13 21, 10 23, 8 26 C13 27, 18 29, 22 31 Z" fill="#3B4723"/>
+                </g>
+            </svg>
+        </div>
 
-            <!-- PELÍCANO ILUSTRADO VOLANDO SUAVEMENTE SOBRE LAS MONTAÑAS -->
-            <div class="pelican-flight-path" aria-hidden="true">
-                <svg width="130" height="85" viewBox="0 0 130 85" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Ala trasera -->
-                    <g class="pelican-wing-back">
-                        <path d="M58 44 C44 18, 26 10, 14 20 C28 24, 42 32, 52 46 Z" fill="#C7D3CF" opacity="0.88"/>
-                    </g>
-                    <!-- Cola -->
-                    <path d="M22 48 L6 43 L10 51 L6 56 L24 53 Z" fill="#DDE6E3"/>
-                    <!-- Cuerpo elegante -->
-                    <path d="M20 49 C34 40, 62 38, 82 43 C90 45, 92 52, 82 56 C64 61, 36 59, 20 49 Z" fill="#F8FAF9"/>
-                    <!-- Cuello curvado y cabeza -->
-                    <path d="M78 44 C86 35, 94 27, 102 29 C108 31, 107 39, 100 42 C93 45, 87 50, 82 53 Z" fill="#FFFFFF"/>
-                    <!-- Ojo -->
-                    <circle cx="101" cy="33" r="1.8" fill="#0B1615"/>
-                    <!-- Pico largo característico del pelícano + bolsa dorada suave -->
-                    <path d="M105 32 L127 36 L105 37 Z" fill="#E5B95C"/>
-                    <path d="M104 36 C112 36, 121 36, 126 36 C121 43, 110 45, 102 40 Z" fill="#F3C96B"/>
-                    <!-- Ala delantera principal con puntas oscuras -->
-                    <g class="pelican-wing-front">
-                        <path d="M62 46 C46 20, 22 14, 8 26 C22 30, 36 38, 48 50 Z" fill="#FFFFFF"/>
-                        <path d="M18 20 C13 21, 10 23, 8 26 C13 27, 18 29, 22 31 Z" fill="#2A403C"/>
-                    </g>
+        <!-- 3 Cordilleras de Montañas en Movimiento Parallax -->
+        <div class="hero-mountains-stage">
+            <div class="mountain-layer mountains-back">
+                <svg viewBox="0 0 1200 240" preserveAspectRatio="none">
+                    <path fill="#5A6B38" d="M0,190 L120,65 L250,155 L390,45 L540,165 L700,55 L860,150 L1010,40 L1140,145 L1200,190 L1200,240 L0,240 Z"/>
+                </svg>
+                <svg viewBox="0 0 1200 240" preserveAspectRatio="none">
+                    <path fill="#5A6B38" d="M0,190 L120,65 L250,155 L390,45 L540,165 L700,55 L860,150 L1010,40 L1140,145 L1200,190 L1200,240 L0,240 Z"/>
                 </svg>
             </div>
-
-            <!-- 3 Cordilleras en Movimiento Parallax -->
-            <div class="hero-mountains-stage">
-                <div class="mountain-layer mountains-back">
-                    <svg viewBox="0 0 1200 350" preserveAspectRatio="none">
-                        <path fill="#1B463E" d="M0,260 L110,95 L230,210 L370,60 L520,220 L680,75 L840,205 L990,55 L1120,190 L1200,260 L1200,350 L0,350 Z"/>
-                    </svg>
-                    <svg viewBox="0 0 1200 350" preserveAspectRatio="none">
-                        <path fill="#1B463E" d="M0,260 L110,95 L230,210 L370,60 L520,220 L680,75 L840,205 L990,55 L1120,190 L1200,260 L1200,350 L0,350 Z"/>
-                    </svg>
-                </div>
-
-                <div class="mountain-layer mountains-mid">
-                    <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
-                        <path fill="#112B27" stroke="rgba(229, 185, 92, 0.35)" stroke-width="1.5" d="M0,240 L150,115 L290,215 L450,85 L620,205 L790,95 L960,210 L1100,110 L1200,240 L1200,300 L0,300 Z"/>
-                    </svg>
-                    <svg viewBox="0 0 1200 300" preserveAspectRatio="none">
-                        <path fill="#112B27" stroke="rgba(229, 185, 92, 0.35)" stroke-width="1.5" d="M0,240 L150,115 L290,215 L450,85 L620,205 L790,95 L960,210 L1100,110 L1200,240 L1200,300 L0,300 Z"/>
-                    </svg>
-                </div>
-
-                <div class="mountain-layer mountains-front">
-                    <svg viewBox="0 0 1200 240" preserveAspectRatio="none">
-                        <path fill="#0B1715" d="M0,190 L180,95 L350,175 L540,80 L730,180 L920,90 L1080,170 L1200,190 L1200,240 L0,240 Z"/>
-                    </svg>
-                    <svg viewBox="0 0 1200 240" preserveAspectRatio="none">
-                        <path fill="#0B1715" d="M0,190 L180,95 L350,175 L540,80 L730,180 L920,90 L1080,170 L1200,190 L1200,240 L0,240 Z"/>
-                    </svg>
-                </div>
+            <div class="mountain-layer mountains-mid">
+                <svg viewBox="0 0 1200 180" preserveAspectRatio="none">
+                    <path fill="#3B4723" d="M0,145 L160,65 L310,130 L470,45 L640,125 L810,55 L980,130 L1110,60 L1200,145 L1200,180 L0,180 Z"/>
+                </svg>
+                <svg viewBox="0 0 1200 180" preserveAspectRatio="none">
+                    <path fill="#3B4723" d="M0,145 L160,65 L310,130 L470,45 L640,125 L810,55 L980,130 L1110,60 L1200,145 L1200,180 L0,180 Z"/>
+                </svg>
             </div>
-
-            <!-- Olas suaves del Mar del Norte -->
-            <div class="north-sea-waves">
-                <div class="wave-track">
-                    <svg viewBox="0 0 1200 80" preserveAspectRatio="none" style="width: 50%; height: 100%;">
-                        <path d="M0,42 C200,12 400,72 600,42 C800,12 1000,72 1200,42 L1200,80 L0,80 Z" fill="rgba(13, 26, 24, 0.92)"/>
-                    </svg>
-                    <svg viewBox="0 0 1200 80" preserveAspectRatio="none" style="width: 50%; height: 100%;">
-                        <path d="M0,42 C200,12 400,72 600,42 C800,12 1000,72 1200,42 L1200,80 L0,80 Z" fill="rgba(13, 26, 24, 0.92)"/>
-                    </svg>
-                </div>
+            <div class="mountain-layer mountains-front">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path fill="#FFFFFF" d="M0,95 C220,55 420,105 640,75 C860,45 1040,95 1200,70 L1200,120 L0,120 Z"/>
+                </svg>
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path fill="#FFFFFF" d="M0,95 C220,55 420,105 640,75 C860,45 1040,95 1200,70 L1200,120 L0,120 Z"/>
+                </svg>
             </div>
+        </div>
 
-            <div class="hero-grid">
-                <div>
-                    <div class="hero-kicker">Descubre el Norte de España</div>
-                    <h1>Explora el Norte con <span>La Perla del Norte</span></h1>
-
-                    <div class="hero-subbox">
-                        <strong>Sector Servicios (Educación, Servicios Profesionales y Ocio)</strong> — Experiencias sostenibles en el Norte de España junto a productores locales artesanales (sobaos, quesos, mermeladas, anchoas y vinos) en <strong>grupos reducidos de máximo 8 personas</strong> y paquetes flexibles a medida.
-                    </div>
-
-                    <div style="display: flex; flex-wrap: wrap; gap: 12px;">
-                        <a href="#catalogo" class="btn-gold" style="padding: 12px 24px; font-size: 13px;">
-                            Ver Todas las Rutas <i data-lucide="arrow-down" width="15"></i>
-                        </a>
-                        <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-glass" style="padding: 12px 20px; font-size: 13px;">
-                            <i data-lucide="compass" width="15"></i> Catálogo Online
-                        </a>
-                        <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-glass" style="padding: 12px 20px; font-size: 13px; border-color: var(--gold-accent); color: var(--gold-bright);">
-                            <i data-lucide="folder-open" width="15"></i> Documentos (Drive)
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Marco en Arco con Concha Nácar -->
-                <div class="hero-emblem-card">
-                    <img src="perla del norte.png" alt="Concha Nácar con Perlas - La Perla del Norte" onerror="this.src='perla-norte.png'; this.onerror=null;">
-                    <div style="margin-top: 10px; font-family: var(--font-serif); font-size: 18px; color: var(--gold-bright); letter-spacing: 0.06em;">
-                        NORTE DE ESPAÑA • SANTANDER
-                    </div>
-                </div>
-            </div>
-
-            <!-- Barra flotante inferior -->
-            <div class="skandi-search-bar">
-                <div class="search-pill-item">
-                    <small>Destino</small>
-                    <span>Norte de España, Picos de Europa y Costa</span>
-                </div>
-                <div class="search-pill-item">
-                    <small>Modalidad</small>
-                    <span>Gastronomía, Historia y Ecoturismo</span>
-                </div>
-                <div class="search-pill-item">
-                    <small>Formato Exclusivo</small>
-                    <span>Máx. 8 viajeros • Paquetes a medida</span>
-                </div>
-                <a href="#catalogo" class="btn-gold" style="padding: 12px 22px; font-size: 12.5px;">
-                    Explorar <i data-lucide="search" width="14"></i>
+        <div class="hero-center-content">
+            <h1 class="hero-script-title">La Perla del Norte</h1>
+            <p class="hero-subtitle-lead">
+                <strong>Sector Servicios (Educación, Servicios Profesionales y Ocio)</strong> — Descubre el Norte de España junto a empresas y productores locales artesanales (sobaos, quesos, mermeladas, anchoas y vinos) en <strong>grupos reducidos de máximo 8 personas</strong> y paquetes flexibles a medida.
+            </p>
+            <div class="hero-cta-group">
+                <a href="#catalogo" class="btn-harvest" style="padding: 13px 28px; font-size: 13px;">
+                    Descubrir Experiencias
+                </a>
+                <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-olive-pill" style="padding: 13px 24px; font-size: 13px;">
+                    <i data-lucide="folder-open" width="15"></i> Cartas y Documentos (Drive)
                 </a>
             </div>
-        </section>
+        </div>
 
-        <!-- 2. IDENTIDAD, INDICADORES NORTE DE ESPAÑA Y COMPARATIVA -->
-        <section class="section-dark" id="identidad">
-            <div class="section-kicker reveal">Nuestra Esencia</div>
-            <h2 class="section-heading reveal">Identidad, Misión y Propuesta de Valor</h2>
-            <p class="section-lead reveal">
-                Conectamos el deseo de viajar y descansar con el impulso directo a la economía rural, preservando la cultura y el entorno natural del Norte de España.
-            </p>
+        <!-- Barra inferior estilo Agrarium -->
+        <div class="hero-bottom-bar">
+            <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="hero-video-tab">
+                <i data-lucide="play" width="14" color="#E7C53D"></i> Abrir Catálogo Interactivo
+            </a>
+            <a href="#identidad" class="hero-scroll-square" title="Bajar">↓</a>
+        </div>
+    </section>
 
-            <!-- Bloque de Métricas e Impacto -->
-            <div class="north-stats-banner reveal">
-                <div>
-                    <div style="font-family: var(--font-script); font-size: 30px; color: var(--gold-accent);">Norte de España</div>
-                    <h3 style="font-family: var(--font-serif); font-size: 30px; color: #FFFFFF; margin-bottom: 10px;">
-                        Turismo Sostenible Sin Intermediarios
-                    </h3>
-                    <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 18px;">
-                        Operamos mediante canal directo (web oficial, redes sociales, aeropuertos, estaciones de tren, bus y ferry) garantizando experiencias auténticas y trato cercano en el Norte de España.
-                    </p>
-                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                        <span class="card-duration-pill">CIF: B-3984729</span>
-                        <span class="card-duration-pill">Capital Social: 3.000,00 €</span>
-                        <span class="card-duration-pill">Desistimiento: 14 días naturales</span>
-                    </div>
-                </div>
+    <!-- 2. SELLOS VINTAGE + HISTORIA EN 2 COLUMNAS CON MARCA DE AGUA (ESTILO AGRARIUM) -->
+    <div class="trust-seals-row">
+        <div class="seals-flex">
+            <span class="vintage-seal">✦ GRUPOS MÁX. 8 PERSONAS</span>
+            <span class="vintage-seal">✦ PRODUCTORES KM 0 NORTE</span>
+            <span class="vintage-seal">✦ PAQUETES 100% A MEDIDA</span>
+            <span class="vintage-seal">✦ CANAL DIRECTO SIN INTERMEDIARIOS</span>
+            <span class="vintage-seal">✦ COMPROMISO AGENDA 2030</span>
+        </div>
+    </div>
 
-                <div class="stats-grid-4">
-                    <div class="stat-glow-card">
-                        <strong>Máx. 8</strong>
-                        <span>Viajeros por grupo reducido sin masificación</span>
-                    </div>
-                    <div class="stat-glow-card">
-                        <strong>15+</strong>
-                        <span>Experiencias gastronómicas, rutas y artesanía</span>
-                    </div>
-                    <div class="stat-glow-card">
-                        <strong>Km 0</strong>
-                        <span>Alianza directa con obradores y productores locales</span>
-                    </div>
-                    <div class="stat-glow-card">
-                        <strong>24/7</strong>
-                        <span>Soporte continuo y seguimiento en ruta</span>
-                    </div>
+    <section class="editorial-story-section" id="identidad">
+        <div class="watermark-bg-word">La Perla del Norte</div>
+
+        <div class="agrarium-two-col reveal">
+            <div>
+                <div class="script-eyebrow">Nuestra Esencia • Norte de España</div>
+                <h2 class="editorial-h2">Turismo sostenible que impulsa el medio rural y la artesanía local</h2>
+                <a href="#catalogo" class="btn-harvest" style="padding: 11px 22px;">Explorar Catálogo</a>
+
+                <div style="margin-top: 26px; background: var(--cream-paper); padding: 16px; border-left: 3px solid var(--olive-leaf); font-size: 12.5px;">
+                    <strong>Ficha Mercantil:</strong> La Perla del Norte S.L. | CIF: B-3984729 | Capital Social: 3.000,00 € | CNAE: 7912 / 7911 | Sede: Paseo de Pereda, 15, Santander | Derecho de desistimiento: 14 días naturales (No-Show sin reembolso).
                 </div>
             </div>
 
-            <!-- 3 Tarjetas de Misión, Público y Ficha Mercantil -->
-            <div class="grid-3" style="margin-bottom: 32px;">
-                <div class="glass-card reveal">
-                    <h3>01 • Misión, Visión y Valores</h3>
-                    <ul class="dark-list">
-                        <li><i data-lucide="compass" width="16" color="#E5B95C"></i> <div><strong>Misión:</strong> Convertir el Norte de España en referente turístico nacional e internacional favoreciendo la economía local.</div></li>
-                        <li><i data-lucide="eye" width="16" color="#E5B95C"></i> <div><strong>Visión:</strong> Liderar el turismo sostenible del Norte, expandiéndonos progresivamente a otras CCAA vecinas.</div></li>
-                        <li><i data-lucide="award" width="16" color="#E5B95C"></i> <div><strong>Valores:</strong> <em>Calidad</em> adaptada, <em>Sostenibilidad</em> real e <em>Innovación</em> tecnológica ecológica.</div></li>
-                    </ul>
-                </div>
-
-                <div class="glass-card reveal">
-                    <h3>02 • Público y Doble Solución</h3>
-                    <ul class="dark-list">
-                        <li><i data-lucide="heart" width="16" color="#E5B95C"></i> <div><strong>Viajeros Conscientes:</strong> Personas que buscan vivir el ciclo real de los productos artesanales y descubrir pueblos auténticos del Norte.</div></li>
-                        <li><i data-lucide="store" width="16" color="#E5B95C"></i> <div><strong>Impacto Rural:</strong> Damos visibilidad a pequeños obradores, museos locales y productores familiares.</div></li>
-                        <li><i data-lucide="map-pin" width="16" color="#E5B95C"></i> <div><strong>Captación Directa:</strong> Web oficial, redes sociales, aeropuertos, estaciones de tren, bus y ferry.</div></li>
-                    </ul>
-                </div>
-
-                <div class="glass-card reveal">
-                    <h3>03 • Ficha Mercantil S.L.</h3>
-                    <table class="dark-table">
-                        <tr><td><strong>Razón Social</strong></td><td>La Perla del Norte S.L.</td></tr>
-                        <tr><td><strong>CIF / Capital</strong></td><td>B-3984729 • 3.000,00 €</td></tr>
-                        <tr><td><strong>Sector / CNAE</strong></td><td>Servicios • 7912 / 7911</td></tr>
-                        <tr><td><strong>Sede Central</strong></td><td>Paseo de Pereda, 15, Santander</td></tr>
-                        <tr><td><strong>Desistimiento</strong></td><td>14 días naturales (No-Show sin reembolso)</td></tr>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Tabla Comparativa -->
-            <div class="glass-card reveal">
-                <h3>La Perla del Norte S.L. frente a la Agencia Tradicional</h3>
-                <table class="dark-table">
-                    <thead>
-                        <tr>
-                            <th>Dimensión</th>
-                            <th>Agencia Tradicional</th>
-                            <th>La Perla del Norte S.L. (Nuestro Modelo)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Formato de Paquetes</strong></td>
-                            <td>Paquetes fijos, rígidos y masificados en destinos saturados.</td>
-                            <td><strong>Paquetes variables y personalizables</strong> en grupos reducidos (máx. 8 personas) por rutas poco exploradas.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Enfoque e Impacto</strong></td>
-                            <td>Prioriza el beneficio rápido sin cuidar tradiciones ni entorno.</td>
-                            <td><strong>Sostenibilidad integral:</strong> apoyo directo a artesanos, museos locales y respeto a la idiosincrasia rural.</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Canales de Venta</strong></td>
-                            <td>Dependencia de grandes turoperadores e intermediarios.</td>
-                            <td><strong>Canal directo sin intermediarios:</strong> web, redes sociales, aeropuertos, estaciones de tren, bus y ferry.</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- 3. PROGRAMA DE RUTA Y GAMAS -->
-        <section class="section-dark" id="ruta">
-            <div class="section-kicker reveal">Itinerario & Experiencias</div>
-            <h2 class="section-heading reveal">Programa del Norte & Gamas de Viaje</h2>
-            <p class="section-lead reveal">
-                Tres niveles de viaje flexibles por el Norte de España combinados con nuestros tres pilares culturales, gastronómicos y naturales.
-            </p>
-
-            <div class="grid-3">
-                <div class="glass-card reveal">
-                    <span class="card-duration-pill" style="margin-bottom: 10px; display: inline-block;">Gama Básica • Express</span>
-                    <h3>Ruta Norte Express</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
-                        Ideal para jóvenes e independientes. Transporte y entradas autoguiadas en Santander y Santillana del Mar.
-                    </p>
-                    <div style="font-size: 12px; color: var(--gold-bright);">★ Pilar Gastronomía: Obradores y Cavas</div>
-                </div>
-
-                <div class="glass-card reveal" style="border-color: var(--gold-accent);">
-                    <span class="card-duration-pill" style="margin-bottom: 10px; display: inline-block; background: var(--gold-accent); color: #0B1615;">Gama Estándar • Más Vendido</span>
-                    <h3>Esencia Pasiega y Picos</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
-                        Familias y parejas. Alojamiento rural, guía local, catas artesanales en talleres, Comillas y Potes.
-                    </p>
-                    <div style="font-size: 12px; color: var(--gold-bright);">★ Pilar Patrimonio: Pueblos Históricos y Museos</div>
-                </div>
-
-                <div class="glass-card reveal">
-                    <span class="card-duration-pill" style="margin-bottom: 10px; display: inline-block;">Gama Premium • VIP</span>
-                    <h3>Norte Infinito Deluxe</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
-                        100% privado, Paradores/5*, gastronomía Michelin y experiencias exclusivas en velero o helicóptero.
-                    </p>
-                    <div style="font-size: 12px; color: var(--gold-bright);">★ Pilar Naturaleza: Senderismo, Rafting y Espeleología</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. COMPROMISO ODS -->
-        <section class="section-dark" id="sostenibilidad">
-            <div class="section-kicker reveal">Agenda 2030</div>
-            <h2 class="section-heading reveal">Sostenibilidad y Compromiso ODS</h2>
-            <p class="section-lead reveal">
-                Alineamos cada ruta del Norte de España con los Objetivos de Desarrollo Sostenible (ODS 8, 9, 10, 11 y 12), anticipando riesgos y generando oportunidades reales en el medio rural.
-            </p>
-
-            <div class="grid-2" style="margin-bottom: 22px;">
-                <div class="glass-card reveal">
-                    <span class="card-duration-pill" style="color: var(--gold-bright); margin-bottom: 8px; display: inline-block;">ODS 8 & 9</span>
-                    <h3>Trabajo Decente, Crecimiento e Innovación</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Empleo local estable con conciliación familiar y dinamización de talleres y museos poco conocidos.</p>
-                    <p style="font-size: 12.5px;"><strong>Riesgos:</strong> Estacionalidad, subida de costes locales y falta de personal cualificado.</p>
-                    <p style="font-size: 12.5px; margin-top: 4px;"><strong>Acciones:</strong> Contratos indefinidos, integración de productores locales y rutas en zonas menos desarrolladas.</p>
-                </div>
-
-                <div class="glass-card reveal">
-                    <span class="card-duration-pill" style="color: var(--gold-bright); margin-bottom: 8px; display: inline-block;">ODS 10</span>
-                    <h3>Reducción de las Desigualdades Rurales</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Inserción laboral de colectivos con mayor dificultad de acceso al empleo en entornos rurales.</p>
-                    <p style="font-size: 12.5px;"><strong>Riesgos:</strong> Descontento local por falta de oportunidades o precariedad laboral.</p>
-                    <p style="font-size: 12.5px; margin-top: 4px;"><strong>Acciones:</strong> Salarios dignos y contratación inclusiva (<strong>jóvenes en primer contrato, mayores de 52 años, mujeres rurales y personas con discapacidad</strong>).</p>
-                </div>
-
-                <div class="glass-card reveal">
-                    <span class="card-duration-pill" style="color: var(--gold-bright); margin-bottom: 8px; display: inline-block;">ODS 11</span>
-                    <h3>Ciudades y Comunidades Sostenibles</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Preservación de la infraestructura rural evitando la saturación turística.</p>
-                    <p style="font-size: 12.5px;"><strong>Riesgos:</strong> Degradación ambiental por turismo masivo y presión sobre servicios públicos.</p>
-                    <p style="font-size: 12.5px; margin-top: 4px;"><strong>Acciones:</strong> Grupos máx. 8 personas, vehículos eléctricos/compartidos y <strong>rutas a pie, bici o caballo</strong> coordinadas con autoridades ambientales.</p>
-                </div>
-
-                <div class="glass-card reveal">
-                    <span class="card-duration-pill" style="color: var(--gold-bright); margin-bottom: 8px; display: inline-block;">ODS 12</span>
-                    <h3>Producción y Consumo Responsables</h3>
-                    <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 8px;">Fomento del consumo de kilómetro cero y respeto activo por el patrimonio natural.</p>
-                    <p style="font-size: 12.5px;"><strong>Riesgos:</strong> Rechazo vecinal o presión sobre vivienda y recursos.</p>
-                    <p style="font-size: 12.5px; margin-top: 4px;"><strong>Acciones:</strong> Alianzas con productores de <strong>sobaos, quesadas, quesos y mermeladas</strong> y ecoturismo activo (espeleología, rafting, senderismo).</p>
-                </div>
-            </div>
-
-            <div class="glass-card reveal" style="border-color: var(--gold-accent);">
-                <h3>🌿 Protocolo de Control Ambiental y Social en Ruta</h3>
-                <p style="font-size: 13px; color: #DCE6E3;">
-                    Mitigamos los tres impactos clave de nuestra actividad: <strong>(1) Residuos en zonas rurales</strong> (política cero plásticos y recogida integral), <strong>(2) Molestias a vecinos</strong> (grupos reducidos y horarios respetuosos) y <strong>(3) Huella de carbono en transporte</strong> (optimización de trayectos, transporte colectivo y movilidad limpia).
+            <div>
+                <p style="font-size: 14px; color: var(--ink-charcoal); margin-bottom: 14px;">
+                    <strong>Misión y Visión:</strong> Convertimos el Norte de España en un referente turístico nacional e internacional favoreciendo directamente la economía rural, colaborando con pequeños obradores, museos locales y productores familiares.
                 </p>
-            </div>
-        </section>
+                <p style="font-size: 13.5px; color: var(--ink-muted); margin-bottom: 16px;">
+                    <strong>Doble Solución:</strong> Respondemos al deseo de viajar y desconectar en grupos reducidos (máximo 8 viajeros) mientras damos visibilidad a talleres artesanales y rutas poco exploradas, captando clientes de forma directa en nuestra web, redes sociales, aeropuertos, estaciones de tren, bus y ferry.
+                </p>
 
-        <!-- 5. CATÁLOGO VISUAL ESCALONADO (SIN COSTE) -->
-        <section class="section-dark" id="catalogo">
-            <div class="section-kicker reveal">Tarifas Oficiales</div>
-            <h2 class="section-heading reveal">Catálogo de Experiencias y Productos</h2>
-            <p class="section-lead reveal">
-                15 experiencias y productos oficiales (21% IVA incluido) diseñados en grupos reducidos de máximo 8 personas en el Norte de España.
-                <br>
-                <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; color: var(--gold-bright); font-weight: 700; text-decoration: underline;">
-                    Abrir Catálogo Interactivo Completo en Web <i data-lucide="external-link" width="14"></i>
-                </a>
-            </p>
-
-            <!-- BLOQUE A: SABORES DEL NORTE -->
-            <div class="tour-category-block reveal">
-                <h3 class="tour-category-title">A. Sabores del Norte <span>Gastronomía Artesanal</span></h3>
-                <div class="staggered-cards-row">
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">1 día</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>1. Sobaos y Queserías</h4>
-                            <p>Elaboración tradicional en obrador pasiego y cata.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">150 €</span><span class="spots-badge">Máx. 8 plazas</span></div>
-                        </div>
-                    </div>
-
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">1 día</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>2. Queserías Valles Pasiegos</h4>
-                            <p>Ruta por queserías familiares de montaña.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">150 €</span><span class="spots-badge">Máx. 8 plazas</span></div>
-                        </div>
-                    </div>
-
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">6-8 h</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>4. Ruta Vinos del Norte</h4>
-                            <p>Viñedos atlánticos, bodega y maridaje local.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">170 €</span><span class="spots-badge">Destacado • 8 plazas</span></div>
-                        </div>
-                    </div>
-
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">1 día</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>3. Granjas Ecológicas</h4>
-                            <p>Ciclo rural sostenible y degustación Km 0.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">100 €</span><span class="spots-badge">Máx. 8 plazas</span></div>
-                        </div>
-                    </div>
-
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">5-7 h</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>5. Anchoas de Santoña</h4>
-                            <p>Taller conservero artesanal junto al puerto.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">120 €</span><span class="spots-badge">Máx. 8 plazas</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-dots"><span></span><span class="active"></span><span></span></div>
-            </div>
-
-            <!-- BLOQUE B: VISTAS DEL NORTE -->
-            <div class="tour-category-block reveal">
-                <h3 class="tour-category-title">B. Vistas del Norte <span>Naturaleza & Senderismo</span></h3>
-                <div class="staggered-cards-row">
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">4 h • 12 km</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>7. Ruta del Cares</h4>
-                            <p>La Garganta Divina en Picos de Europa.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">140 €</span><span class="spots-badge">Máx. 8 plazas</span></div>
-                        </div>
-                    </div>
-
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">6-8 h</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>8. Lagos de Covadonga</h4>
-                            <p>Enol, Ercina y miradores de alta montaña.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">140 €</span><span class="spots-badge">Máx. 8 plazas</span></div>
-                        </div>
-                    </div>
-
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">3 días • 72 km</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>6. Camino Lebaniego</h4>
-                            <p>Travesía histórica hasta Santo Toribio de Liébana.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">450 €</span><span class="spots-badge">7 plazas libres</span></div>
-                        </div>
-                    </div>
-
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">6-8 h</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>9. Costas y Playas del Norte</h4>
-                            <p>Acantilados, dunas y villas marineras.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">140 €</span><span class="spots-badge">Máx. 8 plazas</span></div>
-                        </div>
-                    </div>
-
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">12 km</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>10. Collados Valle Asón</h4>
-                            <p>Hayedos, cascadas y senderos del Norte.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">120 €</span><span class="spots-badge">Máx. 8 plazas</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-dots"><span></span><span class="active"></span><span></span></div>
-            </div>
-
-            <!-- BLOQUE C: SOUVENIRS TIERRA -->
-            <div class="tour-category-block reveal" style="margin-bottom: 10px;">
-                <h3 class="tour-category-title">C. Souvenirs Tierra <span>Artesanía & Recuerdos</span></h3>
-                <div class="staggered-cards-row">
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">Artesanal</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>12. Imanes Artesanales</h4>
-                            <p>Piezas hechas y pintadas a mano en el Norte.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">10 €</span><span class="spots-badge">Edición Local</span></div>
-                        </div>
-                    </div>
-
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">Cerámica</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>13. Tazas Artesanales</h4>
-                            <p>Cerámica tradicional pintada en obrador.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">25 €</span><span class="spots-badge">Edición Local</span></div>
-                        </div>
-                    </div>
-
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">Cesta Gourmet</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>11. Lote 'Sabores del Norte'</h4>
-                            <p>Sobaos, queso pasiego, anchoas y vino blanco.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">75 €</span><span class="spots-badge">Selección VIP</span></div>
-                        </div>
-                    </div>
-
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">Cerámica</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>14. Platos Decorativos</h4>
-                            <p>Cerámica regional con motivos del Norte.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">25 €</span><span class="spots-badge">Edición Local</span></div>
-                        </div>
-                    </div>
-
-                    <div class="tour-visual-card" style="background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80');">
-                        <div class="card-top-row"><span class="card-duration-pill">Madera Noble</span><span class="card-heart">♥</span></div>
-                        <div class="card-bottom-info">
-                            <div class="stars-gold">★★★★★</div>
-                            <h4>15. Llaveros Tallados</h4>
-                            <p>Tallados artesanalmente en madera noble.</p>
-                            <div class="card-price-footer"><span class="price-tag-nordic">15 €</span><span class="spots-badge">Edición Local</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-dots"><span></span><span class="active"></span><span></span></div>
-            </div>
-        </section>
-
-        <!-- 6. FIDELIZACIÓN Y EXPANSIÓN -->
-        <section class="section-dark" id="fidelizacion">
-            <div class="section-kicker reveal">Comunidad & Futuro</div>
-            <h2 class="section-heading reveal">Programa de Fidelización y Expansión</h2>
-            <p class="section-lead reveal">
-                Consolidamos la recurrencia y recomendación orgánica mediante hiperpersonalización CRM, niveles VIP y alianzas de crecimiento sostenible en el Norte de España.
-            </p>
-
-            <div class="glass-card reveal">
-                <div class="grid-2">
-                    <ul class="dark-list">
-                        <li><i data-lucide="sparkles" width="17" color="#E5B95C"></i> <div><strong>Experiencias Exclusivas:</strong> Preventas anticipadas en temporada alta y obsequios artesanales locales en la habitación.</div></li>
-                        <li><i data-lucide="cpu" width="17" color="#E5B95C"></i> <div><strong>Hiperpersonalización CRM:</strong> Registro de preferencias (almohadas hipoalergénicas, vinos favoritos) y descuentos automáticos de cumpleaños.</div></li>
-                    </ul>
-                    <ul class="dark-list">
-                        <li><i data-lucide="award" width="17" color="#E5B95C"></i> <div><strong>Niveles Plata, Oro y Platino:</strong> Cada euro gastado suma puntos canjeables con check-in prioritario, atención preferente y upgrades gratuitos.</div></li>
-                        <li><i data-lucide="map" width="17" color="#E5B95C"></i> <div><strong>Expansión Norte de España:</strong> Crecimiento progresivo hacia otras CCAA vecinas colaborando con agencias afines a nuestra visión sostenible.</div></li>
-                    </ul>
+                <div class="signature-line">
+                    <span class="signature-script">La Perla del Norte S.L.</span>
+                    <span style="font-size: 12px; color: var(--ink-muted);">Calidad adaptada • Sostenibilidad • Innovación</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 7. OPERATIVA DE 5 FASES Y MATRIZ DE PROVEEDORES -->
-        <section class="section-dark" id="proveedores">
-            <div class="section-kicker reveal">Logística & Alianzas</div>
-            <h2 class="section-heading reveal">5 Fases Operativas y Proveedores</h2>
-            <p class="section-lead reveal">
-                Control riguroso desde la captación hasta el cierre postventa, respaldado por productores homologados del Norte de España.
-            </p>
-
-            <div class="phases-row reveal">
-                <div class="phase-dark-card">
-                    <div class="phase-num">1</div>
-                    <strong style="font-family: var(--font-serif); font-size: 18px; color: #FFFFFF;">Captación</strong>
-                    <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Análisis de necesidades y presupuesto.</p>
-                </div>
-                <div class="phase-dark-card">
-                    <div class="phase-num">2</div>
-                    <strong style="font-family: var(--font-serif); font-size: 18px; color: #FFFFFF;">Contratación</strong>
-                    <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Contrato, Orden de Servicio y bloqueo.</p>
-                </div>
-                <div class="phase-dark-card">
-                    <div class="phase-num">3</div>
-                    <strong style="font-family: var(--font-serif); font-size: 18px; color: #FFFFFF;">Documentación</strong>
-                    <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Bonos/Vouchers, itinerario y Factura.</p>
-                </div>
-                <div class="phase-dark-card">
-                    <div class="phase-num">4</div>
-                    <strong style="font-family: var(--font-serif); font-size: 18px; color: #FFFFFF;">Ejecución 24/7</strong>
-                    <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Seguimiento logístico en tiempo real.</p>
-                </div>
-                <div class="phase-dark-card">
-                    <div class="phase-num">5</div>
-                    <strong style="font-family: var(--font-serif); font-size: 18px; color: #FFFFFF;">Postventa</strong>
-                    <p style="font-size: 11.5px; color: var(--text-muted); margin-top: 4px;">Encuesta calidad y cierre operativo.</p>
+    <!-- 3. 4 COLUMNAS FOTOGRÁFICAS VERTICALES CON TÍTULO CALIGRÁFICO SUPERPUESTO (ESTILO AGRARIUM) -->
+    <section class="four-pillars-section" id="pilares">
+        <div class="agrarium-cards-4 reveal">
+            <div class="agrarium-photo-card" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80');">
+                <span class="card-mini-kicker">Pilar 01 • Artesanía</span>
+                <div class="card-bottom-overlay">
+                    <p>Obradores de sobaos, queserías, anchoas y bodegas del Norte.</p>
+                    <div class="card-script-label">Gastronomía</div>
                 </div>
             </div>
 
-            <div class="glass-card reveal" style="overflow-x: auto;">
-                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px;">
-                    <h3>Matriz de Proveedores Homologados (La Perla del Norte S.L.)</h3>
-                    <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-gold">
+            <div class="agrarium-photo-card" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80');">
+                <span class="card-mini-kicker">Pilar 02 • Aire Libre</span>
+                <div class="card-bottom-overlay">
+                    <p>Senderismo, bicicleta, rutas a caballo, rafting y espeleología.</p>
+                    <div class="card-script-label">Naturaleza</div>
+                </div>
+            </div>
+
+            <div class="agrarium-photo-card" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=600&q=80');">
+                <span class="card-mini-kicker">Pilar 03 • Cultura</span>
+                <div class="card-bottom-overlay">
+                    <p>Pueblos históricos, villas marineras y pequeños museos locales.</p>
+                    <div class="card-script-label">Patrimonio</div>
+                </div>
+            </div>
+
+            <div class="agrarium-photo-card" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80');">
+                <span class="card-mini-kicker">Gamas Básica • Estándar • VIP</span>
+                <div class="card-bottom-overlay">
+                    <p>Desde escapadas autoguiadas hasta Paradores 5* y experiencias privadas.</p>
+                    <div class="card-script-label">A Medida</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 5 FASES OPERATIVAS CON CÍRCULOS BOTÁNICOS Y FLECHAS (ESTILO GROUNDY) -->
+    <section class="groundy-process-section" id="fases">
+        <h2 class="groundy-script-heading reveal">La Perla del Norte, <span>100% rural</span> a tu medida</h2>
+        <p style="text-align: center; font-size: 13.5px; color: var(--ink-muted); max-width: 680px; margin: 0 auto;">
+            Nuestro proceso operativo en 5 fases garantiza control logístico total desde tu primera consulta hasta el regreso a casa.
+        </p>
+
+        <div class="process-circles-grid reveal">
+            <div class="process-step-box">
+                <div class="circle-botanic-icon"><i data-lucide="sparkles" width="34"></i></div>
+                <h4>1. Captación</h4>
+                <p>Análisis de tus gustos, fechas y presupuesto personalizado.</p>
+                <a href="#catalogo" class="btn-groundy-mini">Saber más</a>
+            </div>
+
+            <div class="process-step-box">
+                <div class="circle-botanic-icon"><i data-lucide="file-check" width="34"></i></div>
+                <h4>2. Contratación</h4>
+                <p>Contrato transparente, Orden de Servicio y bloqueo de plazas.</p>
+                <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-groundy-mini">Ver Docs</a>
+            </div>
+
+            <div class="process-step-box">
+                <div class="circle-botanic-icon"><i data-lucide="ticket" width="34"></i></div>
+                <h4>3. Documentación</h4>
+                <p>Entrega de bonos, vouchers, itinerario detallado y factura.</p>
+                <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-groundy-mini">Ver Docs</a>
+            </div>
+
+            <div class="process-step-box">
+                <div class="circle-botanic-icon"><i data-lucide="compass" width="34"></i></div>
+                <h4>4. Ejecución 24/7</h4>
+                <p>Acompañamiento y soporte en ruta en tiempo real.</p>
+                <a href="#ruta" class="btn-groundy-mini">Rutas</a>
+            </div>
+
+            <div class="process-step-box">
+                <div class="circle-botanic-icon"><i data-lucide="award" width="34"></i></div>
+                <h4>5. Postventa</h4>
+                <p>Encuesta de calidad y puntos en tu club de fidelización.</p>
+                <a href="#fidelizacion" class="btn-groundy-mini">Club VIP</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CATÁLOGO OFICIAL ESTILO PAQUETES GROUNDY (SIN COSTE) -->
+    <section class="catalog-groundy-section" id="catalogo">
+        <h2 class="groundy-script-heading reveal">Elige la experiencia perfecta para ti</h2>
+        <p style="text-align: center; font-size: 13.5px; color: var(--ink-muted); max-width: 720px; margin: 0 auto;">
+            15 experiencias y productos oficiales (21% IVA incluido) en grupos reducidos de máximo 8 personas.
+            <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" style="color: var(--olive-dark); font-weight: 700; text-decoration: underline; margin-left: 6px;">
+                Abrir Catálogo Completo en Web →
+            </a>
+        </p>
+
+        <!-- BLOQUE A: SABORES DEL NORTE -->
+        <h3 class="catalog-group-title reveal">A. Sabores del Norte (Gastronomía Artesanal)</h3>
+        <div class="groundy-packages-grid reveal">
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">1. Sobaos y Queserías</div>
+                    <div class="pkg-price-hand">150 €</div>
+                    <div class="pkg-duration-sub">Duración: 1 día</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Reservar</a>
+                </div>
+            </div>
+
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">2. Queserías Valles Pasiegos</div>
+                    <div class="pkg-price-hand">150 €</div>
+                    <div class="pkg-duration-sub">Duración: 1 día</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Reservar</a>
+                </div>
+            </div>
+
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">3. Granjas Ecológicas</div>
+                    <div class="pkg-price-hand">100 €</div>
+                    <div class="pkg-duration-sub">Duración: 1 día</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Reservar</a>
+                </div>
+            </div>
+
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">4. Ruta Vinos del Norte</div>
+                    <div class="pkg-price-hand">170 €</div>
+                    <div class="pkg-duration-sub">Duración: 6-8 h</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Reservar</a>
+                </div>
+            </div>
+
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">5. Anchoas de Santoña</div>
+                    <div class="pkg-price-hand">120 €</div>
+                    <div class="pkg-duration-sub">Duración: 5-7 h</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Reservar</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOQUE B: VISTAS DEL NORTE -->
+        <h3 class="catalog-group-title reveal">B. Vistas del Norte (Naturaleza & Senderismo)</h3>
+        <div class="groundy-packages-grid reveal">
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">6. Camino Lebaniego (72 km)</div>
+                    <div class="pkg-price-hand">450 €</div>
+                    <div class="pkg-duration-sub">Duración: 3 días</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Reservar</a>
+                </div>
+            </div>
+
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">7. Ruta del Cares (12 km)</div>
+                    <div class="pkg-price-hand">140 €</div>
+                    <div class="pkg-duration-sub">Duración: 4 h</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Reservar</a>
+                </div>
+            </div>
+
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">8. Lagos de Covadonga</div>
+                    <div class="pkg-price-hand">140 €</div>
+                    <div class="pkg-duration-sub">Duración: 6-8 h</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Reservar</a>
+                </div>
+            </div>
+
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">9. Costas y Playas del Norte</div>
+                    <div class="pkg-price-hand">140 €</div>
+                    <div class="pkg-duration-sub">Duración: 6-8 h</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Reservar</a>
+                </div>
+            </div>
+
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">10. Collados Valle Asón</div>
+                    <div class="pkg-price-hand">120 €</div>
+                    <div class="pkg-duration-sub">Recorrido: 12 km</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Reservar</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- BLOQUE C: SOUVENIRS TIERRA -->
+        <h3 class="catalog-group-title reveal">C. Souvenirs Tierra (Artesanía Local)</h3>
+        <div class="groundy-packages-grid reveal">
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">11. Lote 'Sabores del Norte'</div>
+                    <div class="pkg-price-hand">75 €</div>
+                    <div class="pkg-duration-sub">Sobaos, queso, anchoas y vino</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Adquirir</a>
+                </div>
+            </div>
+
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">12. Imanes Artesanales</div>
+                    <div class="pkg-price-hand">10 €</div>
+                    <div class="pkg-duration-sub">Hechos a mano</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Adquirir</a>
+                </div>
+            </div>
+
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">13. Tazas Artesanales</div>
+                    <div class="pkg-price-hand">25 €</div>
+                    <div class="pkg-duration-sub">Cerámica pintada</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Adquirir</a>
+                </div>
+            </div>
+
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">14. Platos Decorativos</div>
+                    <div class="pkg-price-hand">25 €</div>
+                    <div class="pkg-duration-sub">Cerámica regional</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1610701596007-11502861dcfa?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Adquirir</a>
+                </div>
+            </div>
+
+            <div class="groundy-pkg-card">
+                <div class="pkg-top-header">
+                    <div class="pkg-title-hand">15. Llaveros Tallados</div>
+                    <div class="pkg-price-hand">15 €</div>
+                    <div class="pkg-duration-sub">Madera noble</div>
+                </div>
+                <div class="pkg-photo-bottom" style="background-image: url('https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80');">
+                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="pkg-btn-overlay">Adquirir</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FRANJA FOTOGRÁFICA DE 3 PASOS NUMÉRICOS (ESTILO GROUNDY) -->
+    <section class="groundy-steps-banner" id="ruta">
+        <div class="steps-banner-inner reveal">
+            <div class="steps-banner-tag">¿Cómo diseño mi experiencia en el Norte?</div>
+            <div class="three-numbered-cols">
+                <div class="num-step-item">
+                    <span class="big-script-num">1</span>
+                    <span class="num-step-text">Elige tu gama: Básica Express, Estándar Pasiega o Premium VIP</span>
+                </div>
+                <div class="num-step-item">
+                    <span class="big-script-num">2</span>
+                    <span class="num-step-text">Combina catas Km 0, senderismo e historia en grupo máx. 8</span>
+                </div>
+                <div class="num-step-item">
+                    <span class="big-script-num">3</span>
+                    <span class="num-step-text">Reserva sin intermediarios y disfruta con soporte 24/7</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. SOSTENIBILIDAD ODS + COMPARATIVA + FIDELIZACIÓN + PROVEEDORES -->
+    <section class="editorial-cards-section" id="sostenibilidad">
+        <h2 class="groundy-script-heading reveal">Compromiso ODS & Sostenibilidad Real</h2>
+        <p style="text-align: center; font-size: 13.5px; color: var(--ink-muted); max-width: 720px; margin: 0 auto 36px;">
+            Alineamos cada ruta del Norte de España con los Objetivos de Desarrollo Sostenible (ODS 8, 9, 10, 11 y 12).
+        </p>
+
+        <div class="grid-2 reveal" style="margin-bottom: 24px;">
+            <div class="groundy-news-card">
+                <span class="tag-terracotta">ODS 8 & 9</span>
+                <h3>Trabajo Decente e Innovación Rural</h3>
+                <p style="font-size: 13px; color: var(--ink-muted); margin-bottom: 8px;">Empleo local estable con conciliación familiar y dinamización de talleres y museos poco conocidos.</p>
+                <p style="font-size: 12.5px;"><strong>Riesgos y Acciones:</strong> Frente a la estacionalidad, aplicamos contratos indefinidos e integramos productores locales en zonas menos desarrolladas.</p>
+            </div>
+
+            <div class="groundy-news-card">
+                <span class="tag-terracotta">ODS 10</span>
+                <h3>Reducción de las Desigualdades Rurales</h3>
+                <p style="font-size: 13px; color: var(--ink-muted); margin-bottom: 8px;">Salarios dignos y contratación inclusiva en entornos rurales del Norte de España.</p>
+                <p style="font-size: 12.5px;"><strong>Inclusión Activa:</strong> Prioridad para jóvenes en su primer contrato, mayores de 52 años, mujeres rurales y personas con discapacidad.</p>
+            </div>
+
+            <div class="groundy-news-card">
+                <span class="tag-terracotta">ODS 11</span>
+                <h3>Ciudades y Comunidades Sostenibles</h3>
+                <p style="font-size: 13px; color: var(--ink-muted); margin-bottom: 8px;">Evitamos la saturación turística con grupos reducidos de máximo 8 personas y movilidad limpia.</p>
+                <p style="font-size: 12.5px;"><strong>Acciones:</strong> Vehículos eléctricos/compartidos y rutas a pie, bicicleta o caballo coordinadas con autoridades ambientales.</p>
+            </div>
+
+            <div class="groundy-news-card">
+                <span class="tag-terracotta">ODS 12</span>
+                <h3>Producción y Consumo Responsables</h3>
+                <p style="font-size: 13px; color: var(--ink-muted); margin-bottom: 8px;">Alianzas directas con productores locales de sobaos, quesadas, quesos y mermeladas.</p>
+                <p style="font-size: 12.5px;"><strong>Control Ambiental:</strong> Política cero plásticos en ruta, respeto vecinal y ecoturismo activo (espeleología, rafting, senderismo).</p>
+            </div>
+        </div>
+
+        <!-- Comparativa + Fidelización -->
+        <div class="grid-2 reveal" id="fidelizacion" style="margin-bottom: 24px;">
+            <div class="groundy-news-card">
+                <span class="tag-terracotta">Modelo Diferencial</span>
+                <h3>La Perla del Norte vs. Agencia Tradicional</h3>
+                <ul style="font-size: 13px; padding-left: 18px; color: var(--ink-charcoal);">
+                    <li style="margin-bottom: 8px;"><strong>Paquetes Variables (Máx. 8):</strong> Frente a los viajes rígidos y masificados, personalizamos cada ruta.</li>
+                    <li style="margin-bottom: 8px;"><strong>Impacto Rural Directo:</strong> Apoyo real a obradores, museos locales y entorno natural.</li>
+                    <li><strong>Canal Directo:</strong> Venta sin intermediarios en web, redes, aeropuertos, tren, bus y ferry.</li>
+                </ul>
+            </div>
+
+            <div class="groundy-news-card">
+                <span class="tag-terracotta">Fidelización & Expansión</span>
+                <h3>Niveles Plata, Oro y Platino + CRM</h3>
+                <ul style="font-size: 13px; padding-left: 18px; color: var(--ink-charcoal);">
+                    <li style="margin-bottom: 8px;"><strong>Hiperpersonalización CRM:</strong> Preferencias en habitación (almohadas, vinos favoritos) y descuentos de cumpleaños.</li>
+                    <li style="margin-bottom: 8px;"><strong>Puntos VIP:</strong> Cada euro suma puntos canjeables con check-in prioritario y upgrades gratuitos.</li>
+                    <li><strong>Expansión Norte de España:</strong> Crecimiento progresivo hacia CCAA vecinas con agencias afines.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Matriz de Proveedores + Enlace Google Drive -->
+        <div class="container reveal" id="proveedores" style="padding: 0;">
+            <div class="groundy-news-card" style="overflow-x: auto;">
+                <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px;">
+                    <h3>Matriz de Proveedores Homologados (Norte de España)</h3>
+                    <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-harvest">
                         <i data-lucide="file-text" width="14"></i> Ver Cartas de Pedido y Documentos (Drive)
                     </a>
                 </div>
-                <table class="dark-table" style="min-width: 680px;">
+                <table class="clean-table" style="min-width: 680px;">
                     <thead>
                         <tr>
                             <th>Proveedor (Sede)</th>
@@ -1632,54 +1564,53 @@
                         </tr>
                     </tbody>
                 </table>
-                <p style="font-size: 12px; color: var(--text-muted); margin-top: 12px;">
+                <p style="font-size: 12px; color: var(--ink-muted); margin-top: 12px;">
                     <strong>Red Logística Externa:</strong> Transportistas (<em>CIVA S.A., Santa Francesca, Tutti Tour</em>), hoteles, restaurantes, obradores, guías oficiales y traductores.
                 </p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 8. EQUIPO DIRECTIVO (3 INTEGRANTES) Y CIERRE -->
-        <footer class="section-dark" id="equipo" style="background: #081110;">
-            <div style="text-align: center; max-width: 720px; margin: 0 auto;">
-                <div class="section-kicker">Estructura Directiva</div>
-                <h3 class="section-heading" style="font-size: 32px;">Equipo de La Perla del Norte S.L.</h3>
-                <p style="font-size: 13px; color: var(--text-muted);">
-                    CIF: B-3984729 • Paseo de Pereda, 15, Bajo, 39004 Santander (Norte de España)
-                </p>
-                <div style="margin-top: 18px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
-                    <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-gold" style="padding: 11px 22px; font-size: 13px;">
-                        Visitar Catálogo Online <i data-lucide="external-link" width="14"></i>
-                    </a>
-                    <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-glass" style="padding: 11px 20px; font-size: 13px; border-color: var(--gold-accent);">
-                        Archivo de Cartas y Documentos (Drive) <i data-lucide="folder-open" width="14"></i>
-                    </a>
-                </div>
+    <!-- 8. PIE DE PÁGINA Y EQUIPO DIRECTIVO (3 INTEGRANTES) -->
+    <footer class="organic-footer" id="equipo">
+        <div style="text-align: center; max-width: 720px; margin: 0 auto;">
+            <div style="font-family: var(--font-script); font-size: 36px; color: var(--harvest-gold); line-height: 1;">Estructura Directiva</div>
+            <h3 style="font-family: var(--font-serif); font-size: 32px; margin: 6px 0 8px;">Equipo de La Perla del Norte S.L.</h3>
+            <p style="font-size: 13px; opacity: 0.88;">
+                CIF: B-3984729 • Paseo de Pereda, 15, Bajo, 39004 Santander (Norte de España)
+            </p>
+            <div style="margin-top: 18px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                <a href="https://ldelnorte719-hue.github.io/LaPerlaDelNorte/" target="_blank" rel="noopener noreferrer" class="btn-harvest" style="padding: 11px 22px; font-size: 13px;">
+                    Visitar Catálogo Online <i data-lucide="external-link" width="14"></i>
+                </a>
+                <a href="https://drive.google.com/drive/folders/1Dy1hzVG3ngXQeMCyN-EGy_NsZ1ArWHHc?usp=drive_link" target="_blank" rel="noopener noreferrer" class="btn-olive-pill" style="padding: 11px 20px; font-size: 13px; border: 1px solid var(--harvest-gold);">
+                    Archivo de Cartas y Documentos (Drive) <i data-lucide="folder-open" width="14"></i>
+                </a>
             </div>
+        </div>
 
-            <div class="team-grid-3">
-                <div class="team-card-nordic">
-                    <strong>Lic. Lizeth Nina G.</strong>
-                    <span>Jefa Dpto. Comercial, Compras y Ventas</span>
-                    <small>Paquetes, cotizaciones, cierre de ventas y proveedores</small>
-                </div>
-                <div class="team-card-nordic">
-                    <strong>Lic. Georgii Kovalev</strong>
-                    <span>Finanzas y Contabilidad</span>
-                    <small>Control presupuestario, facturación e impuestos</small>
-                </div>
-                <div class="team-card-nordic">
-                    <strong>Lic. Maricela González</strong>
-                    <span>Recursos Humanos</span>
-                    <small>Gestión de personal, contratos laborales y nóminas</small>
-                </div>
+        <div class="team-grid-3">
+            <div class="team-card-organic">
+                <strong>Lic. Lizeth Nina G.</strong>
+                <span>Jefa Dpto. Comercial, Compras y Ventas</span>
+                <small>Paquetes, cotizaciones, cierre de ventas y proveedores</small>
             </div>
-
-            <div style="text-align: center; margin-top: 28px; font-size: 12px; color: var(--text-muted);">
-                Tel: +34 942 55 66 77 | Fax: 941-222-666 | WhatsApp: +34 688 11 22 33 | ventas@laperladelnorte.es | www.laperladelnorte.es
+            <div class="team-card-organic">
+                <strong>Lic. Georgii Kovalev</strong>
+                <span>Finanzas y Contabilidad</span>
+                <small>Control presupuestario, facturación e impuestos</small>
             </div>
-        </footer>
+            <div class="team-card-organic">
+                <strong>Lic. Maricela González</strong>
+                <span>Recursos Humanos</span>
+                <small>Gestión de personal, contratos laborales y nóminas</small>
+            </div>
+        </div>
 
-    </main>
+        <div style="text-align: center; margin-top: 26px; font-size: 12px; opacity: 0.85;">
+            Tel: +34 942 55 66 77 | Fax: 941-222-666 | WhatsApp: +34 688 11 22 33 | ventas@laperladelnorte.es | www.laperladelnorte.es
+        </div>
+    </footer>
 
     <!-- PANEL FLOTANTE DE GUION PARA EL ORADOR -->
     <div class="script-drawer" id="scriptDrawer">
@@ -1699,8 +1630,8 @@
         lucide.createIcons();
 
         // Generar perlas pequeñas nacaradas flotantes en el fondo
-        const backdrop = document.getElementById('globalBackdrop');
-        for (let i = 0; i < 32; i++) {
+        const pearlsContainer = document.getElementById('pearlsBackdrop');
+        for (let i = 0; i < 30; i++) {
             const pearl = document.createElement('div');
             pearl.classList.add('floating-pearl');
             const size = Math.random() * 6 + 4; // perlas pequeñas entre 4px y 10px
@@ -1709,7 +1640,7 @@
             pearl.style.left = `${Math.random() * 100}%`;
             pearl.style.animationDuration = `${Math.random() * 14 + 12}s`;
             pearl.style.animationDelay = `${Math.random() * 10}s`;
-            backdrop.appendChild(pearl);
+            pearlsContainer.appendChild(pearl);
         }
 
         // Animación al hacer scroll
